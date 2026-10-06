@@ -1,0 +1,7 @@
+{# Nieuwsbericht, volledige weergave. De vaste layout komt uit Layout Builder. #}
+<article{{ attributes.addClass('article-full') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:article-detail' %}
+    {% block content %}{{ content }}{% endblock %}
+  {% endembed %}
+</article>

@@ -1,0 +1,28 @@
+uuid: 4e7404aa-399f-4ca3-989c-965600a6d03d
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.media_strip
+    - field.field.block_content.media_strip.field_photos
+    - image.style.media_strip
+  module:
+    - media
+id: block_content.media_strip.default
+targetEntityType: block_content
+bundle: media_strip
+mode: default
+content:
+  field_photos:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: media_strip
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

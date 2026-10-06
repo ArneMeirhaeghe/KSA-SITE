@@ -1,0 +1,13 @@
+{# Field formatters and labels remain configurable in Manage display. #}
+<article{{ attributes.addClass('leader-full') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:team-detail' %}
+    {% block content %}
+      <a class="detail-back" href="{{ path('entity.node.canonical', {'node': 33}) }}">← {{ 'Alle leiding'|t }}</a>
+      <div class="leader-detail">
+        <div class="leader-detail__photo">{{ content.field_photo }}</div>
+        <div class="leader-detail__info">{{ content|without('field_photo') }}</div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+</article>

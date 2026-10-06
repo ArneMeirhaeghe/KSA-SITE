@@ -1,0 +1,23 @@
+uuid: e5d65619-a69a-46c5-8110-dba1da4acc0f
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.photo
+    - field.field.block_content.photo.field_photo
+id: block_content.photo.default
+targetEntityType: block_content
+bundle: photo
+mode: default
+content:
+  field_photo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: photo
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  langcode: true

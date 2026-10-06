@@ -1,0 +1,8 @@
+{# Fotostrook: de foto's staan om en om boven en onder en schuiven eindeloos voorbij.
+   Zonder JavaScript of bij minder-bewegen staat de strook stil en gecentreerd. De lijn is decoratief. #}
+<div class="media-strip" data-media-strip>
+  <div class="media-strip__window" role="region" aria-roledescription="{{ 'carrousel'|t }}" aria-label="{{ 'Foto’s'|t }}">
+    <div class="media-strip__rail" data-media-strip-rail>{% block photos %}{% endblock %}</div>
+  </div>
+  <hr class="media-strip__rule" aria-hidden="true">
+</div>

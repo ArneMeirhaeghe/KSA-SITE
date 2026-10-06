@@ -1,0 +1,6 @@
+name: Nieuwsdetail
+description: 'Vaste opmaak van een nieuwsbericht: kop, grote foto, tekstkolom en meer nieuws.'
+status: stable
+slots:
+  content:
+    title: Layout Builder-inhoud

@@ -1,0 +1,5 @@
+/* Figma Desktop 49:370: 36 px under the intro. Mobile 129:1505: 39 px. */
+.team-overview { max-width: var(--content-max-width); width: calc(100% - 2 * var(--page-gutter-desktop)); margin: 36px auto 64px; }
+@media (width < 700px) {
+  .team-overview { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 39px; }
+}

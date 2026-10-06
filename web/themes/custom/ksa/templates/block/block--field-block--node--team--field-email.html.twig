@@ -1,0 +1,9 @@
+{# Contact met de ploeg: vaste kop en uitleg, e-mail via de formatter (mailto). #}
+<div{{ attributes }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {{ include('ksa:contact-card', {
+    title: 'Vragen? Contacteer ons!'|t,
+    text: 'Wil je contact opnemen met de leiding? Stuur ons gerust een bericht!'|t,
+    link: content,
+  }, with_context = false) }}
+</div>

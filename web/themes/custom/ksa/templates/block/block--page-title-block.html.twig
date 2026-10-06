@@ -1,0 +1,4 @@
+{# The homepage hero supplies the visible page heading. #}
+{% if not is_front %}
+  <div{{ attributes }}>{{ title_prefix }}{{ title_suffix }}{{ content }}</div>
+{% endif %}

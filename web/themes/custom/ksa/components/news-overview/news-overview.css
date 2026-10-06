@@ -1,0 +1,7 @@
+.news-overview { max-width: var(--content-max-width); margin: 64px auto; width: calc(100% - 2 * var(--page-gutter-desktop)); }
+/* The grid itself is the shared card-grid component. */
+.news-overview .pager { margin-top: 36px; }
+/* Pager buttons: css/pager.css. */
+@media (width < 700px) {
+  .news-overview { width: calc(100% - 2 * var(--page-gutter-mobile)); }
+}

@@ -1,0 +1,648 @@
+/* =========================================================
+   Jos de vos: component-CSS
+   jos.js zet data-scenario op .ksa-jos. Elk scenario:
+   1. zet CSS-variabelen (welke hand, mond en props zichtbaar zijn);
+   2. geeft lichaamsdelen een animatie.
+   Aanpassen: zie docs/jos.md.
+   ========================================================= */
+
+/* ===== 1. Plaats en wandelen (jos.js zet --jos-x en --jos-face) ===== */
+.ksa-jos {
+  --jos-width: 170px;
+  --jos-x: 0px;          /* left edge of Jos, set by jos.js */
+  --jos-face: 1;         /* 1 = looks left, -1 = looks right (while walking) */
+  --jos-walk-time: 0s;   /* set by jos.js from the walking distance */
+  position: relative;
+  height: calc(var(--jos-width) * 1.09);
+  pointer-events: none;  /* only Jos himself is clickable */
+}
+
+.ksa-jos__walker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--jos-width);
+  transform: translateX(var(--jos-x));
+  transition: transform var(--jos-walk-time) linear;
+}
+
+.ksa-jos__flip {
+  transform: scaleX(var(--jos-face));
+  transition: transform .3s ease;
+}
+
+.ksa-jos__button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 40% 40% 12px 12px;
+  background: none;
+  pointer-events: none;  /* the empty box around Jos lets clicks through */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Only the drawn body is clickable; props (fire, tent, flag) are not. */
+.ksa-jos__svg .jos-body {
+  pointer-events: visiblePainted;
+  cursor: pointer;
+}
+
+.ksa-jos__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;     /* props (flag, fire, tent) may leave the box */
+  transform-origin: 50% 98%;
+}
+
+/* Pauze: pauzeknop van de hero of verborgen tabblad (jos.js zet .is-paused). */
+.ksa-jos.is-paused * { animation-play-state: paused !important; }
+
+
+/* ===== 2. Draaipunten en wisselbare delen ===== */
+.ksa-jos {
+  /* Pivots. view-box: transform-origin uses SVG coordinates (viewBox 541.7 x 590) */
+  .jos-body, .jos-head, .jos-eye, .jos-pupil, .jos-mouth,
+  .jos-arm-l, .jos-arm-r, .jos-tail,
+  .jos-leg-l, .jos-leg-r, .jos-knee-l, .jos-knee-r, .jos-foot-l, .jos-foot-r {
+    transform-box: view-box;
+    transition: transform .35s ease; /* smooth when a static pose changes */
+  }
+
+  .jos-body   { transform-origin: 190px 578px; } /* feet */
+  .jos-head   { transform-origin: 215px 275px; } /* neck */
+  .jos-eye-l  { transform-origin: 161px 202px; }
+  .jos-eye-r  { transform-origin: 210px 205px; }
+  .jos-eye-l .jos-pupil { transform-origin: 166px 208px; }
+  .jos-eye-r .jos-pupil { transform-origin: 214px 212px; }
+  .jos-mouth-open { transform-origin: 190px 260px; } /* top lip */
+  .jos-mouth-o    { transform-origin: 190px 266px; }
+  .jos-arm-l  { transform-origin: 122px 420px; } /* sleeve */
+  .jos-arm-r  { transform-origin: 290px 425px; } /* sleeve */
+  .jos-tail   { transform-origin: 255px 470px; } /* tail base */
+  .jos-leg-l  { transform-origin: 160px 488px; } /* hip */
+  .jos-leg-r  { transform-origin: 238px 488px; }
+  .jos-knee-l { transform-origin: 161px 525px; } /* knee */
+  .jos-knee-r { transform-origin: 239px 525px; }
+  .jos-foot-l { transform-origin: 159px 566px; } /* ankle */
+  .jos-foot-r { transform-origin: 238px 566px; }
+  /* Whole body, for lying down in bed (slapen). Getting up is a bit quicker. */
+  .jos-pose   { transform-box: view-box; transform-origin: 215px 380px; transition: transform .6s ease-in-out; }
+
+  /* Props use their own box as pivot */
+  .jos-prop, .jos-shadow, .jos-flame, .jos-fire-glow, .jos-spark,
+  .jos-dust, .jos-bonk, .jos-flag-wave {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .jos-prop {
+    opacity: 0;
+    font-family: system-ui, sans-serif;
+    font-weight: 900;
+    paint-order: stroke;
+    stroke-linejoin: round;
+  }
+
+  .jos-z     { fill: #fff; stroke: #0b3b5c; stroke-width: 3px; }
+
+  /* Blinking is the default in every scenario */
+  .jos-eye { animation: jos-blink 5s infinite; }
+
+  /* Swappable parts, switched with CSS variables.
+     A scenario sets e.g. --r-fist: 1 to show the right fist.
+     Opacity + scale transition = the hand "pops" into place. */
+
+  /* Original hands (point + thumb) */
+  .jos-hand-orig-r { opacity: var(--orig-r, 1); transition: opacity .15s; }
+  .jos-hand-orig-l { opacity: var(--orig-l, 1); transition: opacity .15s; }
+
+  /* New hands: 4 poses per side */
+  .jos-hand-r .jos-hand-open    { --on: var(--r-open, 0); }
+  .jos-hand-r .jos-hand-spread  { --on: var(--r-spread, 0); }
+  .jos-hand-r .jos-hand-relaxed { --on: var(--r-relaxed, 0); }
+  .jos-hand-r .jos-hand-fist    { --on: var(--r-fist, 0); }
+  .jos-hand-l .jos-hand-open    { --on: var(--l-open, 0); }
+  .jos-hand-l .jos-hand-spread  { --on: var(--l-spread, 0); }
+  .jos-hand-l .jos-hand-relaxed { --on: var(--l-relaxed, 0); }
+  .jos-hand-l .jos-hand-fist    { --on: var(--l-fist, 0); }
+
+  .jos-hand {
+    opacity: var(--on);
+    transform: scale(calc(.4 + .6 * var(--on)));
+    transform-box: fill-box;
+    transform-origin: 50% 100%; /* grow from the wrist */
+    transition: opacity .15s, transform .35s cubic-bezier(.3, 1.7, .5, 1);
+  }
+
+  /* Things Jos holds */
+  .jos-mallet     { opacity: var(--mallet, 0);     transition: opacity .2s; }
+
+  /* Mouths: the cover hides the original smile when any new mouth is on */
+  .jos-mouth-open   { opacity: var(--m-open, 0); }
+  .jos-mouth-o      { opacity: var(--m-o, 0); }
+  .jos-mouth-closed { opacity: var(--m-closed, 0); }
+  .jos-mouth-cover  { opacity: max(var(--m-open, 0), var(--m-o, 0), var(--m-closed, 0)); }
+  .jos-mouth, .jos-mouth-cover { transition: opacity .2s; }
+
+  /* Scene props (fire, flag, tent) */
+  .jos-scene { opacity: 0; transition: opacity .5s; }
+  .jos-scene-fire      { opacity: var(--scene-fire, 0); }
+  .jos-scene-flag      { opacity: var(--scene-flag, 0); }
+  .jos-scene-tent      { opacity: var(--scene-tent, 0); }
+  .jos-scene-bed       { opacity: var(--scene-bed, 0); transition-delay: .5s; } /* bed goes after Jos got up */
+}
+
+@keyframes jos-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(.1); }
+}
+
+
+/* Talking = the open mouth goes up and down */
+@keyframes jos-talk {
+  0%, 100% { transform: scaleY(.35); }
+  50%      { transform: scaleY(1); }
+}
+
+/* Shared keyframes */
+@keyframes jos-float-note {
+  0%   { opacity: 0; transform: translate(0, 10px) rotate(-10deg) scale(.6); }
+  20%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(10px, -60px) rotate(15deg) scale(1.2); }
+}
+
+
+/* =========================================================
+   SCENARIO 1: Rust (idle)
+   ========================================================= */
+.ksa-jos[data-scenario="rust"] {
+  .jos-head  { animation: jos-rust-head 4s ease-in-out infinite; }
+  .jos-pupil { animation: jos-rust-look 7s ease-in-out infinite; }
+  .jos-tail  { animation: jos-rust-tail 1.4s ease-in-out infinite; }
+  .jos-arm-r { animation: jos-rust-arm-r 2.2s ease-in-out infinite; }
+  .jos-arm-l { animation: jos-rust-arm-l 2.6s ease-in-out infinite; }
+}
+
+@keyframes jos-rust-head {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(3deg); }
+}
+@keyframes jos-rust-look {
+  0%, 30%, 100% { transform: translate(0, 0); }
+  40%, 60%      { transform: translate(3px, 1px); }
+  70%, 90%      { transform: translate(-2px, -1px); }
+}
+@keyframes jos-rust-tail {
+  0%, 100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(6deg); }
+}
+@keyframes jos-rust-arm-r {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-7deg); }
+}
+@keyframes jos-rust-arm-l {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(6deg); }
+}
+
+
+/* =========================================================
+   Lopen (walk cycle)
+   Walk cycle in place; jos.js moves Jos across the hero.
+   ========================================================= */
+.ksa-jos[data-scenario="lopen"] {
+  --orig-r: 0; --orig-l: 0; --r-fist: 1; --l-fist: 1;
+
+  .jos-body   { animation: jos-lopen-bob .4s ease-in-out infinite; }
+  .jos-leg-l  { animation: jos-lopen-hip .8s ease-in-out infinite; }
+  .jos-knee-l { animation: jos-lopen-knee .8s ease-in-out infinite; }
+  .jos-foot-l { animation: jos-lopen-foot .8s ease-in-out infinite; }
+  .jos-leg-r  { animation: jos-lopen-hip .8s ease-in-out -.4s infinite; }
+  .jos-knee-r { animation: jos-lopen-knee .8s ease-in-out -.4s infinite; }
+  .jos-foot-r { animation: jos-lopen-foot .8s ease-in-out -.4s infinite; }
+  .jos-arm-r  { animation: jos-lopen-arm-r .8s ease-in-out -.4s infinite; }
+  .jos-arm-l  { animation: jos-lopen-arm-l .8s ease-in-out infinite; }
+  .jos-head   { animation: jos-lopen-head .4s ease-in-out infinite; }
+  .jos-tail   { animation: jos-lopen-tail .8s ease-in-out infinite; }
+}
+
+@keyframes jos-lopen-bob {
+  0%, 100% { transform: translateY(2px); }
+  50%      { transform: translateY(-3px); }
+}
+/* Hip: + = foot forward (left), - = foot back */
+@keyframes jos-lopen-hip {
+  0%, 100% { transform: rotate(14deg); }
+  50%      { transform: rotate(-14deg); }
+}
+/* Knee bends while the leg swings forward (50% -> 100%) */
+@keyframes jos-lopen-knee {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  68%           { transform: rotate(-38deg); }
+  88%           { transform: rotate(-6deg); }
+}
+/* Foot: toes up at heel strike, toes down at push-off */
+@keyframes jos-lopen-foot {
+  0%, 100% { transform: rotate(8deg); }
+  45%      { transform: rotate(-12deg); }
+  70%      { transform: rotate(-4deg); }
+}
+@keyframes jos-lopen-arm-r {
+  0%, 100% { transform: rotate(12deg); }
+  50%      { transform: rotate(28deg); }
+}
+@keyframes jos-lopen-arm-l {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(-24deg); }
+}
+@keyframes jos-lopen-head {
+  0%, 100% { transform: rotate(-1deg); }
+  50%      { transform: rotate(1.5deg); }
+}
+@keyframes jos-lopen-tail {
+  0%, 100% { transform: rotate(-4deg); }
+  50%      { transform: rotate(4deg); }
+}
+
+
+/* =========================================================
+   SCENARIO 3: Dansen (dance) - one beat = 0.6s
+   ========================================================= */
+.ksa-jos[data-scenario="dansen"] {
+  --orig-l: 0; --l-spread: 1; --m-open: 1;
+
+  .jos-mouth-open { animation: jos-talk .6s ease-in-out infinite; }
+  .jos-body   { animation: jos-dansen-body 1.2s ease-in-out infinite; }
+  .jos-head   { animation: jos-dansen-head .6s ease-in-out infinite; }
+  .jos-arm-r  { animation: jos-dansen-arm-r .6s ease-in-out infinite; }
+  .jos-arm-l  { animation: jos-dansen-arm-l .6s ease-in-out -.3s infinite; }
+  .jos-leg-l  { animation: jos-dansen-kick-hip 1.2s ease-in-out infinite; }
+  .jos-knee-l { animation: jos-dansen-kick-knee 1.2s ease-in-out infinite; }
+  .jos-leg-r  { animation: jos-dansen-kick-hip 1.2s ease-in-out -.6s infinite; }
+  .jos-knee-r { animation: jos-dansen-kick-knee 1.2s ease-in-out -.6s infinite; }
+  .jos-tail   { animation: jos-dansen-tail .3s ease-in-out infinite alternate; }
+  .jos-shadow { animation: jos-dansen-shadow .6s ease-in-out infinite; }
+  .jos-note   { animation: jos-float-note 2.4s ease-out infinite; }
+  .jos-note:nth-of-type(2) { animation-delay: -.8s; }
+  .jos-note:nth-of-type(3) { animation-delay: -1.6s; }
+}
+
+@keyframes jos-dansen-body {
+  0%, 100% { transform: rotate(-6deg) translateY(0); }
+  25%      { transform: rotate(0deg)  translateY(-10px); }
+  50%      { transform: rotate(6deg)  translateY(0); }
+  75%      { transform: rotate(0deg)  translateY(-10px); }
+}
+@keyframes jos-dansen-head {
+  0%, 100% { transform: rotate(5deg); }
+  50%      { transform: rotate(-5deg); }
+}
+@keyframes jos-dansen-arm-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(22deg); }
+}
+@keyframes jos-dansen-arm-l {
+  0%, 100% { transform: rotate(12deg); }
+  50%      { transform: rotate(-20deg); }
+}
+@keyframes jos-dansen-kick-hip {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25%           { transform: rotate(28deg); }
+}
+@keyframes jos-dansen-kick-knee {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25%           { transform: rotate(-45deg); }
+}
+@keyframes jos-dansen-tail {
+  from { transform: rotate(-10deg); }
+  to   { transform: rotate(10deg); }
+}
+@keyframes jos-dansen-shadow {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(.85); }
+}
+
+
+/* =========================================================
+   SCENARIO 4: Zwaaien (wave hello)
+   ========================================================= */
+.ksa-jos[data-scenario="zwaaien"] {
+  --orig-r: 0; --orig-l: 0; --r-open: 1; --l-relaxed: 1; --m-open: 1;
+
+  .jos-mouth-open { animation: jos-talk .5s ease-in-out infinite; }
+  .jos-arm-r { animation: jos-zwaaien-arm .5s ease-in-out infinite alternate; }
+  .jos-head  { animation: jos-zwaaien-head 2s ease-in-out infinite; }
+  .jos-body  { animation: jos-zwaaien-body 1s ease-in-out infinite alternate; }
+  .jos-tail  { animation: jos-zwaaien-tail .5s ease-in-out infinite alternate; }
+  .jos-arm-l { transform: rotate(-18deg); } /* arm down */
+}
+
+@keyframes jos-zwaaien-arm {
+  from { transform: rotate(-12deg); }
+  to   { transform: rotate(26deg); }
+}
+@keyframes jos-zwaaien-head {
+  0%, 100% { transform: rotate(3deg); }
+  50%      { transform: rotate(6deg); }
+}
+@keyframes jos-zwaaien-body {
+  from { transform: rotate(-1deg); }
+  to   { transform: rotate(1deg); }
+}
+@keyframes jos-zwaaien-tail {
+  from { transform: rotate(-8deg); }
+  to   { transform: rotate(8deg); }
+}
+
+
+/* =========================================================
+   SCENARIO 5: Springen (jump with squash & stretch) - 1s
+   ========================================================= */
+.ksa-jos[data-scenario="springen"] {
+  --orig-r: 0; --orig-l: 0; --r-spread: 1; --l-spread: 1; --m-open: 1;
+
+  .jos-mouth-open { animation: jos-springen-mouth 1s infinite; }
+  .jos-body   { animation: jos-springen-body 1s infinite; }
+  .jos-shadow { animation: jos-springen-shadow 1s infinite; }
+  :is(.jos-leg-l, .jos-leg-r)   { animation: jos-springen-hip 1s ease-in-out infinite; }
+  :is(.jos-knee-l, .jos-knee-r) { animation: jos-springen-knee 1s ease-in-out infinite; }
+  :is(.jos-foot-l, .jos-foot-r) { animation: jos-springen-foot 1s ease-in-out infinite; }
+  .jos-arm-r { animation: jos-springen-arm-r 1s ease-in-out infinite; }
+  .jos-arm-l { animation: jos-springen-arm-l 1s ease-in-out infinite; }
+  .jos-tail  { animation: jos-springen-tail 1s ease-in-out infinite; }
+}
+
+@keyframes jos-springen-body {
+  0%   { transform: translateY(0)     scale(1.06, .9);  animation-timing-function: ease-out; }
+  15%  { transform: translateY(-20px) scale(.94, 1.08); animation-timing-function: ease-out; }
+  45%  { transform: translateY(-90px) scale(1, 1);      animation-timing-function: ease-in; }
+  80%  { transform: translateY(-8px)  scale(.96, 1.05); }
+  88%  { transform: translateY(0)     scale(1.08, .88); }
+  100% { transform: translateY(0)     scale(1.06, .9); }
+}
+@keyframes jos-springen-shadow {
+  0%, 88%, 100% { transform: scale(1);  opacity: .18; }
+  45%           { transform: scale(.5); opacity: .08; }
+}
+@keyframes jos-springen-hip {
+  0%, 100% { transform: rotate(8deg); }
+  15%, 88% { transform: rotate(0deg); }
+  45%      { transform: rotate(24deg); }
+}
+@keyframes jos-springen-knee {
+  0%, 100% { transform: rotate(-16deg); }
+  15%, 88% { transform: rotate(0deg); }
+  45%      { transform: rotate(-48deg); }
+}
+@keyframes jos-springen-foot {
+  0%, 15%, 88%, 100% { transform: rotate(0deg); }
+  45%                { transform: rotate(-12deg); }
+}
+@keyframes jos-springen-mouth {
+  0%, 88%, 100% { transform: scaleY(.6); }
+  45%           { transform: scaleY(1); }
+}
+@keyframes jos-springen-arm-r {
+  0%, 100% { transform: rotate(10deg); }
+  45%      { transform: rotate(-6deg); }
+}
+@keyframes jos-springen-arm-l {
+  0%, 100% { transform: rotate(-10deg); }
+  45%      { transform: rotate(10deg); }
+}
+@keyframes jos-springen-tail {
+  0%, 100% { transform: rotate(6deg); }
+  45%      { transform: rotate(-14deg); }
+}
+
+
+/* =========================================================
+   SCENARIO 6: Slapen (sleep)
+   ========================================================= */
+.ksa-jos[data-scenario="slapen"] {
+  --orig-r: 0; --orig-l: 0; --r-relaxed: 1; --l-relaxed: 1; --m-closed: 1; --scene-bed: 1;
+
+  /* First the bed appears, then Jos lies down in it: on his back, head on the pillow. */
+  .jos-scene-bed { transition-delay: 0s; }
+  .jos-pose  { transform: translate(-42px, 40px) rotate(90deg); transition: transform .8s cubic-bezier(.5, 0, .3, 1) .15s; }
+  .jos-shadow { opacity: 0; } /* the bed has its own shadow */
+
+  .jos-eye   { animation: none; transform: scaleY(.08); }
+  .jos-head  { animation: jos-slapen-head 4s ease-in-out infinite; }
+  .jos-body  { animation: jos-slapen-breathe 4s ease-in-out infinite; }
+  .jos-bed-blanket { animation: jos-slapen-blanket 4s ease-in-out infinite; }
+  .jos-arm-r { transform: rotate(-37deg); }  /* both hands under the blanket */
+  .jos-arm-l { transform: rotate(55deg); }
+  .jos-tail  { transform: rotate(-90deg); }  /* tucked in along his back */
+  :is(.jos-leg-l, .jos-leg-r)   { transform: rotate(3deg); }  /* soft knees */
+  :is(.jos-knee-l, .jos-knee-r) { transform: rotate(-6deg); }
+  .jos-z     { animation: jos-float-z 3s ease-out infinite; }
+  .jos-z:nth-of-type(2) { animation-delay: .6s; }
+  .jos-z:nth-of-type(3) { animation-delay: 1.2s; }
+}
+
+.ksa-jos .jos-bed-blanket { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* Lying down: the head nods a little on the pillow, the chest (and blanket) goes up and down. */
+@keyframes jos-slapen-head {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-2deg); }
+}
+@keyframes jos-slapen-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50%      { transform: scale(1.025, 1); }
+}
+@keyframes jos-slapen-blanket {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(1.025); }
+}
+@keyframes jos-float-z {
+  0%   { opacity: 0; transform: translate(0, 10px) scale(.6); }
+  25%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(18px, -30px) scale(1.1); }
+}
+
+
+/* =========================================================
+   KSA 1: Kampvuur (campfire)
+   Warms his hands, sings along, sparks fly up.
+   ========================================================= */
+.ksa-jos[data-scenario="kampvuur"] {
+  --orig-r: 0; --orig-l: 0; --r-open: 1; --l-open: 1; --m-open: 1; --scene-fire: 1;
+
+  .jos-mouth-open { animation: jos-talk .9s ease-in-out infinite; }
+  .jos-arm-l  { animation: jos-kamp-warm 1.6s ease-in-out infinite; }
+  .jos-arm-r  { animation: jos-kamp-arm-r 1.6s ease-in-out -.8s infinite; }
+  .jos-head   { animation: jos-kamp-head 3s ease-in-out infinite; }
+  .jos-body   { animation: jos-kamp-body 3s ease-in-out infinite; }
+  .jos-pupil  { transform: translate(-3px, 2px); } /* looking at the fire */
+  .jos-tail   { animation: jos-rust-tail 2.2s ease-in-out infinite; }
+  .jos-note   { animation: jos-float-note 3s ease-out infinite; }
+  .jos-note:nth-of-type(2) { animation-delay: -1s; }
+  .jos-note:nth-of-type(3) { animation-delay: -2s; }
+
+  .jos-flame-1 { animation: jos-flicker .9s ease-in-out infinite; }
+  .jos-flame-2 { animation: jos-flicker .7s ease-in-out -.2s infinite; }
+  .jos-flame-3 { animation: jos-flicker .5s ease-in-out -.1s infinite; }
+  .jos-fire-glow { animation: jos-glow 1.2s ease-in-out infinite alternate; }
+  .jos-spark   { animation: jos-spark 1.8s ease-out infinite; }
+  .jos-spark:nth-of-type(2) { animation-delay: -.5s; }
+  .jos-spark:nth-of-type(3) { animation-delay: -.9s; }
+  .jos-spark:nth-of-type(4) { animation-delay: -1.3s; }
+}
+
+.ksa-jos .jos-flame { transform-origin: 50% 100%; } /* flames grow from the logs */
+
+@keyframes jos-kamp-warm {
+  0%, 100% { transform: rotate(-30deg); }
+  50%      { transform: rotate(-22deg); }
+}
+@keyframes jos-kamp-arm-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(-3deg); }
+}
+@keyframes jos-kamp-head {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(2deg); }
+}
+@keyframes jos-kamp-body {
+  0%, 100% { transform: rotate(-1deg); }
+  50%      { transform: rotate(1deg); }
+}
+@keyframes jos-flicker {
+  0%, 100% { transform: scale(1, 1) skewX(0deg); }
+  25%      { transform: scale(.95, 1.08) skewX(-4deg); }
+  50%      { transform: scale(1.04, .94) skewX(3deg); }
+  75%      { transform: scale(.97, 1.05) skewX(-1deg); }
+}
+@keyframes jos-glow {
+  from { opacity: .7; transform: scale(1); }
+  to   { opacity: 1;  transform: scale(1.06); }
+}
+@keyframes jos-spark {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(10px, -130px); }
+}
+
+
+/* =========================================================
+   KSA 2: Vlaggengroet (flag raising) - 6s
+   Pulls the rope, the KSA flag goes up, Jos looks up proudly.
+   ========================================================= */
+.ksa-jos[data-scenario="vlag"] {
+  --orig-l: 0; --l-fist: 1; --scene-flag: 1;
+
+  .jos-flag      { animation: jos-flag-rise 6s ease-in-out infinite; }
+  .jos-flag-wave { animation: jos-flag-wave 1.4s ease-in-out infinite alternate; transform-origin: 100% 50%; }
+  .jos-arm-l     { animation: jos-vlag-pull 6s ease-in-out infinite; }
+  .jos-head      { animation: jos-vlag-head 6s ease-in-out infinite; }
+  .jos-pupil     { transform: translate(-1px, -3px); } /* looking up */
+  .jos-body      { animation: jos-vlag-body 6s ease-in-out infinite; }
+  .jos-tail      { animation: jos-rust-tail 1s ease-in-out infinite; }
+  :is(.jos-mouth-open, .jos-mouth-cover) { animation: jos-vlag-smile 6s infinite; }
+}
+
+@keyframes jos-flag-rise {
+  0%       { transform: translateY(330px); opacity: 0; }
+  5%       { opacity: 1; }
+  70%, 95% { transform: translateY(0); opacity: 1; }
+  100%     { transform: translateY(0); opacity: 0; }
+}
+@keyframes jos-flag-wave {
+  from { transform: skewY(0deg) scaleX(1); }
+  to   { transform: skewY(4deg) scaleX(.96); }
+}
+/* Hand over hand: reach up (+), pull down (-) */
+@keyframes jos-vlag-pull {
+  0%, 14%, 28%, 42%, 56%      { transform: rotate(6deg); }
+  7%, 21%, 35%, 49%, 63%      { transform: rotate(-8deg); }
+  70%, 100%                   { transform: rotate(0deg); }
+}
+@keyframes jos-vlag-head {
+  0%, 100% { transform: rotate(2deg); }
+  70%, 95% { transform: rotate(6deg); }
+}
+@keyframes jos-vlag-body {
+  0%, 70%, 80%, 100% { transform: translateY(0); }
+  75%                { transform: translateY(-8px); } /* proud little hop */
+}
+@keyframes jos-vlag-smile {
+  0%, 70%, 97%, 100% { opacity: 0; }
+  72%, 95%           { opacity: 1; }
+}
+
+
+/* =========================================================
+   KSA 4: Tent opzetten (pitch the tent) - 1 hit per second
+   ========================================================= */
+.ksa-jos[data-scenario="tent"] {
+  --orig-r: 0; --orig-l: 0; --r-fist: 1; --l-relaxed: 1; --mallet: 1;
+  --m-closed: 1; --scene-tent: 1;
+
+  .jos-arm-r   { animation: jos-hammer 1s infinite; }
+  .jos-body    { animation: jos-tent-body 1s ease-in-out infinite; }
+  .jos-head    { animation: jos-tent-head 1s ease-in-out infinite; }
+  .jos-pupil   { transform: translate(3px, 3px); } /* eyes on the peg */
+  .jos-arm-l   { transform: rotate(-14deg); }
+  :is(.jos-leg-l, .jos-leg-r)   { transform: rotate(4deg); }
+  :is(.jos-knee-l, .jos-knee-r) { transform: rotate(-8deg); }
+  .jos-tail    { animation: jos-rust-tail 1s ease-in-out infinite; }
+  .jos-peg     { animation: jos-peg-sink 4s infinite; }
+  .jos-dust    { animation: jos-dust 1s ease-out infinite; }
+  .jos-bonk    { animation: jos-bonk 1s infinite; }
+  .jos-mouth-o      { animation: jos-grunt 1s infinite; }
+  .jos-mouth-closed { animation: jos-grunt-inv 1s infinite; }
+}
+
+/* Raise -> wind up -> BONK (60%) -> bounce -> raise */
+@keyframes jos-hammer {
+  0%, 100% { transform: rotate(-15deg); animation-timing-function: ease-in-out; }
+  45%      { transform: rotate(-28deg); animation-timing-function: cubic-bezier(.6, 0, 1, .6); }
+  60%      { transform: rotate(83deg);  animation-timing-function: ease-out; }
+  68%      { transform: rotate(74deg); }
+}
+@keyframes jos-tent-body {
+  0%, 100% { transform: rotate(0deg); }
+  45%      { transform: rotate(-2deg); }
+  60%      { transform: rotate(3deg); }
+}
+@keyframes jos-tent-head {
+  0%, 100% { transform: rotate(0deg); }
+  60%      { transform: rotate(4deg); }
+}
+/* The peg goes a bit deeper with every hit (hits at 15%, 40%, 65%, 90%) */
+@keyframes jos-peg-sink {
+  0%, 14.9%  { transform: translateY(0); }
+  15%, 39.9% { transform: translateY(3px); }
+  40%, 64.9% { transform: translateY(6px); }
+  65%, 89.9% { transform: translateY(9px); }
+  90%, 100%  { transform: translateY(12px); }
+}
+@keyframes jos-dust {
+  0%, 58% { opacity: 0; transform: scale(.3); }
+  63%     { opacity: 1; transform: scale(1); }
+  85%, 100% { opacity: 0; transform: scale(1.5); }
+}
+@keyframes jos-bonk {
+  0%, 59%, 76%, 100% { opacity: 0; }
+  61%, 72%           { opacity: 1; }
+}
+/* Short "hmpf!" O-mouth at the moment of impact */
+@keyframes jos-grunt {
+  0%, 57%, 74%, 100% { opacity: 0; }
+  59%, 72%           { opacity: 1; }
+}
+@keyframes jos-grunt-inv {
+  0%, 57%, 74%, 100% { opacity: 1; }
+  59%, 72%           { opacity: 0; }
+}
+
+
+/* ===== Minder beweging: Jos staat stil, een klik toont wel een andere pose ===== */
+@media (prefers-reduced-motion: reduce) {
+  .ksa-jos * { animation: none !important; transition: none !important; }
+  .ksa-jos__walker { transition: none; }
+}

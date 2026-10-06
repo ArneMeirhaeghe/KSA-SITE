@@ -1,0 +1,25 @@
+{#
+  Shared card basis. With a url: one accessible link on the title; its ::after
+  makes the whole card clickable and "Lees meer" is the visible cue, without a
+  second tab stop. Without a url (leader cards) the card has no link.
+#}
+{% set variant = variant|default('news') %}
+{% set heading = 'h' ~ heading_level|default(2) %}
+{% set image_markup %}{% block image %}{% endblock %}{% endset %}
+{% set eyebrow_markup %}{% block eyebrow %}{% endblock %}{% endset %}
+{% set meta_markup %}{% block meta %}{% endblock %}{% endset %}
+{% set text_markup %}{% block text %}{% endblock %}{% endset %}
+<div class="card card--{{ variant }}">
+  {% if image_markup|trim %}<div class="card__image">{{ image_markup }}</div>{% endif %}
+  <div class="card__body">
+    {% if eyebrow_markup|trim %}<div class="card__eyebrow">{{ eyebrow_markup }}</div>{% endif %}
+    {% if url %}
+      <{{ heading }} class="card__title"><a href="{{ url }}" rel="bookmark">{% block title %}{% endblock %}</a></{{ heading }}>
+    {% else %}
+      <{{ heading }} class="card__title">{{ block('title') }}</{{ heading }}>
+    {% endif %}
+    {% if meta_markup|trim %}<div class="card__meta">{{ meta_markup }}</div>{% endif %}
+    {% if text_markup|trim %}<div class="card__text">{{ text_markup }}</div>{% endif %}
+    {% if url %}<span class="card__more" aria-hidden="true">{{ more_label|default('Lees meer'|t) }} <span class="card__arrow">→</span></span>{% endif %}
+  </div>
+</div>

@@ -1,0 +1,6 @@
+name: Opgemaakte tekst
+description: 'Tekst uit CKEditor: alinea''s, koppen, lijsten, foto''s uit de Media Library en de stijl Knop.'
+status: stable
+slots:
+  content:
+    title: Tekst

@@ -1,0 +1,6 @@
+name: 'KSA Agenda'
+type: module
+description: 'Toont activiteiten uit een openbare Google Agenda op de site.'
+package: KSA
+core_version_requirement: ^11
+configure: ksa_agenda.settings

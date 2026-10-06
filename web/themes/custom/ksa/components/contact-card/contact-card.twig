@@ -1,0 +1,13 @@
+{# Works with include (props) and embed (block overrides). Empty slots render nothing. #}
+{% set title_markup %}{% block heading %}{{ title }}{% endblock %}{% endset %}
+{% set extra_markup %}{% block extra %}{{ extra }}{% endblock %}{% endset %}
+{% set logo_markup %}{% block logo %}{{ logo }}{% endblock %}{% endset %}
+<section class="contact-card{{ variant ? ' contact-card--' ~ variant }}">
+  {% if logo_markup|trim %}<div class="contact-card__logo" aria-hidden="true">{{ logo_markup }}</div>{% endif %}
+  {% if title_markup|trim %}<h2 class="contact-card__title">{{ title_markup }}</h2>{% endif %}
+  {% if text %}<p class="contact-card__text">{{ text }}</p>{% endif %}
+  <div class="contact-card__contact">
+    <div class="contact-card__link">{% block link %}{{ link }}{% endblock %}</div>
+    {% if extra_markup|trim %}<div class="contact-card__extra">{{ extra_markup }}</div>{% endif %}
+  </div>
+</section>

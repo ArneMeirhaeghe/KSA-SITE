@@ -1,0 +1,21 @@
+uuid: 71183189-505b-43d3-bc36-222e920ec92b
+langcode: nl
+status: true
+dependencies: {  }
+name: info_card
+label: 'Infokaart (1054×660)'
+effects:
+  c1970264-f866-44f8-b45e-5af5cfe15d4b:
+    uuid: c1970264-f866-44f8-b45e-5af5cfe15d4b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1054
+      height: 660
+      anchor: center-center
+  f1995eb3-b226-4ff4-b683-8ecfdbf4413d:
+    uuid: f1995eb3-b226-4ff4-b683-8ecfdbf4413d
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

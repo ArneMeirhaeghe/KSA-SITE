@@ -1,0 +1,89 @@
+uuid: 9e9afc5b-17f9-4b3b-80e2-85ca3f297a44
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.node.team.field_age_range
+    - field.field.node.team.field_booklet
+    - field.field.node.team.field_contact_title
+    - field.field.node.team.field_description
+    - field.field.node.team.field_email
+    - field.field.node.team.field_location
+    - field.field.node.team.field_logo
+    - field.field.node.team.field_photo
+    - field.field.node.team.field_weight
+    - node.type.team
+    - views.view.leaders
+  module:
+    - layout_builder
+    - layout_discovery
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          ffdd533f-907b-40e8-8015-aa2658565a1c:
+            uuid: ffdd533f-907b-40e8-8015-aa2658565a1c
+            region: content
+            configuration:
+              id: 'field_block:node:team:field_email'
+              label: E-mailadres
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: email_mailto
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          28d8804b-65c7-4404-910d-64bdd7d5c9e7:
+            uuid: 28d8804b-65c7-4404-910d-64bdd7d5c9e7
+            region: content
+            configuration:
+              id: 'views_block:leaders-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping:
+                field_team_target_id: layout_builder.entity
+              views_label: ''
+              items_per_page: null
+            weight: -1
+            additional: {  }
+        third_party_settings: {  }
+id: node.team.default
+targetEntityType: node
+bundle: team
+mode: default
+content:
+  field_booklet:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_age_range: true
+  field_contact_title: true
+  field_description: true
+  field_email: true
+  field_location: true
+  field_logo: true
+  field_photo: true
+  field_weight: true
+  langcode: true
+  links: true

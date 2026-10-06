@@ -1,0 +1,22 @@
+uuid: a744d78e-7ad6-4faf-8c44-31fbc640bc16
+langcode: nl
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ksa
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: ksa_breadcrumbs
+theme: ksa
+region: content
+weight: -1
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,4 @@
+{# Intro van een Basispagina: wordt de paginakop onder de titel. #}
+{% for item in items %}
+  {{ include('ksa:page-intro', {text: item.content}, with_context = false) }}
+{% endfor %}

@@ -1,0 +1,19 @@
+/* Figma Desktop 50:709 (Verhuur).
+   One column: 1216 x 401 (wider than the 1080 content column, like the news photo), 44 px under the intro.
+   In a column next to text: 528 x 443. Mobile 128:1239: 371 x 243 and 365 x 237. */
+.photo { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius-card-image); background: var(--color-border); }
+/* Drupal wrappers get no box, so the image fills the frame. Not the editor's pencil (.contextual). */
+.photo :is(div, article):not(.contextual) { display: contents; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.layout--onecol .photo {
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: 76rem;
+  margin: 44px auto 0;
+  aspect-ratio: 1216 / 401;
+}
+:is(.layout--twocol-section, .layout--threecol-section) .photo { aspect-ratio: 528 / 443; }
+
+@media (width < 700px) {
+  .layout--onecol .photo { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 20px; aspect-ratio: 371 / 243; }
+  :is(.layout--twocol-section, .layout--threecol-section) .photo { aspect-ratio: 365 / 237; }
+}

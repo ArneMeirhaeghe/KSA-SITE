@@ -1,0 +1,28 @@
+{# Infokaart (bloktype info_card). Foto is optioneel: zonder foto wordt het een tekstkaart.
+   In a text card, a line like "Weekend: twee dagen" gets a bold label before the colon. #}
+{% set has_photo = content.field_photo.0 is not empty %}
+{% set raw_text = content['#block_content'].field_intro.value ?? '' %}
+<div{{ attributes.addClass('info-card-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:info-card' %}
+    {% block image %}{{ content.field_photo.0 }}{% endblock %}
+    {% block heading %}{{ content.field_heading.0 }}{% endblock %}
+    {% block text %}
+      {%- if not has_photo and raw_text and content.field_intro.0 is not empty -%}
+        {%- for line in raw_text|split("\n") -%}
+          {%- set parts = line|trim|split(':', 2) -%}
+          {%- if parts|length == 2 and parts[0]|length <= 20 and parts[1]|trim -%}
+            <strong>{{ parts[0] }}:</strong> {{ parts[1]|trim }}
+          {%- else -%}
+            {{ line|trim }}
+          {%- endif -%}
+          {%- if not loop.last %}<br>{% endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {{ content.field_intro.0 }}
+      {%- endif -%}
+    {% endblock %}
+    {% block action %}{{ content.field_link.0 }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_photo', 'field_heading', 'field_intro', 'field_link') }}
+</div>

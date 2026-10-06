@@ -1,0 +1,22 @@
+uuid: d80509b1-a39d-4469-8ab4-29edbdf1e2bf
+langcode: nl
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ksa
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: ksa_messages
+theme: ksa
+region: content
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

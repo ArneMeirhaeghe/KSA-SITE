@@ -1,0 +1,9 @@
+<div{{ attributes.addClass('view-teams') }}>
+  {{ title_prefix }}{{ title }}{{ title_suffix }}
+  {{ header }}{{ exposed }}{{ attachment_before }}
+  {% embed 'ksa:team-overview' %}
+    {% block cards %}{{ rows }}{% endblock %}
+    {% block empty %}{{ empty }}{% endblock %}
+  {% endembed %}
+  {{ attachment_after }}{{ more }}{{ footer }}{{ feed_icons }}
+</div>

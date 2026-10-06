@@ -1,0 +1,23 @@
+{#
+  Menu Footer als kolommen. Elk item op het eerste niveau is een kolomkop (link <nolink> = gewone tekst),
+  de items eronder zijn de links. Links naar pagina's zijn entiteitslinks: een verwijderde pagina verdwijnt
+  vanzelf, een niet-gepubliceerde pagina ziet een bezoeker niet.
+#}
+{% if items %}
+  <nav class="site-footer__nav" aria-label="{{ 'Voetnavigatie'|t }}">
+    {% for item in items %}
+      <div class="site-footer__col">
+        <h2 class="site-footer__heading">
+          {% if item.url.isRouted and item.url.routeName == '<nolink>' %}{{ item.title }}{% else %}{{ link(item.title, item.url) }}{% endif %}
+        </h2>
+        {% if item.below %}
+          <ul class="site-footer__links">
+            {% for child in item.below %}
+              <li>{{ link(child.title, child.url) }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </nav>
+{% endif %}

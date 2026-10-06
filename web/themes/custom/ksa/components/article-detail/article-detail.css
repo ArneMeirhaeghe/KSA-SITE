@@ -1,0 +1,30 @@
+/* Figma Desktop 18:61 (Blog Detail). Title, intro and date form the header. */
+.site:has(.article-detail):not(:has(#layout-builder)) #block-ksa-breadcrumbs { display: none; }
+.site:has(.article-detail) #block-ksa-page-title h1 {
+  max-width: 522px;
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  margin: var(--article-title-offset) auto 0;
+  font-size: var(--font-size-heading-2xl);
+  line-height: var(--line-height-auto);
+  text-align: center;
+}
+/* No author byline: only the publication date, 27 px under the intro. */
+.article-detail__date { margin: 27px auto 0; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-auto); text-align: center; }
+.article-detail__date > * { margin: 0; }
+/* Large photo: 1216 × 401, the page width minus the gutters. */
+.article-detail__image { width: calc(100% - 2 * var(--page-gutter-desktop)); max-width: var(--article-image-max); margin: 85px auto 0; }
+.article-detail__image img { display: block; width: 100%; height: auto; aspect-ratio: 1216 / 401; object-fit: cover; border-radius: var(--radius-card-image); }
+/* Text column: 528 px, 65 px under the photo. */
+.article-detail__body { width: calc(100% - 2 * var(--page-gutter-mobile)); max-width: var(--article-column); margin: 65px auto 0; }
+/* More news: 59 px under the text (the news overview keeps its own bottom margin). */
+.article-detail .news-overview { margin-top: 59px; }
+
+@media (width < 700px) {
+  .site:has(.article-detail) #block-ksa-page-title h1 { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: var(--article-title-offset-mobile); font-size: var(--font-size-heading-lg); }
+  .article-detail .page-intro { margin-top: 10px; }
+  .article-detail__date { margin-top: 16px; font-size: var(--font-size-body-sm); }
+  .article-detail__image { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 32px; }
+  .article-detail__image img { aspect-ratio: 3 / 2; }
+  .article-detail__body { margin-top: 32px; }
+  .article-detail .news-overview { margin-top: 48px; }
+}

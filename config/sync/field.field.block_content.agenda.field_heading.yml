@@ -1,0 +1,19 @@
+uuid: 7d0ee8f1-3703-4871-ac2f-df43498cc865
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.agenda
+    - field.storage.block_content.field_heading
+id: block_content.agenda.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: agenda
+label: Kop
+description: 'Bv. Data en planning.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,7 @@
+name: Jos
+description: 'Jos de vos, de KSA-mascotte. Doet iets anders volgens het uur van de dag.'
+status: stable
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,29 @@
+uuid: 91242235-ca2f-4eb8-a9ba-5cac81784822
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.info_card
+    - field.storage.block_content.field_photo
+    - media.type.image
+id: block_content.info_card.field_photo
+field_name: field_photo
+entity_type: block_content
+bundle: info_card
+label: Foto
+description: 'Optioneel. Zonder foto wordt het een tekstkaart met rand (bv. weekends en kampen op Rondes).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

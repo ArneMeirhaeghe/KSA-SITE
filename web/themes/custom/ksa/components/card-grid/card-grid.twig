@@ -1,0 +1,2 @@
+{# Works with embed (block override) and include (variable). #}
+<div class="card-grid{{ columns == 4 ? ' card-grid--4' }}{{ mobile_columns == 2 ? ' card-grid--mobile-2' }}">{% block items %}{{ items }}{% endblock %}</div>

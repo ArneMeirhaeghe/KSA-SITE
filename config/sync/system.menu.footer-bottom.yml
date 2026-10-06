@@ -1,0 +1,8 @@
+uuid: 4d7bc17e-a539-461b-95ec-04c8ac8a4490
+langcode: nl
+status: true
+dependencies: {  }
+id: footer-bottom
+label: 'Footer onderaan'
+description: "Kleine links onderaan de footer, naast het copyright (bv. privacy). Enkel naar bestaande pagina's."
+locked: false

@@ -1,0 +1,22 @@
+uuid: 7a2a8a09-d1a7-43ca-8b72-711322308fd5
+langcode: nl
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ksa
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: ksa_content
+theme: ksa
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

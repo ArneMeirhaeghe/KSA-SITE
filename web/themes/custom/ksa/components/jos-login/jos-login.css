@@ -1,0 +1,121 @@
+/* Jos on the login page. jos-login.svg = jos.svg + the peek paws (group .jos-peek). */
+.jos-login {
+  /* Set by jos-login.js every frame */
+  --head-rot: 0deg;
+  --head-x: 0px;
+  --px: 0px;
+  --py: 0px;
+}
+.jos-login__svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* Everything the site scenarios use but the login does not */
+.jos-login__svg :is(.jos-scene, .jos-props, .jos-mallet, .jos-hand) { opacity: 0; }
+
+/* Pivots in SVG coordinates (viewBox 541.7 x 590), same as the jos component */
+.jos-login__svg :is(.jos-head, .jos-eye, .jos-pupil, .jos-peek, .jos-arm-l, .jos-arm-r, .jos-body, .jos-tail) { transform-box: view-box; }
+.jos-login__svg .jos-head { transform-origin: 215px 275px; transform: translateX(var(--head-x)) rotate(var(--head-rot)); }
+.jos-login__svg .jos-pupil { transform: translate(var(--px), var(--py)); }
+.jos-login__svg .jos-eye-l { transform-origin: 161px 202px; }
+.jos-login__svg .jos-eye-r { transform-origin: 210px 205px; }
+.jos-login__svg .jos-eye { animation: jos-login-blink 5s infinite; }
+
+/* Mouths: the cover hides the original smile when another mouth is shown */
+.jos-login__svg :is(.jos-mouth, .jos-mouth-cover) { opacity: 0; transition: opacity .2s; }
+.jos-login.is-reading :is(.jos-mouth-open, .jos-mouth-cover),
+.jos-login.is-hiding :is(.jos-mouth-o, .jos-mouth-cover) { opacity: 1; }
+
+/* The normal arms go away while the paws cover the eyes */
+.jos-login__svg :is(.jos-arm-l, .jos-arm-r, .jos-hand-orig-l, .jos-hand-orig-r) { transition: opacity .15s; }
+.jos-login.is-hiding :is(.jos-arm-l, .jos-arm-r, .jos-hand-orig-l, .jos-hand-orig-r) { opacity: 0; transition-delay: .05s; }
+
+/* Peek paws: come up from below and follow the head */
+.jos-login__svg .jos-peek {
+  transform-origin: 215px 275px;
+  opacity: 0;
+  transform: translateY(170px) rotate(0deg);
+  transition: transform .45s cubic-bezier(.3, 1.4, .5, 1), opacity .2s;
+}
+.jos-login.is-hiding .jos-peek { opacity: 1; transform: translateX(var(--head-x)) rotate(var(--head-rot)); }
+/* Closed fingers by default; the near paw spreads its fingers to peek */
+.jos-login__svg :is(.jos-peek-closed, .jos-peek-open) { transition: opacity .12s; }
+.jos-login__svg .jos-peek-open { opacity: 0; }
+.jos-login.is-peeking .jos-peek-paw-r .jos-peek-closed { opacity: 0; }
+.jos-login.is-peeking .jos-peek-paw-r .jos-peek-open { opacity: 1; }
+/* While hiding, the eyes look up into the finger gaps (the gap sits above the pupil) */
+.jos-login.is-hiding .jos-pupil { transform: translate(0, -5px); transition: transform .2s; }
+.jos-login.is-hiding.is-peeking .jos-eye-r .jos-pupil { transform: translate(-1px, -3px); }
+
+/* Calm idle animation ("rust" on the site) + tail wagging.
+   These use the individual rotate / translate / scale properties, which add up with
+   `transform` (used by jos-login.js for looking around), so both run together. */
+.jos-login__svg .jos-body { transform-origin: 190px 578px; animation: jos-login-breathe 4s ease-in-out infinite; }
+.jos-login__svg .jos-tail { transform-origin: 255px 470px; animation: jos-login-wag 1.1s ease-in-out infinite; }
+.jos-login__svg .jos-head { animation: jos-login-head 4s ease-in-out infinite; }
+.jos-login__svg .jos-arm-r { transform-origin: 290px 425px; animation: jos-login-arm-r 2.2s ease-in-out infinite; }
+.jos-login__svg .jos-arm-l { transform-origin: 122px 420px; animation: jos-login-arm-l 2.6s ease-in-out infinite; }
+/* Nothing to look at: the eyes wander a bit */
+.jos-login.is-idle .jos-pupil { animation: jos-login-look 7s ease-in-out infinite; }
+/* Happy while you type your name: fast, wide wag */
+.jos-login.is-reading .jos-tail { animation: jos-login-wag-happy .36s ease-in-out infinite alternate; }
+/* Hiding: the head keeps still so the paws stay on the eyes; slow wag */
+.jos-login.is-hiding .jos-head { animation: none; }
+.jos-login.is-hiding .jos-tail { animation-duration: 2s; }
+
+/* Login error: "no no" head shake, an "o" mouth and a drooping, slow tail.
+   Placed after the reading/hiding rules so it wins over them. */
+.jos-login.is-error :is(.jos-mouth-o, .jos-mouth-cover) { opacity: 1; }
+.jos-login.is-error .jos-mouth-open { opacity: 0; }
+.jos-login.is-error .jos-tail { animation: jos-login-tail-sad 3s ease-in-out infinite; }
+.jos-login.is-shaking .jos-head { animation: jos-login-shake .9s ease-in-out; }
+
+@keyframes jos-login-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(.1); }
+}
+@keyframes jos-login-breathe {
+  0%, 100% { scale: 1 1; }
+  50%      { scale: 1.012 1.02; }
+}
+@keyframes jos-login-head {
+  0%, 100% { rotate: -2deg; }
+  50%      { rotate: 3deg; }
+}
+@keyframes jos-login-look {
+  0%, 30%, 100% { translate: 0 0; }
+  40%, 60%      { translate: 3px 1px; }
+  70%, 90%      { translate: -2px -1px; }
+}
+@keyframes jos-login-arm-r {
+  0%, 100% { rotate: 0deg; }
+  50%      { rotate: -7deg; }
+}
+@keyframes jos-login-arm-l {
+  0%, 100% { rotate: 0deg; }
+  50%      { rotate: 6deg; }
+}
+@keyframes jos-login-wag {
+  0%, 100% { rotate: -7deg; }
+  50%      { rotate: 8deg; }
+}
+@keyframes jos-login-wag-happy {
+  from { rotate: -12deg; }
+  to   { rotate: 13deg; }
+}
+
+@keyframes jos-login-shake {
+  0%, 100% { rotate: 0deg; }
+  15%      { rotate: -7deg; }
+  35%      { rotate: 6deg; }
+  55%      { rotate: -5deg; }
+  75%      { rotate: 3deg; }
+}
+@keyframes jos-login-tail-sad {
+  0%, 100% { rotate: 16deg; }
+  50%      { rotate: 19deg; }
+}
+
+/* Less motion: Jos stands still (looking along still works, without smoothing) */
+@media (prefers-reduced-motion: reduce) {
+  .jos-login__svg * { animation: none !important; transition-duration: .01s !important; }
+  .jos-login.is-error .jos-tail { rotate: 17deg; }
+}

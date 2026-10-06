@@ -1,0 +1,6 @@
+name: Foto
+description: 'Eén foto met ronde hoeken. In een sectie met 1 kolom breed (1216 x 401), in een kolom de kolombreedte (528 x 443).'
+status: stable
+slots:
+  image:
+    title: Foto

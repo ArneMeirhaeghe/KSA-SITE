@@ -1,0 +1,11 @@
+name: KSA
+type: theme
+description: 'Eenvoudig thema voor KSA Deinze-Astene.'
+base theme: false
+core_version_requirement: ^11
+libraries:
+  - ksa/base
+regions:
+  header: Header
+  content: Inhoud
+  footer: Footer

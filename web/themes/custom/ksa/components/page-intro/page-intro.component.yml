@@ -1,0 +1,14 @@
+name: Paginakop
+description: 'Gecentreerde intro onder de paginatitel. Voor Leiding, Contact, Verhuur en nieuwsberichten.'
+status: stable
+props:
+  type: object
+  properties:
+    variant:
+      title: Soort pagina
+      type: string
+      enum: [page, article]
+      default: page
+slots:
+  text:
+    title: Intro

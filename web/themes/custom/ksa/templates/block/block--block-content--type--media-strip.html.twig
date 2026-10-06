@@ -1,0 +1,15 @@
+{# Fotostrook (bloktype media_strip). Drupal rendert elke foto; het component plaatst ze. #}
+<div{{ attributes.addClass('media-strip-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:media-strip' %}
+    {% block photos %}
+      {% set count = content.field_photos['#items']|default([])|length %}
+      {% if count %}
+        {% for i in 0..(count - 1) %}
+          <figure class="media-strip__photo">{{ content.field_photos[i] }}</figure>
+        {% endfor %}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+  {{ content|without('field_photos') }}
+</div>

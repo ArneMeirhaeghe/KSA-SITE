@@ -1,0 +1,11 @@
+uuid: c5bddf42-93d0-4cb0-b313-95179b35ff55
+langcode: nl
+status: true
+dependencies:
+  module:
+    - media
+id: media.article_wide
+label: Artikelbeeld
+description: null
+targetEntityType: media
+cache: true

@@ -1,0 +1,16 @@
+{# Pages with their own Layout Builder sections keep full component control.
+   Newly created text pages receive the same readable frame as detail pages. #}
+<article{{ attributes }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% if node.layout_builder__layout.isEmpty %}
+    {% embed 'ksa:team-detail' %}
+      {% block content %}
+        {% embed 'ksa:rich-text' %}
+          {% block content %}{{ content }}{% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  {% else %}
+    <div{{ content_attributes }}>{{ content }}</div>
+  {% endif %}
+</article>

@@ -1,0 +1,11 @@
+uuid: 24800c41-1039-4e48-8954-c86401f5a8a2
+langcode: nl
+status: true
+dependencies: {  }
+id: node__page
+label: 'Inhoud: Basic page'
+tags:
+  description: '[node:field_intro]'
+  og_description: '[node:field_intro]'
+  og_image: '[site:url]themes/custom/ksa/assets/ksa-header.png'
+  og_type: website

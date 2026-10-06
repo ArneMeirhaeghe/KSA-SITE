@@ -1,0 +1,8 @@
+uuid: 1dad7ad7-f496-48f6-8c6f-4c529d80b70d
+langcode: nl
+status: true
+dependencies: {  }
+id: photo
+label: Foto
+revision: false
+description: 'Eén grote foto. In een sectie met 1 kolom breed (1216 × 401), in een kolom naast tekst in de kolombreedte.'

@@ -1,0 +1,27 @@
+/* Body text (Figma Desktop 18:61): p 16/24, 36 px between blocks. Left aligned for readability. */
+.rich-text { display: flow-root; color: var(--color-text); font-size: var(--font-size-body); line-height: var(--line-height-body); overflow-wrap: break-word; }
+.rich-text :where(p, ul, ol, blockquote, h2, h3, h4) { margin: 36px 0 0; }
+.rich-text :where(p, ul, ol, blockquote, h2, h3, h4, .align-right, .align-left):first-child { margin-top: 0; }
+.rich-text :where(h2) { font-size: var(--font-size-heading-sm); }
+.rich-text :where(h3, h4) { font-size: var(--font-size-heading-xs); }
+.rich-text :where(ul, ol) { padding-left: 1.25em; }
+.rich-text a { color: inherit; text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; }
+.rich-text img { display: block; max-width: 100%; height: auto; border-radius: var(--radius-card-image); }
+/* Media Library photo aligned left or right: 246 × 192, 36 px next to the text.
+   Its top margin matches the next paragraph, so both start on the same line. */
+.rich-text .align-right,
+.rich-text .align-left { width: 246px; margin: 36px 0 16px; }
+.rich-text .align-right { float: right; margin-left: 36px; }
+.rich-text .align-left { float: left; margin-right: 36px; }
+.rich-text :is(.align-right, .align-left) img { width: 100%; aspect-ratio: 246 / 192; object-fit: cover; }
+.rich-text .align-center { margin-inline: auto; }
+/* CKEditor style "Knop": a link that looks like a button, centred on its own line.
+   48 px high: 11 px padding + 24 px line + 1 px border, top and bottom. */
+.rich-text a.button { display: inline-flex; align-items: center; min-height: var(--control-target-size); padding: 11px 24px; border: 1px solid var(--color-border); border-radius: var(--radius-button-lg); color: var(--color-text); text-decoration: none; line-height: var(--line-height-body); }
+.rich-text a.button:hover { border-color: var(--color-brand); }
+.rich-text p:has(> a.button:only-child) { margin-top: 49px; text-align: center; }
+
+@media (width < 700px) {
+  .rich-text .align-right,
+  .rich-text .align-left { float: none; width: auto; margin: 36px 0 0; }
+}

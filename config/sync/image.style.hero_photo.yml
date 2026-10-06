@@ -1,0 +1,21 @@
+uuid: 5acba2b0-7626-4ad2-b110-85f2f29b8c0c
+langcode: nl
+status: true
+dependencies: {  }
+name: hero_photo
+label: 'Herofoto (480×518)'
+effects:
+  8b176c7b-0a67-4e72-9c9e-172be61eee43:
+    uuid: 8b176c7b-0a67-4e72-9c9e-172be61eee43
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 480
+      height: 518
+      anchor: center-center
+  bc764d10-f68d-4dea-be59-3fe9f1be9e7c:
+    uuid: bc764d10-f68d-4dea-be59-3fe9f1be9e7c
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

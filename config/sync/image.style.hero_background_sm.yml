@@ -1,0 +1,21 @@
+uuid: 7ae1567e-4407-4963-a604-ec94edca67f9
+langcode: nl
+status: true
+dependencies: {  }
+name: hero_background_sm
+label: 'Hero-achtergrond (800)'
+effects:
+  85f50fcd-05e3-4b73-ada1-5b8cfbe0a24d:
+    uuid: 85f50fcd-05e3-4b73-ada1-5b8cfbe0a24d
+    id: image_scale
+    weight: 0
+    data:
+      width: 800
+      height: null
+      upscale: false
+  b57ffcd6-9208-419b-b172-aa7d32c2d7fa:
+    uuid: b57ffcd6-9208-419b-b172-aa7d32c2d7fa
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

@@ -1,0 +1,29 @@
+uuid: 009290c9-8fa0-43ca-a77f-ab589b18c97c
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_images
+    - media.type.image
+id: block_content.hero.field_images
+field_name: field_images
+entity_type: block_content
+bundle: hero
+label: Foto’s
+description: 'Kies maximaal vier foto’s uit de mediabibliotheek. Je kunt de volgorde aanpassen.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

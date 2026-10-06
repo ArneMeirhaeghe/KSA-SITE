@@ -1,0 +1,10 @@
+{# View Rondeboekjes: downloadkaarten in een raster van 4 kolommen (2 op gsm). #}
+<div{{ attributes.addClass('view-booklets') }}>
+  {{ title_prefix }}{{ title }}{{ title_suffix }}
+  {{ header }}{{ exposed }}{{ attachment_before }}
+  {% embed 'ksa:card-grid' with {columns: 4, mobile_columns: 2} %}
+    {% block items %}{{ rows }}{% endblock %}
+  {% endembed %}
+  {{ empty }}
+  {{ attachment_after }}{{ more }}{{ footer }}{{ feed_icons }}
+</div>

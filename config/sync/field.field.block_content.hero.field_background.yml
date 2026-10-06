@@ -1,0 +1,29 @@
+uuid: 6ff5747f-faad-48d9-8db4-a24a7697f165
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_background
+    - media.type.image
+id: block_content.hero.field_background
+field_name: field_background
+entity_type: block_content
+bundle: hero
+label: Achtergrond
+description: 'Kies één brede afbeelding. Laat dit leeg voor de standaard KSA-illustratie. De donkere laag wordt automatisch toegevoegd.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

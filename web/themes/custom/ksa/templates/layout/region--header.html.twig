@@ -1,0 +1,5 @@
+{% if content %}
+  {% embed 'ksa:site-header' with { attributes: attributes, content: content } only %}
+    {% block blocks %}{{ content }}{% endblock %}
+  {% endembed %}
+{% endif %}

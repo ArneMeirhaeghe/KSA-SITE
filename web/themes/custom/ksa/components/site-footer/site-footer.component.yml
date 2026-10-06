@@ -1,0 +1,19 @@
+name: Footer
+description: 'Footer op elke pagina: logo, menukolommen uit het menu Footer, lijn, copyright, links uit Footer onderaan en Naar boven. Figma: component Footer (31:247).'
+status: stable
+props:
+  type: object
+  properties:
+    logo:
+      title: 'URL van het logo (wit)'
+      type: string
+    year:
+      title: Jaar in het copyright
+      type: string
+slots:
+  menu:
+    title: 'Kolommen (menu Footer)'
+  bottom:
+    title: 'Kleine links (menu Footer onderaan)'
+  extra:
+    title: 'Andere blokken in de footerregio'

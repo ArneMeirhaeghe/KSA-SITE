@@ -1,0 +1,20 @@
+{# /user/login: same structure as page.html.twig, the content sits next to Jos. #}
+<div class="site">
+  {% if page.header %}
+    <header class="site-header">
+      {{ page.header }}
+    </header>
+  {% endif %}
+
+  <main id="main-content" class="site-main" tabindex="-1">
+    {% embed 'ksa:login-page' %}
+      {% block content %}{{ page.content }}{% endblock %}
+    {% endembed %}
+  </main>
+
+  {% if page.footer %}
+    <footer class="site-footer">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+</div>

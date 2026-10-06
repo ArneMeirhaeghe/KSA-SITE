@@ -1,0 +1,8 @@
+uuid: 2869dccf-0415-444f-8b7f-91ddaac2a731
+langcode: nl
+status: true
+dependencies: {  }
+id: text_media
+label: 'Tekst met beeld'
+revision: false
+description: 'Kop, tekst en knop over een foto. Voor banners zoals Onze leiding.'

@@ -1,0 +1,19 @@
+uuid: f7476776-91ae-4b4b-b321-dea56028fac7
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_heading
+id: block_content.hero.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: hero
+label: Titel
+description: 'Korte titel bovenaan het blok.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

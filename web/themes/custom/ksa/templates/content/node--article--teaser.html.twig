@@ -1,0 +1,11 @@
+{# Laad geen entiteiten: gebruik de velden van Drupals teaserweergave. #}
+<article{{ attributes.addClass('news-teaser') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:card' with {url: url, variant: 'news'} %}
+    {% block image %}{{ content.field_main_image }}{% endblock %}
+    {% block eyebrow %}<time datetime="{{ node.getCreatedTime|date('c') }}">{{ node.getCreatedTime|format_date('custom', 'd M Y') }}</time>{% endblock %}
+    {% block title %}{{ label }}{% endblock %}
+    {% block text %}{{ content.field_intro }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_main_image', 'field_intro') }}
+</article>

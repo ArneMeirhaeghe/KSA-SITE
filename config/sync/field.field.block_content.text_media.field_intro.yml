@@ -1,0 +1,19 @@
+uuid: d6f82b78-750f-4b4d-ab4e-23981eb2635b
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.text_media
+    - field.storage.block_content.field_intro
+id: block_content.text_media.field_intro
+field_name: field_intro
+entity_type: block_content
+bundle: text_media
+label: Tekst
+description: 'Twee of drie zinnen onder de titel.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

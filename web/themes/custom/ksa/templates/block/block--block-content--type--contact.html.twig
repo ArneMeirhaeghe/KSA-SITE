@@ -1,0 +1,11 @@
+{# Contactblok (bloktype contact), bv. verhuur. Zelfde tegel als de ploegen op Contact. #}
+<div{{ attributes.addClass('contact-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:contact-card' with {variant: 'tile'} %}
+    {% block heading %}{{ content.field_heading.0 }}{% endblock %}
+    {% block logo %}{{ content.field_logo }}{% endblock %}
+    {% block link %}{{ content.field_email }}{% endblock %}
+    {% block extra %}{{ content.field_phone }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_heading', 'field_logo', 'field_email', 'field_phone') }}
+</div>

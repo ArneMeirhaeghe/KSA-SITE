@@ -1,0 +1,20 @@
+{# Footer: de inhoud komt uit twee menu's, zodat de leiding hem in het beheer aanpast. #}
+<div class="site-footer__card">
+  <div class="site-footer__top">
+    {% if logo %}
+      <a class="site-footer__logo" href="{{ path('<front>') }}" rel="home">
+        <img src="{{ logo }}" alt="{{ 'KSA Deinze-Astene, naar de startpagina'|t }}" width="185" height="58" loading="lazy">
+      </a>
+    {% endif %}
+    {% block menu %}{% endblock %}
+  </div>
+  {% block extra %}{% endblock %}
+  <hr class="site-footer__rule">
+  <div class="site-footer__bottom">
+    <div class="site-footer__legal">
+      <p class="site-footer__copyright">© {{ year }} KSA Deinze-Astene</p>
+      {% block bottom %}{% endblock %}
+    </div>
+    <a class="site-footer__to-top" href="#">{{ 'Naar boven'|t }}</a>
+  </div>
+</div>

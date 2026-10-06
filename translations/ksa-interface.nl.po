@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Skip to main content"
+msgstr "Overslaan en naar de inhoud gaan"
+
+msgid "Username or email address"
+msgstr "Gebruikersnaam of e-mailadres"
+
+msgid "Submit"
+msgstr "Verzenden"
+
+msgid "Password reset instructions will be mailed to %email. You must log out to use the password reset link in the email."
+msgstr "Instructies om je wachtwoord opnieuw in te stellen worden naar %email gestuurd. Meld je af voordat je de link in die e-mail gebruikt."
+
+msgid "Password reset instructions will be sent to your registered email address."
+msgstr "Je ontvangt een e-mail met instructies om je wachtwoord opnieuw in te stellen."
+
+msgid "The username or email address is invalid."
+msgstr "De gebruikersnaam of het e-mailadres is ongeldig."
+
+msgid "Too many password recovery requests from your IP address. It is temporarily blocked. Try again later or contact the site administrator."
+msgstr "Er zijn te veel aanvragen vanaf je IP-adres. Probeer het later opnieuw of neem contact op met de beheerder."
+
+msgid "If %identifier is a valid account, an email will be sent with instructions to reset your password."
+msgstr "Als %identifier bij een geldig account hoort, ontvang je een e-mail met instructies om je wachtwoord opnieuw in te stellen."
+
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+msgid "Access denied"
+msgstr "Geen toegang"
+
+msgid "You are not authorized to access this page."
+msgstr "Je hebt geen toegang tot deze pagina."
+
+msgid "Main navigation"
+msgstr "Hoofdnavigatie"
+
+msgid "Back to site"
+msgstr "Terug naar de website"
+
+msgid "Structure"
+msgstr "Structuur"
+
+msgid "Configuration"
+msgstr "Instellingen"
+
+msgid "People"
+msgstr "Gebruikers"
+
+msgid "Reports"
+msgstr "Rapporten"
+
+msgid "Alternative text"
+msgstr "Alternatieve tekst"
+
+msgid "Add file"
+msgstr "Bestand toevoegen"
+
+msgid "Add a new file"
+msgstr "Nieuw bestand toevoegen"
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Your settings have been saved."
+msgstr "De instellingen zijn opgeslagen."
+

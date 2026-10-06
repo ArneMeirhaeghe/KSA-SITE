@@ -1,0 +1,10 @@
+name: Site header
+description: 'Header met Drupal-blokken en een mobiel uitklapmenu.'
+status: stable
+slots:
+  blocks:
+    title: Headerblokken
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

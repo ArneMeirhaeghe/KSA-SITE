@@ -1,0 +1,24 @@
+name: Downloadkaart
+description: 'Kaart met downloadicoon en naam die een bestand (bv. het rondeboekje) opent in een nieuw tabblad. Optioneel ploeglogo achter de tekst.'
+status: stable
+props:
+  type: object
+  required: [url, label]
+  properties:
+    url:
+      title: Link naar het bestand
+      type: string
+    label:
+      title: Naam op de kaart (bv. de ploeg)
+      type: string
+    file_type:
+      title: Bestandstype voor schermlezers (bv. PDF)
+      type: string
+      default: PDF
+    description:
+      title: Wat er gedownload wordt (voor schermlezers)
+      type: string
+      default: Rondeboekje
+slots:
+  logo:
+    title: Logo achter de tekst (decoratief)

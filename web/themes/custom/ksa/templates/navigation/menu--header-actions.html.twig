@@ -1,0 +1,9 @@
+{% if items %}
+  <ul{{ attributes }}>
+    {% for item in items %}
+      {# The primary action follows its destination, not the menu position. #}
+      {% set primary = item.url.toString() == path('entity.node.canonical', {'node': 35}) %}
+      <li{{ item.attributes }}>{{ link(item.title, item.url, {'class': primary ? ['ksa-header__primary-action'] : []}) }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

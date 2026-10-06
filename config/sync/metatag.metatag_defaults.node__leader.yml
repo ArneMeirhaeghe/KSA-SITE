@@ -1,0 +1,11 @@
+uuid: f5c2cfe7-65f4-4c5c-8acb-d95dd8cc6bd1
+langcode: nl
+status: true
+dependencies: {  }
+id: node__leader
+label: 'Inhoud: Leider'
+tags:
+  description: 'Maak kennis met [node:title], leiding bij KSA Deinze-Astene.'
+  og_description: 'Maak kennis met [node:title], leiding bij KSA Deinze-Astene.'
+  og_image: '[node:field_photo:entity:field_media_image:entity:url]'
+  og_type: profile

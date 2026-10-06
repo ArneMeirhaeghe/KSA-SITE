@@ -1,0 +1,29 @@
+uuid: d6fda802-6ea6-42eb-9ada-7b4968f0e653
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.storage.block_content.field_logo
+    - media.type.image
+id: block_content.contact.field_logo
+field_name: field_logo
+entity_type: block_content
+bundle: contact
+label: Logo
+description: 'Optioneel. Staat licht achter de tekst.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

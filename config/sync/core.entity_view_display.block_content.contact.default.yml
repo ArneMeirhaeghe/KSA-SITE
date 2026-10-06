@@ -1,0 +1,56 @@
+uuid: a5f97741-e1ce-4006-9f5f-6ca20daa6641
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.field.block_content.contact.field_email
+    - field.field.block_content.contact.field_heading
+    - field.field.block_content.contact.field_logo
+    - field.field.block_content.contact.field_phone
+    - image.style.contact_logo
+  module:
+    - media
+    - telephone
+id: block_content.contact.default
+targetEntityType: block_content
+bundle: contact
+mode: default
+content:
+  field_email:
+    type: email_mailto
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_logo:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: contact_logo
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_phone:
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

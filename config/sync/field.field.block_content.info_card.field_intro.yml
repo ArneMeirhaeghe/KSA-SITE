@@ -1,0 +1,19 @@
+uuid: 55ceff69-bd91-4ccf-80e6-df2498153636
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.info_card
+    - field.storage.block_content.field_intro
+id: block_content.info_card.field_intro
+field_name: field_intro
+entity_type: block_content
+bundle: info_card
+label: Tekst
+description: 'Een paar zinnen onder de kop.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

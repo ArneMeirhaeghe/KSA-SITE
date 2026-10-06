@@ -1,0 +1,11 @@
+uuid: d13a9e09-cc07-442d-ad72-c7358a41e095
+langcode: nl
+status: true
+dependencies:
+  module:
+    - media
+id: media.photo
+label: Foto
+description: null
+targetEntityType: media
+cache: true

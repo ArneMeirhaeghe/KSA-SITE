@@ -1,0 +1,25 @@
+uuid: 388dbac5-003d-469e-9a0b-c95de1a4b6e4
+langcode: nl
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ksa
+_core:
+  default_config_hash: '-OAAZDw1OR_UyAEPEKX0Hu4LaZD149vW9PmMnIC-v0o'
+id: ksa_site_branding
+theme: ksa
+region: header
+weight: -2
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: Logo
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

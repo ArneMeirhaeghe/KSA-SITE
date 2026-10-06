@@ -1,0 +1,7 @@
+<div{{ attributes.addClass('view-leaders') }}>
+  {{ title_prefix }}{{ title }}{{ title_suffix }}
+  {{ header }}{{ exposed }}{{ attachment_before }}
+  {{ include('ksa:card-grid', {items: rows, columns: 4, mobile_columns: 2}, with_context = false) }}
+  {{ empty }}
+  {{ attachment_after }}{{ more }}{{ footer }}{{ feed_icons }}
+</div>

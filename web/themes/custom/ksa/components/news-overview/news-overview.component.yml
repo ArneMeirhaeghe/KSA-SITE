@@ -1,0 +1,10 @@
+name: Nieuwsoverzicht
+description: 'Responsief overzicht van door Views geselecteerde nieuwskaarten.'
+status: stable
+slots:
+  cards:
+    title: Nieuwsberichten
+  pager:
+    title: Paginering
+  empty:
+    title: Lege weergave

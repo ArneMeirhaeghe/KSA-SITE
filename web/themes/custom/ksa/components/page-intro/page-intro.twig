@@ -1,0 +1,4 @@
+{# The page title stays a Drupal block; page-intro.css styles it when an intro is present. #}
+<div class="page-intro page-intro--{{ variant|default('page') }}">
+  <div class="page-intro__text">{% block text %}{{ text }}{% endblock %}</div>
+</div>

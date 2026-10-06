@@ -1,0 +1,10 @@
+name: Fotostrook
+description: 'Carrousel: foto''s die om en om boven en onder staan en langzaam voorbijschuiven, eindeloos. Stil bij minder-bewegen. Figma: Ons verhaal.'
+status: stable
+slots:
+  photos:
+    title: 'Foto''s (elk in een .media-strip__photo), zoveel als je wil'
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

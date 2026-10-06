@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--color-surface); color: var(--color-text); font-family: var(--font-family); }
+main { position: relative; max-width: 1600px; margin: auto; padding-top: 1px; }
+.preview-header { position: absolute; z-index: 1; top: 54px; left: max(68px, calc((100% - var(--content-max-width)) / 2)); }
+.preview-header img { display: block; width: 129px; height: auto; }
+.ksa-hero { padding-top: 110px; }
+.settings { max-width: var(--content-max-width); display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 32px auto 0; padding: 0 16px; }
+.settings > div { margin-right: auto; }
+.settings h2 { font-size: 18px; margin: 0 0 6px; }
+.settings p, .note { font-size: 12px; color: var(--color-text-muted); line-height: 1.5; }
+.settings p { margin: 0; }
+.settings label { display: flex; gap: 12px; align-items: center; font-size: 12px; }
+.settings select, .settings button { font: inherit; min-height: 44px; border: 1px solid var(--color-border); background: white; border-radius: var(--radius-button); padding: 10px 16px; }
+.settings button { background: var(--color-brand); border: 0; font-size: 12px; cursor: pointer; }
+.note { text-align: center; margin: 24px 16px; }
+@media (width < 700px) {
+  .preview-header { top: 40px; left: 32px; }
+  .ksa-hero { padding-top: 88px; }
+  .settings > div { flex-basis: 100%; }
+}

@@ -1,0 +1,10 @@
+<div{{ attributes.addClass('view-news') }}>
+  {{ title_prefix }}{{ title }}{{ title_suffix }}
+  {{ header }}{{ exposed }}{{ attachment_before }}
+  {% embed 'ksa:news-overview' %}
+    {% block cards %}{{ rows }}{% endblock %}
+    {% block empty %}{{ empty }}{% endblock %}
+    {% block pager %}{{ pager }}{% endblock %}
+  {% endembed %}
+  {{ attachment_after }}{{ more }}{{ footer }}{{ feed_icons }}
+</div>

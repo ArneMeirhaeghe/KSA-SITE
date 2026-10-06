@@ -1,0 +1,18 @@
+uuid: 71b3b56c-0266-4e39-93ac-b8caf50f5a19
+langcode: nl
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Leider
+type: leader
+description: 'Eén leider, met foto en telefoonnummer. Hoort bij een ploeg.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

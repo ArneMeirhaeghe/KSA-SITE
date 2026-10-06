@@ -1,0 +1,36 @@
+# Composer-managed files
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/drush/Commands/contrib/
+# Site data and local credentials
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.php
+/web/sites/*/settings.*.php
+!/web/sites/*/settings.example.php
+/web/sites/*/services.yml
+/backups/
+*.sql
+*.sql.gz
+.env
+.env.*
+!.env.example
+# Local tools and artifacts
+.DS_Store
+.idea/
+.codex/
+.agents/
+.ddev/.gitignore
+.ddev/.ddev-docker-compose*.yaml
+.ddev/.dbimageBuild/
+.ddev/.webimageBuild/
+.ddev/.global_commands/
+.ddev/.homeadditions/
+.ddev/db_snapshots/
+.ddev/import-db/
+.ddev/config.local.yaml
+/prototypes/

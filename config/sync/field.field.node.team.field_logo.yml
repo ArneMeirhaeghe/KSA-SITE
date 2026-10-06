@@ -1,0 +1,29 @@
+uuid: c85cc306-1a52-4ca4-964d-3911e4f22025
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo
+    - media.type.image
+    - node.type.team
+id: node.team.field_logo
+field_name: field_logo
+entity_type: node
+bundle: team
+label: Logo
+description: 'Taklogo voor de contactkaart. Staat licht achter de tekst. Leeg = kaart zonder logo. Gebruik niet de groepsfoto.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

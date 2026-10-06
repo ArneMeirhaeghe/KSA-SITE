@@ -1,0 +1,15 @@
+{# Footerregio: het component site-footer plaatst de twee menublokken. Andere blokken komen onder de kolommen. #}
+{% if content %}
+  {% embed 'ksa:site-footer' with {
+    logo: file_url(directory ~ '/logo.svg'),
+    year: 'now'|date('Y'),
+  } %}
+    {% block menu %}{{ elements.ksa_footer_menu }}{% endblock %}
+    {% block bottom %}{{ elements.ksa_footer_bottom }}{% endblock %}
+    {% block extra %}
+      {% for key, child in elements %}
+        {% if key|first != '#' and key not in ['ksa_footer_menu', 'ksa_footer_bottom'] %}{{ child }}{% endif %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+{% endif %}

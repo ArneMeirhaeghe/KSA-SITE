@@ -1,0 +1,65 @@
+/* Figma Desktop 29:2 (Ons verhaal) and Mobile 125:1157.
+   Desktop: photos 343 x 401, 26 px apart, alternating up / down (100 px), the middle photo centred.
+   Mobile: the same strip at 34.4 % (118 x 138). */
+.media-strip {
+  --strip-scale: 1;
+  --strip-photo-w: calc(343px * var(--strip-scale));
+  --strip-gap: calc(26px * var(--strip-scale));
+  margin-top: 142px;
+}
+.media-strip__window { overflow-x: clip; }
+.media-strip__rail {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--strip-gap);
+  width: max-content;
+  margin-inline: auto;
+  position: relative;
+  left: 50%;
+  translate: -50% 0;
+}
+.media-strip__photo {
+  flex: none;
+  width: var(--strip-photo-w);
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card-image);
+  background: var(--color-border);
+}
+.media-strip__photo:nth-child(even) { margin-top: calc(100px * var(--strip-scale)); }
+/* Carousel (media-strip.js) sets up / down per photo, also on the copies. */
+.media-strip__photo[data-offset] { margin-top: 0; }
+.media-strip__photo[data-offset="1"] { margin-top: calc(100px * var(--strip-scale)); }
+.media-strip.is-looping .media-strip__rail {
+  left: 0;
+  translate: none;
+  margin-left: calc(-269px * var(--strip-scale)); /* first photo half out of view, as in Figma */
+  animation: media-strip-loop var(--strip-duration, 60s) linear infinite;
+}
+/* Keyboard focus in the strip pauses it (hovering does not). */
+.media-strip.is-looping .media-strip__window:focus-within .media-strip__rail { animation-play-state: paused; }
+@keyframes media-strip-loop { to { transform: translateX(calc(-1 * var(--strip-loop, 0px))); } }
+
+.media-strip__photo img { display: block; width: 100%; height: auto; aspect-ratio: 343 / 401; object-fit: cover; }
+.media-strip__rule {
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin: 97px auto 0;
+  border: 0;
+  border-top: 2px solid var(--color-border);
+}
+
+/* The strip replaces the page title on top of a page: keep the h1 for screen readers only. */
+.site:has(article > div > .layout:first-child .media-strip):not(:has(#layout-builder)) #block-ksa-breadcrumbs { display: none; }
+.site:has(article > div > .layout:first-child .media-strip):not(:has(#layout-builder)) #block-ksa-page-title {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-strip.is-looping .media-strip__rail { animation: none; }
+}
+
+@media (width < 700px) {
+  .media-strip { --strip-scale: .344; margin-top: 50px; }
+  .media-strip__rule { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 42px; }
+}

@@ -1,0 +1,59 @@
+uuid: af9942d4-2028-4b63-ad03-b0977cc62ea8
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.download
+    - field.field.node.team.field_age_range
+    - field.field.node.team.field_booklet
+    - field.field.node.team.field_contact_title
+    - field.field.node.team.field_description
+    - field.field.node.team.field_email
+    - field.field.node.team.field_location
+    - field.field.node.team.field_logo
+    - field.field.node.team.field_photo
+    - field.field.node.team.field_weight
+    - image.style.contact_logo
+    - node.type.team
+  module:
+    - layout_builder
+    - media
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.team.download
+targetEntityType: node
+bundle: team
+mode: download
+content:
+  field_booklet:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_logo:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: contact_logo
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_age_range: true
+  field_contact_title: true
+  field_description: true
+  field_email: true
+  field_location: true
+  field_photo: true
+  field_weight: true
+  langcode: true
+  links: true

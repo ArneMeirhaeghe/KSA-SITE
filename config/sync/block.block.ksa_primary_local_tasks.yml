@@ -1,0 +1,22 @@
+uuid: 13cf382c-a030-4041-9fb1-4b098e0e41e4
+langcode: nl
+status: true
+dependencies:
+  theme:
+    - ksa
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: ksa_primary_local_tasks
+theme: ksa
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

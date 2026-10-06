@@ -1,0 +1,15 @@
+<div{{ attributes.addClass('ksa-header') }} data-ksa-header>
+  <button class="ksa-header__toggle" type="button" aria-label="{{ 'Menu'|t }}" aria-expanded="false" aria-controls="ksa-mobile-menu" aria-haspopup="dialog" hidden>
+    <span class="ksa-header__toggle-icon" aria-hidden="true"></span>
+  </button>
+  <div class="ksa-header__blocks" id="ksa-header-links">
+    {% block blocks %}{% endblock %}
+  </div>
+  <dialog class="ksa-mobile-menu" id="ksa-mobile-menu" aria-label="{{ 'Hoofdnavigatie'|t }}">
+    <div class="ksa-mobile-menu__panel">
+      <button class="ksa-header__toggle ksa-mobile-menu__close" type="button" aria-label="{{ 'Menu sluiten'|t }}" autofocus>
+        <span class="ksa-header__toggle-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </dialog>
+</div>

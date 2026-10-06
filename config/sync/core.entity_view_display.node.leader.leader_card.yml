@@ -1,0 +1,59 @@
+uuid: 9204e7ae-6b3d-495d-8329-75934cd8d0e2
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.leader_card
+    - field.field.node.leader.field_babysitting
+    - field.field.node.leader.field_phone
+    - field.field.node.leader.field_photo
+    - field.field.node.leader.field_team
+    - image.style.large
+    - node.type.leader
+  module:
+    - layout_builder
+    - media
+    - telephone
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.leader.leader_card
+targetEntityType: node
+bundle: leader
+mode: leader_card
+content:
+  field_babysitting:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_phone:
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_photo:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 101
+    region: content
+hidden:
+  field_team: true
+  langcode: true
+  links: true

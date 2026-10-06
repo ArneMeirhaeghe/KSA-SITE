@@ -1,0 +1,8 @@
+{# Menu Footer onderaan: kleine links naast het copyright (bv. privacy). Leeg = niets. #}
+{% if items %}
+  <ul class="site-footer__small">
+    {% for item in items %}
+      <li>{{ link(item.title, item.url) }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

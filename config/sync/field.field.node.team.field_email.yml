@@ -1,0 +1,19 @@
+uuid: 759c7664-fa40-463a-a6c1-7a1c5e9babd7
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.team
+id: node.team.field_email
+field_name: field_email
+entity_type: node
+bundle: team
+label: E-mailadres
+description: 'Het e-mailadres van deze ploeg, bijvoorbeeld dolfijntjes@ksadeinze.be.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

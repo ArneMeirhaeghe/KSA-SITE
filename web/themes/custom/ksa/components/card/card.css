@@ -1,0 +1,91 @@
+/* Shared card basis. News: Figma Desktop 44:265. Team: Desktop 49:370, Mobile 129:1505. */
+.card { position: relative; min-width: 0; }
+.card__image { overflow: hidden; border-radius: var(--radius-card-image); margin-bottom: var(--card-image-gap); }
+.card__image img { display: block; width: 100%; height: auto; aspect-ratio: 343 / 246; object-fit: cover; }
+.card__title { margin: 6px 0; font-size: var(--font-size-heading-md); font-weight: var(--font-weight-heading); line-height: var(--line-height-heading); }
+.card__title a { text-decoration: none; }
+.card__title a::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-card-image); }
+.card__title a:focus-visible { outline: none; box-shadow: none; }
+.card__title a:focus-visible::after { outline: 2px solid var(--color-text); outline-offset: 5px; }
+/* Darker than Figma Grey for readable contrast, as on the news cards. */
+.card__eyebrow,
+.card__text,
+.card__meta { color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.card__text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card__text p { margin: 0; }
+.card__more { display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; color: var(--color-text); font-size: var(--font-size-body); }
+.card__arrow { color: var(--color-brand); font-size: 24px; line-height: 1; }
+.card:hover .card__title a,
+.card:focus-within .card__title a { text-decoration: underline; }
+.card:hover .card__more { text-decoration: underline; text-decoration-color: var(--color-brand); }
+
+/* Team: title, location · age, Lees meer. */
+.card--team .card__image { margin-bottom: var(--card-image-gap-team); }
+/* Group portraits must stay complete, including portrait-oriented uploads. */
+.card--team .card__image img { object-fit: contain; }
+.card--team .card__body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--card-body-gap-team); }
+.card--team .card__title,
+.card--team .card__more { margin: 0; }
+.card--team .card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; line-height: var(--line-height-auto); }
+.card--team .card__meta > * + * { display: flex; align-items: center; gap: 12px; }
+.card--team .card__meta > * + *::before { content: ''; flex: none; width: 4px; height: 4px; border-radius: 50%; background: var(--color-border); }
+
+@media (width < 700px) {
+  .card--team .card__image { margin-bottom: var(--card-image-gap); }
+  .card--team .card__body { gap: var(--card-body-gap-team-mobile); }
+  .card--team .card__title { font-size: var(--font-size-heading-xs); }
+  /* Mobile Figma stacks location and age, without the dot. */
+  .card--team .card__meta { flex-direction: column; align-items: flex-start; gap: 2px; font-size: var(--font-size-body-sm); }
+  .card--team .card__meta > * + *::before { content: none; }
+  .card--team .card__more { font-size: var(--font-size-body-sm); }
+}
+
+/* Leader: portrait photo, name, phone and babysitting (Figma Desktop 91:610). */
+.card--leader .card__image { margin-bottom: var(--card-image-gap-team); }
+.card--leader .card__image img { aspect-ratio: 251 / 330; }
+.card--leader .card__body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--card-body-gap-team); }
+.card--leader .card__title { margin: 0; font-size: var(--font-size-heading-sm); line-height: var(--line-height-heading-sm); }
+.card--leader .card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: var(--color-text); line-height: var(--line-height-auto); }
+.card__phone { display: inline-flex; align-items: center; gap: 12px; }
+/* The field wrapper divs should not break the icon + number row. */
+.card__phone :where(div) { display: contents; }
+.card--leader .card__meta a { display: inline-flex; align-items: center; min-height: 24px; color: var(--color-text); text-decoration-color: var(--color-brand); }
+.card--leader .card__icon { flex: none; color: var(--color-brand); }
+.card__badge { display: inline-flex; align-items: center; gap: 12px; }
+.card__badge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--color-border); }
+.card__badge:focus-visible { outline-offset: 2px; }
+/* Tooltip: shown on hover and keyboard focus; the text is also the accessible name.
+   Anchored to the card and bounded by its width on small screens. */
+.card__tooltip { position: absolute; top: calc(100% + 10px); left: 0; z-index: 2; width: 100%; max-width: 14rem; padding: 10px; border-radius: 8px; background: var(--color-surface); box-shadow: 0 2px 12px rgb(30 30 30 / 18%); color: var(--color-text); font-size: var(--font-size-small); line-height: var(--line-height-auto); opacity: 0; visibility: hidden; transition: opacity .15s, visibility .15s; }
+.card__tooltip::before { content: ''; position: absolute; bottom: 100%; right: 10px; border: 6px solid transparent; border-bottom-color: var(--color-surface); }
+.card__badge:hover .card__tooltip,
+.card__badge:focus-visible .card__tooltip { opacity: 1; visibility: visible; }
+
+@media (width < 700px) {
+  .card--leader .card__image { margin-bottom: var(--card-image-gap); }
+  .card--leader .card__body { gap: var(--card-body-gap-team-mobile); }
+  .card--leader .card__title { font-size: var(--font-size-heading-xs); line-height: var(--line-height-auto); }
+  .card--leader .card__meta { font-size: var(--font-size-body-sm); }
+}
+
+/* Event: agenda card (Figma Desktop 107:2680). Border, radius 12, padding 16;
+   date small and muted, title 20 semibold, place after a pin icon. */
+.card--event { padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-card-image); }
+.card--event .card__eyebrow { font-size: var(--font-size-body-sm); line-height: var(--line-height-auto); }
+.card--event .card__title { margin: 6px 0 0; font-size: var(--font-size-heading-xs); line-height: 1.3; }
+.card--event .card__meta { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: var(--font-size-body-sm); line-height: var(--line-height-auto); }
+.card--event .card__meta::before {
+  content: '';
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.5a4.8 4.8 0 0 0-4.8 4.8c0 3.4 4.8 8.2 4.8 8.2s4.8-4.8 4.8-8.2A4.8 4.8 0 0 0 8 1.5Zm0 6.6a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.card--event .card__more { margin-top: 12px; font-size: var(--font-size-body-sm); }
+.card--event .card__arrow { font-size: 20px; }
+.card--event:hover { border-color: var(--color-brand); }
+
+/* Keep badge punctuation together and make the event date recognizable. */
+.card__badge { flex-wrap: nowrap; white-space: nowrap; }
+.card--event .card__eyebrow::before { content: "▦"; margin-right: .5em; color: var(--color-text); }

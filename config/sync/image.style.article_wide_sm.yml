@@ -1,0 +1,21 @@
+uuid: 4613d6fe-4fbb-4313-a30f-e0368cb4c4d1
+langcode: nl
+status: true
+dependencies: {  }
+name: article_wide_sm
+label: 'Artikelbeeld (800x264)'
+effects:
+  516c2ded-533b-4bde-9a13-e6271315376e:
+    uuid: 516c2ded-533b-4bde-9a13-e6271315376e
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 800
+      height: 264
+      anchor: center-center
+  b87ee3e8-4363-4305-9dd4-27af154f32df:
+    uuid: b87ee3e8-4363-4305-9dd4-27af154f32df
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

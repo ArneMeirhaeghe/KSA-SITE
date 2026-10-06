@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSA — Hero component</title>
+<link rel="stylesheet" href="../../themes/custom/ksa/css/fonts.css">
+<link rel="stylesheet" href="../../themes/custom/ksa/css/tokens.css">
+<link rel="stylesheet" href="../../themes/custom/ksa/components/jos/jos.css">
+<link rel="stylesheet" href="../../themes/custom/ksa/components/hero/hero.css">
+<link rel="stylesheet" href="hero.css">
+<script src="hero.js" defer></script>
+<script src="../../themes/custom/ksa/components/hero/hero.js" defer></script>
+</head><body><main><div class="preview-header"><img src="../../themes/custom/ksa/logo.png" alt="KSA Deinze-Astene" width="129" height="40"></div>
+<section class="ksa-hero" data-ksa-hero>
+  <div class="ksa-hero__intro">
+    <h1 class="ksa-hero__heading">KSA Deinze-Astene</h1>
+    <div class="ksa-hero__text">Samen spelen, avonturen beleven en vrienden maken.
+Welkom bij KSA Deinze-Astene.</div>
+  </div>
+  <div class="ksa-jos" data-ksa-jos data-scenario="rust">
+    <div class="ksa-jos__walker"><div class="ksa-jos__flip">
+      <button type="button" class="ksa-jos__button" data-jos-next aria-label="Laat Jos de vos iets anders doen"><!-- jos.svg wordt door de demo ingeladen --></button>
+    </div></div>
+  </div>
+  <div class="ksa-hero__stage" role="region" aria-roledescription="carrousel" aria-label="KSA-foto’s">
+    <svg class="ksa-hero__rope" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 18 Q720 95 1460 18"/></svg>
+    <div class="ksa-hero__window"><div class="ksa-hero__rail"><div class="ksa-hero__hanger"><div class="ksa-hero__photo"><img src="../../sites/default/files/ploegen/leeuwkes-astene.jpg" alt="Groepsfoto leeuwkes astene" width="480" height="518" draggable="false"></div></div>
+<div class="ksa-hero__hanger"><div class="ksa-hero__photo"><img src="../../sites/default/files/ploegen/knim.jpg" alt="Groepsfoto knim" width="480" height="518" draggable="false"></div></div>
+<div class="ksa-hero__hanger"><div class="ksa-hero__photo"><img src="../../sites/default/files/ploegen/joro-deinze.jpg" alt="Groepsfoto joro deinze" width="480" height="518" draggable="false"></div></div>
+<div class="ksa-hero__hanger"><div class="ksa-hero__photo"><img src="../../sites/default/files/ploegen/sjo.jpg" alt="Groepsfoto sjo" width="480" height="518" draggable="false"></div></div></div></div>
+  </div>
+  <div class="ksa-hero__controls" hidden>
+    <button type="button" data-hero-play aria-label="Automatisch doorschuiven pauzeren">
+      <span class="ksa-hero__clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="ksa-hero__track" cx="20" cy="20" r="17"/><circle data-hero-progress cx="20" cy="20" r="17" pathLength="100"/></svg><span data-hero-countdown>5</span></span>
+      <span data-hero-label>Pauzeren</span>
+    </button>
+  </div>
+  <span class="ksa-hero__status" data-hero-status aria-live="polite"></span>
+</section>
+
+<aside class="settings"><div><h2>Hero-component</h2><p>De echte achtergrond en de gedeelde componentcode.</p></div><form><label>Tijd van de dag <select name="tijd" id="jos-time"><option value="">Nu (automatisch)</option><option value="ochtend">Ochtend 7–11 u</option><option value="middag">Middag 11–17 u</option><option value="avond">Avond 17–22 u</option><option value="nacht">Nacht 22–7 u</option></select></label><label>Aantal foto’s <select name="count" id="count"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></form><button type="button" id="wind">Laat het waaien ↗</button></aside>
+<p class="note">Probeer hover, de ronde pauzeknop. Op een telefoon kun je ook swipen. Klik op Jos voor iets anders.</p>
+</main></body></html>

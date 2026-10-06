@@ -1,0 +1,11 @@
+uuid: b554269f-3502-4ad4-9e4a-0ffac2d1f4d9
+langcode: nl
+status: true
+dependencies: {  }
+id: node__team
+label: 'Inhoud: Ploeg'
+tags:
+  description: '[node:field_description]'
+  og_description: '[node:field_description]'
+  og_image: '[node:field_photo:entity:field_media_image:entity:url]'
+  og_type: website

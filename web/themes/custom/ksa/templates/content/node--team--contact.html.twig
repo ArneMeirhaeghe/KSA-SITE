@@ -1,0 +1,12 @@
+{# Ploeg in weergave Contact: tegel op de contactpagina. Contacttitel leeg = naam van de ploeg. #}
+<article{{ attributes.addClass('team-contact') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:contact-card' with {
+    title: node.field_contact_title.value ?: node.label,
+    variant: 'tile',
+  } %}
+    {% block logo %}{{ content.field_logo }}{% endblock %}
+    {% block link %}{{ content.field_email }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_logo', 'field_email', 'field_contact_title') }}
+</article>

@@ -1,0 +1,20 @@
+uuid: b1ddb231-c7c3-4497-b9a0-b3f7b1c3ff29
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: Fe3N1uqaAyyKJbVkqT-btXy3t98puW8GCRD822xjl10
+name: Nieuwsbericht
+type: article
+description: 'Een nieuwsbericht voor op de website, met een intro, een hoofdafbeelding en een auteur.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

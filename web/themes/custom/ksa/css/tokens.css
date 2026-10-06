@@ -1,0 +1,102 @@
+/* Gemeten in Figma Web. Bronnen en keuzes: docs/design-tokens.md. */
+:root {
+  --color-error: #b3261e;
+  --color-error-surface: #fdeceb;
+  --color-status-surface: #eef8ed;
+  --color-brand: #54c44e;
+  --color-text: #1e1e1e;
+  --color-text-muted: #5d5d5d;
+  --color-grey: #9e9e9e;
+  --color-border: #d9d9d9;
+  --color-surface: #fff;
+  --color-hero-base: #5fa95b;
+  --color-image-overlay: rgb(30 30 30 / 20%);
+
+  /* Lokaal variabel font: één bestand voor alle gewichten. */
+  --font-family: "Inter", sans-serif;
+  --font-weight-body: 400;
+  --font-weight-heading: 600;
+  --font-size-small: 0.75rem;
+  --font-size-body: 1rem;
+  --font-size-heading-xs: 1.25rem;
+  --font-size-heading-sm: 1.5rem;
+  --font-size-heading-md: 2rem;
+  --font-size-heading-lg: 2.25rem;
+  --font-size-heading-xl: 3rem;
+  --font-size-heading-2xl: 4rem;
+  --font-size-hero-mobile: 2.125rem;
+  --font-size-hero-desktop: var(--font-size-heading-2xl);
+  --font-size-hero-intro-mobile: 0.875rem;
+  --line-height-body: 1.5;
+  /* CSS-keuze voor Figma Auto; nog visueel controleren met lokaal Inter. */
+  --line-height-heading: normal;
+
+  /* Gemeten 1079 px; bewust afgerond naar 1080 px voor de gedeelde container. */
+  --content-max-width: 67.5rem;
+  --page-gutter-mobile: 1rem;
+  --page-gutter-desktop: 2rem;
+  --grid-gap-desktop: 1.5625rem;
+  --grid-gap-mobile: 2.25rem;
+  --footer-gap: 64px;
+  --footer-padding: 2rem;
+  --footer-padding-bottom: 1.5rem;
+  --radius-footer: 0.75rem;
+  --radius-hero: 1rem;
+
+  /* Navbar / Navbar-Mobile: gemeten in Figma Web. */
+  --header-logo-width: 8.0625rem;
+  --header-offset-top: 1.3125rem;
+  --header-offset-top-desktop: 3.375rem;
+  --header-padding-mobile: 1rem;
+  --header-menu-gap: 1.5rem;
+  --header-action-gap: 0.75rem;
+  --header-button-padding-inline: 0.75rem;
+  --header-button-padding-block: 0.375rem;
+  --header-line-height: 1.25;
+  --radius-button: 0.25rem;
+  --control-target-size: 2.75rem;
+  --header-icon-size: 1.5rem;
+  --header-icon-line-width: 1.125rem;
+  --header-icon-stroke: 0.125rem;
+  --header-icon-line-gap: 0.375rem;
+  --menu-motion-duration: 0.7s;
+  --menu-motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --menu-close-duration: 0.35s;
+  --menu-backdrop-duration: 0.25s;
+  --menu-overlay-color: rgb(30 30 30 / 65%);
+  --menu-overlay-inset: 0.5rem;
+  --menu-panel-padding: 1.5rem;
+  --menu-links-offset: 3rem;
+}
+
+/* Nieuwskaart: Figma Desktop 44:265, kaartbeeld 343 × 246, hoek 12. */
+:root {
+  --radius-card-image: 0.75rem;
+  --card-image-gap: 0.75rem;
+}
+
+/* Ploegenoverzicht: Figma Desktop 49:370, Mobile 129:1505. */
+:root {
+  --font-size-body-sm: 0.875rem;
+  /* Figma "Auto" line height. */
+  --line-height-auto: normal;
+  --grid-gap-compact: 1rem;
+  --card-image-gap-team: 1rem;
+  --card-body-gap-team: 0.75rem;
+  --card-body-gap-team-mobile: 0.375rem;
+  /* Space above the page title; set so the title lands where Figma puts it. */
+  --page-intro-offset: 5.1875rem;
+  --page-intro-offset-mobile: 2.4375rem;
+}
+
+/* Nieuws- en ploegdetail: Figma Desktop 18:61 (Blog Detail) en 91:610 (Leiding Detal). */
+:root {
+  --line-height-heading-sm: 1.5rem; /* h5: 24/24 */
+  --radius-button-lg: 0.5rem;
+  --article-title-offset: 6.9375rem; /* 111 px under the navbar */
+  --article-title-offset-mobile: 2.4375rem;
+  --article-column: 33rem; /* 528 px text column */
+  --article-image-max: 76rem; /* 1216 px */
+  --team-title-offset: 5.25rem; /* 84 px under the navbar */
+}
+

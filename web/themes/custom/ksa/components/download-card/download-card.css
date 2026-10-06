@@ -1,0 +1,38 @@
+/* Figma Desktop 107:2680 "Rondeboekjes": 227 x 118 card, 1 px #d9d9d9 border, radius 12, padding 30/24.
+   Download icon 24 px centred at the top, name 16 medium below, team logo behind at low opacity.
+   Mobile 129:2735: two columns. */
+.download-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 118px;
+  padding: 30px 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card-image);
+  background: var(--color-surface, #fff);
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.download-card:hover { border-color: var(--color-brand); box-shadow: 0 2px 8px rgb(0 0 0 / .08); }
+.download-card:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+.download-card__icon { flex: none; }
+.download-card__label { font-size: var(--font-size-body); font-weight: 500; line-height: 1.2; }
+.download-card:hover .download-card__label { text-decoration: underline; text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+/* Decorative logo fills the card. */
+.download-card__logo { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; opacity: .3; pointer-events: none; }
+.download-card__logo :is(div, article, figure):not(.contextual) { display: contents; }
+.download-card__logo .contextual { display: none; }
+.download-card__logo img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (width < 700px) {
+  .download-card { min-height: 104px; padding: 20px 12px; }
+  .download-card__label { font-size: var(--font-size-body-sm, .875rem); }
+}

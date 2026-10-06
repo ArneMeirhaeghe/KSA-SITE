@@ -1,0 +1,60 @@
+/* Figma component Footer (31:247), Desktop 1216 x 300, Mobile 370 wide.
+   Card with the KSA landscape (ksa-header.webp, bottom part) and #1e1e1e at 20 %. All text white. */
+.site-footer { margin: var(--footer-gap) var(--page-gutter-desktop) var(--page-gutter-desktop); }
+.site-footer__card {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: var(--footer-padding) var(--footer-padding) var(--footer-padding-bottom);
+  overflow: hidden;
+  border-radius: var(--radius-footer);
+  color: var(--color-surface);
+  background:
+    linear-gradient(var(--color-image-overlay), var(--color-image-overlay)),
+    url('../../assets/ksa-header.webp') center 97.6% / cover no-repeat,
+    var(--color-hero-base);
+}
+.site-footer a { color: inherit; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.site-footer a:focus-visible { outline: 2px solid var(--color-surface); outline-offset: 3px; border-radius: 2px; }
+
+/* Top row: logo, then the columns (space-between, as in Figma: 411 / 726 / 1040 px). */
+.site-footer__top { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-right: 24px; }
+.site-footer__logo { flex: none; display: grid; place-items: center; width: 185px; height: 77px; }
+.site-footer__logo img { display: block; width: 185px; height: auto; }
+/* Columns start every 315 px like in Figma (120 px tracks, space between); a longer link may run into the gap. */
+.site-footer__nav { display: grid; grid-auto-flow: column; grid-auto-columns: 120px; justify-content: space-between; column-gap: 32px; flex: 0 1 749px; }
+.site-footer__col { display: grid; align-content: start; gap: 12px; white-space: nowrap; }
+.site-footer__heading {
+  margin: 0;
+  font-size: var(--font-size-heading-xs);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-auto);
+}
+.site-footer__links { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: var(--font-size-body); line-height: var(--line-height-body); }
+
+.site-footer__rule { margin: 0; border: 0; border-top: 1px solid var(--color-surface); }
+
+/* Bottom row: copyright and small links left, "Naar boven" right. */
+.site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.site-footer__legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.site-footer__copyright { margin: 0; }
+.site-footer__small { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
+
+@media (width < 900px) {
+  .site-footer__top { flex-wrap: wrap; padding-right: 0; }
+  .site-footer__nav { flex-basis: 100%; }
+}
+
+@media (width < 700px) {
+  .site-footer { margin: var(--footer-gap) var(--page-gutter-mobile) var(--page-gutter-mobile); }
+  .site-footer__card { gap: 24px; padding: 24px; }
+  .site-footer__top { display: grid; gap: 24px; justify-content: stretch; }
+  .site-footer__logo { justify-self: start; place-items: center start; }
+  /* Mobile: columns two by two, 14 px apart (Figma Mobile 125:1157). */
+  .site-footer__nav { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .site-footer__col { min-width: 0; white-space: normal; }
+  .site-footer__links { font-size: .875rem; line-height: var(--line-height-auto); }
+  .site-footer__bottom { flex-direction: column-reverse; align-items: flex-start; gap: 12px; font-size: .875rem; line-height: var(--line-height-auto); }
+  .site-footer__legal { flex-direction: column; align-items: flex-start; }
+}

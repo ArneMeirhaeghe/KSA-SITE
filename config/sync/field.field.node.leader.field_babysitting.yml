@@ -1,0 +1,21 @@
+uuid: 7df3d39d-983c-4401-b263-1ff6ac854601
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_babysitting
+    - node.type.leader
+id: node.leader.field_babysitting
+field_name: field_babysitting
+entity_type: node
+bundle: leader
+label: 'Mag gebeld worden voor babysitten'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Aan
+  off_label: Uit
+field_type: boolean

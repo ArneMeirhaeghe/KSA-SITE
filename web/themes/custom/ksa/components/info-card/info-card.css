@@ -1,0 +1,48 @@
+/* Figma Desktop 29:2 "Frame 4/5": photo 527 x 330 (radius 12), 24 px, title h3 36, 12 px, text 16 muted.
+   Mobile 125:1157: photo 370 x 330, title 32, text 14. */
+.info-card { display: grid; gap: 24px; align-content: start; }
+.info-card__image { overflow: hidden; border-radius: var(--radius-card-image); background: var(--color-border); }
+.info-card__image img { display: block; width: 100%; height: auto; aspect-ratio: 527 / 330; object-fit: cover; }
+.info-card__body { display: grid; gap: 12px; }
+.info-card__heading { margin: 0; font-size: var(--font-size-heading-lg); font-weight: var(--font-weight-heading); line-height: var(--line-height-auto); }
+.info-card__text { margin: 0; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-auto); }
+.info-card__action a { color: var(--color-text); text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+
+@media (width < 700px) {
+  .info-card__image img { aspect-ratio: 370 / 330; }
+  .info-card__heading { font-size: var(--font-size-heading-md); }
+  .info-card__text { font-size: .875rem; }
+}
+
+/* ===== Compact: info card in a four-column section (Figma Desktop 50:709, Verhuur) =====
+   251 x 325 card, 1 px border, radius 12, padding 12/12/14/12, 12 px to the text.
+   Photo 227 x 188 (radius 4), title 16 semibold, text 16 muted, 4 px apart.
+   Mobile 128:1239: two columns, photo 145 x 124, text 14. */
+.layout--fourcol-section .info-card-block { height: 100%; } /* same height in a row */
+.layout--fourcol-section .info-card { gap: 12px; height: 100%; padding: 12px 12px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-card-image); }
+.layout--fourcol-section .info-card__image { border-radius: 4px; }
+.layout--fourcol-section .info-card__image img { aspect-ratio: 227 / 188; }
+.layout--fourcol-section .info-card__body { gap: 4px; }
+.layout--fourcol-section .info-card__heading { color: #000; font-size: var(--font-size-body); }
+.layout--fourcol-section .info-card__text { font-size: var(--font-size-body); }
+
+@media (width < 700px) {
+  .layout--fourcol-section .info-card__image img { aspect-ratio: 145 / 124; }
+  .layout--fourcol-section .info-card__heading,
+  .layout--fourcol-section .info-card__text { font-size: .875rem; }
+}
+
+/* ===== Text card: info card without a photo (Figma Desktop 107:2680, weekends & camps) =====
+   343 x 186, 1 px border, radius 12, padding 30/24. Title 24 semibold, lines 16 with a bold label.
+   Mobile 129:2735: cards stacked. */
+.info-card-block:has(.info-card--text) { height: 100%; }
+.info-card--text { gap: 0; height: 100%; min-height: 186px; padding: 30px 24px; border: 1px solid var(--color-border); border-radius: var(--radius-card-image); background: var(--color-surface); }
+.info-card--text .info-card__body { gap: 16px; align-content: start; }
+.info-card--text .info-card__heading { color: #000; font-size: var(--font-size-heading-sm); font-weight: 600; line-height: 1.2; }
+.info-card--text .info-card__text { color: var(--color-text); font-size: var(--font-size-body); line-height: 28px; }
+.info-card--text .info-card__text strong { font-weight: 600; }
+@media (width < 700px) {
+  .info-card--text { min-height: 0; padding: 24px 20px; }
+  .info-card--text .info-card__heading { font-size: var(--font-size-heading-xs); }
+  .info-card--text .info-card__text { font-size: var(--font-size-body); }
+}

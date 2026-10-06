@@ -1,0 +1,5 @@
+ksa_agenda.settings:
+  title: 'Agenda'
+  description: 'Kies de Google Agenda die op de Rondes-pagina staat.'
+  parent: system.admin_config_services
+  route_name: ksa_agenda.settings

@@ -1,0 +1,7 @@
+/* Drupal pager, shared by Nieuws and Agenda. Square targets of 44 px; the
+   current page has a green outline, hover fills green. */
+.pager__items { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; list-style: none; padding: 0; gap: 4px; }
+.pager__item a { display: grid; place-items: center; min-height: var(--control-target-size); min-width: var(--control-target-size); padding: 8px; border-radius: var(--radius-button); text-decoration: none; }
+.pager__item.is-active a { box-shadow: inset 0 0 0 1px var(--color-brand); }
+.pager__item a:hover { background: var(--color-brand); color: var(--color-text); }
+.pager__disabled { display: grid; place-items: center; min-height: var(--control-target-size); padding: 8px; color: var(--color-text-muted); }

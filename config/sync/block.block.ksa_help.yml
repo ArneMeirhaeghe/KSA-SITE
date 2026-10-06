@@ -1,0 +1,22 @@
+uuid: 2f540d56-25a6-4485-ba8e-5b1525169961
+langcode: nl
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - ksa
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: ksa_help
+theme: ksa
+region: content
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

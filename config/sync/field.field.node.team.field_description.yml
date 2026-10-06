@@ -1,0 +1,22 @@
+uuid: e2a57576-59ba-4a05-b10f-b45f95e64952
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.team
+  module:
+    - text
+id: node.team.field_description
+field_name: field_description
+entity_type: node
+bundle: team
+label: Beschrijving
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

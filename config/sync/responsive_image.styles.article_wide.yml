@@ -1,0 +1,23 @@
+uuid: 69b0fc7e-b635-4f5e-bbda-6edf1596dea3
+langcode: nl
+status: true
+dependencies:
+  config:
+    - image.style.article_wide
+    - image.style.article_wide_md
+    - image.style.article_wide_sm
+id: article_wide
+label: Artikelbeeld
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1280px) 1216px, (min-width: 700px) calc(100vw - 64px), calc((100vw - 32px) * 2)'
+      sizes_image_styles:
+        - article_wide
+        - article_wide_md
+        - article_wide_sm
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: article_wide_md

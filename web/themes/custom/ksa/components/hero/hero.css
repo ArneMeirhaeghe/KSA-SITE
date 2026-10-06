@@ -1,0 +1,104 @@
+.ksa-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  margin: 24px var(--page-gutter-desktop);
+  padding: 110px 0 76px;
+  min-height: 574px;
+  border-radius: var(--radius-hero);
+  color: var(--color-surface);
+  background: var(--color-hero-base);
+}
+/* De originele Figma-illustratie, gespiegeld zoals in het ontwerp. */
+.ksa-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(var(--color-image-overlay), var(--color-image-overlay)), url('../../assets/ksa-header.webp') center bottom / cover no-repeat;
+  transform: scaleX(-1);
+}
+.ksa-hero__intro { padding: 0 20px; text-align: center; }
+.ksa-hero__heading { font-size: var(--font-size-hero-desktop); font-weight: var(--font-weight-heading); line-height: var(--line-height-heading); margin: 0 auto 12px; max-width: var(--content-max-width); overflow-wrap: anywhere; text-wrap: balance; }
+.ksa-hero__text { max-width: 650px; margin: auto; font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.ksa-hero__text p { margin: 0; }
+.ksa-hero__stage { --card-width: 208px; --gap: 48px; --edge-space: 48px; position: relative; margin-top: 24px; height: 300px; }
+.ksa-hero__rope { position: absolute; top: 0; width: 100%; height: 74px; overflow: visible; }
+.ksa-hero__rope path { fill: none; stroke: var(--color-surface); stroke-width: 3; }
+.ksa-hero__window { max-width: 100%; width: var(--window-width, 100%); height: 100%; margin: auto; padding: 42px var(--edge-space) 0; overflow: auto hidden; touch-action: pan-y; }
+.ksa-hero__rail { display: flex; gap: var(--gap); width: max-content; }
+.ksa-hero.is-enhanced .ksa-hero__window { overflow: hidden; }
+.ksa-hero.is-enhanced .ksa-hero__rail { will-change: transform; }
+.ksa-hero__rail.is-moving { transition: transform 850ms cubic-bezier(.22, 1, .36, 1); }
+.ksa-hero__hanger { flex: 0 0 var(--card-width); width: var(--card-width); padding: 0 12px; --tilt: -7deg; }
+.ksa-hero__hanger:nth-child(2n) { --tilt: 5deg; }
+.ksa-hero__hanger:nth-child(3n) { --tilt: -4deg; }
+.ksa-hero__hanger:nth-child(4n) { --tilt: 8deg; }
+.ksa-hero__photo { position: relative; margin: 0; padding: 10px 10px 26px; background: var(--color-surface); box-shadow: 0 14px 20px -12px rgb(30 30 30 / 40%); transform: rotate(var(--tilt)); transform-origin: 50% -12px; }
+.ksa-hero__photo::before { content: ''; position: absolute; z-index: 2; width: 12px; height: 32px; background: linear-gradient(90deg, #d8c39a 0 44%, #b59b6c 45% 52%, #e7d5ad 53%); border-radius: 2px; left: calc(50% - 6px); top: -25px; transform: rotate(-3deg); box-shadow: 1px 2px 3px #0002; }
+.ksa-hero__photo img { width: 100%; height: auto; aspect-ratio: 1 / 1.08; object-fit: cover; display: block; user-select: none; }
+.ksa-hero__photo:hover, .ksa-hero__photo:focus-visible, .ksa-hero.is-windy .ksa-hero__photo { animation: ksa-breeze 1.5s ease-in-out infinite; }
+@keyframes ksa-breeze { 0%,100% { transform: rotate(var(--tilt)); } 22% { transform: rotate(calc(var(--tilt) + 6deg)); } 48% { transform: rotate(calc(var(--tilt) - 5deg)); } 72% { transform: rotate(calc(var(--tilt) + 3deg)); } }
+.ksa-hero__controls { position: absolute; left: 24px; bottom: 20px; display: flex; align-items: center; }
+.ksa-hero__controls[hidden] { display: none; }
+.ksa-hero__controls button { display: inline-flex; align-items: center; justify-content: center; min-height: var(--control-target-size); min-width: var(--control-target-size); border: 1px solid rgb(255 255 255 / 60%); border-radius: 30px; color: var(--color-surface); background: var(--color-image-overlay); font: inherit; font-size: 20px; cursor: pointer; }
+.ksa-hero__controls [data-hero-play] { width: 44px; min-width: 44px; height: 44px; padding: 4px; border: 0; border-radius: 50%; font-size: var(--font-size-small); }
+.ksa-hero__clock { position: relative; display: grid; place-items: center; width: 36px; height: 36px; }
+.ksa-hero__clock svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ksa-hero__clock circle { fill: none; stroke-width: 2; }
+.ksa-hero__track { stroke: rgb(255 255 255 / 30%); }
+.ksa-hero [data-hero-progress] { stroke: currentColor; stroke-dasharray: 100; stroke-linecap: round; }
+.ksa-hero [data-hero-countdown] { font-size: 11px; font-variant-numeric: tabular-nums; }
+.ksa-hero :focus-visible { outline: 2px solid var(--color-surface); outline-offset: 4px; }
+.ksa-hero__status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (width < 700px) {
+  .ksa-hero { margin: 24px var(--page-gutter-mobile); padding-top: 88px; min-height: 468px; }
+  .ksa-hero__heading { font-size: var(--font-size-hero-mobile); margin-bottom: 6px; }
+  .ksa-hero__text { font-size: var(--font-size-hero-intro-mobile); }
+  .ksa-hero__stage { --card-width: 146px; --gap: 8px; --edge-space: 32px; height: 244px; margin-top: 20px; }
+  .ksa-hero__photo { padding: 8px 8px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ksa-hero__rail.is-moving { transition: none; }
+  .ksa-hero__photo:hover, .ksa-hero__photo:focus-visible, .ksa-hero.is-windy .ksa-hero__photo { animation: none; }
+}
+
+/* Een gekozen Media-afbeelding vervangt alleen de standaardillustratie. */
+.ksa-hero__background { position: absolute; z-index: -1; inset: 0; overflow: hidden; background: var(--color-hero-base); pointer-events: none; }
+.ksa-hero__background::after { content: ''; position: absolute; inset: 0; background: var(--color-image-overlay); }
+.ksa-hero__background img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.ksa-hero [data-hero-label] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* De eerste hero vormt de achtergrond van de paginanavigatie.
+   Layout Builder behoudt zijn gewone header en bewerkingsknoppen. */
+.site:has(.ksa-hero):not(:has(#layout-builder)) { position: relative; padding-top: 1px; }
+.site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header { position: absolute; inset: 0 0 auto; z-index: 2; background: transparent; padding-inline: 32px; padding-top: 40px; }
+.site:has(.ksa-hero):not(:has(#layout-builder)) .ksa-header { color: var(--color-surface); }
+.site:has(.ksa-hero):not(:has(#layout-builder)) .ksa-header > .ksa-header__blocks .ksa-header__branding img { filter: none; }
+.site:has(.ksa-hero):not(:has(#layout-builder)) #block-ksa-breadcrumbs { display: none; }
+.site:has(.ksa-hero):not(:has(#layout-builder)) #block-ksa-page-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (width >= 70rem) {
+  .site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header { padding-top: var(--header-offset-top-desktop); padding-inline: 68px; }
+}
+/* De extra draairuimte mag geen stukje van een herhaalde kaart tonen. */
+.ksa-hero__rail:not(.is-moving) > .ksa-hero__hanger[aria-hidden="true"] { visibility: hidden; }
+@media (700px <= width < 70rem) {
+  .site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header { padding-inline: 48px; }
+}
+
+/* Jos de vos: onderaan in de hero, vóór de fotokaarten, onder de pauzeknop.
+   Alleen zijn getekende lichaam vangt klikken (zie jos.css).
+   De plekken zijn waar zijn linkerrand staat; jos.js wandelt ertussen. */
+.ksa-hero > .ksa-jos {
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 -2px;
+  --jos-width: 170px;
+  --jos-spot-left: 60px;  /* hoofd net links van de eerste fotokaart */
+  --jos-spot-right: 64%;  /* voor het clubhuis */
+}
+.ksa-hero > .ksa-jos ~ .ksa-hero__controls { z-index: 2; }
+@media (width < 700px) {
+  /* Gsm: klein en vast rechts in de hoek, zonder wandelen. */
+  .ksa-hero > .ksa-jos { --jos-width: 104px; --jos-spot-right: 100%; }
+}

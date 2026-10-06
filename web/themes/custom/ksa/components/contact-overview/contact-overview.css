@@ -1,0 +1,7 @@
+/* Figma Desktop 107:2602: grid 40 px under the intro, 3 x 343 px. */
+.contact-overview { max-width: var(--content-max-width); width: calc(100% - 2 * var(--page-gutter-desktop)); margin: 40px auto 0; }
+.contact-overview .views-row { height: 100%; }
+@media (width < 700px) {
+  .contact-overview { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 32px; }
+  .contact-overview .card-grid { gap: var(--grid-gap-compact); }
+}

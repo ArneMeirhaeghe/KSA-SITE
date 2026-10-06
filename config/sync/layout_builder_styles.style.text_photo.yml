@@ -1,0 +1,12 @@
+uuid: 1e476744-94ca-4492-8fe9-ba413cd03960
+langcode: nl
+status: true
+dependencies: {  }
+id: text_photo
+label: 'Tekst naast foto'
+classes: ksa-section--text-photo
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

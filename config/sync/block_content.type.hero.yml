@@ -1,0 +1,8 @@
+uuid: 89119f5d-c800-42c6-846d-803eee19d4f7
+langcode: nl
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+revision: true
+description: 'Intro bovenaan de homepage, met een titel, korte tekst en maximaal vier foto’s.'

@@ -1,0 +1,21 @@
+uuid: 274da4ea-feb7-49da-9385-9d32832dc412
+langcode: nl
+status: true
+dependencies: {  }
+name: media_strip
+label: 'Fotostrook (686×802)'
+effects:
+  144b84d1-e40c-4690-a144-1279ed6121b7:
+    uuid: 144b84d1-e40c-4690-a144-1279ed6121b7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 686
+      height: 802
+      anchor: center-center
+  3fbb29c3-3189-4baf-a3c8-52261630cc74:
+    uuid: 3fbb29c3-3189-4baf-a3c8-52261630cc74
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

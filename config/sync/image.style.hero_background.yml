@@ -1,0 +1,21 @@
+uuid: 3f4f2198-a006-480b-8b02-314bd034f42d
+langcode: nl
+status: true
+dependencies: {  }
+name: hero_background
+label: 'Hero-achtergrond (2560)'
+effects:
+  665ef78c-30f5-4f05-a689-ce4c5e6aec61:
+    uuid: 665ef78c-30f5-4f05-a689-ce4c5e6aec61
+    id: image_scale
+    weight: 0
+    data:
+      width: 2560
+      height: null
+      upscale: false
+  17ef0613-c5f1-4ad9-a4e8-2aff309ae515:
+    uuid: 17ef0613-c5f1-4ad9-a4e8-2aff309ae515
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

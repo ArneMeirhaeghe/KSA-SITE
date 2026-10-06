@@ -1,0 +1,4 @@
+<div{{ attributes.addClass('article-detail__body') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {{ include('ksa:rich-text', {content: content}, with_context = false) }}
+</div>

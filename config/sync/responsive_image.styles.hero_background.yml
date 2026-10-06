@@ -1,0 +1,23 @@
+uuid: 320b7973-f2e5-4f80-bac1-b90b0b0d018e
+langcode: nl
+status: true
+dependencies:
+  config:
+    - image.style.hero_background
+    - image.style.hero_background_md
+    - image.style.hero_background_sm
+id: hero_background
+label: Hero-achtergrond
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 700px) calc(100vw - 64px), calc(100vw - 32px)'
+      sizes_image_styles:
+        - hero_background
+        - hero_background_md
+        - hero_background_sm
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: hero_background_md

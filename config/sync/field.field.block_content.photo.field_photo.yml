@@ -1,0 +1,29 @@
+uuid: 5e2396d0-3924-4b05-88c4-6dcfe7c11092
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.photo
+    - field.storage.block_content.field_photo
+    - media.type.image
+id: block_content.photo.field_photo
+field_name: field_photo
+entity_type: block_content
+bundle: photo
+label: Foto
+description: 'Liggende foto, bijvoorbeeld het lokaal. Wordt bijgesneden tot 527 × 330.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

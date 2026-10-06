@@ -1,0 +1,7 @@
+{# Basic block: opgemaakte tekst. In een sectie met 1 kolom is het een sectie-intro (grote h2),
+   in een kolom van een sectie met 2 of 3 kolommen gewone lopende tekst. Zie css/layout.css. #}
+<div{{ attributes.addClass('text-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% if label %}<h2 class="text-block__title">{{ label }}</h2>{% endif %}
+  {{ include('ksa:rich-text', {content: content}, with_context = false) }}
+</div>

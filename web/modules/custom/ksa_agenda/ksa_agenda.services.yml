@@ -1,0 +1,13 @@
+services:
+  logger.channel.ksa_agenda:
+    parent: logger.channel_base
+    arguments: ['ksa_agenda']
+  ksa_agenda.fetcher:
+    class: Drupal\ksa_agenda\AgendaFetcher
+    arguments: ['@http_client', '@state', '@config.factory', '@cache_tags.invalidator', '@logger.channel.ksa_agenda', '@datetime.time']
+  Drupal\ksa_agenda\AgendaFetcher: '@ksa_agenda.fetcher'
+  http_middleware.ksa_agenda_day:
+    class: Drupal\ksa_agenda\StackMiddleware\AgendaDay
+    arguments: ['@state', '@cache_tags.invalidator', '@datetime.time']
+    tags:
+      - { name: http_middleware, priority: 210 }

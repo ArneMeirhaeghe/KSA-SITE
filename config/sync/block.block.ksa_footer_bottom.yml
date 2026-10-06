@@ -1,0 +1,25 @@
+uuid: bd346a7b-8491-44c1-befd-44ab9d9375ae
+langcode: nl
+status: true
+dependencies:
+  config:
+    - system.menu.footer-bottom
+  module:
+    - system
+  theme:
+    - ksa
+id: ksa_footer_bottom
+theme: ksa
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-bottom'
+settings:
+  id: 'system_menu_block:footer-bottom'
+  label: 'Footer onderaan'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 331d1902-714d-4100-8cf2-2a9bf858cf65
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.text_media
+    - field.storage.block_content.field_style
+  module:
+    - options
+id: block_content.text_media.field_style
+field_name: field_style
+entity_type: block_content
+bundle: text_media
+label: Stijl
+description: 'Groot: hoge banner met foto en groene knop (Ons verhaal). Compact: lagere banner met omlijnde knop (Verhuur). Stap en Tab: tekst naast een foto. Opeenvolgende stappen worden een stappenbalk, opeenvolgende tabs een tabblad (Inschrijving). De titel is het label.'
+required: true
+translatable: false
+default_value:
+  -
+    value: large
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 7fd81bf9-eac4-43e1-80e5-858e212aeaec
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.agenda
+    - field.storage.block_content.field_calendar_id
+id: block_content.agenda.field_calendar_id
+field_name: field_calendar_id
+entity_type: block_content
+bundle: agenda
+label: Agenda-ID
+description: 'Google Agenda → instellingen van de agenda → Agenda integreren → Agenda-ID (eindigt op @group.calendar.google.com). De agenda moet openbaar zijn.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

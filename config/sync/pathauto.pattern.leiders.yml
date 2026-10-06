@@ -1,0 +1,23 @@
+uuid: 6ad930f8-324c-447c-8939-e72e275025ec
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.leader
+  module:
+    - node
+id: leiders
+label: Leiders
+type: 'canonical_entities:node'
+pattern: '/leiding/[node:title]'
+selection_criteria:
+  e7eb29ba-0b51-4e29-a708-353ea566419d:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      leader: leader
+selection_logic: and
+weight: -5
+relationships: {  }

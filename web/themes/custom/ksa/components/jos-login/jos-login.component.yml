@@ -1,0 +1,7 @@
+name: Jos (inloggen)
+description: 'Jos naast het loginformulier: volgt de muis, leest mee bij de gebruikersnaam en houdt zijn ogen dicht bij het wachtwoord (maar gluurt).'
+status: stable
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

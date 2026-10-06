@@ -1,0 +1,8 @@
+uuid: 7d101191-2da8-4793-88bd-a6a0469dc057
+langcode: nl
+status: true
+dependencies: {  }
+id: agenda
+label: Agenda
+revision: false
+description: 'Google Agenda: 5 aankomende activiteiten en een maandkalender (Rondes-pagina).'

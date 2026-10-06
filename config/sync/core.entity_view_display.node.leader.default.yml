@@ -1,0 +1,51 @@
+uuid: 36b0b13d-1dec-4a78-8f45-1b2e173fcffe
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.node.leader.field_babysitting
+    - field.field.node.leader.field_phone
+    - field.field.node.leader.field_photo
+    - field.field.node.leader.field_team
+    - node.type.leader
+  module:
+    - telephone
+    - user
+id: node.leader.default
+targetEntityType: node
+bundle: leader
+mode: default
+content:
+  field_phone:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_photo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: photo
+      link: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_team:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_babysitting: true
+  langcode: true

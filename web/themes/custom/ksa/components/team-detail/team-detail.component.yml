@@ -1,0 +1,6 @@
+name: Ploegdetail
+description: 'Vaste opmaak van een ploeg: titel, leiders en contact.'
+status: stable
+slots:
+  content:
+    title: Layout Builder-inhoud

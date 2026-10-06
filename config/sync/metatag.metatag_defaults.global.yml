@@ -1,0 +1,11 @@
+uuid: 92d7217a-488e-4d62-a721-03e0e0e5a487
+langcode: nl
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Algemeen
+tags:
+  canonical_url: '[current-page:url]'
+  title: '[current-page:title] | [site:name]'

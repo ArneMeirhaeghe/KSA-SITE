@@ -1,0 +1,5 @@
+{# Intro van een nieuwsbericht, onder de titel. attributes: needed by the Layout Builder UI. #}
+<div{{ attributes }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {{ include('ksa:page-intro', {text: content, variant: 'article'}, with_context = false) }}
+</div>

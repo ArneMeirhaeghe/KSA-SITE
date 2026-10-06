@@ -1,0 +1,8 @@
+{# Foto (bloktype photo): Media via weergave Foto (responsive). Breedte en verhouding volgen de sectie. #}
+<div{{ attributes.addClass('photo-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:photo' %}
+    {% block image %}{{ content.field_photo.0 }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_photo') }}
+</div>

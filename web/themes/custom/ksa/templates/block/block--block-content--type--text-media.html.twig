@@ -1,0 +1,13 @@
+{# Tekst met beeld (bloktype text_media). Items zonder veldwrappers, zodat de kop een zuivere h2 blijft.
+   Veld Stijl (list_key): large (standaard) of compact. #}
+<div{{ attributes.addClass('text-media-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:text-media' with {variant: content.field_style.0['#markup']|default('large')} %}
+    {% block image %}{{ content.field_background.0 }}{% endblock %}
+    {% block heading %}{{ content.field_heading.0 }}{% endblock %}
+    {% block text %}{{ content.field_intro.0 }}{% endblock %}
+    {% block action %}{{ content.field_link.0 }}{% endblock %}
+    {% block note %}{{ content.field_note.0 }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_background', 'field_heading', 'field_intro', 'field_link', 'field_note', 'field_style') }}
+</div>

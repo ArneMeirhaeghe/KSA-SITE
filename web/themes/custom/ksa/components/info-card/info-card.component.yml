@@ -1,0 +1,12 @@
+name: Infokaart
+description: 'Foto met titel, tekst en optionele knop, bijvoorbeeld een lokaal. Twee naast elkaar in een sectie met 2 kolommen.'
+status: stable
+slots:
+  image:
+    title: Foto
+  heading:
+    title: Titel
+  text:
+    title: Tekst
+  action:
+    title: Knop (optioneel)

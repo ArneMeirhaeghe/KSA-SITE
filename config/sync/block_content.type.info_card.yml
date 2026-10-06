@@ -1,0 +1,8 @@
+uuid: f2fd10f3-aacd-4d62-a859-5864841b5f8b
+langcode: nl
+status: true
+dependencies: {  }
+id: info_card
+label: Infokaart
+revision: false
+description: 'Foto met titel en tekst, bijvoorbeeld een lokaal. Zet er twee naast elkaar in een sectie met 2 kolommen.'

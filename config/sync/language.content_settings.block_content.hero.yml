@@ -1,0 +1,11 @@
+uuid: cdfe5045-bcdd-4b1c-9150-49e2106c7c8b
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+id: block_content.hero
+target_entity_type_id: block_content
+target_bundle: hero
+default_langcode: site_default
+language_alterable: false

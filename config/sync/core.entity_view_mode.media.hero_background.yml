@@ -1,0 +1,11 @@
+uuid: e88b010d-d503-4c13-baab-a4562d019faa
+langcode: nl
+status: true
+dependencies:
+  module:
+    - media
+id: media.hero_background
+label: Hero-achtergrond
+description: null
+targetEntityType: media
+cache: true

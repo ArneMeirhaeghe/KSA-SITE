@@ -1,0 +1,19 @@
+uuid: 430def97-3b25-4433-8bf0-04c197314ec0
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.agenda
+    - field.storage.block_content.field_intro
+id: block_content.agenda.field_intro
+field_name: field_intro
+entity_type: block_content
+bundle: agenda
+label: Tekst
+description: 'Optioneel. Korte zin onder de kop.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

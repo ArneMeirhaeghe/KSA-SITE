@@ -1,0 +1,11 @@
+uuid: 3372372a-6cb1-4345-aa21-f96abfd7dd27
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.text_media
+id: block_content.text_media
+target_entity_type_id: block_content
+target_bundle: text_media
+default_langcode: site_default
+language_alterable: false

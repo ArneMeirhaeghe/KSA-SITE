@@ -1,0 +1,29 @@
+uuid: 695c11ae-7041-4c16-9bc7-aba2e619ad24
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team
+    - node.type.leader
+    - node.type.team
+id: node.leader.field_team
+field_name: field_team
+entity_type: node
+bundle: leader
+label: Ploeg
+description: "Vink de ploeg aan. Zit een leider in twee ploegen (bv. Hoofdleiding en Sjo), vink dan beide aan: hij verschijnt op beide ploegpagina's."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      team: team
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+name: Kaartraster
+description: 'Responsief raster voor kaarten. Gedeeld door nieuws en ploegen.'
+status: stable
+props:
+  type: object
+  properties:
+    columns:
+      title: Kolommen op desktop
+      type: integer
+      enum: [3, 4]
+      default: 3
+    mobile_columns:
+      title: Kolommen op gsm
+      type: integer
+      enum: [1, 2]
+      default: 1
+slots:
+  items:
+    title: Kaarten

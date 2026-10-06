@@ -1,0 +1,25 @@
+name: Contactkaart
+description: 'Kop, korte uitleg en een e-mailadres. Voor ploegpagina''s en Contact. Variant tile = kaart met rand en optioneel logo (Contact).'
+status: stable
+props:
+  type: object
+  properties:
+    title:
+      title: Kop
+      type: string
+    text:
+      title: Korte uitleg
+      type: string
+    variant:
+      title: Variant
+      type: string
+      enum: ['', tile]
+slots:
+  heading:
+    title: Kop als markup (in plaats van de prop title)
+  link:
+    title: E-mail- of contactlink
+  extra:
+    title: Extra regel, bv. telefoon
+  logo:
+    title: Logo achter de tekst (alleen tile)

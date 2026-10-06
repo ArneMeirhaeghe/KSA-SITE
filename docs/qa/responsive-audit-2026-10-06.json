@@ -1,0 +1,312 @@
+{
+  "mobile": [
+    {
+      "canonical": "https://ksa.ddev.site/",
+      "error": false,
+      "h1": [
+        "KSA Deinze-Astene"
+      ],
+      "path": "/",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/leiding",
+      "error": false,
+      "h1": [
+        "Maak kennis met de leiding"
+      ],
+      "path": "/leiding",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/rondes",
+      "error": false,
+      "h1": [
+        "Activiteiten & Kampen"
+      ],
+      "path": "/rondes",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/inschrijving",
+      "error": false,
+      "h1": [
+        "Hoe schrijf ik in?"
+      ],
+      "path": "/inschrijving",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/ons-verhaal",
+      "error": false,
+      "h1": [
+        "Ons verhaal"
+      ],
+      "path": "/ons-verhaal",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/verhuur",
+      "error": false,
+      "h1": [
+        "Welkom bij ‘t Brielhof!"
+      ],
+      "path": "/verhuur",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/contact",
+      "error": false,
+      "h1": [
+        "Vragen? Contacteer ons!"
+      ],
+      "path": "/contact",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/user/password",
+      "error": false,
+      "h1": [
+        "Wachtwoord vergeten?"
+      ],
+      "path": "/user/password",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/node/51",
+      "error": false,
+      "h1": [
+        "Pagina niet gevonden"
+      ],
+      "path": "/controle-onbestaande-pagina",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/ploegen/dolfijntjes",
+      "error": false,
+      "h1": [
+        "Dolfijntjes"
+      ],
+      "path": "/ploegen/dolfijntjes",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/leiding/jenne-meirhaeghe",
+      "error": false,
+      "h1": [
+        "Jenne Meirhaeghe"
+      ],
+      "path": "/leiding/jenne-meirhaeghe",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "canonical": "https://ksa.ddev.site/nieuws/startdag-2026",
+      "error": false,
+      "h1": [
+        "Startdag 2026"
+      ],
+      "path": "/nieuws/startdag-2026",
+      "scroll": 390,
+      "width": 390
+    }
+  ],
+  "desktop": [
+    {
+      "h1": 1,
+      "path": "/",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/leiding",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/rondes",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/inschrijving",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/ons-verhaal",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/verhuur",
+      "scroll": 1440,
+      "width": 1440
+    },
+    {
+      "h1": 1,
+      "path": "/contact",
+      "scroll": 1440,
+      "width": 1440
+    }
+  ],
+  "small": [
+    {
+      "path": "/",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/leiding",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/rondes",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/inschrijving",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/ons-verhaal",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/verhuur",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/contact",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "path": "/user/password",
+      "scroll": 320,
+      "width": 320
+    }
+  ],
+  "breakpoints": [
+    {
+      "path": "/",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/leiding",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/rondes",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/inschrijving",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/ons-verhaal",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/verhuur",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/contact",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "path": "/",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/leiding",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/rondes",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/inschrijving",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/ons-verhaal",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/verhuur",
+      "scroll": 1920,
+      "width": 1920
+    },
+    {
+      "path": "/contact",
+      "scroll": 1920,
+      "width": 1920
+    }
+  ],
+  "footer": [
+    {
+      "gap": 64,
+      "path": "/"
+    },
+    {
+      "gap": 64,
+      "path": "/leiding"
+    },
+    {
+      "gap": 64,
+      "path": "/rondes"
+    },
+    {
+      "gap": 65,
+      "path": "/inschrijving"
+    },
+    {
+      "gap": 64,
+      "path": "/ons-verhaal"
+    },
+    {
+      "gap": 64,
+      "path": "/verhuur"
+    },
+    {
+      "gap": 64,
+      "path": "/contact"
+    }
+  ]
+}

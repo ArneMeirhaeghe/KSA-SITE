@@ -1,0 +1,11 @@
+{# Drupal rendert de velden. Het component verzorgt alleen de presentatie. #}
+<div{{ attributes.addClass('ksa-hero-block') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:hero' %}
+    {% block background %}{{ content.field_background }}{% endblock %}
+    {% block heading %}{{ content.field_heading }}{% endblock %}
+    {% block intro %}{{ content.field_intro }}{% endblock %}
+    {% block images %}{{ content.field_images }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_heading', 'field_intro', 'field_images', 'field_background') }}
+</div>

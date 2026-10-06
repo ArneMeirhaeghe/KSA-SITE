@@ -1,0 +1,8 @@
+uuid: 8c80fad9-4dd2-4636-a2c3-4f31f279bf47
+langcode: nl
+status: true
+dependencies: {  }
+id: media_strip
+label: Fotostrook
+revision: false
+description: "Carrousel met foto's die speels verspringen en langzaam voorbijschuiven, bijvoorbeeld bovenaan Ons verhaal."

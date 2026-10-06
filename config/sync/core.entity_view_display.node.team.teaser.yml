@@ -1,0 +1,67 @@
+uuid: b1bfa47f-e360-4ab2-90b9-a5299cbf42c8
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.team.field_age_range
+    - field.field.node.team.field_booklet
+    - field.field.node.team.field_contact_title
+    - field.field.node.team.field_description
+    - field.field.node.team.field_email
+    - field.field.node.team.field_location
+    - field.field.node.team.field_logo
+    - field.field.node.team.field_photo
+    - field.field.node.team.field_weight
+    - image.style.wide
+    - node.type.team
+  module:
+    - layout_builder
+    - media
+    - options
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.team.teaser
+targetEntityType: node
+bundle: team
+mode: teaser
+content:
+  field_age_range:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_location:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_photo:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: wide
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 101
+    region: content
+hidden:
+  field_booklet: true
+  field_contact_title: true
+  field_description: true
+  field_email: true
+  field_logo: true
+  field_weight: true
+  langcode: true
+  links: true

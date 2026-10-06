@@ -1,0 +1,23 @@
+uuid: 880718eb-cbbd-4db9-ac9a-1c4c6d6cb556
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.team
+  module:
+    - node
+id: ploegen
+label: Ploegen
+type: 'canonical_entities:node'
+pattern: '/ploegen/[node:title]'
+selection_criteria:
+  442ce478-502a-4e43-9716-c27c9f4b718a:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      team: team
+selection_logic: and
+weight: -5
+relationships: {  }

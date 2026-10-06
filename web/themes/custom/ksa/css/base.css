@@ -1,0 +1,44 @@
+/* Technische basis. Componenten krijgen later hun eigen CSS. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+}
+
+/* Kopgroottes worden per component gekozen, los van het HTML-kopniveau. */
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+  overflow-wrap: anywhere;
+}
+
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  max-width: 100%;
+  min-width: 0;
+}
+
+:where(a) {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+/* Donker én wit houden de focus zichtbaar op lichte en donkere vlakken. */
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--color-surface);
+}

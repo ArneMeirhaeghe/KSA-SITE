@@ -1,0 +1,20 @@
+uuid: 96dab0f3-a8eb-4ce0-b4e1-45edcf51c8b6
+langcode: nl
+status: true
+dependencies:
+  theme:
+    - ksa
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: ksa_page_title
+theme: ksa
+region: content
+weight: 1
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: Paginatitel
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,15 @@
+/* 3 × 343 px + 2 × 25 px = 1079 px (Figma Desktop 44:265 and 49:370). */
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap-desktop); }
+.card-grid > * { min-width: 0; }
+/* Leader cards: 4 × 251 px + 3 × 25 px (Figma Desktop 91:610). */
+.card-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (width < 1000px) {
+  .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-grid--4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (width < 700px) {
+  .card-grid { grid-template-columns: minmax(0, 1fr); gap: var(--grid-gap-mobile); }
+  /* Team cards on mobile: two columns, 16 px apart (Figma Mobile 129:1505). */
+  .card-grid--mobile-2,
+  .card-grid--4.card-grid--mobile-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap-compact); }
+}

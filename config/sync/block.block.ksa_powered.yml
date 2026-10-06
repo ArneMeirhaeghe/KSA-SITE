@@ -1,0 +1,22 @@
+uuid: ec3043dd-294b-4ff7-a81e-48072cb76d01
+langcode: nl
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ksa
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: ksa_powered
+theme: ksa
+region: content
+weight: 4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

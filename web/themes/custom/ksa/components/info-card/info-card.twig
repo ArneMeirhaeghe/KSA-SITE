@@ -1,0 +1,14 @@
+{# Without a photo the card becomes a text card with a border (info-card--text),
+   e.g. the weekend and camp cards on the Rondes page. #}
+{% set image_markup %}{% block image %}{% endblock %}{% endset %}
+{% set has_image = image_markup|trim is not empty %}
+<article class="info-card{{ not has_image ? ' info-card--text' }}">
+  {% if has_image %}<div class="info-card__image">{{ image_markup }}</div>{% endif %}
+  <div class="info-card__body">
+    <h3 class="info-card__heading">{% block heading %}{% endblock %}</h3>
+    {% set text_markup %}{% block text %}{% endblock %}{% endset %}
+    {% if text_markup|trim %}<p class="info-card__text">{{ text_markup }}</p>{% endif %}
+    {% set action_markup %}{% block action %}{% endblock %}{% endset %}
+    {% if action_markup|trim %}<div class="info-card__action">{{ action_markup }}</div>{% endif %}
+  </div>
+</article>

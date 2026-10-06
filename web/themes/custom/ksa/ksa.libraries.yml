@@ -1,0 +1,8 @@
+base:
+  css:
+    base:
+      css/fonts.css: {}
+      css/tokens.css: {}
+      css/base.css: {}
+      css/layout.css: {}
+      css/pager.css: {}

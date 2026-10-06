@@ -1,0 +1,12 @@
+uuid: ff98eb5d-aedc-4ff4-a720-860ac9f3fe54
+langcode: nl
+status: true
+dependencies: {  }
+id: booklets_panel
+label: 'Rondeboekjes in kader'
+classes: ksa-section--booklets
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

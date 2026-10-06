@@ -1,0 +1,16 @@
+{# Banner variants (large, compact): the image is decoration behind the text.
+   Step and tab: the image is content next to the text (e.g. a screenshot), so it keeps its alt text. #}
+{% set is_banner = variant not in ['step', 'tab'] %}
+<section class="text-media{{ variant in ['compact', 'step', 'tab'] ? ' text-media--' ~ variant }}"{% if not is_banner %} data-text-media-group="{{ variant }}"{% endif %}>
+  {% set image_markup %}{% block image %}{% endblock %}{% endset %}
+  {% if image_markup|trim %}<div class="text-media__image"{% if is_banner %} aria-hidden="true"{% endif %}>{{ image_markup }}</div>{% endif %}
+  <div class="text-media__content">
+    <h2 class="text-media__heading">{% block heading %}{% endblock %}</h2>
+    {% set text_markup %}{% block text %}{% endblock %}{% endset %}
+    {% if text_markup|trim %}<p class="text-media__text">{{ text_markup }}</p>{% endif %}
+    {% set action_markup %}{% block action %}{% endblock %}{% endset %}
+    {% if action_markup|trim %}<div class="text-media__action">{{ action_markup }}</div>{% endif %}
+    {% set note_markup %}{% block note %}{% endblock %}{% endset %}
+    {% if note_markup|trim %}<p class="text-media__note">{{ note_markup }}</p>{% endif %}
+  </div>
+</section>

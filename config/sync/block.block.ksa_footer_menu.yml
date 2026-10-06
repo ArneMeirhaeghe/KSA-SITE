@@ -1,0 +1,25 @@
+uuid: df0ee0cc-0c9d-4a7f-84d3-bc639f8fc870
+langcode: nl
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - ksa
+id: ksa_footer_menu
+theme: ksa
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footermenu
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

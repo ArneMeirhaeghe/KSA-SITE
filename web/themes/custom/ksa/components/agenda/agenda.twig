@@ -1,0 +1,63 @@
+{#
+  Agenda section (Figma Desktop 107:2680): heading with "Abonneren" on the
+  right; upcoming events with a pager on the left, Google month view right.
+  On small screens the calendar goes under the list.
+#}
+<section class="agenda" id="agenda" aria-labelledby="agenda-title">
+  <div class="agenda__head">
+    <h2 class="agenda__title" id="agenda-title">{{ heading }}</h2>
+    {% if subscribe_google or subscribe_ical %}
+      <details class="agenda__subscribe">
+        <summary class="agenda__subscribe-button">{{ 'Abonneren'|t }}</summary>
+        <ul class="agenda__subscribe-menu">
+          {% if subscribe_google %}<li><a href="{{ subscribe_google }}" target="_blank" rel="noopener">{{ 'Google Agenda'|t }}<span class="visually-hidden"> {{ '(opent in een nieuw tabblad)'|t }}</span></a></li>{% endif %}
+          {% if subscribe_ical %}<li><a href="{{ subscribe_ical }}" target="_blank" rel="noopener">{{ 'iPhone, Mac of Outlook'|t }}<span class="visually-hidden"> {{ '(opent in een nieuw tabblad)'|t }}</span></a></li>{% endif %}
+        </ul>
+      </details>
+    {% endif %}
+  </div>
+  <div class="agenda__body">
+    <div class="agenda__list">
+      <h3 class="agenda__subtitle">{{ 'Komende activiteiten'|t }}</h3>
+      <div class="agenda__events">{% block events %}{% endblock %}</div>
+      {#
+        Pager as in Figma (mobile 121:1947): "Vorige 1 2 3 Volgende".
+        Text stays dark for contrast; green marks the current page and arrows.
+        A missing link stays visible but greyed out, so nothing jumps.
+      #}
+      {% if pages > 1 %}
+        {% set chevron_left %}<svg class="agenda-pager__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+        {% set chevron_right %}<svg class="agenda-pager__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+        <nav class="agenda-pager" aria-label="{{ 'Pagina\'s van de agenda'|t }}">
+          {% if previous_url %}
+            <a class="agenda-pager__step" href="{{ previous_url }}" rel="prev">{{ chevron_left }}<span class="agenda-pager__label">{{ 'Vorige'|t }}</span><span class="visually-hidden"> {{ 'pagina'|t }}</span></a>
+          {% else %}
+            <span class="agenda-pager__step is-disabled" aria-hidden="true">{{ chevron_left }}<span class="agenda-pager__label">{{ 'Vorige'|t }}</span></span>
+          {% endif %}
+          <ul class="agenda-pager__numbers">
+            {% for item in page_links %}
+              <li>
+                {% if item.current %}
+                  <a class="agenda-pager__number is-current" href="{{ item.url }}" aria-current="page"><span class="visually-hidden">{{ 'Pagina'|t }} </span>{{ item.number }}<span class="visually-hidden"> {{ 'van @pages'|t({'@pages': pages}) }}</span></a>
+                {% else %}
+                  <a class="agenda-pager__number" href="{{ item.url }}"><span class="visually-hidden">{{ 'Pagina'|t }} </span>{{ item.number }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          {% if next_url %}
+            <a class="agenda-pager__step" href="{{ next_url }}" rel="next"><span class="agenda-pager__label">{{ 'Volgende'|t }}</span><span class="visually-hidden"> {{ 'pagina'|t }}</span>{{ chevron_right }}</a>
+          {% else %}
+            <span class="agenda-pager__step is-disabled" aria-hidden="true"><span class="agenda-pager__label">{{ 'Volgende'|t }}</span>{{ chevron_right }}</span>
+          {% endif %}
+        </nav>
+      {% endif %}
+    </div>
+    {% if calendar_url %}
+      <details class="agenda__calendar">
+        <summary>{{ 'Toon maandkalender'|t }}</summary>
+        <iframe src="{{ calendar_url }}" title="{{ 'Maandkalender van KSA Deinze-Astene'|t }}" loading="lazy"></iframe>
+      </details>
+    {% endif %}
+  </div>
+</section>

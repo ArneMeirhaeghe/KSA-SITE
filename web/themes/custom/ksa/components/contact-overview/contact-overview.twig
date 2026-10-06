@@ -1,0 +1,5 @@
+{% set cards_markup %}{% block cards %}{% endblock %}{% endset %}
+<section class="contact-overview" aria-label="{{ 'Contact per ploeg'|t }}">
+  {{ include('ksa:card-grid', {items: cards_markup}, with_context = false) }}
+  {% block empty %}{% endblock %}
+</section>

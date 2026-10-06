@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: nl
+uuid: b896268e-56f5-4abd-8e41-13c486d8ff84
+name: 'KSA Deinze-Astene'
+mail: arne@partnersfordesign.be
+slogan: ''
+page:
+  403: ''
+  404: /node/51
+  front: /node/39
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: nl
+mail_notification: null

@@ -1,0 +1,20 @@
+uuid: 6b2d123e-0712-40fe-a7de-7221d239dbd6
+langcode: nl
+status: true
+dependencies:
+  theme:
+    - ksa
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: ksa_primary_admin_actions
+theme: ksa
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

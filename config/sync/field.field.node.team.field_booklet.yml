@@ -1,0 +1,29 @@
+uuid: be0a4b5e-69cd-47ea-ae8d-e1a287c02ce4
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_booklet
+    - media.type.document
+    - node.type.team
+id: node.team.field_booklet
+field_name: field_booklet
+entity_type: node
+bundle: team
+label: Rondeboekje
+description: 'Het huidige rondeboekje (PDF). Vervang het bij elk nieuw boekje. Zonder boekje verschijnt de ploeg niet op de Rondes-pagina.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

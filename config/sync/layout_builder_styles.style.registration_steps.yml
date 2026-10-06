@@ -1,0 +1,12 @@
+uuid: c87984ee-bec8-40c4-9050-e5936141bc82
+langcode: nl
+status: true
+dependencies: {  }
+id: registration_steps
+label: Inschrijvingsstappen
+classes: ksa-section--steps
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

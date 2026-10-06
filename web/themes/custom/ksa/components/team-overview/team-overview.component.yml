@@ -1,0 +1,8 @@
+name: Ploegenoverzicht
+description: 'Raster met door Views geselecteerde ploegkaarten.'
+status: stable
+slots:
+  cards:
+    title: Ploegen
+  empty:
+    title: Lege weergave

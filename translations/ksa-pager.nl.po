@@ -1,0 +1,51 @@
+# Dutch translations for the Drupal pager, missing from drupal-11.4.7.nl.po.
+# Import: Configuratie > Regio en taal > Gebruikersinterface vertalen > Importeren.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Pagination"
+msgstr "Paginering"
+
+msgid "Page"
+msgstr "Pagina"
+
+msgid "First page"
+msgstr "Eerste pagina"
+
+msgid "Previous page"
+msgstr "Vorige pagina"
+
+msgid "Next page"
+msgstr "Volgende pagina"
+
+msgid "Last page"
+msgstr "Laatste pagina"
+
+msgid "Go to first page"
+msgstr "Ga naar de eerste pagina"
+
+msgid "Go to previous page"
+msgstr "Ga naar de vorige pagina"
+
+msgid "Go to next page"
+msgstr "Ga naar de volgende pagina"
+
+msgid "Go to last page"
+msgstr "Ga naar de laatste pagina"
+
+msgid "Go to page @key"
+msgstr "Ga naar pagina @key"
+
+msgid "« First"
+msgstr "« Eerste"
+
+msgid "‹ Previous"
+msgstr "‹ Vorige"
+
+msgid "Next ›"
+msgstr "Volgende ›"
+
+msgid "Last »"
+msgstr "Laatste »"

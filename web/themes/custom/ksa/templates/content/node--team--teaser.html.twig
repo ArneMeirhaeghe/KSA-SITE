@@ -1,0 +1,10 @@
+{# Ploegkaart. De teaserweergave van Ploeg bepaalt welke velden er zijn. #}
+<article{{ attributes.addClass('team-teaser') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:card' with {url: url, variant: 'team'} %}
+    {% block image %}{{ content.field_photo }}{% endblock %}
+    {% block title %}{{ label }}{% endblock %}
+    {% block meta %}{{ content.field_location }}{{ content.field_age_range }}{% endblock %}
+  {% endembed %}
+  {{ content|without('field_photo', 'field_location', 'field_age_range') }}
+</article>

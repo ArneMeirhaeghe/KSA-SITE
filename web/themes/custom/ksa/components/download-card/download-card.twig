@@ -1,0 +1,12 @@
+{# Download card: the whole card is one link that opens the file in a new tab.
+   Screen readers hear e.g. "Rondeboekje Dolfijntjes, PDF, opent in een nieuw tabblad". #}
+{% set logo_markup %}{% block logo %}{% endblock %}{% endset %}
+<a class="download-card" href="{{ url }}" target="_blank" rel="noopener">
+  {% if logo_markup|trim %}<span class="download-card__logo" aria-hidden="true">{{ logo_markup }}</span>{% endif %}
+  <svg class="download-card__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="download-card__label">
+    <span class="visually-hidden">{{ description }} </span>{{ label }}<span class="visually-hidden">, {{ file_type }}, {{ 'opent in een nieuw tabblad'|t }}</span>
+  </span>
+</a>

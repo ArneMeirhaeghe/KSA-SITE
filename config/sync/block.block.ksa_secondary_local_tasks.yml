@@ -1,0 +1,22 @@
+uuid: f5dec051-d929-4bf5-b52f-40308bb37f1c
+langcode: nl
+status: true
+dependencies:
+  theme:
+    - ksa
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: ksa_secondary_local_tasks
+theme: ksa
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

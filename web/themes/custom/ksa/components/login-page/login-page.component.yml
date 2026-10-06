@@ -1,0 +1,6 @@
+name: Loginpagina
+description: 'Loginformulier met Jos ernaast. Gebruikt op /user/login.'
+status: stable
+slots:
+  content:
+    title: Drupal-inhoud (titel, tabs, formulier)

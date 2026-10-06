@@ -1,0 +1,10 @@
+{# Ploeg, volledige weergave. De vaste layout komt uit Layout Builder. #}
+<article{{ attributes.addClass('team-full') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:team-detail' %}
+    {% block content %}
+      <a class="detail-back" href="{{ path('entity.node.canonical', {'node': 33}) }}">← {{ 'Alle leiding'|t }}</a>
+      {{ content }}
+    {% endblock %}
+  {% endembed %}
+</article>

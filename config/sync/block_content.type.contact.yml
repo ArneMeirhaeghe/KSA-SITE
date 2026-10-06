@@ -1,0 +1,8 @@
+uuid: cd5e700d-40a5-4035-b39c-94605a86baa0
+langcode: nl
+status: true
+dependencies: {  }
+id: contact
+label: Contact
+revision: false
+description: 'Contactkaart met kop, e-mailadres en optioneel telefoon en logo. Bijvoorbeeld voor verhuur.'

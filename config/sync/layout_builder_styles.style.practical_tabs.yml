@@ -1,0 +1,12 @@
+uuid: c8909c0b-3f3b-4a88-992d-2e79d5796aad
+langcode: nl
+status: true
+dependencies: {  }
+id: practical_tabs
+label: 'Praktische tabbladen'
+classes: ksa-section--tabs
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

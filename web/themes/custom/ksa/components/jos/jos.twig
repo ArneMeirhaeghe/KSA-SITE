@@ -1,0 +1,15 @@
+{#
+  Jos de vos, de KSA-mascotte.
+  - Tekening: jos.svg (één bron, ook gebruikt door de demo).
+  - Beweging: jos.css. Regie (dagschema, wandelen, klikken): jos.js.
+  Jos is decoratief. De knop geeft hem wel een naam voor schermlezers.
+#}
+<div class="ksa-jos" data-ksa-jos data-scenario="rust">
+  <div class="ksa-jos__walker">
+    <div class="ksa-jos__flip">
+      <button type="button" class="ksa-jos__button" data-jos-next aria-label="{{ 'Laat Jos de vos iets anders doen'|t }}">
+        {{ source('@ksa/components/jos/jos.svg') }}
+      </button>
+    </div>
+  </div>
+</div>

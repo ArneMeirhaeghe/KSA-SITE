@@ -1,0 +1,8 @@
+name: Contactoverzicht
+description: 'Raster met contactkaarten van de ploegen (Views).'
+status: stable
+slots:
+  cards:
+    title: Contactkaarten
+  empty:
+    title: Lege weergave

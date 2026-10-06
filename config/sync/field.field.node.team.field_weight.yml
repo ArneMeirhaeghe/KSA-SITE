@@ -1,0 +1,23 @@
+uuid: 408067d8-9eb5-4a8e-99b3-3964b27c22a7
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.team
+id: node.team.field_weight
+field_name: field_weight
+entity_type: node
+bundle: team
+label: Volgorde
+description: 'Lager getal staat bovenaan. Gebruik stappen van 10: 10, 20, 30.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

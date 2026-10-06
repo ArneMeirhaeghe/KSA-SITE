@@ -1,0 +1,23 @@
+uuid: bb0ed6e9-cbed-472d-8cd1-ba4360e1fd95
+langcode: nl
+status: true
+dependencies:
+  config:
+    - image.style.hero_background
+    - image.style.hero_background_md
+    - image.style.hero_background_sm
+id: photo
+label: Foto
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1280px) 1216px, (min-width: 700px) calc(100vw - 64px), calc(100vw - 32px)'
+      sizes_image_styles:
+        - hero_background_sm
+        - hero_background_md
+        - hero_background
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: hero_background_md

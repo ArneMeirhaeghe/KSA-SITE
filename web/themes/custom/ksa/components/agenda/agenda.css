@@ -1,0 +1,59 @@
+/* Agenda section (Figma Desktop 107:2680). Same width and top space as a section intro. */
+/* scroll-margin: the pager links to #agenda; keep the heading clear of the top edge and of the admin bar (53 px). */
+.agenda { scroll-margin-top: 80px; width: calc(100% - 2 * var(--page-gutter-desktop)); max-width: var(--content-max-width); margin: 122px auto 0; }
+.agenda__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 24px; }
+.agenda__title { margin: 0; font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+
+/* Abonneren: a disclosure with two links, no JavaScript needed. */
+.agenda__subscribe { position: relative; }
+.agenda__subscribe-button { display: inline-flex; align-items: center; gap: 8px; min-height: var(--control-target-size); padding: 0 4px; font-weight: var(--font-weight-heading); list-style: none; cursor: pointer; }
+.agenda__subscribe-button::-webkit-details-marker { display: none; }
+.agenda__subscribe-button::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='black' stroke-width='1.6'%3E%3Crect x='2' y='3.5' width='14' height='12.5' rx='2'/%3E%3Cpath d='M2 7.5h14M6 1.8v3.4M12 1.8v3.4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.agenda__subscribe-button:hover { text-decoration: underline; text-decoration-color: var(--color-brand); }
+.agenda__subscribe-menu { position: absolute; top: 100%; right: 0; z-index: 2; min-width: 15rem; margin: 4px 0 0; padding: 8px; list-style: none; border-radius: 8px; background: var(--color-surface); box-shadow: 0 2px 12px rgb(30 30 30 / 18%); }
+.agenda__subscribe-menu a { display: flex; align-items: center; min-height: var(--control-target-size); padding: 0 12px; border-radius: var(--radius-button); color: var(--color-text); text-decoration: none; }
+.agenda__subscribe-menu a:hover { background: var(--color-brand); }
+
+.agenda__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--grid-gap-desktop); align-items: start; }
+.agenda__subtitle { margin: 0 0 12px; font-size: var(--font-size-body); font-weight: var(--font-weight-heading); line-height: var(--line-height-body); }
+.agenda__events { display: grid; gap: 12px; }
+.agenda__empty { margin: 0; color: var(--color-text-muted); }
+/* Pager as in Figma (mobile 121:1947): "Vorige 1 2 3 Volgende" on one row.
+   Current page = green square with dark text (white on green is only 2.24:1).
+   Other text stays dark; the arrows carry the green, as on the cards. */
+.agenda-pager { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 24px; }
+.agenda-pager__numbers { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.agenda-pager__number,
+.agenda-pager__step { display: inline-flex; align-items: center; justify-content: center; min-height: var(--control-target-size); border-radius: var(--radius-button); color: var(--color-text); text-decoration: none; font-variant-numeric: tabular-nums; }
+.agenda-pager__number { min-width: var(--control-target-size); }
+.agenda-pager__number.is-current { background: var(--color-brand); font-weight: var(--font-weight-heading); }
+.agenda-pager__number:not(.is-current):hover { box-shadow: inset 0 0 0 1px var(--color-brand); }
+.agenda-pager__step { gap: 4px; padding: 0 6px; }
+.agenda-pager__step .agenda-pager__icon { color: var(--color-brand); }
+a.agenda-pager__step:hover .agenda-pager__label { text-decoration: underline; text-decoration-color: var(--color-brand); text-underline-offset: 3px; }
+/* Inactive control: WCAG does not require contrast for disabled controls (Figma: grey "Prev"). */
+.agenda-pager__step.is-disabled,
+.agenda-pager__step.is-disabled .agenda-pager__icon { color: var(--color-grey); }
+.agenda-pager__icon { flex: none; width: 16px; height: 16px; }
+@media (width < 360px) {
+  /* Very narrow phones: arrows only, the words stay for screen readers. */
+  .agenda-pager__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .agenda-pager__step { min-width: var(--control-target-size); }
+}
+.agenda__calendar iframe { display: block; width: 100%; height: 600px; border: 1px solid var(--color-border); border-radius: var(--radius-card-image); }
+.agenda__calendar summary { min-height: 44px; cursor: pointer; font-weight: var(--font-weight-heading); }
+
+@media (width < 900px) {
+  .agenda__body { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+}
+@media (width < 700px) {
+  .agenda { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 74px; }
+  .agenda__title { font-size: 1.625rem; }
+  .agenda__calendar iframe { height: 420px; }
+}

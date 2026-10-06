@@ -1,0 +1,54 @@
+/* Figma Desktop 91:610: h4 32 px, text and e-mail 16 px, 6 px apart, 522 px wide. */
+/* Children stay 522 px wide; the card itself may be wider (e.g. a divider on top). */
+.contact-card > * { max-width: 522px; }
+.contact-card__title { margin: 0; font-size: var(--font-size-heading-md); line-height: var(--line-height-auto); }
+.contact-card__text { margin: 6px 0 0; font-size: var(--font-size-body); line-height: var(--line-height-auto); }
+.contact-card__link { margin-top: 6px; line-height: var(--line-height-auto); }
+.contact-card__link > * { margin: 0; }
+/* Dark text with a green underline: green text on white is too light to read. */
+.contact-card__link a { color: var(--color-text); text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+
+@media (width < 700px) {
+  .contact-card__title { font-size: var(--font-size-heading-sm); }
+  .contact-card__text,
+  .contact-card__link { font-size: var(--font-size-body-sm); }
+}
+
+/* ===== Tile variant: Contact page (Figma Desktop 107:2602) =====
+   343 x 234, 1 px #d9d9d9 border, radius 12, padding 30/24.
+   Title 24/24 semibold at the top, e-mail 16/24 at the bottom.
+   Team logo behind the text at 20 % opacity. */
+.contact-card--tile {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  height: 100%;
+  min-height: 234px;
+  padding: 30px 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card-image);
+  background: var(--color-surface);
+}
+.contact-card--tile > * { max-width: none; }
+.contact-card--tile .contact-card__title { color: #000; font-size: var(--font-size-heading-sm); font-weight: 600; line-height: 1; }
+.contact-card--tile .contact-card__contact { line-height: 24px; }
+.contact-card--tile .contact-card__link { margin-top: 0; line-height: 24px; overflow-wrap: anywhere; }
+.contact-card--tile .contact-card__extra { line-height: 24px; }
+.contact-card--tile .contact-card__extra a { color: var(--color-text); }
+/* Square logo, full card width, centred (crops top and bottom, like most cards in Figma).
+   Decorative: the text stays readable without it. */
+.contact-card__logo { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; opacity: .2; pointer-events: none; }
+.contact-card__logo :is(div, article, figure):not(.contextual) { display: contents; }
+.contact-card__logo .contextual { display: none; } /* decorative logo: no edit pencil */
+.contact-card__logo img { width: 100%; height: auto; }
+
+@media (width < 700px) {
+  .contact-card--tile { min-height: 0; padding: 18px 20px; gap: 14px; }
+  .contact-card--tile .contact-card__title { font-size: var(--font-size-heading-xs); line-height: 1.2; }
+  .contact-card--tile .contact-card__link,
+  .contact-card--tile .contact-card__extra { font-size: var(--font-size-body-sm); }
+}

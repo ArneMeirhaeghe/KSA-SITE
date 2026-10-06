@@ -1,0 +1,25 @@
+uuid: e38480f4-5b9d-468a-b31d-65d9e9d9afa4
+langcode: nl
+status: true
+dependencies:
+  config:
+    - system.menu.header-actions
+  module:
+    - system
+  theme:
+    - ksa
+id: ksa_headeracties
+theme: ksa
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:header-actions'
+settings:
+  id: 'system_menu_block:header-actions'
+  label: Headeracties
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,15 @@
+ksa_agenda.settings:
+  path: '/admin/config/services/ksa-agenda'
+  defaults:
+    _form: '\Drupal\ksa_agenda\Form\SettingsForm'
+    _title: 'Agenda'
+  requirements:
+    _permission: 'administer ksa agenda'
+
+ksa_agenda.event_ics:
+  path: '/agenda/activiteit/{event}'
+  defaults:
+    _controller: '\Drupal\ksa_agenda\Controller\EventController::ics'
+  requirements:
+    _access: 'TRUE'
+    event: '[0-9a-f]{16}'

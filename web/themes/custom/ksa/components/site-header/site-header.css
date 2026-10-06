@@ -1,0 +1,237 @@
+.ksa-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--header-menu-gap);
+  max-width: var(--content-max-width);
+  min-height: calc(var(--header-logo-width) * 442 / 1417);
+  margin-inline: auto;
+  padding: 0;
+  color: var(--color-text);
+}
+
+.site-header {
+  padding-top: var(--header-offset-top);
+  padding-inline: var(--page-gutter-mobile);
+  background: var(--color-surface);
+}
+
+.ksa-header__blocks { display: contents; }
+.ksa-header__branding { flex-shrink: 0; }
+.ksa-header__branding a { display: block; }
+.ksa-header__branding img {
+  display: block;
+  width: var(--header-logo-width);
+  height: auto;
+  /* Het originele witte, monochrome logo op de witte standaardheader. */
+  filter: brightness(0);
+}
+
+.ksa-header__menu,
+.ksa-header__actions { width: 100%; }
+
+.ksa-header nav > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ksa-header a {
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  line-height: var(--header-line-height);
+}
+
+.ksa-header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-target-size);
+}
+
+.ksa-header nav a:hover,
+.ksa-header nav a.is-active { text-decoration: underline; }
+
+.ksa-header .ksa-header__actions > ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--header-action-gap);
+}
+.ksa-header__actions > ul > li > a {
+  box-shadow: inset 0 0 0 1px currentColor;
+  border-radius: var(--radius-button);
+  padding: var(--header-button-padding-block) var(--header-button-padding-inline);
+}
+
+.ksa-header__actions .ksa-header__primary-action {
+  background: var(--color-brand);
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+.ksa-header__toggle {
+  order: 1;
+  margin-inline-start: auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--header-icon-size);
+  width: var(--header-icon-size);
+  height: var(--header-icon-size);
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+}
+
+.ksa-header__toggle[hidden] { display: none; }
+
+/* Het icoon is 24 px; het onzichtbare klikvlak blijft 44 px. */
+.ksa-header__toggle::before {
+  content: "";
+  position: absolute;
+  width: var(--control-target-size);
+  height: var(--control-target-size);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ksa-header__toggle-icon,
+.ksa-header__toggle-icon::before,
+.ksa-header__toggle-icon::after {
+  display: block;
+  width: var(--header-icon-line-width);
+  height: var(--header-icon-stroke);
+  background: currentColor;
+}
+
+.ksa-header__toggle-icon { position: relative; }
+.ksa-header__toggle-icon::before,
+.ksa-header__toggle-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.ksa-header__toggle-icon::before { top: calc(-1 * var(--header-icon-line-gap)); }
+.ksa-header__toggle-icon::after { top: var(--header-icon-line-gap); }
+
+.ksa-header__menu,
+.ksa-header__actions { order: 2; }
+
+/* Praktisch breakpoint, gekozen op basis van de volledige menubreedte. */
+@media (width < 70rem) {
+  .ksa-header.is-enhanced > .ksa-header__blocks :is(.ksa-header__menu, .ksa-header__actions) {
+    display: none;
+  }
+}
+
+html.ksa-menu-open,
+html.ksa-menu-open body { overflow: hidden; }
+
+.ksa-mobile-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: var(--menu-overlay-inset);
+  border: 0;
+  /* Geen scrollcontainer: autofocus mag het schuivende paneel niet volgen. */
+  overflow: clip;
+  background: transparent;
+  color: var(--color-text);
+}
+.ksa-mobile-menu::backdrop {
+  background: var(--menu-overlay-color);
+  opacity: 0;
+  transition: opacity var(--menu-backdrop-duration) ease-out;
+}
+.ksa-mobile-menu.is-open::backdrop { opacity: 1; }
+.ksa-mobile-menu__panel {
+  position: relative;
+  height: 100%;
+  padding: var(--menu-panel-padding);
+  padding-top: max(var(--menu-panel-padding), env(safe-area-inset-top));
+  padding-bottom: max(var(--menu-panel-padding), env(safe-area-inset-bottom));
+  border-radius: var(--radius-hero);
+  background: var(--color-surface);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translate3d(calc(100% + var(--menu-overlay-inset) * 2), 0, 0);
+  transition: transform var(--menu-motion-duration) var(--menu-motion-easing);
+}
+.ksa-mobile-menu[open] .ksa-mobile-menu__panel { will-change: transform; }
+.ksa-mobile-menu.is-open .ksa-mobile-menu__panel { transform: translate3d(0, 0, 0); }
+.ksa-mobile-menu.is-closing .ksa-mobile-menu__panel {
+  transition-duration: var(--menu-close-duration);
+  transition-timing-function: ease-in-out;
+}
+.ksa-mobile-menu .ksa-header__blocks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--header-menu-gap);
+}
+.ksa-mobile-menu .ksa-header__branding {
+  margin-bottom: var(--menu-links-offset);
+  padding-right: var(--control-target-size);
+}
+.ksa-mobile-menu .ksa-header__menu > ul { gap: var(--header-action-gap); }
+.ksa-mobile-menu .ksa-header__menu > ul > li > a {
+  font-size: var(--font-size-heading-md);
+  line-height: var(--line-height-heading);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.ksa-mobile-menu .ksa-header__actions { margin-top: var(--header-menu-gap); }
+.ksa-mobile-menu .ksa-mobile-menu__close {
+  display: grid;
+  position: absolute;
+  z-index: 1;
+  top: var(--menu-panel-padding);
+  right: var(--menu-panel-padding);
+}
+.ksa-mobile-menu__close .ksa-header__toggle-icon { background: transparent; }
+.ksa-mobile-menu__close .ksa-header__toggle-icon::before { top: 0; transform: rotate(45deg); }
+.ksa-mobile-menu__close .ksa-header__toggle-icon::after { top: 0; transform: rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ksa-mobile-menu__panel,
+  .ksa-mobile-menu::backdrop { transition: none; }
+}
+
+@media (width >= 70rem) {
+  .site-header {
+    padding-inline: var(--page-gutter-desktop);
+    padding-top: var(--header-offset-top-desktop);
+  }
+  .ksa-header { flex-wrap: nowrap; padding: 0; }
+  .ksa-header__toggle { display: none; }
+  .ksa-header__menu,
+  .ksa-header__actions { width: auto; }
+  .ksa-header nav > ul { flex-direction: row; gap: var(--header-menu-gap); }
+  .ksa-header .ksa-header__actions > ul { gap: var(--header-action-gap); }
+  .ksa-header nav > ul > li > a {
+    position: relative;
+    min-height: 0;
+    white-space: nowrap;
+  }
+  /* Groter klikvlak, zonder de compacte Figma-knop hoger te tekenen. */
+  .ksa-header nav > ul > li > a::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    height: var(--control-target-size);
+    transform: translateY(-50%);
+  }
+  .ksa-header nav > ul ul { flex-direction: column; }
+}

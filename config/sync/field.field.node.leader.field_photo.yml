@@ -1,0 +1,29 @@
+uuid: a5ad6f6b-eb03-4ae5-afab-cc5b6f577ab9
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_photo
+    - media.type.image
+    - node.type.leader
+id: node.leader.field_photo
+field_name: field_photo
+entity_type: node
+bundle: leader
+label: Foto
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

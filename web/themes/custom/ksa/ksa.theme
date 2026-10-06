@@ -1,0 +1,38 @@
+<?php
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ksa_preprocess_block(array &$variables): void {
+  if (($variables['plugin_id'] ?? '') === 'page_title_block') {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    CacheableMetadata::createFromRenderArray($variables['content'])
+      ->addCacheContexts(['url.path'])
+      ->applyTo($variables['content']);
+  }
+  if (($variables['plugin_id'] ?? '') !== 'system_menu_block:main') {
+    return;
+  }
+  $variables['configuration']['label'] = t('Hoofdnavigatie');
+  // A detail page belongs to the same navigation section as its overview.
+  $cacheability = CacheableMetadata::createFromRenderArray($variables['content']);
+  $cacheability->addCacheContexts(['route']);
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface && in_array($node->bundle(), ['team', 'leader'], TRUE)) {
+    $cacheability->addCacheableDependency($node);
+    foreach ($variables['content']['#items'] as &$item) {
+      $url = $item['url'];
+      if ($url->isRouted() && $url->getRouteName() === 'entity.node.canonical' && (int) ($url->getRouteParameters()['node'] ?? 0) === 33) {
+        $item['in_active_trail'] = TRUE;
+        $item['url'] = clone $url;
+        $attributes = $url->getOption('attributes') ?? [];
+        $attributes['class'][] = 'is-active';
+        $item['url']->setOption('attributes', $attributes);
+      }
+    }
+  }
+  $cacheability->applyTo($variables['content']);
+}

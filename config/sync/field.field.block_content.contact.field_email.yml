@@ -1,0 +1,19 @@
+uuid: 2e8db9d2-212e-469c-8e09-9cefe8df574b
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.storage.block_content.field_email
+id: block_content.contact.field_email
+field_name: field_email
+entity_type: block_content
+bundle: contact
+label: E-mailadres
+description: 'Wordt een klikbare link. Voorbeeld: verhuur@ksadeinze.be.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

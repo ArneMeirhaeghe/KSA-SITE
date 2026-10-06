@@ -1,0 +1,8 @@
+uuid: 3e5a608a-1c07-4bcf-8a83-1fb5b93cfd4b
+langcode: nl
+status: true
+dependencies: {  }
+id: header-actions
+label: Headeracties
+description: 'Contacteer ons en Inschrijven in de header.'
+locked: false

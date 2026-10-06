@@ -1,0 +1,33 @@
+name: Kaart
+description: 'Gedeelde kaartbasis voor nieuws-, ploeg- en leiderkaarten.'
+status: stable
+props:
+  type: object
+  properties:
+    url:
+      title: Link naar de detailpagina (leeg = geen link)
+      type: string
+    variant:
+      title: Soort kaart
+      type: string
+      enum: [news, team, leader, event]
+      default: news
+    more_label:
+      title: Tekst van de verwijzing onderaan (standaard "Lees meer")
+      type: string
+    heading_level:
+      title: Kopniveau van de titel (2 = h2)
+      type: integer
+      enum: [2, 3, 4]
+      default: 2
+slots:
+  image:
+    title: Afbeelding
+  eyebrow:
+    title: Boven de titel (bv. datum)
+  title:
+    title: Titel
+  meta:
+    title: Onder de titel (bv. plaats en leeftijd)
+  text:
+    title: Korte tekst

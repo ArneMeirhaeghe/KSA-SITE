@@ -1,0 +1,170 @@
+/* Layout Builder sections. One column: each component sets its own width (hero, overviews).
+   Two and three columns: the 1080 px content column of the design, 25 px between columns
+   (Figma Desktop 29:2, Onze lokalen). Below 700 px everything stacks. */
+.layout--twocol-section,
+.layout--threecol-section {
+  display: grid;
+  gap: 24px 25px;
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+.layout--twocol-section > .layout__region,
+.layout--threecol-section > .layout__region { flex: none; min-width: 0; }
+.layout--twocol-section--50-50 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.layout--twocol-section--33-67 { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.layout--twocol-section--67-33 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.layout--twocol-section--25-75 { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); }
+.layout--twocol-section--75-25 { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
+.layout--threecol-section--25-50-25 { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr); column-gap: 0; } /* centred text column: 540 of 1080 */
+.layout--threecol-section--33-34-33 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.layout--threecol-section--25-25-50 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr); }
+.layout--threecol-section--50-25-25 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); }
+/* Empty regions are not rendered: pin each region to its own column. */
+.layout--twocol-section > .layout__region--first,
+.layout--threecol-section > .layout__region--first { grid-column: 1; }
+.layout--twocol-section > .layout__region--second,
+.layout--threecol-section > .layout__region--second { grid-column: 2; }
+.layout--threecol-section > .layout__region--third { grid-column: 3; }
+/* Sections with columns follow the component above them. */
+.layout--twocol-section,
+.layout--threecol-section { margin-top: 87px; }
+.layout--onecol:has(.text-block) + .layout--twocol-section { margin-top: 32px; }
+
+/* Basic block in a one-column section = section intro (Figma "Onze lokalen": h2 48/64, text muted, 711 px). */
+.layout--onecol .text-block {
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin: 122px auto 0;
+}
+.layout--onecol .text-block .rich-text { max-width: 711px; color: var(--color-text-muted); line-height: var(--line-height-auto); }
+.layout--onecol .text-block .rich-text :where(p) { margin-top: 0; }
+.layout--onecol .text-block .rich-text h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-heading-xl);
+  line-height: 64px;
+}
+/* Basic block in a column = running text (Figma "Ons verhaal": one empty line between paragraphs). */
+:is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text :where(p, ul, ol) { margin-top: 24px; }
+:is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text > :first-child { margin-top: 0; }
+
+@media (width < 700px) {
+  .layout--twocol-section,
+  .layout--threecol-section {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 2 * var(--page-gutter-mobile));
+    margin-top: 42px;
+  }
+  .layout--twocol-section > .layout__region,
+  .layout--threecol-section > .layout__region { grid-column: 1; }
+  .layout--onecol:has(.text-block) + .layout--twocol-section { margin-top: 32px; }
+  .layout--onecol .text-block { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 74px; }
+  .layout--onecol .text-block .rich-text { font-size: .875rem; }
+  .layout--onecol .text-block .rich-text h2 { font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+  :is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text { font-size: .875rem; }
+}
+
+/* Contact block in a one-column section = one more tile in the contact grid above it
+   (same columns and gap as card-grid). */
+.layout--onecol:has(> .layout__region > .contact-block) > .layout__region {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap-desktop);
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin: var(--grid-gap-desktop) auto 0; /* Footer spacing is owned by site-footer. */
+}
+@media (width < 1000px) {
+  .layout--onecol:has(> .layout__region > .contact-block) > .layout__region { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (width < 700px) {
+  .layout--onecol:has(> .layout__region > .contact-block) > .layout__region {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--grid-gap-compact);
+    width: calc(100% - 2 * var(--page-gutter-mobile));
+    margin-top: var(--grid-gap-compact);
+    margin-bottom: 0;
+  }
+}
+
+/* Four columns (Figma Desktop 50:709, Verhuur): 4 x 251 px, 25 px apart, 81 px under a wide photo.
+   Mobile 128:1239: two columns, 16 px apart, 32 px between rows. */
+.layout--fourcol-section {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 25px;
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin: 87px auto 0;
+}
+.layout--fourcol-section > .layout__region { flex: none; min-width: 0; }
+.layout--onecol:has(.photo) + .layout--fourcol-section { margin-top: 81px; }
+@media (width < 1000px) {
+  .layout--fourcol-section { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (width < 700px) {
+  .layout--fourcol-section { gap: 32px 16px; width: calc(100% - 2 * var(--page-gutter-mobile)); }
+  .layout--onecol:has(.photo) + .layout--fourcol-section { margin-top: 56px; }
+}
+
+/* Text next to a photo (Figma Desktop 50:709 "Hoe bereik je 't Brielhof?"):
+   h2 36, text 16 muted, 12 px between blocks, text centred next to the 528 x 443 photo, 64 px under the banner. */
+.ksa-section--text-photo { align-items: center; margin-bottom: 0; }
+.layout--onecol:has(.text-media--compact) + .ksa-section--text-photo { margin-top: 64px; }
+.ksa-section--text-photo .text-block .rich-text { color: var(--color-text-muted); }
+.ksa-section--text-photo .text-block .rich-text :where(p, ul, ol, h2, h3) { margin-top: 12px; }
+.ksa-section--text-photo .text-block .rich-text > :first-child { margin-top: 0; }
+.ksa-section--text-photo .text-block .rich-text h2 { color: var(--color-text); font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+@media (width < 700px) {
+  .ksa-section--text-photo { gap: 25px; }
+  .layout--onecol:has(.text-media--compact) + .ksa-section--text-photo { margin-top: 33px; }
+  .ksa-section--text-photo .text-block .rich-text h2 { font-size: var(--font-size-heading-sm); text-align: left; }
+}
+
+/* ===== Rondes page (Figma Desktop 107:2680, Mobile 129:2735) ===== */
+/* One-column section with the booklet view = bordered box: 1081 px, radius 12, padding 50, 24 px gap.
+   The basic block inside (h2 36 + text) loses its section-intro width and margins. */
+.ksa-section--booklets > .layout__region {
+  display: grid;
+  gap: 24px;
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: 1081px;
+  margin: 64px auto 0;
+  padding: 50px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card-image);
+}
+.ksa-section--booklets .text-block { width: auto; max-width: none; margin: 0; }
+.ksa-section--booklets .text-block .rich-text { max-width: none; }
+.ksa-section--booklets .text-block .rich-text h2 { margin-bottom: 24px; font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+.ksa-section--booklets .text-block .rich-text p { margin: 0 0 1em; }
+.ksa-section--booklets .text-block .rich-text > :last-child { margin-bottom: 0; }
+.view-booklets .card-grid { gap: 24px; }
+.view-booklets .views-row { height: 100%; }
+/* Booklet box as the last section (home page): same space above the footer as the agenda on Rondes. */
+.ksa-section--booklets:last-child { margin-bottom: 0; }
+
+/* Section intro above text cards (weekends & camps): centred, h2 36. */
+.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block { margin-top: 96px; text-align: center; }
+.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text { max-width: 711px; margin-inline: auto; }
+.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text h2 { margin-bottom: 12px; font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+.layout--onecol:has(.text-block) + .layout--threecol-section:has(.info-card--text) { margin-top: 32px; }
+
+/* Agenda section (component ksa:agenda): Figma space above the footer (collapses with the footer margin). */
+.layout--onecol:has(.agenda) { margin-bottom: 0; }
+
+@media (width < 700px) {
+  .ksa-section--booklets > .layout__region { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 40px; padding: 24px; }
+  .ksa-section--booklets .text-block .rich-text h2 { font-size: var(--font-size-heading-sm); }
+  .view-booklets .card-grid { gap: var(--grid-gap-compact); }
+  .ksa-section--booklets:last-child { margin-bottom: 0; }
+  .layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block { margin-top: 64px; }
+  .layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text h2 { font-size: 1.625rem; }
+  .layout--onecol:has(.text-block) + .layout--threecol-section:has(.info-card--text) { margin-top: 24px; gap: 16px; }
+  .layout--onecol:has(.agenda) { margin-bottom: 0; }
+}
+
+@media (width < 700px) {
+  .ksa-section--text-photo .rich-text { text-align: left !important; }
+}

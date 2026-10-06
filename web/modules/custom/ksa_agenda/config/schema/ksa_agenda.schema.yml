@@ -1,0 +1,7 @@
+ksa_agenda.settings:
+  type: config_object
+  label: 'KSA Agenda settings'
+  mapping:
+    calendar_id:
+      type: string
+      label: 'Public Google Calendar ID'

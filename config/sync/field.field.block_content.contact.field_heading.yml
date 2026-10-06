@@ -1,0 +1,19 @@
+uuid: a1209685-5942-4dbc-b08b-b17c3eff0225
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.storage.block_content.field_heading
+id: block_content.contact.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: contact
+label: Titel
+description: 'Korte titel bovenaan het blok.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

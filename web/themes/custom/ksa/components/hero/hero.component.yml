@@ -1,0 +1,16 @@
+name: Hero
+description: 'Intro met Media-foto’s aan een bewegende waslijn.'
+status: stable
+slots:
+  background:
+    title: Achtergrondafbeelding
+  heading:
+    title: Titel
+  intro:
+    title: Intro
+  images:
+    title: Fotokaarten
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

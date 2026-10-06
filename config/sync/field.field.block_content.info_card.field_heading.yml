@@ -1,0 +1,19 @@
+uuid: 57b7b79a-76e0-435d-a905-e97fad82d8e4
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.info_card
+    - field.storage.block_content.field_heading
+id: block_content.info_card.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: info_card
+label: Kop
+description: 'Korte kop van de kaart, bv. Groene omgeving of Deinze.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

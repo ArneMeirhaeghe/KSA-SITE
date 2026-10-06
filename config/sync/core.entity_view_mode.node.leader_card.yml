@@ -1,0 +1,11 @@
+uuid: a91a6744-1337-4c35-bf0a-71f7ab428d1d
+langcode: nl
+status: true
+dependencies:
+  module:
+    - node
+id: node.leader_card
+label: Leiderskaart
+description: null
+targetEntityType: node
+cache: true

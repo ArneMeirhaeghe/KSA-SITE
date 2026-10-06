@@ -1,0 +1,19 @@
+{% if items %}
+  <nav class="pager" aria-label="{{ 'Paginering'|t }}">
+    <ul class="pager__items js-pager__items">
+      <li class="pager__item">
+        {% if items.previous %}<a href="{{ items.previous.href }}" rel="prev">‹ {{ 'Vorige'|t }}</a>{% else %}<span class="pager__disabled">‹ {{ 'Vorige'|t }}</span>{% endif %}
+      </li>
+      {% if ellipses.previous %}<li class="pager__item" aria-hidden="true">…</li>{% endif %}
+      {% for number, item in items.pages %}
+        <li class="pager__item{{ current == number ? ' is-active' : '' }}">
+          <a href="{{ item.href }}"{% if current == number %} aria-current="page"{% endif %}><span class="visually-hidden">{{ 'Pagina'|t }} </span>{{ number }}</a>
+        </li>
+      {% endfor %}
+      {% if ellipses.next %}<li class="pager__item" aria-hidden="true">…</li>{% endif %}
+      <li class="pager__item">
+        {% if items.next %}<a href="{{ items.next.href }}" rel="next">{{ 'Volgende'|t }} ›</a>{% else %}<span class="pager__disabled">{{ 'Volgende'|t }} ›</span>{% endif %}
+      </li>
+    </ul>
+  </nav>
+{% endif %}

@@ -1,0 +1,18 @@
+uuid: cc5e1583-5e7c-4071-9894-5d2f09edf550
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.leader
+id: node.leader.title
+field_name: title
+entity_type: node
+bundle: leader
+label: Naam
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

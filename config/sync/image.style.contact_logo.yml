@@ -1,0 +1,21 @@
+uuid: 2a4fa17b-6460-4f35-b065-2792f7735ef4
+langcode: nl
+status: true
+dependencies: {  }
+name: contact_logo
+label: 'Contactlogo (480)'
+effects:
+  7baadfc3-d948-4641-a706-d083f10b9b98:
+    uuid: 7baadfc3-d948-4641-a706-d083f10b9b98
+    id: image_scale
+    weight: 1
+    data:
+      width: 480
+      height: 480
+      upscale: false
+  475d3745-1a07-485e-a48c-a46a89031de3:
+    uuid: 475d3745-1a07-485e-a48c-a46a89031de3
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

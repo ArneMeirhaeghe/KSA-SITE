@@ -1,0 +1,21 @@
+uuid: d781532c-5b30-4ba8-b38d-cef655e59a92
+langcode: nl
+status: true
+dependencies: {  }
+name: hero_background_md
+label: 'Hero-achtergrond (1440)'
+effects:
+  e1afce72-e339-435e-8196-64ee697b66b1:
+    uuid: e1afce72-e339-435e-8196-64ee697b66b1
+    id: image_scale
+    weight: 0
+    data:
+      width: 1440
+      height: null
+      upscale: false
+  f789a32e-c149-499f-b35b-aa02490ac71e:
+    uuid: f789a32e-c149-499f-b35b-aa02490ac71e
+    id: image_convert_avif
+    weight: 1
+    data:
+      extension: webp

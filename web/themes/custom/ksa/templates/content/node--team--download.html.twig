@@ -1,0 +1,18 @@
+{# Ploeg in weergave Download: kaart voor het rondeboekje (Rondes-pagina).
+   The label formatter is rendered only for its access check and cache tags;
+   the card itself links straight to the PDF. #}
+{% set booklet = content.field_booklet|render %}
+{% set file = node.field_booklet.entity.field_media_document.entity %}
+{% if booklet|trim and file %}
+  <div{{ attributes.addClass('team-download') }}>
+    {{ title_prefix }}{{ title_suffix }}
+    {% embed 'ksa:download-card' with {
+      url: file_url(file.uri.value),
+      label: node.label,
+      file_type: 'PDF',
+      description: 'Rondeboekje'|t,
+    } %}
+      {% block logo %}{{ content.field_logo }}{% endblock %}
+    {% endembed %}
+  </div>
+{% endif %}

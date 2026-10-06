@@ -1,0 +1,21 @@
+uuid: 628d6308-f7ad-495e-9a91-672e231295fe
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.storage.block_content.field_phone
+  module:
+    - telephone
+id: block_content.contact.field_phone
+field_name: field_phone
+entity_type: block_content
+bundle: contact
+label: Telefoon
+description: 'Optioneel. Voorbeeld: 0470 12 34 56.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

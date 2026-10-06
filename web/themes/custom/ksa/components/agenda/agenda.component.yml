@@ -1,0 +1,38 @@
+name: Agenda
+description: 'Komende activiteiten met paginering, en de maandkalender van Google ernaast. Gevuld door het blok "Agenda uit Google".'
+status: stable
+props:
+  type: object
+  properties:
+    heading:
+      title: Titel van de sectie
+      type: string
+    subscribe_google:
+      title: Abonneren via Google Agenda (link)
+      type: string
+    subscribe_ical:
+      title: Abonneren via iPhone, Mac of Outlook (webcal-link)
+      type: string
+    calendar_url:
+      title: Insluit-link van de maandkalender
+      type: string
+    page:
+      title: Huidige pagina (vanaf 1)
+      type: integer
+    pages:
+      title: Aantal pagina's
+      type: integer
+    page_links:
+      title: Paginanummers (max. 3), elk met number, url en current
+      type: array
+      items:
+        type: object
+    previous_url:
+      title: Link naar de vorige pagina (leeg op de eerste pagina)
+      type: string
+    next_url:
+      title: Link naar de volgende pagina (leeg op de laatste pagina)
+      type: string
+slots:
+  events:
+    title: Kaarten van de activiteiten

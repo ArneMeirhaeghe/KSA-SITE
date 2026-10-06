@@ -1,0 +1,29 @@
+uuid: 57ad29f4-0e28-42f9-a6e0-0886f21d0a52
+langcode: nl
+status: true
+dependencies:
+  config:
+    - block_content.type.text_media
+    - field.storage.block_content.field_background
+    - media.type.image
+id: block_content.text_media.field_background
+field_name: field_background
+entity_type: block_content
+bundle: text_media
+label: Afbeelding
+description: 'Banner (Groot of Compact): een brede foto; de tekst komt erover, een donkere laag houdt hem leesbaar. Stap of Tab: de foto of screenshot naast de tekst.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

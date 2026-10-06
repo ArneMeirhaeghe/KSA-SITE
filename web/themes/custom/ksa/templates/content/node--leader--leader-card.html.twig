@@ -1,0 +1,22 @@
+{# Leiderskaart. De weergave Leiderskaart bepaalt welke velden er zijn. #}
+<article{{ attributes.addClass('leader-teaser') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% embed 'ksa:card' with {url: '', variant: 'leader'} %}
+    {% block image %}{{ content.field_photo }}{% endblock %}
+    {% block title %}{{ label }}{% endblock %}
+    {% block meta %}
+      {# No phone number: no empty link. #}
+      {% if content.field_phone|render|trim %}
+        <span class="card__phone">{{ source('@ksa/components/card/icons/phone.svg') }}{{ content.field_phone }}</span>
+      {% endif %}
+      {% if content.field_babysitting and node.field_babysitting.value %}
+        <span class="card__badge" tabindex="0">
+          {{ source('@ksa/components/card/icons/baby.svg') }}
+          <span class="visually-hidden">{{ 'Mag gebeld worden voor babysitten'|t }}</span>
+          <span class="card__tooltip" aria-hidden="true">{{ 'Mag gebeld worden voor babysitten'|t }}</span>
+        </span>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+  {{ content|without('field_photo', 'field_phone', 'field_babysitting') }}
+</article>

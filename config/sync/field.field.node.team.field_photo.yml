@@ -1,0 +1,29 @@
+uuid: d7b760f2-2a64-4b7a-9efa-7e1ae1ad1d60
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_photo
+    - media.type.image
+    - node.type.team
+id: node.team.field_photo
+field_name: field_photo
+entity_type: node
+bundle: team
+label: Groepsfoto
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

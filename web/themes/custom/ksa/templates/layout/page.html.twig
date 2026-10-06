@@ -1,0 +1,19 @@
+{# Drupal-blokken bepalen de inhoud. Dit template bepaalt de hoofdstructuur. #}
+<div class="site">
+  {% if page.header %}
+    <header class="site-header">
+      {{ page.header }}
+    </header>
+  {% endif %}
+
+  {# Doel van de standaard Drupal-link 'Overslaan en naar de inhoud gaan'. #}
+  <main id="main-content" class="site-main" tabindex="-1">
+    {{ page.content }}
+  </main>
+
+  {% if page.footer %}
+    <footer class="site-footer">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+</div>
