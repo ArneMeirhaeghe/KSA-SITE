@@ -55,6 +55,14 @@ Kies een brede, rustige afbeelding waarop witte tekst leesbaar blijft.
 
 ## Weergave
 
+Sinds 6 oktober 2026 gebruikt het fotovenster de volledige herobreedte.
+De smalle witte buitenmarge langs beide schermranden blijft behouden.
+Het aantal zichtbare kaarten volgt de beschikbare breedte,
+zonder maximum van vier: bijvoorbeeld vijf bij 1440 px en zeven bij
+1920 px. De gekozen foto's worden cyclisch herhaald om brede schermen te
+vullen. Eén bronfoto blijft één gecentreerde kaart. De rail krijgt bij
+herschalen voldoende kopieën voor een doorlopende schuifanimatie.
+
 Drupals gerenderde velden gaan via slots naar het component.
 Het bloktemplate koppelt de velden; een veldtemplate maakt de fotokaarten.
 Geen entity-query’s in Twig. Geen preprocessors of extra modules.

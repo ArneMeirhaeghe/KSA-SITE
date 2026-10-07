@@ -111,8 +111,12 @@
       const gap = parseFloat(style.getPropertyValue('--gap'));
       const edge = parseFloat(style.getPropertyValue('--edge-space'));
       step = width + gap;
-      visible = Math.max(1, Math.min(count, 4, Math.floor((stage.clientWidth - 2 * edge + gap) / step)));
-      stage.style.setProperty('--window-width', `${visible * step - gap + 2 * edge}px`);
+      visible = count === 1 ? 1 : Math.max(1, Math.floor((stage.clientWidth - 2 * edge + gap) / step));
+      // Vul ook brede schermen; reserveer een extra kaart voor het doorschuiven.
+      // De originelen en hun focus blijven bij herschalen behouden.
+      const needed = 2 * count + visible + 1;
+      while (rail.children.length < needed) rail.append(...originals.map(clone));
+      stage.style.setProperty('--rail-inset', `${Math.max(edge, (stage.clientWidth - visible * step + gap) / 2)}px`);
       normalize();
       schedule();
     }
@@ -155,6 +159,7 @@
       originals.forEach((card) => { card.inert = false; card.removeAttribute('aria-hidden'); card.querySelector('.ksa-hero__photo').removeAttribute('tabindex'); });
       rail.classList.remove('is-moving');
       rail.style.removeProperty('transform');
+      stage.style.removeProperty('--rail-inset');
       root.classList.remove('is-enhanced');
       controls.hidden = true;
     };

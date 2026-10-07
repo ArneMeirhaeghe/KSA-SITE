@@ -1,5 +1,25 @@
 # Jos de vos in de hero
 
+## Jos in de footer (6 oktober 2026)
+
+Pagina's zonder bestaande Jos krijgen dezelfde animatie in een eigen strook
+in de footer, met een pauze-/afspeelknop. Het dagschema en de voorkeur voor
+minder beweging blijven gelden. Op mobiel blijft Jos op een vaste plek.
+
+`site-footer.twig` bevat een inert template. `site-footer.js` voegt dit alleen
+toe wanneer de hoofdinhoud geen hero-Jos, account-Jos of inschrijvingsstappen
+met Jos heeft. Zo ontstaan geen dubbele SVG-ID's of dubbele animaties.
+De footer gebruikt `data-jos-controller` om de bestaande regisseur te pauzeren.
+Drupal detach ruimt de listeners en de ingeladen Jos op.
+
+Gecontroleerd: alle 50 inhoudspagina's plus login en wachtwoordherstel hebben
+precies één Jos-locatie. Home, Inschrijving en de twee accountpagina's hebben
+geen footer-Jos. Contact op 320 px heeft geen overloop; pauzeren en hervatten
+werken. JavaScript-syntax en `git diff --check` slagen. Minder beweging is
+in CSS/JS voorzien, niet via een gewijzigde OS-instelling getest.
+Bewijs: `qa/footer-jos-checks.json`, `qa/footer-jos-mobile.png` en
+`qa/footer-jos-desktop.png`.
+
 Status: gebouwd op 29 september 2026. Nog niet in de echte Drupal-site bekeken.
 Jos staat niet in het Figma-ontwerp. Plaats en gedrag zijn keuzes van Arne.
 

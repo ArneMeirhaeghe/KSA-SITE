@@ -39,7 +39,7 @@
     : hour >= period.from || hour < period.to);
 
   function init(root) {
-    const hero = root.closest('.ksa-hero');
+    const hero = root.closest('.ksa-hero, [data-jos-controller]');
     const walker = root.querySelector('.ksa-jos__walker');
     const button = root.querySelector('[data-jos-next]');
     const svg = root.querySelector('.ksa-jos__svg');

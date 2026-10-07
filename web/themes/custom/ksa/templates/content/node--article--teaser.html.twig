@@ -1,7 +1,7 @@
 {# Laad geen entiteiten: gebruik de velden van Drupals teaserweergave. #}
 <article{{ attributes.addClass('news-teaser') }}>
   {{ title_prefix }}{{ title_suffix }}
-  {% embed 'ksa:card' with {url: url, variant: 'news'} %}
+  {% embed 'ksa:card' with {url: url, variant: 'news', heading_level: 3} %}
     {% block image %}{{ content.field_main_image }}{% endblock %}
     {% block eyebrow %}<time datetime="{{ node.getCreatedTime|date('c') }}">{{ node.getCreatedTime|format_date('custom', 'd M Y') }}</time>{% endblock %}
     {% block title %}{{ label }}{% endblock %}

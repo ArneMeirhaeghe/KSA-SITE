@@ -1,0 +1,5 @@
+ksa_editor.home:
+  title: 'Site beheren'
+  route_name: ksa_editor.home
+  menu_name: content
+  weight: -100

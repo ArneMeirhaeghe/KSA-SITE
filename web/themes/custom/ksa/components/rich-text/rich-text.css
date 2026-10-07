@@ -1,6 +1,6 @@
 /* Body text (Figma Desktop 18:61): p 16/24, 36 px between blocks. Left aligned for readability. */
 .rich-text { display: flow-root; color: var(--color-text); font-size: var(--font-size-body); line-height: var(--line-height-body); overflow-wrap: break-word; }
-.rich-text :where(p, ul, ol, blockquote, h2, h3, h4) { margin: 36px 0 0; }
+.rich-text :where(p, ul, ol, blockquote, h2, h3, h4) { margin: 24px 0 0; }
 .rich-text :where(p, ul, ol, blockquote, h2, h3, h4, .align-right, .align-left):first-child { margin-top: 0; }
 .rich-text :where(h2) { font-size: var(--font-size-heading-sm); }
 .rich-text :where(h3, h4) { font-size: var(--font-size-heading-xs); }
@@ -23,5 +23,9 @@
 
 @media (width < 700px) {
   .rich-text .align-right,
-  .rich-text .align-left { float: none; width: auto; margin: 36px 0 0; }
+  .rich-text .align-left { float: none; width: auto; margin: 24px 0 0; }
 }
+
+/* Meer afstand vóór een tussentitel dan tussen titel en uitleg. */
+.rich-text :where(h2, h3, h4) { margin-top: 40px; line-height: var(--line-height-heading); }
+.rich-text :where(h2, h3, h4) + :where(p, ul, ol) { margin-top: 12px; }

@@ -1,6 +1,10 @@
 name: Footer
 description: 'Footer op elke pagina: logo, menukolommen uit het menu Footer, lijn, copyright, links uit Footer onderaan en Naar boven. Figma: component Footer (31:247).'
 status: stable
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
 props:
   type: object
   properties:

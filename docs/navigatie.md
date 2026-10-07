@@ -58,7 +58,7 @@ Foto’s en het footermenu zijn niet ingevuld.
 
 De menulink blijft gekoppeld aan de pagina. Een oud gedeeld webadres volgt
 echter niet vanzelf mee. Bij een live site moet voor dat oude adres een
-redirect worden voorzien. We hebben nu geen redirects ingesteld.
+redirect worden voorzien. Sinds 7 oktober 2026 beheert de module Redirect dit. Er zijn 24 permanente doorverwijzingen toegevoegd voor oude pagina’s, nieuwsberichten en PDF’s; zie `seo-uitvoering-2026-10-07.md`.
 
 Voor deze paar vaste pagina’s vullen we de alias handmatig in.
 Automatische patronen voor veel nieuwsberichten kunnen later apart worden ingesteld.

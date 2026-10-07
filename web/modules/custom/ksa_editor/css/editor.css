@@ -1,0 +1,6 @@
+.item-list ul.ksa-editor-tasks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; padding: 0; margin: 1.5rem 0; list-style: none; }
+.item-list ul.ksa-editor-tasks li { margin: 0; padding: 0; list-style: none; }
+.ksa-editor-tasks a { display: block; padding: 1.5rem; border: 1px solid var(--gin-border-color, #ccc); border-radius: .75rem; font-size: 1.15rem; font-weight: 600; text-decoration: none; }
+.ksa-editor-tasks a:hover, .ksa-editor-tasks a:focus-visible { background: var(--gin-bg-layer2, #f4f4f4); }
+.item-list ul.ksa-editor-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.item-list ul.ksa-editor-actions li { margin: 0; padding: 0; list-style: none; }

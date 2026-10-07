@@ -1,0 +1,13 @@
+uuid: eb54cdfb-f313-4549-be4c-6cbf8a1b23e7
+langcode: nl
+status: true
+dependencies:
+  module:
+    - redirect
+_core:
+  default_config_hash: 2T-yEyZvw_9I2XVc5fquqcWBvzm6y2o3be2YbQwKe8E
+id: redirect_delete_action
+label: 'Omleiding verwijderen'
+type: redirect
+plugin: redirect_delete_action
+configuration: {  }

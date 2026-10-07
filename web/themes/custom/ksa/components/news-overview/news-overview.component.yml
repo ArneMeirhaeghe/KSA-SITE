@@ -1,6 +1,12 @@
 name: Nieuwsoverzicht
 description: 'Responsief overzicht van door Views geselecteerde nieuwskaarten.'
 status: stable
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Sectietitel
 slots:
   cards:
     title: Nieuwsberichten

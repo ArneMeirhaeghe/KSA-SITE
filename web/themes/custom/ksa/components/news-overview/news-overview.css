@@ -1,7 +1,11 @@
 .news-overview { max-width: var(--content-max-width); margin: 64px auto; width: calc(100% - 2 * var(--page-gutter-desktop)); }
+.news-overview__heading { margin: 0 0 28px; font-size: var(--font-size-section-title); line-height: var(--line-height-heading); }
+.news-overview .card-grid { row-gap: 40px; }
 /* The grid itself is the shared card-grid component. */
 .news-overview .pager { margin-top: 36px; }
+.view-news > .more-link { max-width: var(--content-max-width); width: calc(100% - 2 * var(--page-gutter-desktop)); margin: -32px auto 64px; }
 /* Pager buttons: css/pager.css. */
 @media (width < 700px) {
   .news-overview { width: calc(100% - 2 * var(--page-gutter-mobile)); }
+  .view-news > .more-link { width: calc(100% - 2 * var(--page-gutter-mobile)); }
 }

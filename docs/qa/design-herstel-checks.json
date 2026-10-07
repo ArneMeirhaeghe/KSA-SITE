@@ -1,0 +1,122 @@
+[
+  {
+    "cards": 6,
+    "h1": "KSA Deinze-Astene",
+    "overflow": false,
+    "path": "/",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 8,
+    "h1": "Activiteiten & kampen",
+    "overflow": false,
+    "path": "/rondes",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 8,
+    "h1": "Maak kennis met de leiding",
+    "overflow": false,
+    "path": "/leiding",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 9,
+    "h1": "Vragen? Contacteer ons!",
+    "overflow": false,
+    "path": "/contact",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 4,
+    "h1": "Welkom bij ’t Brielhof!",
+    "overflow": false,
+    "path": "/verhuur",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 2,
+    "h1": "Ons verhaal",
+    "overflow": false,
+    "path": "/ons-verhaal",
+    "shadows": [
+      "none"
+    ],
+    "width": 390
+  },
+  {
+    "cards": 6,
+    "h1": "KSA Deinze-Astene",
+    "overflow": false,
+    "path": "/",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  },
+  {
+    "cards": 8,
+    "h1": "Activiteiten & kampen",
+    "overflow": false,
+    "path": "/rondes",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  },
+  {
+    "cards": 8,
+    "h1": "Maak kennis met de leiding",
+    "overflow": false,
+    "path": "/leiding",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  },
+  {
+    "cards": 9,
+    "h1": "Vragen? Contacteer ons!",
+    "overflow": false,
+    "path": "/contact",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  },
+  {
+    "cards": 4,
+    "h1": "Welkom bij ’t Brielhof!",
+    "overflow": false,
+    "path": "/verhuur",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  },
+  {
+    "cards": 2,
+    "h1": "Ons verhaal",
+    "overflow": false,
+    "path": "/ons-verhaal",
+    "shadows": [
+      "none"
+    ],
+    "width": 1280
+  }
+]

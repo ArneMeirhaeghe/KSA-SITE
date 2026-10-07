@@ -1,0 +1,28 @@
+ksa_editor.home:
+  path: '/admin/leiding'
+  defaults:
+    _controller: '\Drupal\ksa_editor\Controller\EditorController::home'
+    _title: 'Site beheren'
+  requirements:
+    _permission: 'access content overview'
+  options:
+    _admin_route: TRUE
+ksa_editor.media:
+  path: '/admin/leiding/media'
+  defaults:
+    _controller: '\Drupal\ksa_editor\Controller\EditorController::media'
+    _title: 'Foto’s en PDF’s'
+  requirements:
+    _permission: 'access media overview'
+  options:
+    _admin_route: TRUE
+ksa_editor.content:
+  path: '/admin/leiding/{bundle}'
+  defaults:
+    _controller: '\Drupal\ksa_editor\Controller\EditorController::content'
+    _title_callback: '\Drupal\ksa_editor\Controller\EditorController::title'
+  requirements:
+    _permission: 'access content overview'
+    bundle: 'page|article|leader|team'
+  options:
+    _admin_route: TRUE

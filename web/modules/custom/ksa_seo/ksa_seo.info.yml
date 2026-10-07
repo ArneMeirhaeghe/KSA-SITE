@@ -1,0 +1,8 @@
+name: KSA SEO
+type: module
+description: Correcte canonical-URL’s en foutafhandeling voor het nieuwsarchief.
+package: KSA
+core_version_requirement: ^11
+dependencies:
+  - drupal:views
+  - metatag:metatag

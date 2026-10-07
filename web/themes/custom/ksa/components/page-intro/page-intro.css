@@ -5,18 +5,19 @@
   max-width: 840px;
   width: calc(100% - 2 * var(--page-gutter-desktop));
   margin: var(--page-intro-offset) auto 0;
-  font-size: var(--font-size-heading-2xl);
-  line-height: var(--line-height-auto);
+  font-size: var(--font-size-heading-xl);
+  line-height: 1.333333;
+  text-wrap: balance;
   text-align: center;
 }
-.page-intro { width: calc(100% - 2 * var(--page-gutter-desktop)); max-width: 711px; margin: 7px auto 0; }
+.page-intro { width: calc(100% - 2 * var(--page-gutter-desktop)); max-width: 711px; margin: 16px auto 0; }
 .page-intro__text > * { margin: 0; }
-.page-intro__text { color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-auto); text-align: center; }
+.page-intro__text { color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); text-align: center; }
 /* Article: Figma Desktop 18:61, header 522 px wide, 12 px under the title. */
 .page-intro--article { max-width: 522px; margin-top: 12px; }
 
 @media (width < 700px) {
   .site:has(.page-intro) :where(#block-ksa-page-title) h1 { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: var(--page-intro-offset-mobile); font-size: var(--font-size-heading-lg); }
   .page-intro { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 10px; }
-  .page-intro__text { font-size: var(--font-size-body-sm); }
+  .page-intro__text { font-size: var(--font-size-body); }
 }

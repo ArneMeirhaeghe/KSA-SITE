@@ -1,5 +1,6 @@
 {% set cards_markup %}{% block cards %}{% endblock %}{% endset %}
 <section class="news-overview" aria-label="{{ 'Nieuws'|t }}">
+  {% if heading %}<h2 class="news-overview__heading">{{ heading }}</h2>{% endif %}
   {{ include('ksa:card-grid', {items: cards_markup}, with_context = false) }}
   {% block empty %}{% endblock %}
   {% block pager %}{% endblock %}

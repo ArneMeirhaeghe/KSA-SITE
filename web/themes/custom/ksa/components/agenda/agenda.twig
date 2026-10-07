@@ -54,10 +54,10 @@
       {% endif %}
     </div>
     {% if calendar_url %}
-      <details class="agenda__calendar">
-        <summary>{{ 'Toon maandkalender'|t }}</summary>
+      <div class="agenda__calendar">
+        <h3 class="agenda__subtitle">{{ 'Maandkalender'|t }}</h3>
         <iframe src="{{ calendar_url }}" title="{{ 'Maandkalender van KSA Deinze-Astene'|t }}" loading="lazy"></iframe>
-      </details>
+      </div>
     {% endif %}
   </div>
 </section>

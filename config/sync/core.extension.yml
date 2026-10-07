@@ -25,8 +25,12 @@ module:
   help: 0
   image: 0
   ksa_agenda: 0
+  ksa_editor: 0
+  ksa_seo: 0
   language: 0
   layout_builder: 0
+  layout_builder_perms: 0
+  layout_builder_perms_global: 0
   layout_builder_styles: 0
   layout_discovery: 0
   link: 0
@@ -37,6 +41,7 @@ module:
   menu_ui: 0
   metatag: 0
   metatag_open_graph: 0
+  metatag_views: 0
   mysql: 0
   navigation: 0
   node: 0
@@ -44,7 +49,14 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  redirect: 0
   responsive_image: 0
+  schema_article: 0
+  schema_metatag: 0
+  schema_organization: 0
+  schema_web_site: 0
+  simple_sitemap: 0
+  simplify: 0
   system: 0
   taxonomy: 0
   telephone: 0
@@ -53,6 +65,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  view_unpublished: 0
   views_ui: 0
   pathauto: 1
   views: 10

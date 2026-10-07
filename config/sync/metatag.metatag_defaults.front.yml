@@ -8,12 +8,23 @@ id: front
 label: Voorpagina
 tags:
   canonical_url: '[site:url]'
-  description: 'Ontdek KSA Deinze-Astene: wekelijkse rondes, kampen en vrienden voor het leven. Maak kennis met de leiding en vind alle praktische informatie.'
-  og_description: 'Samen spelen, avonturen beleven en vrienden maken bij KSA Deinze-Astene.'
+  description: 'KSA Deinze-Astene is een jeugdbeweging voor kinderen en jongeren. Ontdek onze leeftijdsgroepen, zaterdagactiviteiten, kampen en hoe je je kind inschrijft.'
+  og_description: 'KSA Deinze-Astene is een jeugdbeweging voor kinderen en jongeren. Ontdek onze leeftijdsgroepen, zaterdagactiviteiten, kampen en hoe je je kind inschrijft.'
   og_image: '[site:url]themes/custom/ksa/assets/ksa-header.png'
   og_site_name: '[site:name]'
   og_title: '[site:name]'
   og_type: website
   og_url: '[site:url]'
+  schema_organization_description: 'Jeugdbeweging voor kinderen en jongeren in Deinze en Astene.'
+  schema_organization_id: '[site:url]#organisatie'
+  schema_organization_name: 'KSA Deinze-Astene'
+  schema_organization_same_as: 'https://www.facebook.com/KSADeinzeAstene/'
+  schema_organization_type: Organization
+  schema_organization_url: '[site:url]'
+  schema_web_site_id: '[site:url]#website'
+  schema_web_site_in_language: nl-BE
+  schema_web_site_name: 'KSA Deinze-Astene'
+  schema_web_site_type: WebSite
+  schema_web_site_url: '[site:url]'
   shortlink: '[site:url]'
-  title: '[site:name] | Samen spelen en avonturen beleven'
+  title: '[site:name] | Jeugdbeweging in Deinze en Astene'

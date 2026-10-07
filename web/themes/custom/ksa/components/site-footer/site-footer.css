@@ -41,6 +41,15 @@
 .site-footer__copyright { margin: 0; }
 .site-footer__small { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
 
+/* Een eigen speelstrook voorkomt dat Jos over menulinks of copyright loopt. */
+.site-footer__jos { position: relative; margin-block: -24px; }
+.site-footer__jos[hidden] { display: none; }
+.site-footer__jos-stage { padding-top: 32px; }
+.site-footer__jos .ksa-jos { --jos-width: 130px; --jos-spot-left: 80px; --jos-spot-right: 70%; }
+.site-footer__jos-pause { display: block; margin: 8px 0 0 auto; padding: 8px 12px; min-height: 44px; border: 1px solid currentColor; border-radius: var(--radius-button); color: inherit; background: var(--color-image-overlay); font: inherit; font-size: var(--font-size-body-sm); cursor: pointer; }
+.site-footer__jos-pause[hidden] { display: none; }
+.site-footer__jos-pause:focus-visible { outline-color: var(--color-surface); }
+
 @media (width < 900px) {
   .site-footer__top { flex-wrap: wrap; padding-right: 0; }
   .site-footer__nav { flex-basis: 100%; }
@@ -49,6 +58,8 @@
 @media (width < 700px) {
   .site-footer { margin: var(--footer-gap) var(--page-gutter-mobile) var(--page-gutter-mobile); }
   .site-footer__card { gap: 24px; padding: 24px; }
+  .site-footer__jos { margin-block: 0; }
+  .site-footer__jos .ksa-jos { --jos-width: 104px; --jos-spot-left: 30%; --jos-spot-right: 30%; }
   .site-footer__top { display: grid; gap: 24px; justify-content: stretch; }
   .site-footer__logo { justify-self: start; place-items: center start; }
   /* Mobile: columns two by two, 14 px apart (Figma Mobile 125:1157). */

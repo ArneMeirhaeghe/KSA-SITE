@@ -35,15 +35,15 @@
 .layout--onecol .text-block {
   width: calc(100% - 2 * var(--page-gutter-desktop));
   max-width: var(--content-max-width);
-  margin: 122px auto 0;
+  margin: var(--section-space) auto 0;
 }
-.layout--onecol .text-block .rich-text { max-width: 711px; color: var(--color-text-muted); line-height: var(--line-height-auto); }
+.layout--onecol .text-block .rich-text { max-width: 711px; color: var(--color-text-muted); line-height: var(--line-height-body); }
 .layout--onecol .text-block .rich-text :where(p) { margin-top: 0; }
 .layout--onecol .text-block .rich-text h2 {
   margin: 0;
   color: var(--color-text);
-  font-size: var(--font-size-heading-xl);
-  line-height: 64px;
+  font-size: var(--font-size-section-title);
+  line-height: var(--line-height-heading);
 }
 /* Basic block in a column = running text (Figma "Ons verhaal": one empty line between paragraphs). */
 :is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text :where(p, ul, ol) { margin-top: 24px; }
@@ -59,10 +59,10 @@
   .layout--twocol-section > .layout__region,
   .layout--threecol-section > .layout__region { grid-column: 1; }
   .layout--onecol:has(.text-block) + .layout--twocol-section { margin-top: 32px; }
-  .layout--onecol .text-block { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 74px; }
-  .layout--onecol .text-block .rich-text { font-size: .875rem; }
-  .layout--onecol .text-block .rich-text h2 { font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
-  :is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text { font-size: .875rem; }
+  .layout--onecol .text-block { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: var(--section-space); }
+  .layout--onecol .text-block .rich-text { font-size: var(--font-size-body); }
+  .layout--onecol .text-block .rich-text h2 { font-size: var(--font-size-section-title); line-height: var(--line-height-heading); }
+  :is(.layout--twocol-section, .layout--threecol-section) .text-block .rich-text { font-size: var(--font-size-body); }
 }
 
 /* Contact block in a one-column section = one more tile in the contact grid above it
@@ -115,7 +115,7 @@
 .ksa-section--text-photo .text-block .rich-text { color: var(--color-text-muted); }
 .ksa-section--text-photo .text-block .rich-text :where(p, ul, ol, h2, h3) { margin-top: 12px; }
 .ksa-section--text-photo .text-block .rich-text > :first-child { margin-top: 0; }
-.ksa-section--text-photo .text-block .rich-text h2 { color: var(--color-text); font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+.ksa-section--text-photo .text-block .rich-text h2 { color: var(--color-text); font-size: var(--font-size-section-title); line-height: var(--line-height-heading); }
 @media (width < 700px) {
   .ksa-section--text-photo { gap: 25px; }
   .layout--onecol:has(.text-media--compact) + .ksa-section--text-photo { margin-top: 33px; }
@@ -136,8 +136,8 @@
   border-radius: var(--radius-card-image);
 }
 .ksa-section--booklets .text-block { width: auto; max-width: none; margin: 0; }
-.ksa-section--booklets .text-block .rich-text { max-width: none; }
-.ksa-section--booklets .text-block .rich-text h2 { margin-bottom: 24px; font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+.ksa-section--booklets .text-block .rich-text { max-width: 70ch; }
+.ksa-section--booklets .text-block .rich-text h2 { margin-bottom: 24px; font-size: var(--font-size-section-title); line-height: var(--line-height-heading); }
 .ksa-section--booklets .text-block .rich-text p { margin: 0 0 1em; }
 .ksa-section--booklets .text-block .rich-text > :last-child { margin-bottom: 0; }
 .view-booklets .card-grid { gap: 24px; }
@@ -146,9 +146,9 @@
 .ksa-section--booklets:last-child { margin-bottom: 0; }
 
 /* Section intro above text cards (weekends & camps): centred, h2 36. */
-.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block { margin-top: 96px; text-align: center; }
+.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block { margin-top: var(--section-space); text-align: center; }
 .layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text { max-width: 711px; margin-inline: auto; }
-.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text h2 { margin-bottom: 12px; font-size: var(--font-size-heading-lg); line-height: var(--line-height-auto); }
+.layout--onecol:has(+ .layout--threecol-section .info-card--text) .text-block .rich-text h2 { margin-bottom: 12px; font-size: var(--font-size-section-title); line-height: var(--line-height-heading); }
 .layout--onecol:has(.text-block) + .layout--threecol-section:has(.info-card--text) { margin-top: 32px; }
 
 /* Agenda section (component ksa:agenda): Figma space above the footer (collapses with the footer margin). */
@@ -168,3 +168,6 @@
 @media (width < 700px) {
   .ksa-section--text-photo .rich-text { text-align: left !important; }
 }
+
+/* De voorzieningen horen direct bij hun sectiekop. */
+.layout--onecol:has(.text-block) + .layout--fourcol-section { margin-top: 32px; }

@@ -9,6 +9,12 @@
     {% block menu %}{% endblock %}
   </div>
   {% block extra %}{% endblock %}
+  {# Pas invoegen als de pagina nog geen Jos heeft; template-inhoud is inert. #}
+  <div class="site-footer__jos" data-footer-jos data-jos-controller hidden>
+    <template data-footer-jos-template>{{ include('ksa:jos', {}, with_context = false) }}</template>
+    <div class="site-footer__jos-stage" data-footer-jos-stage></div>
+    <button class="site-footer__jos-pause" type="button" data-footer-jos-pause aria-pressed="false">{{ 'Jos pauzeren'|t }}</button>
+  </div>
   <hr class="site-footer__rule">
   <div class="site-footer__bottom">
     <div class="site-footer__legal">

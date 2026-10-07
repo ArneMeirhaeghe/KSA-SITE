@@ -25,7 +25,7 @@
 .ksa-hero__stage { --card-width: 208px; --gap: 48px; --edge-space: 48px; position: relative; margin-top: 24px; height: 300px; }
 .ksa-hero__rope { position: absolute; top: 0; width: 100%; height: 74px; overflow: visible; }
 .ksa-hero__rope path { fill: none; stroke: var(--color-surface); stroke-width: 3; }
-.ksa-hero__window { max-width: 100%; width: var(--window-width, 100%); height: 100%; margin: auto; padding: 42px var(--edge-space) 0; overflow: auto hidden; touch-action: pan-y; }
+.ksa-hero__window { width: 100%; height: 100%; padding: 42px var(--rail-inset, var(--edge-space)) 0; overflow: auto hidden; touch-action: pan-y; }
 .ksa-hero__rail { display: flex; gap: var(--gap); width: max-content; }
 .ksa-hero.is-enhanced .ksa-hero__window { overflow: hidden; }
 .ksa-hero.is-enhanced .ksa-hero__rail { will-change: transform; }

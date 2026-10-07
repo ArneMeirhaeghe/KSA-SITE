@@ -8,4 +8,5 @@ id: '404'
 label: '404 pagina niet gevonden'
 tags:
   canonical_url: '[site:url]'
+  robots: noindex
   shortlink: '[site:url]'

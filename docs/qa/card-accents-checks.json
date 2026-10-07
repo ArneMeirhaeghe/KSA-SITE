@@ -1,0 +1,77 @@
+[
+  {
+    "mainOverflow": 0,
+    "path": "/",
+    "width": 320
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/leiding",
+    "width": 320
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/contact",
+    "width": 320
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/rondes",
+    "width": 320
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/verhuur",
+    "width": 320
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/",
+    "width": 768
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/leiding",
+    "width": 768
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/contact",
+    "width": 768
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/rondes",
+    "width": 768
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/verhuur",
+    "width": 768
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/",
+    "width": 1440
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/leiding",
+    "width": 1440
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/contact",
+    "width": 1440
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/rondes",
+    "width": 1440
+  },
+  {
+    "mainOverflow": 0,
+    "path": "/verhuur",
+    "width": 1440
+  }
+]

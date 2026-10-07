@@ -1,5 +1,14 @@
 # Header
 
+## Vergroting (6 oktober 2026)
+
+Op verzoek is de navigatie groter dan de oorspronkelijke Figma-maten:
+logo 150 px breed, menutekst en acties 14 px, knoppen met 8 px verticale
+padding. Het desktopbreakpoint blijft 1120 px. Mobiel behoudt de
+hoofdnavigatie in het open paneel zijn grotere koptekst.
+Gecontroleerd op 320, 402, 1120, 1440, 1920 en 2560 px zonder horizontale
+overloop; het mobiele menu opent en sluit met Escape en herstelt focus.
+
 Status: donkere navigatie afgestemd op Figma, responsive en werkend.
 De witte homepagevariant wacht op de hero.
 

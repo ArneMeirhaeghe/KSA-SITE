@@ -1,0 +1,121 @@
+<?php
+
+/**
+ * @file
+ * Content-only editing and a quiet navigation for KSA's leadership.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityFormInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\layout_builder\Form\OverridesEntityForm;
+
+/** Whether this is the restricted editor experience, never the administrator. */
+function ksa_editor_is_editor(?AccountInterface $account = NULL): bool {
+  $account ??= \Drupal::currentUser();
+  return in_array('content_editor', $account->getRoles(), TRUE) && !$account->hasPermission('administer permissions');
+}
+
+/** Implements hook_entity_field_access(). */
+function ksa_editor_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, ?FieldItemListInterface $items = NULL) {
+  if ($operation === 'edit' && ksa_editor_is_editor($account) && $field_definition->getType() === 'metatag') {
+    return AccessResult::forbidden()->cachePerPermissions()->addCacheContexts(['user.roles']);
+  }
+  if ($operation === 'edit' && ksa_editor_is_editor($account)
+    && $field_definition->getTargetEntityTypeId() === 'block_content'
+    && in_array($field_definition->getName(), ['field_style', 'field_background', 'field_api_key', 'field_calendar_id'], TRUE)) {
+    return AccessResult::forbidden()->cachePerPermissions()->addCacheContexts(['user.roles']);
+  }
+  return AccessResult::neutral()->cachePerPermissions()->addCacheContexts(['user.roles']);
+}
+
+/** Implements hook_form_alter(). */
+function ksa_editor_form_alter(array &$form, FormStateInterface $form_state, $form_id): void {
+  $object = $form_state->getFormObject();
+  $is_team = $object instanceof EntityFormInterface
+    && $object->getEntity()->getEntityTypeId() === 'node'
+    && $object->getEntity()->bundle() === 'team';
+  if ($is_team && isset($form['status']['widget']['value'])) {
+    // Use the native publication field, but make both choices explicit. Radios
+    // stay in the form instead of becoming Gin's small sticky-header checkbox.
+    $form['status']['#weight'] = -4;
+    unset($form['status']['#group']);
+    $form['status']['widget']['value']['#type'] = 'radios';
+    $form['status']['widget']['value']['#title'] = t('Zichtbaarheid van de groep');
+    $form['status']['widget']['value']['#options'] = [
+      1 => t('Tonen op de website'),
+      0 => t('Verbergen op de website'),
+    ];
+    $form['status']['widget']['value']['#default_value'] = (int) $object->getEntity()->isPublished();
+    $form['status']['widget']['value']['#description'] = t('Een verborgen groep verschijnt niet in de groepenlijst, bij de contactgegevens of bij de rondeboekjes. Je bewaart alle gegevens en kunt de groep volgend werkjaar opnieuw tonen.');
+  }
+  if (!ksa_editor_is_editor()) {
+    return;
+  }
+  $form['#cache']['contexts'][] = 'user.roles';
+  $form['#cache']['contexts'][] = 'user.permissions';
+  if ($object instanceof EntityFormInterface) {
+    // Author/language/technical metadata do not belong in everyday editing.
+    foreach (['langcode', 'uid', 'created', 'revision_log', 'revision_log_message', 'revision_information', 'path', 'menu', 'metatags', 'field_metatags', 'simple_sitemap', 'simple_sitemap_regenerate_now', 'url_redirects'] as $key) {
+      if (isset($form[$key])) {
+        $form[$key]['#access'] = FALSE;
+      }
+    }
+    if (!$is_team && isset($form['status']['widget']['value']['#title'])) {
+      $form['status']['widget']['value']['#title'] = t('Zichtbaar op de website');
+    }
+  }
+  if ($object instanceof OverridesEntityForm) {
+    $form['actions']['revert']['#access'] = FALSE;
+    $form['layout_builder_message']['#access'] = FALSE;
+    $form['actions']['submit']['#value'] = t('Wijzigingen opslaan');
+    $form['actions']['discard_changes']['#value'] = t('Annuleren');
+  }
+  if ($form_id === 'layout_builder_update_block') {
+    // Preserve configuration server-side; hidden inputs alone are insufficient.
+    $configuration = $object->getCurrentComponent()->getConfiguration();
+    foreach (['label', 'label_display', 'context_mapping', 'view_mode'] as $key) {
+      if (isset($form['settings'][$key])) {
+        $element = $form['settings'][$key];
+        $form['settings'][$key] = ['#type' => 'value', '#value' => $configuration[$key] ?? $element['#default_value'] ?? $element['#value'] ?? NULL];
+      }
+    }
+    $form['settings']['admin_label']['#access'] = FALSE;
+    $form['#after_build'][] = 'ksa_editor_preserve_block_styles';
+    $form['actions']['submit']['#value'] = t('Toepassen');
+  }
+}
+
+/** Runs after all form alters, including Layout Builder Styles. */
+function ksa_editor_preserve_block_styles(array $form, FormStateInterface $form_state): array {
+  foreach (array_keys($form) as $key) {
+    if (str_starts_with($key, 'layout_builder_style_')) {
+      unset($form[$key]);
+    }
+  }
+  $form['#submit'] = array_values(array_filter($form['#submit'] ?? [], static fn ($callback) => $callback !== '_layout_builder_styles_submit_block_form'));
+  return $form;
+}
+
+/** Implements hook_navigation_menu_link_tree_alter(). */
+function ksa_editor_navigation_menu_link_tree_alter(array &$tree): void {
+  if (!ksa_editor_is_editor()) {
+    return;
+  }
+  foreach ($tree as $key => $item) {
+    $menu = $item->link->getMenuName();
+    if (($menu === 'content' && $item->link->getPluginId() !== 'ksa_editor.home') || $menu === 'admin') {
+      unset($tree[$key]);
+    }
+  }
+}
+
+/** Implements hook_entity_operation_alter(). */
+function ksa_editor_entity_operation_alter(array &$operations, \Drupal\Core\Entity\EntityInterface $entity): void {
+  if (ksa_editor_is_editor() && $entity->getEntityTypeId() === 'node' && $entity->bundle() === 'page' && isset($operations['layout'])) {
+    $operations['layout']['title'] = t('Teksten en foto’s');
+  }
+}

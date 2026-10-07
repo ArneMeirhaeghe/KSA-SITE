@@ -5,7 +5,7 @@
   --strip-scale: 1;
   --strip-photo-w: calc(343px * var(--strip-scale));
   --strip-gap: calc(26px * var(--strip-scale));
-  margin-top: 142px;
+  margin-top: 40px;
 }
 .media-strip__window { overflow-x: clip; }
 .media-strip__rail {
@@ -44,15 +44,23 @@
 .media-strip__rule {
   width: calc(100% - 2 * var(--page-gutter-desktop));
   max-width: var(--content-max-width);
-  margin: 97px auto 0;
+  margin: 48px auto 0;
   border: 0;
   border-top: 2px solid var(--color-border);
 }
 
-/* The strip replaces the page title on top of a page: keep the h1 for screen readers only. */
+/* Een zichtbare paginatitel geeft context vóór de fotoreeks. */
 .site:has(article > div > .layout:first-child .media-strip):not(:has(#layout-builder)) #block-ksa-breadcrumbs { display: none; }
 .site:has(article > div > .layout:first-child .media-strip):not(:has(#layout-builder)) #block-ksa-page-title {
-  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  max-width: var(--content-max-width);
+  margin: var(--page-intro-offset) auto 0;
+  text-align: center;
+}
+.site:has(.media-strip) #block-ksa-page-title h1 {
+  margin: 0;
+  font-size: var(--font-size-page-title);
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -60,6 +68,10 @@
 }
 
 @media (width < 700px) {
-  .media-strip { --strip-scale: .344; margin-top: 50px; }
+  .site:has(.media-strip):not(:has(#layout-builder)) #block-ksa-page-title {
+    width: calc(100% - 2 * var(--page-gutter-mobile));
+    margin-top: var(--page-intro-offset-mobile);
+  }
+  .media-strip { --strip-scale: .344; margin-top: 32px; }
   .media-strip__rule { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 42px; }
 }

@@ -4,8 +4,9 @@
   max-width: var(--content-max-width);
   width: calc(100% - 2 * var(--page-gutter-desktop));
   margin: var(--team-title-offset) auto 0;
-  font-size: var(--font-size-heading-2xl);
-  line-height: var(--line-height-auto);
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
 }
 .team-detail { max-width: var(--content-max-width); width: calc(100% - 2 * var(--page-gutter-desktop)); margin: 26px auto 0; }
 .detail-back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 24px; }
@@ -23,3 +24,7 @@
   .team-detail { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 24px; }
   .team-detail .contact-card { margin-top: 40px; padding-top: 40px; }
 }
+
+/* Labels ondersteunen de contactgegevens, zonder ermee te concurreren. */
+.leader-detail__info .field__label { color: var(--color-text-muted); font-size: var(--font-size-body-sm); font-weight: var(--font-weight-heading); }
+.leader-detail__info a { font-size: var(--font-size-heading-xs); text-decoration-color: var(--color-brand); }

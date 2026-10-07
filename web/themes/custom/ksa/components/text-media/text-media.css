@@ -22,8 +22,8 @@
 .text-media__image::after { content: ''; position: absolute; inset: 0; background: rgb(30 30 30 / var(--text-media-overlay)); }
 .text-media__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .text-media__content { display: grid; justify-items: center; gap: 12px; max-width: 771px; }
-.text-media__heading { margin: 0; font-size: var(--font-size-heading-md); font-weight: var(--font-weight-heading); line-height: var(--line-height-auto); }
-.text-media__text { margin: 0; font-size: var(--font-size-body); line-height: var(--line-height-auto); }
+.text-media__heading { margin: 0; font-size: var(--font-size-heading-md); font-weight: var(--font-weight-heading); line-height: var(--line-height-heading); }
+.text-media__text { margin: 0; font-size: var(--font-size-body); line-height: var(--line-height-body); }
 .text-media__action a {
   display: inline-flex;
   align-items: center;
@@ -32,7 +32,7 @@
   background: var(--color-brand);
   color: var(--color-text);
   font-size: var(--font-size-body);
-  line-height: var(--line-height-auto);
+  line-height: var(--line-height-body);
   text-decoration: none;
 }
 .text-media__action a:hover { filter: brightness(.95); }
@@ -47,7 +47,7 @@
     padding: 16px;
   }
   .text-media__heading { font-size: 1.625rem; }
-  .text-media__text, .text-media__action a { font-size: .875rem; }
+  .text-media__text, .text-media__action a { font-size: var(--font-size-body); }
 }
 
 /* ===== Compact variant: Figma Desktop 50:709 "Beschikbaarheid & Boekingen" =====
@@ -75,7 +75,7 @@
   rotate: -45deg;
 }
 .text-media--compact .text-media__action a:hover { filter: none; background: rgb(255 255 255 / 12%); }
-.text-media__note { margin: 0; font-size: .875rem; line-height: var(--line-height-body); }
+.text-media__note { margin: 0; font-size: var(--font-size-body-sm); line-height: var(--line-height-body); }
 
 @media (width < 700px) {
   .text-media--compact { --text-media-overlay: .65; margin-top: 39px; padding: 32px 24px; }
@@ -127,7 +127,7 @@
   background: var(--color-surface);
   color: var(--color-text);
   font: inherit;
-  line-height: var(--line-height-auto);
+  line-height: var(--line-height-body);
   text-decoration: none;
   cursor: pointer;
 }
@@ -161,7 +161,7 @@
 .text-media__steps-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; width: 100%; margin-top: 12px; }
 /* Three buttons (previous, link, next): the link sits in the middle. */
 .text-media__step-button--next { margin-left: auto; } /* Next always sits on the right */
-.text-media__step-label { display: none; margin: 0; color: #2e7d32; font-size: .875rem; /* darker green: readable at 14 px */ }
+.text-media__step-label { display: none; margin: 0; color: #2e7d32; font-size: var(--font-size-body); /* darker green: readable at 14 px */ }
 /* Hidden step or tab (set by text-media.js). */
 .text-media-block[hidden] { display: none; }
 
@@ -215,10 +215,11 @@
   position: relative; /* offsetLeft of the tabs is measured from here */
   display: flex;
   justify-content: center;
-  gap: 63px;
+  gap: 16px 32px;
+  flex-wrap: wrap;
   width: calc(100% - 2 * var(--page-gutter-desktop));
   max-width: var(--content-max-width);
-  margin: 39px auto 0;
+  margin: var(--section-space) auto 0;
   border-bottom: 1px solid var(--color-border);
   overflow-x: auto;
   scrollbar-width: none;
@@ -237,10 +238,10 @@
   :is(.text-media--step, .text-media--tab) .text-media__image { aspect-ratio: 370 / 208; }
   .text-media--tab .text-media__content { padding-block: 0; }
   :is(.text-media--step, .text-media--tab) .text-media__heading { font-size: 1.625rem; }
-  :is(.text-media--step, .text-media--tab) .text-media__text { font-size: .875rem; }
+  :is(.text-media--step, .text-media--tab) .text-media__text { font-size: var(--font-size-body); }
   :is(.text-media--step, .text-media--tab) .text-media__action a,
   .text-media__step-link,
-  .text-media__step-button { min-height: 41px; padding: 10px 20px; font-size: .875rem; }
+  .text-media__step-button { min-height: var(--control-target-size); padding: 10px 20px; font-size: var(--font-size-body); }
   .text-media__step-label { display: block; }
   /* Small screens: the block's link gets its own full-width row above Previous / Next. */
   .text-media__step-link { order: -1; width: 100%; justify-content: center; }

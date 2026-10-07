@@ -3,54 +3,64 @@ langcode: nl
 status: true
 dependencies:
   config:
+    - block_content.type.basic
+    - core.entity_view_display.node.page.default
     - media.type.document
     - media.type.image
     - node.type.article
     - node.type.leader
     - node.type.page
     - node.type.team
-    - taxonomy.vocabulary.tags
   module:
+    - block_content
     - contextual
-    - file
+    - layout_builder
+    - layout_builder_perms
     - media
     - navigation
     - node
-    - path
     - system
-    - taxonomy
+    - view_unpublished
 _core:
   default_config_hash: og55Zu0F-q-X8zG0Ohrls49zws6IrmmosZS-30Es8vw
 id: content_editor
-label: 'Content editor'
+label: Leiding
 weight: 2
 is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
-  - 'access files overview'
+  - 'access layout builder page'
   - 'access media overview'
   - 'access navigation'
-  - 'administer url aliases'
+  - 'administer node published status'
+  - 'config layout builder blocks'
+  - 'configure editable page node layout overrides'
+  - 'create and edit custom blocks'
   - 'create article content'
   - 'create document media'
   - 'create image media'
   - 'create leader content'
-  - 'create page content'
-  - 'create team content'
-  - 'create terms in tags'
-  - 'create url aliases'
-  - 'delete own files'
   - 'edit any article content'
+  - 'edit any basic block content'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any leader content'
   - 'edit any page content'
   - 'edit any team content'
-  - 'edit terms in tags'
-  - 'revert all revisions'
-  - 'view all revisions'
+  - 'revert article revisions'
+  - 'revert leader revisions'
+  - 'revert page revisions'
+  - 'revert team revisions'
+  - 'view any unpublished article content'
+  - 'view any unpublished leader content'
+  - 'view any unpublished page content'
+  - 'view any unpublished team content'
+  - 'view article revisions'
+  - 'view leader revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view team revisions'
   - 'view the administration theme'

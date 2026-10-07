@@ -198,6 +198,19 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 6
+      defaults:
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+      use_more: true
+      use_more_always: true
+      use_more_text: 'Bekijk alle nieuwsberichten'
       display_extenders: {  }
       block_hide_empty: true
     cache_metadata:
@@ -205,7 +218,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -268,6 +280,44 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_1:
+    id: page_1
+    display_title: Pagina
+    display_plugin: page
+    position: 3
+    display_options:
+      defaults:
+        header: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<p>Nieuws, acties en evenementen van KSA Deinze-Astene. Berichten over voorbije activiteiten blijven hier bewaard. Zoek je de planning van je groep? <a href="/rondes">Bekijk de rondes en kampen</a>.</p>'
+            format: basic_html
+          tokenize: false
+      display_extenders:
+        metatag_display_extender:
+          metatags:
+            title: 'Nieuws — pagina [current-page:page-number] | [site:name]'
+            description: 'Lees het nieuws van KSA Deinze-Astene: Startdag, acties en evenementen. In het archief vind je ook berichten over voorbije activiteiten.'
+          tokenize: false
+      path: nieuws
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

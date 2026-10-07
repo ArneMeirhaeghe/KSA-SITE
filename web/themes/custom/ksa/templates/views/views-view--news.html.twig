@@ -1,7 +1,12 @@
 <div{{ attributes.addClass('view-news') }}>
   {{ title_prefix }}{{ title }}{{ title_suffix }}
-  {{ header }}{{ exposed }}{{ attachment_before }}
-  {% embed 'ksa:news-overview' %}
+  {% if view.current_display == 'page_1' %}
+    {% embed 'ksa:page-intro' %}{% block text %}{{ header }}{% endblock %}{% endembed %}
+  {% else %}
+    {{ header }}
+  {% endif %}
+  {{ exposed }}{{ attachment_before }}
+  {% embed 'ksa:news-overview' with {heading: view.current_display == 'block_2' ? 'Meer nieuws'|t : (view.current_display == 'page_1' ? 'Nieuwsberichten'|t : 'Nieuws'|t)} %}
     {% block cards %}{{ rows }}{% endblock %}
     {% block empty %}{{ empty }}{% endblock %}
     {% block pager %}{{ pager }}{% endblock %}

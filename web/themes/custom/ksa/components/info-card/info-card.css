@@ -1,17 +1,17 @@
 /* Figma Desktop 29:2 "Frame 4/5": photo 527 x 330 (radius 12), 24 px, title h3 36, 12 px, text 16 muted.
    Mobile 125:1157: photo 370 x 330, title 32, text 14. */
-.info-card { display: grid; gap: 24px; align-content: start; }
+.info-card { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-content: start; min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
 .info-card__image { overflow: hidden; border-radius: var(--radius-card-image); background: var(--color-border); }
 .info-card__image img { display: block; width: 100%; height: auto; aspect-ratio: 527 / 330; object-fit: cover; }
 .info-card__body { display: grid; gap: 12px; }
-.info-card__heading { margin: 0; font-size: var(--font-size-heading-lg); font-weight: var(--font-weight-heading); line-height: var(--line-height-auto); }
-.info-card__text { margin: 0; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-auto); }
+.info-card__heading { margin: 0; font-size: 1.75rem; font-weight: var(--font-weight-heading); line-height: var(--line-height-heading); }
+.info-card__text { margin: 0; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
 .info-card__action a { color: var(--color-text); text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; text-underline-offset: .2em; }
 
 @media (width < 700px) {
   .info-card__image img { aspect-ratio: 370 / 330; }
-  .info-card__heading { font-size: var(--font-size-heading-md); }
-  .info-card__text { font-size: .875rem; }
+  .info-card__heading { font-size: var(--font-size-heading-sm); }
+  .info-card__text { font-size: var(--font-size-body); }
 }
 
 /* ===== Compact: info card in a four-column section (Figma Desktop 50:709, Verhuur) =====
@@ -22,14 +22,14 @@
 .layout--fourcol-section .info-card { gap: 12px; height: 100%; padding: 12px 12px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-card-image); }
 .layout--fourcol-section .info-card__image { border-radius: 4px; }
 .layout--fourcol-section .info-card__image img { aspect-ratio: 227 / 188; }
-.layout--fourcol-section .info-card__body { gap: 4px; }
+.layout--fourcol-section .info-card__body { gap: 8px; }
 .layout--fourcol-section .info-card__heading { color: #000; font-size: var(--font-size-body); }
 .layout--fourcol-section .info-card__text { font-size: var(--font-size-body); }
 
 @media (width < 700px) {
   .layout--fourcol-section .info-card__image img { aspect-ratio: 145 / 124; }
   .layout--fourcol-section .info-card__heading,
-  .layout--fourcol-section .info-card__text { font-size: .875rem; }
+  .layout--fourcol-section .info-card__text { font-size: var(--font-size-body); }
 }
 
 /* ===== Text card: info card without a photo (Figma Desktop 107:2680, weekends & camps) =====

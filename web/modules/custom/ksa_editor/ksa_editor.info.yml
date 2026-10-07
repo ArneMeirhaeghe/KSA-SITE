@@ -1,0 +1,12 @@
+name: KSA Leiding
+type: module
+description: Eenvoudig inhoudsbeheer en bescherming van de vaste paginaopbouw.
+package: KSA
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:media
+  - drupal:navigation
+  - layout_builder_perms:layout_builder_perms_global
+  - simplify:simplify
+  - view_unpublished:view_unpublished

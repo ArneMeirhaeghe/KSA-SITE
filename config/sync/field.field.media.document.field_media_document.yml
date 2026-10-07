@@ -17,7 +17,7 @@ field_name: field_media_document
 entity_type: media
 bundle: document
 label: Document
-description: ''
+description: 'Upload een PDF van maximaal 20 MB. Gebruik een herkenbare bestandsnaam, bijvoorbeeld rondeboekje-dolfijntjes-oktober-2026.pdf. Dit bestand is publiek toegankelijk.'
 required: true
 translatable: true
 default_value: {  }
@@ -26,7 +26,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
-  max_filesize: ''
+  file_extensions: pdf
+  max_filesize: '20 MB'
   description_field: false
 field_type: file

@@ -9,11 +9,11 @@ Drupal 11 met het KSA-thema, Single Directory Components, Views, Media en Layout
 3. Herstel de laatste database- en bestandenbackup. Configuratie alleen bevat geen inhoud, media of pagina-layouts die als inhoud zijn opgeslagen.
 4. Gebruik `ddev drush uli` voor de beheerlogin. Voer PHP en Composer altijd via DDEV uit.
 
-Inhoud, media, menu's, velden, Views, rechten en Layout Builder worden via de Drupal-beheerinterface gewijzigd. Codewijzigingen beperken zich tot het thema, de agendamodule en controlescripts. De redacteursrol beheert teksten, nieuws, ploegen, leiders en media. Layouts en agenda-instellingen blijven bij de beheerder.
+Inhoud, media, menu's, velden, Views, rechten en Layout Builder worden via de Drupal-beheerinterface gewijzigd. Codewijzigingen beperken zich tot het thema, de agendamodule, de leidinginterface, een kleine SEO-koppeling voor nieuwspaginering en controlescripts. De rol **Leiding** start op `/admin/leiding` en beheert teksten, nieuws, bestaande ploegen, leiders, foto's en PDF's. Paginaopbouw, agenda-instellingen en gebruikersbeheer blijven bij de beheerder. Zie `docs/leidingbeheer.md` voor gebruik en technische grenzen.
 
 ## Configuratie en herstel
 
-`config/sync/` bevat de volledige export van 6 oktober 2026, gedownload via **Instellingen → Ontwikkeling → Configuratie synchroniseren → Exporteren**. Exporteer later opnieuw via die interface, controleer de verschillen en werk deze map bewust bij. Gebruik geen automatische import of export bij opstarten.
+`config/sync/` bevat de volledige export van 6 oktober 2026, met de gecontroleerde wijzigingen voor leidingbeheer uit de UI-export van 7 oktober. Ook de SEO-configuratie uit de UI-export van 7 oktober is selectief overgenomen (Metatag, sitemap, Redirect en nieuwsarchief); een andere actieve wijziging aan `media.image.article_wide` is niet meegenomen. Exporteer later opnieuw via **Instellingen → Ontwikkeling → Configuratie synchroniseren → Exporteren**, controleer de verschillen en werk deze map bewust bij. Gebruik geen automatische import of export bij opstarten.
 
 Voor een nieuwe omgeving met dezelfde site-UUID kan de beheerder het archief via de importinterface aanbieden en de verschillen beoordelen. Voor een volledige demo zijn ook een databasebackup en `web/sites/default/files` nodig. Backups en lokale instellingen blijven buiten Git. Bewaar backups op een veilige plek; publiceer ze niet.
 
@@ -23,6 +23,7 @@ Voor een nieuwe omgeving met dezelfde site-UUID kan de beheerder het archief via
 - `web/themes/custom/ksa/templates/`: dunne Drupal-koppelingen naar componenten; veldformatters blijven in Drupal configureerbaar.
 - `web/themes/custom/ksa/css/tokens.css`: bestaande ontwerpwaarden uit Figma.
 - `web/modules/custom/ksa_agenda/`: openbare Google Agenda ophalen, herhalingen verwerken, activiteiten en ICS tonen.
+- `web/modules/custom/ksa_seo/`: correcte canonicals en 404-status voor nieuwspaginering; overige SEO via contrib-configuratie. Zie `docs/seo-uitvoering-2026-10-07.md`.
 - `translations/`: aanvullende Nederlandse interfacevertalingen, importeren via de beheerinterface.
 
 Layout Builder Styles biedt vier benoemde sectiestijlen: **Inschrijvingsstappen**, **Praktische tabbladen**, **Rondeboekjes in kader** en **Tekst naast foto**. Stappen en tabbladen werken alleen binnen de bijbehorende sectie. Hun blokvolgorde bepaalt de volgorde in de navigatie. In de layout-editor en zonder JavaScript blijft alle inhoud leesbaar.

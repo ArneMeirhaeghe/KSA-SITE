@@ -1,0 +1,1410 @@
+{
+    "checks": {
+        "sitemap generated": true,
+        "404 excluded from sitemap": true,
+        "hidden group excluded from sitemap": true,
+        "news archive in sitemap": true,
+        "/nieuws?page=99 returns 404": true,
+        "/nieuws?page=99 noindex": true,
+        "/nieuws?page=-1 returns 404": true,
+        "/nieuws?page=-1 noindex": true,
+        "/nieuws?page=abc returns 404": true,
+        "/nieuws?page=abc noindex": true,
+        "/seo-pagina-bestaat-niet returns 404": true,
+        "/seo-pagina-bestaat-niet noindex": true,
+        "direct error node noindex": true,
+        "archive second page canonical": true,
+        "archive first page canonical": true,
+        "home ignores unused pager": true,
+        "archive page titles differ": true,
+        "/home redirects to home": true,
+        "/node/39 redirects to home": true,
+        "hidden group unavailable": true,
+        "home schema": true,
+        "/ one H1": true,
+        "/ description": true,
+        "/ canonical": true,
+        "/?page=1 one H1": true,
+        "/?page=1 description": true,
+        "/?page=1 canonical": true,
+        "/nieuws one H1": true,
+        "/nieuws description": true,
+        "/nieuws canonical": true,
+        "/nieuws?page=1 one H1": true,
+        "/nieuws?page=1 description": true,
+        "/nieuws?page=1 canonical": true,
+        "/ploegen/hoofdleiding one H1": true,
+        "/ploegen/hoofdleiding description": true,
+        "/ploegen/hoofdleiding canonical": true,
+        "/ploegen/dolfijntjes one H1": true,
+        "/ploegen/dolfijntjes description": true,
+        "/ploegen/dolfijntjes canonical": true,
+        "/ploegen/leeuwkes-deinze one H1": true,
+        "/ploegen/leeuwkes-deinze description": true,
+        "/ploegen/leeuwkes-deinze canonical": true,
+        "/ploegen/leeuwkes-astene one H1": true,
+        "/ploegen/leeuwkes-astene description": true,
+        "/ploegen/leeuwkes-astene canonical": true,
+        "/ploegen/joro-deinze one H1": true,
+        "/ploegen/joro-deinze description": true,
+        "/ploegen/joro-deinze canonical": true,
+        "/ploegen/joro-astene one H1": true,
+        "/ploegen/joro-astene description": true,
+        "/ploegen/joro-astene canonical": true,
+        "/ploegen/knim one H1": true,
+        "/ploegen/knim description": true,
+        "/ploegen/knim canonical": true,
+        "/ploegen/sjo one H1": true,
+        "/ploegen/sjo description": true,
+        "/ploegen/sjo canonical": true,
+        "/leiding/jenne-meirhaeghe one H1": true,
+        "/leiding/jenne-meirhaeghe description": true,
+        "/leiding/jenne-meirhaeghe canonical": true,
+        "/leiding/seppe-foulon one H1": true,
+        "/leiding/seppe-foulon description": true,
+        "/leiding/seppe-foulon canonical": true,
+        "/leiding/emma-van-de-voorde one H1": true,
+        "/leiding/emma-van-de-voorde description": true,
+        "/leiding/emma-van-de-voorde canonical": true,
+        "/leiding/marike-stappaerts one H1": true,
+        "/leiding/marike-stappaerts description": true,
+        "/leiding/marike-stappaerts canonical": true,
+        "/leiding/emile-soens one H1": true,
+        "/leiding/emile-soens description": true,
+        "/leiding/emile-soens canonical": true,
+        "/leiding/nael-khattabi one H1": true,
+        "/leiding/nael-khattabi description": true,
+        "/leiding/nael-khattabi canonical": true,
+        "/leiding/yero-beeusaert one H1": true,
+        "/leiding/yero-beeusaert description": true,
+        "/leiding/yero-beeusaert canonical": true,
+        "/leiding/mona-christiaens one H1": true,
+        "/leiding/mona-christiaens description": true,
+        "/leiding/mona-christiaens canonical": true,
+        "/leiding/julie-desmet one H1": true,
+        "/leiding/julie-desmet description": true,
+        "/leiding/julie-desmet canonical": true,
+        "/leiding/basiel-stappaerts one H1": true,
+        "/leiding/basiel-stappaerts description": true,
+        "/leiding/basiel-stappaerts canonical": true,
+        "/leiding/emiel-deblauwe one H1": true,
+        "/leiding/emiel-deblauwe description": true,
+        "/leiding/emiel-deblauwe canonical": true,
+        "/leiding/lucas-rombauts one H1": true,
+        "/leiding/lucas-rombauts description": true,
+        "/leiding/lucas-rombauts canonical": true,
+        "/leiding/brecht-lippens one H1": true,
+        "/leiding/brecht-lippens description": true,
+        "/leiding/brecht-lippens canonical": true,
+        "/leiding/thomas-devloo one H1": true,
+        "/leiding/thomas-devloo description": true,
+        "/leiding/thomas-devloo canonical": true,
+        "/leiding/emiel-desmet one H1": true,
+        "/leiding/emiel-desmet description": true,
+        "/leiding/emiel-desmet canonical": true,
+        "/leiding/chloe-de-sutter one H1": true,
+        "/leiding/chloe-de-sutter description": true,
+        "/leiding/chloe-de-sutter canonical": true,
+        "/leiding/viktor-bruyneel one H1": true,
+        "/leiding/viktor-bruyneel description": true,
+        "/leiding/viktor-bruyneel canonical": true,
+        "/leiding/inte-schiettecat one H1": true,
+        "/leiding/inte-schiettecat description": true,
+        "/leiding/inte-schiettecat canonical": true,
+        "/leiding/maxime-boone one H1": true,
+        "/leiding/maxime-boone description": true,
+        "/leiding/maxime-boone canonical": true,
+        "/leiding/gilles-sierens one H1": true,
+        "/leiding/gilles-sierens description": true,
+        "/leiding/gilles-sierens canonical": true,
+        "/nieuws/startdag-2026 one H1": true,
+        "/nieuws/startdag-2026 description": true,
+        "/nieuws/startdag-2026 canonical": true,
+        "/nieuws/ontbijtmanden-voor-moederdag one H1": true,
+        "/nieuws/ontbijtmanden-voor-moederdag description": true,
+        "/nieuws/ontbijtmanden-voor-moederdag canonical": true,
+        "/nieuws/jumpfest-terug one H1": true,
+        "/nieuws/jumpfest-terug description": true,
+        "/nieuws/jumpfest-terug canonical": true,
+        "/leiding one H1": true,
+        "/leiding description": true,
+        "/leiding canonical": true,
+        "/rondes one H1": true,
+        "/rondes description": true,
+        "/rondes canonical": true,
+        "/inschrijving one H1": true,
+        "/inschrijving description": true,
+        "/inschrijving canonical": true,
+        "/ons-verhaal one H1": true,
+        "/ons-verhaal description": true,
+        "/ons-verhaal canonical": true,
+        "/verhuur one H1": true,
+        "/verhuur description": true,
+        "/verhuur canonical": true,
+        "/contact one H1": true,
+        "/contact description": true,
+        "/contact canonical": true,
+        "/leiding/tybe-beeusaert one H1": true,
+        "/leiding/tybe-beeusaert description": true,
+        "/leiding/tybe-beeusaert canonical": true,
+        "/leiding/emiel-rombauts one H1": true,
+        "/leiding/emiel-rombauts description": true,
+        "/leiding/emiel-rombauts canonical": true,
+        "/leiding/emile-boone one H1": true,
+        "/leiding/emile-boone description": true,
+        "/leiding/emile-boone canonical": true,
+        "/leiding/michal-fabrowski one H1": true,
+        "/leiding/michal-fabrowski description": true,
+        "/leiding/michal-fabrowski canonical": true,
+        "/leiding/selin-yuseinova one H1": true,
+        "/leiding/selin-yuseinova description": true,
+        "/leiding/selin-yuseinova canonical": true,
+        "/leiding/sander-vanden-heede one H1": true,
+        "/leiding/sander-vanden-heede description": true,
+        "/leiding/sander-vanden-heede canonical": true,
+        "/leiding/briek-naert one H1": true,
+        "/leiding/briek-naert description": true,
+        "/leiding/briek-naert canonical": true,
+        "/leiding/bram-depreitere one H1": true,
+        "/leiding/bram-depreitere description": true,
+        "/leiding/bram-depreitere canonical": true,
+        "/leiding/ella-vanobbergen one H1": true,
+        "/leiding/ella-vanobbergen description": true,
+        "/leiding/ella-vanobbergen canonical": true,
+        "/leiding/michiel-devloo one H1": true,
+        "/leiding/michiel-devloo description": true,
+        "/leiding/michiel-devloo canonical": true,
+        "/leiding/sara-lataire one H1": true,
+        "/leiding/sara-lataire description": true,
+        "/leiding/sara-lataire canonical": true,
+        "/nieuws/quiz-2026 one H1": true,
+        "/nieuws/quiz-2026 description": true,
+        "/nieuws/quiz-2026 canonical": true,
+        "/nieuws/kerstrozen-2025 one H1": true,
+        "/nieuws/kerstrozen-2025 description": true,
+        "/nieuws/kerstrozen-2025 canonical": true,
+        "/nieuws/cavabar-2025 one H1": true,
+        "/nieuws/cavabar-2025 description": true,
+        "/nieuws/cavabar-2025 canonical": true,
+        "/nieuws/startdag-2025 one H1": true,
+        "/nieuws/startdag-2025 description": true,
+        "/nieuws/startdag-2025 canonical": true,
+        "/nieuws/ontbijtmanden-voor-moederdag-2025 one H1": true,
+        "/nieuws/ontbijtmanden-voor-moederdag-2025 description": true,
+        "/nieuws/ontbijtmanden-voor-moederdag-2025 canonical": true,
+        "/nieuws/amerikaanse-avond-van-de-sjo-2025 one H1": true,
+        "/nieuws/amerikaanse-avond-van-de-sjo-2025 description": true,
+        "/nieuws/amerikaanse-avond-van-de-sjo-2025 canonical": true,
+        "/nieuws/quiz-2025 one H1": true,
+        "/nieuws/quiz-2025 description": true,
+        "/nieuws/quiz-2025 canonical": true,
+        "/inschrijven permanent redirect": true,
+        "/werking permanent redirect": true,
+        "/data permanent redirect": true,
+        "/uniform permanent redirect": true,
+        "/lokalen permanent redirect": true,
+        "/verzekering permanent redirect": true,
+        "/blog/detail/startdag-2026 permanent redirect": true,
+        "/blog/detail/ontbijtmanden-voor-moederdag permanent redirect": true,
+        "/blog/detail/jumpfest-is-terug permanent redirect": true,
+        "/blog permanent redirect": true,
+        "/blog/detail/quiz-2026 permanent redirect": true,
+        "/blog/detail/kerstrozen-2025 permanent redirect": true,
+        "/blog/detail/cavabar-2025 permanent redirect": true,
+        "/blog/detail/startdag-2025 permanent redirect": true,
+        "/blog/detail/ontbijtmandenactie-voor-moederdag permanent redirect": true,
+        "/blog/detail/amerikaanse-avond-sjo permanent redirect": true,
+        "/blog/detail/inschrijving-quiz-ksa-deinze-astene-07-03-2025 permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/00/dolfijntjes-boekje-1.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/10/leeuwkes-deinze-boekje-1.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/09/boekje-1-leeuwkes-astene-1.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/05/boekje-1-joro-deinze-26-27.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/00/boekje-1-joro-astene-2026-2027.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/00/knim-boekje.pdf permanent redirect": true,
+        "/src/Frontend/Files/MediaLibrary/14/boekje-sjo-1.pdf permanent redirect": true
+    },
+    "results": {
+        "/": {
+            "status": 200,
+            "location": null,
+            "title": "KSA Deinze-Astene | Jeugdbeweging in Deinze en Astene",
+            "h1_count": 1,
+            "description": "KSA Deinze-Astene is een jeugdbeweging voor kinderen en jongeren. Ontdek onze leeftijdsgroepen, zaterdagactiviteiten, kampen en hoe je je kind inschrijft.",
+            "canonical": "https://ksa.ddev.site/",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "@id": "https://ksa.ddev.site/#organisatie",
+                            "url": "https://ksa.ddev.site/",
+                            "sameAs": "https://www.facebook.com/KSADeinzeAstene/",
+                            "name": "KSA Deinze-Astene",
+                            "description": "Jeugdbeweging voor kinderen en jongeren in Deinze en Astene."
+                        },
+                        {
+                            "@type": "WebSite",
+                            "@id": "https://ksa.ddev.site/#website",
+                            "name": "KSA Deinze-Astene",
+                            "url": "https://ksa.ddev.site/",
+                            "inLanguage": "nl-BE"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/?page=1": {
+            "status": 200,
+            "location": null,
+            "title": "KSA Deinze-Astene | Jeugdbeweging in Deinze en Astene",
+            "h1_count": 1,
+            "description": "KSA Deinze-Astene is een jeugdbeweging voor kinderen en jongeren. Ontdek onze leeftijdsgroepen, zaterdagactiviteiten, kampen en hoe je je kind inschrijft.",
+            "canonical": "https://ksa.ddev.site/",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "@id": "https://ksa.ddev.site/#organisatie",
+                            "url": "https://ksa.ddev.site/",
+                            "sameAs": "https://www.facebook.com/KSADeinzeAstene/",
+                            "name": "KSA Deinze-Astene",
+                            "description": "Jeugdbeweging voor kinderen en jongeren in Deinze en Astene."
+                        },
+                        {
+                            "@type": "WebSite",
+                            "@id": "https://ksa.ddev.site/#website",
+                            "name": "KSA Deinze-Astene",
+                            "url": "https://ksa.ddev.site/",
+                            "inLanguage": "nl-BE"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws": {
+            "status": 200,
+            "location": null,
+            "title": "Nieuws — pagina 1 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Lees het nieuws van KSA Deinze-Astene: Startdag, acties en evenementen. In het archief vind je ook berichten over voorbije activiteiten.",
+            "canonical": "https://ksa.ddev.site/nieuws",
+            "robots": "",
+            "json_ld": []
+        },
+        "/nieuws?page=1": {
+            "status": 200,
+            "location": null,
+            "title": "Nieuws — pagina 2 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Lees het nieuws van KSA Deinze-Astene: Startdag, acties en evenementen. In het archief vind je ook berichten over voorbije activiteiten.",
+            "canonical": "https://ksa.ddev.site/nieuws?page=1",
+            "robots": "",
+            "json_ld": []
+        },
+        "/nieuws?page=99": {
+            "status": 404,
+            "location": null,
+            "title": "Pagina niet gevonden | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/node/51",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/nieuws?page=-1": {
+            "status": 404,
+            "location": null,
+            "title": "Pagina niet gevonden | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/node/51",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/nieuws?page=abc": {
+            "status": 404,
+            "location": null,
+            "title": "Pagina niet gevonden | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/node/51",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/seo-pagina-bestaat-niet": {
+            "status": 404,
+            "location": null,
+            "title": "Pagina niet gevonden | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/node/51",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/node/51": {
+            "status": 200,
+            "location": null,
+            "title": "Pagina niet gevonden | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/node/51",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/sitemap.xml": {
+            "status": 200,
+            "location": null,
+            "title": "",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": [],
+            "urls": [
+                "https://ksa.ddev.site/",
+                "https://ksa.ddev.site/nieuws",
+                "https://ksa.ddev.site/nieuws/startdag-2026",
+                "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag",
+                "https://ksa.ddev.site/nieuws/jumpfest-terug",
+                "https://ksa.ddev.site/nieuws/quiz-2026",
+                "https://ksa.ddev.site/nieuws/kerstrozen-2025",
+                "https://ksa.ddev.site/nieuws/cavabar-2025",
+                "https://ksa.ddev.site/nieuws/startdag-2025",
+                "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag-2025",
+                "https://ksa.ddev.site/nieuws/amerikaanse-avond-van-de-sjo-2025",
+                "https://ksa.ddev.site/nieuws/quiz-2025",
+                "https://ksa.ddev.site/leiding/jenne-meirhaeghe",
+                "https://ksa.ddev.site/leiding/seppe-foulon",
+                "https://ksa.ddev.site/leiding/emma-van-de-voorde",
+                "https://ksa.ddev.site/leiding/marike-stappaerts",
+                "https://ksa.ddev.site/leiding/emile-soens",
+                "https://ksa.ddev.site/leiding/nael-khattabi",
+                "https://ksa.ddev.site/leiding/yero-beeusaert",
+                "https://ksa.ddev.site/leiding/mona-christiaens",
+                "https://ksa.ddev.site/leiding/julie-desmet",
+                "https://ksa.ddev.site/leiding/basiel-stappaerts",
+                "https://ksa.ddev.site/leiding/emiel-deblauwe",
+                "https://ksa.ddev.site/leiding/lucas-rombauts",
+                "https://ksa.ddev.site/leiding/brecht-lippens",
+                "https://ksa.ddev.site/leiding/thomas-devloo",
+                "https://ksa.ddev.site/leiding/emiel-desmet",
+                "https://ksa.ddev.site/leiding/chloe-de-sutter",
+                "https://ksa.ddev.site/leiding/viktor-bruyneel",
+                "https://ksa.ddev.site/leiding/inte-schiettecat",
+                "https://ksa.ddev.site/leiding/maxime-boone",
+                "https://ksa.ddev.site/leiding/gilles-sierens",
+                "https://ksa.ddev.site/leiding/tybe-beeusaert",
+                "https://ksa.ddev.site/leiding/emiel-rombauts",
+                "https://ksa.ddev.site/leiding/emile-boone",
+                "https://ksa.ddev.site/leiding/michal-fabrowski",
+                "https://ksa.ddev.site/leiding/selin-yuseinova",
+                "https://ksa.ddev.site/leiding/sander-vanden-heede",
+                "https://ksa.ddev.site/leiding/briek-naert",
+                "https://ksa.ddev.site/leiding/bram-depreitere",
+                "https://ksa.ddev.site/leiding/ella-vanobbergen",
+                "https://ksa.ddev.site/leiding/michiel-devloo",
+                "https://ksa.ddev.site/leiding/sara-lataire",
+                "https://ksa.ddev.site/leiding",
+                "https://ksa.ddev.site/rondes",
+                "https://ksa.ddev.site/inschrijving",
+                "https://ksa.ddev.site/ons-verhaal",
+                "https://ksa.ddev.site/verhuur",
+                "https://ksa.ddev.site/contact",
+                "https://ksa.ddev.site/home",
+                "https://ksa.ddev.site/ploegen/hoofdleiding",
+                "https://ksa.ddev.site/ploegen/dolfijntjes",
+                "https://ksa.ddev.site/ploegen/leeuwkes-deinze",
+                "https://ksa.ddev.site/ploegen/leeuwkes-astene",
+                "https://ksa.ddev.site/ploegen/joro-deinze",
+                "https://ksa.ddev.site/ploegen/joro-astene",
+                "https://ksa.ddev.site/ploegen/knim",
+                "https://ksa.ddev.site/ploegen/sjo"
+            ]
+        },
+        "/home": {
+            "status": 301,
+            "location": "https://ksa.ddev.site/",
+            "title": "Redirecting to https://ksa.ddev.site/",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/node/39": {
+            "status": 301,
+            "location": "https://ksa.ddev.site/",
+            "title": "Redirecting to https://ksa.ddev.site/",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/16": {
+            "status": 403,
+            "location": null,
+            "title": "Geen toegang | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "",
+            "canonical": "https://ksa.ddev.site/",
+            "robots": "noindex",
+            "json_ld": []
+        },
+        "/ploegen/hoofdleiding": {
+            "status": 200,
+            "location": null,
+            "title": "Hoofdleiding | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Mona Christiaens en Emile Boone zijn de hoofdleiding van KSA Deinze-Astene. Je kan bij hen terecht met algemene vragen over onze werking.",
+            "canonical": "https://ksa.ddev.site/ploegen/hoofdleiding",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/dolfijntjes": {
+            "status": 200,
+            "location": null,
+            "title": "Dolfijntjes | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Dolfijntjes zijn er voor kinderen uit het eerste en tweede leerjaar in Astene. Ontdek wie de leiding is en bekijk het rondeboekje voor de activiteiten.",
+            "canonical": "https://ksa.ddev.site/ploegen/dolfijntjes",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/leeuwkes-deinze": {
+            "status": 200,
+            "location": null,
+            "title": "Leeuwkes Deinze | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Leeuwkes Deinze zijn er voor kinderen uit het eerste tot en met derde leerjaar. We spreken af aan ’t Brielhof. Ontdek hieronder de leiding van de groep.",
+            "canonical": "https://ksa.ddev.site/ploegen/leeuwkes-deinze",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/leeuwkes-astene": {
+            "status": 200,
+            "location": null,
+            "title": "Leeuwkes Astene | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Leeuwkes Astene zijn er voor kinderen uit het derde en vierde leerjaar. Ontdek de leiding en bekijk het rondeboekje voor de activiteiten in Astene.",
+            "canonical": "https://ksa.ddev.site/ploegen/leeuwkes-astene",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/joro-deinze": {
+            "status": 200,
+            "location": null,
+            "title": "Joro Deinze | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Joro Deinze zijn er voor kinderen uit het vierde tot en met zesde leerjaar. Ontdek de leiding en bekijk het rondeboekje voor de activiteiten in Deinze.",
+            "canonical": "https://ksa.ddev.site/ploegen/joro-deinze",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/joro-astene": {
+            "status": 200,
+            "location": null,
+            "title": "Joro Astene | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Joro Astene zijn er voor kinderen uit het vijfde en zesde leerjaar. Ontdek de leiding en bekijk het rondeboekje voor de activiteiten in Astene.",
+            "canonical": "https://ksa.ddev.site/ploegen/joro-astene",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/knim": {
+            "status": 200,
+            "location": null,
+            "title": "Knim | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Knim brengt jongeren uit het eerste en tweede middelbaar samen. De leden uit Deinze en Astene vormen één groep en spreken af aan ’t Brielhof in Deinze.",
+            "canonical": "https://ksa.ddev.site/ploegen/knim",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ploegen/sjo": {
+            "status": 200,
+            "location": null,
+            "title": "Sjo | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Sjo is er voor jongeren uit het derde tot en met vijfde middelbaar. We spreken af in Deinze. Ontdek hieronder wie de groep begeleidt.",
+            "canonical": "https://ksa.ddev.site/ploegen/sjo",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/jenne-meirhaeghe": {
+            "status": 200,
+            "location": null,
+            "title": "Jenne Meirhaeghe | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Jenne Meirhaeghe, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/jenne-meirhaeghe",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/seppe-foulon": {
+            "status": 200,
+            "location": null,
+            "title": "Seppe Foulon | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Seppe Foulon, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/seppe-foulon",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emma-van-de-voorde": {
+            "status": 200,
+            "location": null,
+            "title": "Emma Van de Voorde | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emma Van de Voorde, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emma-van-de-voorde",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/marike-stappaerts": {
+            "status": 200,
+            "location": null,
+            "title": "Marike Stappaerts | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Marike Stappaerts, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/marike-stappaerts",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emile-soens": {
+            "status": 200,
+            "location": null,
+            "title": "Emile Soens | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emile Soens, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emile-soens",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/nael-khattabi": {
+            "status": 200,
+            "location": null,
+            "title": "Nael Khattabi | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Nael Khattabi, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/nael-khattabi",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/yero-beeusaert": {
+            "status": 200,
+            "location": null,
+            "title": "Yero Beeusaert | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Yero Beeusaert, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/yero-beeusaert",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/mona-christiaens": {
+            "status": 200,
+            "location": null,
+            "title": "Mona Christiaens | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Mona Christiaens, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/mona-christiaens",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/julie-desmet": {
+            "status": 200,
+            "location": null,
+            "title": "Julie DeSmet | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Julie DeSmet, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/julie-desmet",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/basiel-stappaerts": {
+            "status": 200,
+            "location": null,
+            "title": "Basiel Stappaerts | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Basiel Stappaerts, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/basiel-stappaerts",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emiel-deblauwe": {
+            "status": 200,
+            "location": null,
+            "title": "Emiel Deblauwe | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emiel Deblauwe, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emiel-deblauwe",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/lucas-rombauts": {
+            "status": 200,
+            "location": null,
+            "title": "Lucas Rombauts | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Lucas Rombauts, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/lucas-rombauts",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/brecht-lippens": {
+            "status": 200,
+            "location": null,
+            "title": "Brecht Lippens | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Brecht Lippens, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/brecht-lippens",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/thomas-devloo": {
+            "status": 200,
+            "location": null,
+            "title": "Thomas Devloo | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Thomas Devloo, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/thomas-devloo",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emiel-desmet": {
+            "status": 200,
+            "location": null,
+            "title": "Emiel DeSmet | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emiel DeSmet, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emiel-desmet",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/chloe-de-sutter": {
+            "status": 200,
+            "location": null,
+            "title": "Chloë De Sutter | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Chloë De Sutter, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/chloe-de-sutter",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/viktor-bruyneel": {
+            "status": 200,
+            "location": null,
+            "title": "Viktor Bruyneel | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Viktor Bruyneel, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/viktor-bruyneel",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/inte-schiettecat": {
+            "status": 200,
+            "location": null,
+            "title": "Inte Schiettecat | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Inte Schiettecat, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/inte-schiettecat",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/maxime-boone": {
+            "status": 200,
+            "location": null,
+            "title": "Maxime Boone | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Maxime Boone, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/maxime-boone",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/gilles-sierens": {
+            "status": 200,
+            "location": null,
+            "title": "Gilles Sierens | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Gilles Sierens, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/gilles-sierens",
+            "robots": "",
+            "json_ld": []
+        },
+        "/nieuws/startdag-2026": {
+            "status": 200,
+            "location": null,
+            "title": "Startdag 2026 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Op 12 september 2026 nodigde Jos de Vos iedereen uit aan ’t Brielhof voor een namiddag vol activiteiten en een gezellige kampvurenavond.",
+            "canonical": "https://ksa.ddev.site/nieuws/startdag-2026",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/startdag-2026#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/startdag-2026",
+                            "headline": "Startdag 2026",
+                            "description": "Op 12 september 2026 nodigde Jos de Vos iedereen uit aan ’t Brielhof voor een namiddag vol activiteiten en een gezellige kampvurenavond.",
+                            "datePublished": "2026-07-29T12:00:00+0200",
+                            "dateModified": "2026-10-05T23:00:28+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/startdag-2026"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/ontbijtmanden-voor-moederdag": {
+            "status": 200,
+            "location": null,
+            "title": "Ontbijtmanden voor Moederdag | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Met de ontbijtmandenactie voor Moederdag 2026 steunde je de werking van KSA Deinze-Astene en verraste je iemand met een gezellig ontbijt.",
+            "canonical": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag",
+                            "headline": "Ontbijtmanden voor Moederdag",
+                            "description": "Met de ontbijtmandenactie voor Moederdag 2026 steunde je de werking van KSA Deinze-Astene en verraste je iemand met een gezellig ontbijt.",
+                            "datePublished": "2026-05-01T12:00:00+0200",
+                            "dateModified": "2026-10-05T23:00:30+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/jumpfest-terug": {
+            "status": 200,
+            "location": null,
+            "title": "Jumpfest is terug! | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De tweede editie van Jumpfest vond plaats op 28 februari 2026 in de Brielpoort: een dag vol plezier, actie en avontuur voor jong en oud.",
+            "canonical": "https://ksa.ddev.site/nieuws/jumpfest-terug",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/jumpfest-terug#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/jumpfest-terug",
+                            "headline": "Jumpfest is terug!",
+                            "description": "De tweede editie van Jumpfest vond plaats op 28 februari 2026 in de Brielpoort: een dag vol plezier, actie en avontuur voor jong en oud.",
+                            "datePublished": "2026-02-10T12:00:00+0100",
+                            "dateModified": "2026-10-05T23:00:34+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/jumpfest-terug"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/leiding": {
+            "status": 200,
+            "location": null,
+            "title": "Maak kennis met de leiding | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Onze leiding staat elke zaterdag klaar met een nieuw spel of avontuur. Hieronder vind je de groepen en de gezichten die erbij horen.",
+            "canonical": "https://ksa.ddev.site/leiding",
+            "robots": "",
+            "json_ld": []
+        },
+        "/rondes": {
+            "status": 200,
+            "location": null,
+            "title": "Activiteiten & kampen | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Van een bosspel op zaterdag tot samen op kamp. Hier vind je de rondeboekjes en de planning van onze activiteiten.",
+            "canonical": "https://ksa.ddev.site/rondes",
+            "robots": "",
+            "json_ld": []
+        },
+        "/inschrijving": {
+            "status": 200,
+            "location": null,
+            "title": "Inschrijven en praktische info | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Schrijf je kind in bij KSA Deinze-Astene via Ravot. Volg het stappenplan en lees meer over lidgeld, verzekering, uniform en afspreekplaatsen.",
+            "canonical": "https://ksa.ddev.site/inschrijving",
+            "robots": "",
+            "json_ld": []
+        },
+        "/ons-verhaal": {
+            "status": 200,
+            "location": null,
+            "title": "Ons verhaal | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Al sinds 1932 spelen we samen, maken we vrienden en trekken we op kamp. Dat is KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/ons-verhaal",
+            "robots": "",
+            "json_ld": []
+        },
+        "/verhuur": {
+            "status": 200,
+            "location": null,
+            "title": "’t Brielhof huren in Deinze | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Ons lokaal ligt aan de Leie, vlak bij de Brielmeersen in Deinze. Met je jeugdgroep of school op zoek naar een kampplaats? Je bent welkom in ’t Brielhof.",
+            "canonical": "https://ksa.ddev.site/verhuur",
+            "robots": "",
+            "json_ld": []
+        },
+        "/contact": {
+            "status": 200,
+            "location": null,
+            "title": "Contact | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Iets vragen over je groep of een ronde? Spreek je leiding aan. Voor inschrijven en algemene vragen kun je bij de hoofdleiding terecht.",
+            "canonical": "https://ksa.ddev.site/contact",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/tybe-beeusaert": {
+            "status": 200,
+            "location": null,
+            "title": "Tybe Beeusaert | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Tybe Beeusaert, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/tybe-beeusaert",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emiel-rombauts": {
+            "status": 200,
+            "location": null,
+            "title": "Emiel Rombauts | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emiel Rombauts, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emiel-rombauts",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/emile-boone": {
+            "status": 200,
+            "location": null,
+            "title": "Emile Boone | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Emile Boone, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/emile-boone",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/michal-fabrowski": {
+            "status": 200,
+            "location": null,
+            "title": "Michal Fabrowski | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Michal Fabrowski, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/michal-fabrowski",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/selin-yuseinova": {
+            "status": 200,
+            "location": null,
+            "title": "Selin Yuseinova | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Selin Yuseinova, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/selin-yuseinova",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/sander-vanden-heede": {
+            "status": 200,
+            "location": null,
+            "title": "Sander Vanden Heede | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Sander Vanden Heede, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/sander-vanden-heede",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/briek-naert": {
+            "status": 200,
+            "location": null,
+            "title": "Briek Naert | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Briek Naert, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/briek-naert",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/bram-depreitere": {
+            "status": 200,
+            "location": null,
+            "title": "Bram Depreitere | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Bram Depreitere, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/bram-depreitere",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/ella-vanobbergen": {
+            "status": 200,
+            "location": null,
+            "title": "Ella Vanobbergen | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Ella Vanobbergen, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/ella-vanobbergen",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/michiel-devloo": {
+            "status": 200,
+            "location": null,
+            "title": "Michiel Devloo | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Michiel Devloo, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/michiel-devloo",
+            "robots": "",
+            "json_ld": []
+        },
+        "/leiding/sara-lataire": {
+            "status": 200,
+            "location": null,
+            "title": "Sara Lataire | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Maak kennis met Sara Lataire, leiding bij KSA Deinze-Astene.",
+            "canonical": "https://ksa.ddev.site/leiding/sara-lataire",
+            "robots": "",
+            "json_ld": []
+        },
+        "/nieuws/quiz-2026": {
+            "status": 200,
+            "location": null,
+            "title": "Quiz 2026 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Op 20 februari 2026 stond de quiz van KSA Deinze-Astene op het programma. Dit bericht hoort bij ons nieuwsarchief.",
+            "canonical": "https://ksa.ddev.site/nieuws/quiz-2026",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/quiz-2026#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/quiz-2026",
+                            "headline": "Quiz 2026",
+                            "description": "Op 20 februari 2026 stond de quiz van KSA Deinze-Astene op het programma. Dit bericht hoort bij ons nieuwsarchief.",
+                            "datePublished": "2025-12-28T12:00:00+0100",
+                            "dateModified": "2026-10-07T11:19:00+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/quiz-2026"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/kerstrozen-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Kerstrozen 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Met de kerstrozenverkoop van 22 november 2025 zamelde KSA Deinze-Astene geld in voor de werking.",
+            "canonical": "https://ksa.ddev.site/nieuws/kerstrozen-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/kerstrozen-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/kerstrozen-2025",
+                            "headline": "Kerstrozen 2025",
+                            "description": "Met de kerstrozenverkoop van 22 november 2025 zamelde KSA Deinze-Astene geld in voor de werking.",
+                            "datePublished": "2025-10-22T12:00:00+0200",
+                            "dateModified": "2026-10-07T11:19:13+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/kerstrozen-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/cavabar-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Cavabar 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Op zondag 19 oktober 2025 nodigde KSA Deinze-Astene iedereen uit voor een drankje en een hapje op de cavabar.",
+            "canonical": "https://ksa.ddev.site/nieuws/cavabar-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/cavabar-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/cavabar-2025",
+                            "headline": "Cavabar 2025",
+                            "description": "Op zondag 19 oktober 2025 nodigde KSA Deinze-Astene iedereen uit voor een drankje en een hapje op de cavabar.",
+                            "datePublished": "2025-10-14T12:00:00+0200",
+                            "dateModified": "2026-10-07T11:19:14+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/cavabar-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/startdag-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Startdag 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Op 13 september 2025 opende KSA Deinze-Astene het werkjaar met een Startdag aan ’t Brielhof en een Zomerbar.",
+            "canonical": "https://ksa.ddev.site/nieuws/startdag-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/startdag-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/startdag-2025",
+                            "headline": "Startdag 2025",
+                            "description": "Op 13 september 2025 opende KSA Deinze-Astene het werkjaar met een Startdag aan ’t Brielhof en een Zomerbar.",
+                            "datePublished": "2025-09-12T12:00:00+0200",
+                            "dateModified": "2026-10-07T11:19:14+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/startdag-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/ontbijtmanden-voor-moederdag-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Ontbijtmanden voor Moederdag 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "Voor Moederdag op 11 mei 2025 organiseerde KSA Deinze-Astene een ontbijtmandenactie ten voordele van de werking.",
+            "canonical": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag-2025",
+                            "headline": "Ontbijtmanden voor Moederdag 2025",
+                            "description": "Voor Moederdag op 11 mei 2025 organiseerde KSA Deinze-Astene een ontbijtmandenactie ten voordele van de werking.",
+                            "datePublished": "2025-04-09T12:00:00+0200",
+                            "dateModified": "2026-10-07T11:19:15+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/ontbijtmanden-voor-moederdag-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/amerikaanse-avond-van-de-sjo-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Amerikaanse avond van de Sjo 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De Sjo kondigde in maart 2025 een Amerikaanse avond aan om geld in te zamelen voor de groep.",
+            "canonical": "https://ksa.ddev.site/nieuws/amerikaanse-avond-van-de-sjo-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/amerikaanse-avond-van-de-sjo-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/amerikaanse-avond-van-de-sjo-2025",
+                            "headline": "Amerikaanse avond van de Sjo 2025",
+                            "description": "De Sjo kondigde in maart 2025 een Amerikaanse avond aan om geld in te zamelen voor de groep.",
+                            "datePublished": "2025-03-05T12:00:00+0100",
+                            "dateModified": "2026-10-07T11:19:16+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/amerikaanse-avond-van-de-sjo-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/nieuws/quiz-2025": {
+            "status": 200,
+            "location": null,
+            "title": "Quiz 2025 | KSA Deinze-Astene",
+            "h1_count": 1,
+            "description": "De quiz van KSA Deinze-Astene stond op vrijdag 7 maart 2025 op het programma. Lees hier het archiefbericht.",
+            "canonical": "https://ksa.ddev.site/nieuws/quiz-2025",
+            "robots": "",
+            "json_ld": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://ksa.ddev.site/nieuws/quiz-2025#artikel",
+                            "url": "https://ksa.ddev.site/nieuws/quiz-2025",
+                            "headline": "Quiz 2025",
+                            "description": "De quiz van KSA Deinze-Astene stond op vrijdag 7 maart 2025 op het programma. Lees hier het archiefbericht.",
+                            "datePublished": "2025-01-19T12:00:00+0100",
+                            "dateModified": "2026-10-07T11:19:16+0200",
+                            "mainEntityOfPage": "https://ksa.ddev.site/nieuws/quiz-2025"
+                        }
+                    ]
+                }
+            ]
+        },
+        "/inschrijven": {
+            "status": 301,
+            "location": "/inschrijving",
+            "title": "Redirecting to /inschrijving",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/werking": {
+            "status": 301,
+            "location": "/ons-verhaal",
+            "title": "Redirecting to /ons-verhaal",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/data": {
+            "status": 301,
+            "location": "/rondes",
+            "title": "Redirecting to /rondes",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/uniform": {
+            "status": 301,
+            "location": "/inschrijving",
+            "title": "Redirecting to /inschrijving",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/lokalen": {
+            "status": 301,
+            "location": "/verhuur",
+            "title": "Redirecting to /verhuur",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/verzekering": {
+            "status": 301,
+            "location": "/inschrijving",
+            "title": "Redirecting to /inschrijving",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/startdag-2026": {
+            "status": 301,
+            "location": "/nieuws/startdag-2026",
+            "title": "Redirecting to /nieuws/startdag-2026",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/ontbijtmanden-voor-moederdag": {
+            "status": 301,
+            "location": "/nieuws/ontbijtmanden-voor-moederdag",
+            "title": "Redirecting to /nieuws/ontbijtmanden-voor-moederdag",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/jumpfest-is-terug": {
+            "status": 301,
+            "location": "/nieuws/jumpfest-terug",
+            "title": "Redirecting to /nieuws/jumpfest-terug",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog": {
+            "status": 301,
+            "location": "/nieuws",
+            "title": "Redirecting to /nieuws",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/quiz-2026": {
+            "status": 301,
+            "location": "/nieuws/quiz-2026",
+            "title": "Redirecting to /nieuws/quiz-2026",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/kerstrozen-2025": {
+            "status": 301,
+            "location": "/nieuws/kerstrozen-2025",
+            "title": "Redirecting to /nieuws/kerstrozen-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/cavabar-2025": {
+            "status": 301,
+            "location": "/nieuws/cavabar-2025",
+            "title": "Redirecting to /nieuws/cavabar-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/startdag-2025": {
+            "status": 301,
+            "location": "/nieuws/startdag-2025",
+            "title": "Redirecting to /nieuws/startdag-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/ontbijtmandenactie-voor-moederdag": {
+            "status": 301,
+            "location": "/nieuws/ontbijtmanden-voor-moederdag-2025",
+            "title": "Redirecting to /nieuws/ontbijtmanden-voor-moederdag-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/amerikaanse-avond-sjo": {
+            "status": 301,
+            "location": "/nieuws/amerikaanse-avond-van-de-sjo-2025",
+            "title": "Redirecting to /nieuws/amerikaanse-avond-van-de-sjo-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/blog/detail/inschrijving-quiz-ksa-deinze-astene-07-03-2025": {
+            "status": 301,
+            "location": "/nieuws/quiz-2025",
+            "title": "Redirecting to /nieuws/quiz-2025",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/00/dolfijntjes-boekje-1.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/dolfijntjes-boekje-1.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/dolfijntjes-boekje-1.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/10/leeuwkes-deinze-boekje-1.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/leeuwkes-deinze-boekje-1.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/leeuwkes-deinze-boekje-1.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/09/boekje-1-leeuwkes-astene-1.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/boekje-1-leeuwkes-astene-1.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/boekje-1-leeuwkes-astene-1.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/05/boekje-1-joro-deinze-26-27.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/boekje-1-joro-deinze-26-27.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/boekje-1-joro-deinze-26-27.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/00/boekje-1-joro-astene-2026-2027.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/boekje-1-joro-astene-2026-2027.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/boekje-1-joro-astene-2026-2027.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/00/knim-boekje.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/knim-boekje.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/knim-boekje.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        },
+        "/src/Frontend/Files/MediaLibrary/14/boekje-sjo-1.pdf": {
+            "status": 301,
+            "location": "/sites/default/files/2026-09/boekje-sjo-1.pdf",
+            "title": "Redirecting to /sites/default/files/2026-09/boekje-sjo-1.pdf",
+            "h1_count": 0,
+            "description": "",
+            "canonical": "",
+            "robots": "",
+            "json_ld": []
+        }
+    }
+}

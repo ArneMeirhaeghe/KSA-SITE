@@ -1,5 +1,11 @@
 # Beeldstijlen
 
+Update 6 oktober 2026: Media-weergave **Artikelbeeld** gebruikt nu de bestaande
+responsive stijl **Foto** (schalen zonder bijsnijden), zodat nieuwsaffiches
+volledig zichtbaar zijn. CSS begrenst de hoogte en gebruikt `object-fit: contain`.
+Deze instelling is via beheer opgeslagen; de eerdere inventaris hieronder
+beschrijft de oorspronkelijke beeldstijlen. Zie `visuele-hierarchie.md`.
+
 Alle beeldstijlen maken **AVIF**, met WebP als reserve.
 Uploaden doe je altijd in de Media-bibliotheek. Drupal maakt de kleinere versies zelf.
 

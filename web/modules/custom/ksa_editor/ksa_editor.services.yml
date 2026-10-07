@@ -1,0 +1,14 @@
+services:
+  ksa_editor.landing:
+    class: Drupal\ksa_editor\EventSubscriber\EditorLanding
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }
+  ksa_editor.routes:
+    class: Drupal\ksa_editor\Routing\EditorRoutes
+    tags:
+      - { name: event_subscriber }
+  ksa_editor.layout_access:
+    class: Drupal\ksa_editor\Access\EditorLayoutAccess
+    tags:
+      - { name: access_check, applies_to: _ksa_editor_layout_access }
