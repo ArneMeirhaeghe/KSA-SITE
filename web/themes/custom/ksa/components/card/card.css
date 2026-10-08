@@ -100,3 +100,16 @@
   .card-grid--mobile-2:has(.card--team),
   .card-grid--mobile-2:has(.card--leader) { row-gap: 32px; }
 }
+
+/* Keep complete group portraits on the same left edge as their text. */
+.card--team .card__image img { object-position: left center; }
+/* Equal reading rhythm without adding a card surface or cropping title text. */
+.card-grid .news-teaser { height: 100%; }
+.card--news { display: flex; flex-direction: column; height: 100%; }
+.card--news .card__image { flex: none; }
+.card--news .card__body { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.card--news .card__text { margin-bottom: 20px; }
+.card--news .card__more { margin-top: auto; }
+@media (width >= 700px) {
+  .card--news .card__title { min-block-size: 2lh; }
+}
