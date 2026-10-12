@@ -15,8 +15,10 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_log: 0
   field: 0
   field_ui: 0
   file: 0

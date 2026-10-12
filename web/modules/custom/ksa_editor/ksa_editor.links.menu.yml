@@ -1,3 +1,9 @@
+ksa_editor.audit:
+  title: 'Wijzigingslog leiding'
+  description: 'Bekijk wie tekst, foto’s en PDF’s wijzigde, met de oude en nieuwe waarden.'
+  route_name: ksa_editor.audit
+  parent: system.admin_reports
+  menu_name: admin
 ksa_editor.home:
   title: 'Site beheren'
   route_name: ksa_editor.home

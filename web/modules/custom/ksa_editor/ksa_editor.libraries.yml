@@ -2,3 +2,7 @@ editor:
   css:
     theme:
       css/editor.css: {}
+audit:
+  css:
+    theme:
+      css/audit.css: {}

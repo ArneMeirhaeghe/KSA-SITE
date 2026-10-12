@@ -7,6 +7,7 @@ dependencies:
   - drupal:node
   - drupal:media
   - drupal:navigation
+  - entity_log:entity_log
   - layout_builder_perms:layout_builder_perms_global
   - simplify:simplify
   - view_unpublished:view_unpublished

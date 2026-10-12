@@ -1,0 +1,22 @@
+.ksa-log-filter { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; padding: 1.25rem; margin: 1.5rem 0; background: var(--gin-bg-layer2, #f4f5f6); border: 1px solid var(--gin-border-color, #ddd); border-radius: .5rem; }
+.ksa-log-filter .form-item { margin: 0; flex: 1 1 10rem; min-width: 0; }
+.ksa-log-filter input, .ksa-log-filter select { width: 100%; max-width: 100%; }
+.ksa-log-filter .form-submit { width: auto; margin: 0; }
+.ksa-log-filter > a { padding: .8rem 0; }
+.ksa-log-count, .ksa-log-entry small, .ksa-log-entry__meta { color: var(--gin-color-text-light, #555); }
+.ksa-log-entry { border: 1px solid var(--gin-border-color, #d8d8d8); border-radius: .5rem; margin-bottom: .75rem; background: var(--gin-bg-layer, white); overflow: hidden; }
+.ksa-log-entry summary { cursor: pointer; display: grid; grid-template-columns: 11rem minmax(0, 1fr) 7rem 5rem; gap: 1rem; align-items: center; padding: 1rem 1.25rem; }
+.ksa-log-entry summary:hover { background: var(--gin-bg-layer2, #f6f6f6); }
+.ksa-log-entry summary:focus-visible { outline: 3px solid var(--gin-color-primary, #005b99); outline-offset: -3px; }
+.ksa-log-entry summary small { display: block; font-size: .85em; margin-top: .35rem; overflow-wrap: anywhere; }
+.ksa-log-entry__action { font-size: .85rem; background: var(--gin-bg-layer2, #f4f5f6); padding: .3rem .6rem; border-radius: .25rem; text-align: center; }
+.ksa-log-entry__expand { font-size: .85rem; text-decoration: underline; }
+.ksa-log-entry[open] summary { border-bottom: 1px solid var(--gin-border-color, #ddd); }
+.ksa-log-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem; }
+.ksa-log-comparison section { min-width: 0; border-left: 3px solid #9e9e9e; padding-left: 1rem; }
+.ksa-log-comparison section + section { border-color: #54c44e; }
+.ksa-log-comparison h3 { font-size: .9rem; margin: 0 0 .75rem; }
+.ksa-log-comparison pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; font: inherit; line-height: 1.6; }
+.ksa-log-entry__meta { margin: 0; padding: 0 1.25rem 1rem; font-size: .8rem; }
+.ksa-log-empty { padding: 2rem; border: 1px dashed var(--gin-border-color, #ccc); border-radius: .5rem; }
+@media (max-width: 800px) { .ksa-log-entry summary { grid-template-columns: minmax(0, 1fr) auto; } .ksa-log-entry__subject { grid-column: 1 / -1; grid-row: 2; } .ksa-log-entry__expand { display: none; } .ksa-log-comparison { grid-template-columns: minmax(0, 1fr); } }

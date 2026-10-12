@@ -13,6 +13,21 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\layout_builder\Form\OverridesEntityForm;
 
+/** Implements hook_entity_insert(). */
+function ksa_editor_entity_insert(\Drupal\Core\Entity\EntityInterface $entity): void {
+  \Drupal\ksa_editor\LeadershipLog::record($entity, 'insert');
+}
+
+/** Implements hook_entity_update(). */
+function ksa_editor_entity_update(\Drupal\Core\Entity\EntityInterface $entity): void {
+  \Drupal\ksa_editor\LeadershipLog::record($entity, 'update');
+}
+
+/** Implements hook_entity_delete(). */
+function ksa_editor_entity_delete(\Drupal\Core\Entity\EntityInterface $entity): void {
+  \Drupal\ksa_editor\LeadershipLog::record($entity, 'delete');
+}
+
 /** Whether this is the restricted editor experience, never the administrator. */
 function ksa_editor_is_editor(?AccountInterface $account = NULL): bool {
   $account ??= \Drupal::currentUser();
