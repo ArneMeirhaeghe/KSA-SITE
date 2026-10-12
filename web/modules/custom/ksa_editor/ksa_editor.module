@@ -119,3 +119,15 @@ function ksa_editor_entity_operation_alter(array &$operations, \Drupal\Core\Enti
     $operations['layout']['title'] = t('Teksten en foto’s');
   }
 }
+
+/** Implements hook_contextual_links_alter(). */
+function ksa_editor_contextual_links_alter(array &$links, $group, array $route_parameters): void {
+  if ($group !== 'node' || !isset($links['entity.node.edit_form'], $route_parameters['node'])) {
+    return;
+  }
+  $node = \Drupal\node\Entity\Node::load($route_parameters['node']);
+  if ($node?->bundle() === 'page' && \Drupal::service('access_manager')->checkNamedRoute('layout_builder.overrides.node.view', $route_parameters, \Drupal::currentUser())) {
+    $links['entity.node.edit_form']['route_name'] = 'layout_builder.overrides.node.view';
+    $links['entity.node.edit_form']['title'] = t('Teksten en foto’s');
+  }
+}

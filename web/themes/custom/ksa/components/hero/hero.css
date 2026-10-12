@@ -73,6 +73,9 @@
    Layout Builder behoudt zijn gewone header en bewerkingsknoppen. */
 .site:has(.ksa-hero):not(:has(#layout-builder)) { position: relative; padding-top: 1px; }
 .site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header { position: absolute; inset: 0 0 auto; z-index: 2; background: transparent; padding-inline: 32px; padding-top: 40px; }
+/* Empty header space must not intercept the page's contextual edit pencil. */
+.site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header { pointer-events: none; }
+.site:has(.ksa-hero):not(:has(#layout-builder)) > .site-header :is(a, button, input, .contextual) { pointer-events: auto; }
 .site:has(.ksa-hero):not(:has(#layout-builder)) .ksa-header { color: var(--color-surface); }
 .site:has(.ksa-hero):not(:has(#layout-builder)) .ksa-header > .ksa-header__blocks .ksa-header__branding img { filter: none; }
 .site:has(.ksa-hero):not(:has(#layout-builder)) #block-ksa-breadcrumbs { display: none; }
