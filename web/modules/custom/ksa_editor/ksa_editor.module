@@ -76,7 +76,7 @@ function ksa_editor_form_alter(array &$form, FormStateInterface $form_state, $fo
   }
   if ($form_id === 'layout_builder_update_block') {
     // Preserve configuration server-side; hidden inputs alone are insufficient.
-    $configuration = $object->getCurrentComponent()->getConfiguration();
+    $configuration = $object->getCurrentComponent()->getPlugin()->getConfiguration();
     foreach (['label', 'label_display', 'context_mapping', 'view_mode'] as $key) {
       if (isset($form['settings'][$key])) {
         $element = $form['settings'][$key];
