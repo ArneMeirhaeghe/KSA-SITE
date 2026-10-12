@@ -17,4 +17,8 @@ Alle 18 groeps- en nieuwsdetails ook op mobiel bezocht en op horizontale overloo
 
 Footer: lopen via toetsenbord, aanwijzer/tik en pauzeren gecontroleerd in de browser. JavaScript-syntaxis en git-diff gecontroleerd. Er zijn geen inhouds- of configuratiewijzigingen nodig voor deze aanpassingen.
 
-Individuele leider-nodepagina's buiten de publieke navigatie zijn niet afzonderlijk visueel beoordeeld; de portretten zijn in de groepsweergaven gecontroleerd. De originele aangeleverde uitsnede van een foto kan de website niet herstellen.
+Ook de 31 individuele leiderpagina's buiten de publieke navigatie zijn bezocht op 506 pixels: titel, horizontale overloop en kapotte geladen afbeeldingen gecontroleerd, zonder fouten. Twee representatieve pagina's visueel bekeken; de overige portretten zijn in de groepsweergaven gecontroleerd. De originele aangeleverde uitsnede van een foto kan de website niet herstellen.
+
+## Publicatie
+
+Codecommit `ea68419` naar `main` gepusht en met `git pull --ff-only` op Alwaysdata geplaatst; Drupal-cache vernieuwd. Online leidingsoverzicht, groepsfotobanner en footerbeweging/pauzeknop opnieuw gecontroleerd.
