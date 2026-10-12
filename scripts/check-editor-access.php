@@ -33,9 +33,16 @@ foreach (['image', 'document', 'audio', 'video', 'remote_video'] as $bundle) {
 foreach (['administer users', 'administer permissions', 'administer modules', 'import configuration', 'administer ksa agenda', 'configure any layout', 'administer block content', 'delete own files', 'delete any file', 'administer url aliases', 'administer nodes', 'use text format full_html'] as $permission) {
   $checks["no $permission"] = !$account->hasPermission($permission);
 }
-foreach (['field_style', 'field_background'] as $name) {
+foreach (['field_style'] as $name) {
   $block = $manager->getStorage('block_content')->create(['type' => 'text_media']);
   $checks["locked block field $name"] = !$block->get($name)->access('edit', $account);
+}
+foreach (['hero' => ['field_background', 'field_images'], 'text_media' => ['field_background']] as $bundle => $fields) {
+  $block = $manager->getStorage('block_content')->create(['type' => $bundle]);
+  $checks["visitor cannot edit $bundle block"] = !$block->access('update', $visitor);
+  foreach ($fields as $name) {
+    $checks["editor can change $bundle $name"] = $block->get($name)->access('edit', $account);
+  }
 }
 $access = \Drupal::service('access_manager');
 foreach (['user.admin_index', 'user.admin_permissions', 'system.modules_list', 'system.admin_config', 'ksa_agenda.settings', 'entity.node.delete_form'] as $route) {

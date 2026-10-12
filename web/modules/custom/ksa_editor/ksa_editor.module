@@ -26,7 +26,7 @@ function ksa_editor_entity_field_access($operation, FieldDefinitionInterface $fi
   }
   if ($operation === 'edit' && ksa_editor_is_editor($account)
     && $field_definition->getTargetEntityTypeId() === 'block_content'
-    && in_array($field_definition->getName(), ['field_style', 'field_background', 'field_api_key', 'field_calendar_id'], TRUE)) {
+    && in_array($field_definition->getName(), ['field_style', 'field_api_key', 'field_calendar_id'], TRUE)) {
     return AccessResult::forbidden()->cachePerPermissions()->addCacheContexts(['user.roles']);
   }
   return AccessResult::neutral()->cachePerPermissions()->addCacheContexts(['user.roles']);
