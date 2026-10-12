@@ -9,7 +9,7 @@
     {% block menu %}{% endblock %}
   </div>
   {% block extra %}{% endblock %}
-  {# Pas invoegen als de pagina nog geen Jos heeft; template-inhoud is inert. #}
+  {# Jos krijgt op elke pagina een eigen loopstrook in de footer. #}
   <div class="site-footer__jos" data-footer-jos data-jos-controller hidden>
     <template data-footer-jos-template>{{ include('ksa:jos', {}, with_context = false) }}</template>
     <div class="site-footer__jos-stage" data-footer-jos-stage></div>

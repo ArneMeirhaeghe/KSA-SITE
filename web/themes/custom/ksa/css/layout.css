@@ -171,3 +171,13 @@
 
 /* De voorzieningen horen direct bij hun sectiekop. */
 .layout--onecol:has(.text-block) + .layout--fourcol-section { margin-top: 32px; }
+
+/* Core Navigation gebruikt een auto-kolom voor de titel. Lange paginanamen
+   mogen op een telefoon de bewerkknop niet buiten het scherm duwen. */
+@media (width < 700px) {
+  .top-bar[data-drupal-admin-styles] .top-bar__content {
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+  }
+  .top-bar[data-drupal-admin-styles] .top-bar__context { min-width: 0; }
+  .top-bar[data-drupal-admin-styles] .top-bar__title { min-width: 0; max-width: 100%; }
+}
