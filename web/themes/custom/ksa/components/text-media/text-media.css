@@ -228,6 +228,10 @@
 .tabs__tab[aria-selected="true"] { color: var(--color-text); }
 .tabs__tab[aria-selected="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--color-text); }
 .tabs__tab:hover { color: var(--color-text); }
+@media (width >= 1000px) {
+  .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+  .tabs__tab { white-space: normal; text-align: center; }
+}
 .tabs__tab:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
 .is-tab-panel:focus-visible { outline: 2px solid var(--color-text); outline-offset: 8px; border-radius: 4px; }
 /* 65 px to the footer (the margins collapse with the footer margin). */

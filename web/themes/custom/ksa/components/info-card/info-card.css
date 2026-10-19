@@ -41,6 +41,9 @@
 .info-card--text .info-card__heading { color: #000; font-size: var(--font-size-heading-sm); font-weight: 600; line-height: 1.2; }
 .info-card--text .info-card__text { color: var(--color-text); font-size: var(--font-size-body); line-height: 28px; }
 .info-card--text .info-card__text strong { font-weight: 600; }
+@media (width >= 700px) {
+  .info-card--text .info-card__heading { min-block-size: 2lh; }
+}
 @media (width < 700px) {
   .info-card--text { min-height: 0; padding: 24px 20px; }
   .info-card--text .info-card__heading { font-size: var(--font-size-heading-xs); }

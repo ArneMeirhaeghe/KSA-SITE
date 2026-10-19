@@ -88,6 +88,29 @@
   }
 }
 
+/* Contact's dynamic team view and separately editable rental block share one
+   grid. Do not flatten Layout Builder's editable sections or contextual tools. */
+.site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap-desktop);
+  max-width: var(--content-max-width);
+  width: calc(100% - 2 * var(--page-gutter-desktop));
+  margin: 40px auto 0;
+}
+.site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) :is(.layout--onecol, .layout__region, .views-element-container, .views-element-container > div:not(.contextual), .view-contact-cards, .contact-overview, .card-grid) {
+  display: contents;
+}
+.site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) > .layout > .layout__region > div:empty { display: none; }
+.site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) > .layout > .layout__region > div:not(.views-element-container):not(.contact-block) { grid-column: 1 / -1; }
+.contact-overview .team-contact { height: 100%; }
+@media (width < 1000px) {
+  .site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (width < 700px) {
+  .site:not(:has(#layout-builder)) article > div:has(> .layout .view-contact-cards):has(> .layout .contact-block) { grid-template-columns: minmax(0, 1fr); width: calc(100% - 2 * var(--page-gutter-mobile)); gap: var(--grid-gap-compact); margin-top: 32px; }
+}
+
 /* Four columns (Figma Desktop 50:709, Verhuur): 4 x 251 px, 25 px apart, 81 px under a wide photo.
    Mobile 128:1239: two columns, 16 px apart, 32 px between rows. */
 .layout--fourcol-section {
