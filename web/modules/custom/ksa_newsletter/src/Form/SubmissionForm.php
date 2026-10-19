@@ -30,7 +30,7 @@ final class SubmissionForm extends FormBase {
     $form['#attached']['library'][] = 'ksa_newsletter/editor';
     $form['title'] = ['#type' => 'textfield', '#title' => 'Titel', '#required' => TRUE, '#maxlength' => 200];
     $form['writer'] = ['#type' => 'textfield', '#title' => 'Jouw naam', '#required' => TRUE, '#maxlength' => 120, '#autocomplete_route_name' => NULL];
-    $form['body'] = ['#type' => 'textarea', '#title' => 'Je tekst', '#required' => TRUE, '#rows' => 10, '#description' => 'Schrijf in je eigen woorden. Je kunt vet en cursief gebruiken. Maximaal 20.000 tekens.', '#attributes' => ['data-newsletter-editor' => 'true']];
+    $form['body'] = ['#type' => 'textarea', '#title' => 'Je tekst', '#required' => TRUE, '#rows' => 10, '#description' => 'Schrijf in je eigen woorden. Gebruik de werkbalk voor tussenkoppen, opmaak, lijsten en links. Maximaal 20.000 tekens.', '#attributes' => ['data-newsletter-editor' => 'true']];
     $form['body_is_html'] = ['#type' => 'hidden', '#default_value' => '0'];
     $form['activity_date'] = ['#type' => 'date', '#title' => 'Datum van de activiteit', '#description' => 'Optioneel. De datum waarop je instuurt, bewaren we automatisch.'];
     $form['photos'] = ['#type' => 'file', '#title' => 'Foto’s', '#multiple' => TRUE, '#attributes' => ['accept' => 'image/jpeg,image/png,image/webp'], '#description' => 'Optioneel: maximaal 5 JPG-, PNG- of WebP-foto’s. Maximaal 5 MB per foto en 20 MB samen. Gebruik alleen foto’s die je voor de nieuwsbrief mag delen.'];

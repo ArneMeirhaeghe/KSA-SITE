@@ -11,4 +11,8 @@ editor:
     - core/ckeditor5.editorClassic
     - core/ckeditor5.essentials
     - core/ckeditor5.basic
+    - core/ckeditor5.heading
+    - core/ckeditor5.list
+    - core/ckeditor5.link
+    - core/ckeditor5.removeFormat
     - core/ckeditor5.translations.nl

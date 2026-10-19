@@ -58,6 +58,18 @@ try {
   $plain = \Drupal\ksa_newsletter\NewsletterText::clean('<strong>literal</strong>', FALSE);
   if ($plain !== '&lt;strong&gt;literal&lt;/strong&gt;') { throw new RuntimeException('Plain text fallback changed.'); }
   $checks++;
+  $rich = '<h2>Tussenkop</h2><ul><li>Een</li><li>Twee</li></ul><ol><li>Stap</li></ol><p><a href="https://example.com/inschrijven?a=1&amp;b=2">Inschrijven</a></p>';
+  if (\Drupal\ksa_newsletter\NewsletterText::clean($rich, TRUE) !== $rich) { throw new RuntimeException('Headings, lists or links were lost.'); }
+  $checks++;
+  foreach (['javascript:alert(1)', 'jav&#x61;script:alert(1)', 'data:text/html,test', 'vbscript:test', '//example.com', 'java&#10;script:alert(1)'] as $href) {
+    $safe = \Drupal\ksa_newsletter\NewsletterText::clean('<a href="' . $href . '" style="color:red" target="_blank">Link</a>', TRUE);
+    if ($safe !== 'Link') { throw new RuntimeException('Unsafe URL survived: ' . $safe); }
+    $checks++;
+  }
+  foreach (['mailto:test@example.com', '/contact', '#praktisch'] as $href) {
+    if (!str_contains(\Drupal\ksa_newsletter\NewsletterText::clean('<a href="' . $href . '" onclick="bad()">Link</a>', TRUE), 'href="' . $href . '"')) { throw new RuntimeException('Safe URL lost.'); }
+    $checks++;
+  }
   $request->files->replace([]);
   $stack->pop();
   echo "PASS: $checks newsletter input/upload validation checks\n";

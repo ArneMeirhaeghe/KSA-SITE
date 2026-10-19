@@ -11,7 +11,7 @@
 
 Eigen interne entity `newsletter_article`: titel, schrijver, tekst, optionele activiteitsdatum, automatische instuurdatum, ingelogd account indien aanwezig en maximaal vijf Media-foto’s. Geen editie of workflowstatus. De instuurperiode bepaalt de editie later.
 
-Tekst bewaart een vaste veilige HTML-subset: `p`, `br`, `strong`, `em`, zonder attributen. Drupal's meegeleverde CKEditor biedt alleen vet/cursief. Geplakte opmaak wordt beperkt. Servervalidatie normaliseert ook handmatig vervalste verzoeken. Zonder JavaScript blijft een gewoon tekstvak bruikbaar. De toekomstige lokale app moet deze HTML-subset behouden of naar eigen opmaak omzetten.
+Tekst bewaart een vaste veilige HTML-subset: `p`, `br`, `strong`, `em`, `h2`, `ul`, `ol`, `li`, `a`; alleen veilige `href`-attributen op links. Drupal's meegeleverde CKEditor biedt vet/cursief, één tussenkopniveau, opsommingen, genummerde lijsten, links, ongedaan maken/opnieuw en opmaak wissen. Geplakte opmaak wordt beperkt. Servervalidatie normaliseert ook handmatig vervalste verzoeken. Zonder JavaScript blijft een gewoon tekstvak bruikbaar. De toekomstige lokale app moet deze HTML-subset behouden of naar eigen opmaak omzetten.
 
 ## Bescherming
 

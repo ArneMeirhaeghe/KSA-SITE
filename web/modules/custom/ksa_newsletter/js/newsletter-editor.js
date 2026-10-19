@@ -8,8 +8,13 @@
         initial.textContent = textarea.value;
         CKEditor5.editorClassic.ClassicEditor.create(textarea, {
           licenseKey: 'GPL',
-          plugins: [CKEditor5.essentials.Essentials, CKEditor5.paragraph.Paragraph, CKEditor5.basicStyles.Bold, CKEditor5.basicStyles.Italic],
-          toolbar: ['bold', 'italic'],
+          plugins: [CKEditor5.essentials.Essentials, CKEditor5.paragraph.Paragraph, CKEditor5.basicStyles.Bold, CKEditor5.basicStyles.Italic, CKEditor5.heading.Heading, CKEditor5.list.List, CKEditor5.link.Link, CKEditor5.removeFormat.RemoveFormat],
+          toolbar: { items: ['heading', '|', 'bold', 'italic', 'link', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo', 'removeFormat'], shouldNotGroupWhenFull: true },
+          heading: { options: [
+            { model: 'paragraph', title: 'Gewone tekst', class: 'ck-heading_paragraph' },
+            { model: 'heading2', view: 'h2', title: 'Tussenkop', class: 'ck-heading_heading2' },
+          ] },
+          link: { defaultProtocol: 'https://', allowedProtocols: ['http', 'https', 'mailto'] },
           language: 'nl',
           initialData: mode.value === '1' ? textarea.value : initial.innerHTML.replace(/\n/g, '<br>'),
         }).then((editor) => {

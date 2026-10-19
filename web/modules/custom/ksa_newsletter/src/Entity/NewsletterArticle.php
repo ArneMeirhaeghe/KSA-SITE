@@ -26,7 +26,7 @@ final class NewsletterArticle extends ContentEntityBase {
     $fields = parent::baseFieldDefinitions($entity_type);
     $fields['title'] = BaseFieldDefinition::create('string')->setLabel('Titel')->setRequired(TRUE)->setSetting('max_length', 200);
     $fields['writer'] = BaseFieldDefinition::create('string')->setLabel('Schrijver')->setRequired(TRUE)->setSetting('max_length', 120);
-    // Fixed sanitized HTML subset: p, br, strong and em; no attributes.
+    // Fixed sanitized HTML subset defined by NewsletterText; only safe link href attributes.
     $fields['body'] = BaseFieldDefinition::create('string_long')->setLabel('Tekst')->setRequired(TRUE);
     $fields['activity_date'] = BaseFieldDefinition::create('datetime')->setLabel('Activiteitsdatum')->setSetting('datetime_type', 'date');
     $fields['created'] = BaseFieldDefinition::create('created')->setLabel('Ingestuurd op');

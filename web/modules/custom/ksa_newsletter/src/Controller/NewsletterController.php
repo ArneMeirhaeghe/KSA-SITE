@@ -62,7 +62,7 @@ final class NewsletterController extends ControllerBase {
     $build['back'] = Link::createFromRoute('← Alle nieuwsbriefartikelen', 'ksa_newsletter.overview')->toRenderable();
     $build['title'] = ['#type' => 'html_tag', '#tag' => 'h2', '#value' => \Drupal\Component\Utility\Html::escape($article->label())];
     $build['info'] = ['#theme' => 'item_list', '#items' => ['Schrijver: ' . $article->get('writer')->value, 'Ingestuurd: ' . \Drupal::service('date.formatter')->format($article->get('created')->value, 'custom', 'd/m/Y H:i', 'Europe/Brussels'), 'Activiteitsdatum: ' . ($article->get('activity_date')->value ?: 'Niet opgegeven')]];
-    $build['body'] = ['#type' => 'container', '#attributes' => ['class' => ['newsletter-text']], 'text' => ['#markup' => \Drupal\ksa_newsletter\NewsletterText::clean($article->get('body')->value, (bool) preg_match('/<(?:p|br|strong|em)\b/i', $article->get('body')->value)), '#allowed_tags' => ['p', 'br', 'strong', 'em']]];
+    $build['body'] = ['#type' => 'container', '#attributes' => ['class' => ['newsletter-text']], 'text' => ['#markup' => \Drupal\ksa_newsletter\NewsletterText::clean($article->get('body')->value, (bool) preg_match('/<(?:p|br|strong|em|h2|ul|ol|li|a)\b/i', $article->get('body')->value)), '#allowed_tags' => \Drupal\ksa_newsletter\NewsletterText::TAGS]];
     $build['photos'] = ['#type' => 'container', '#attributes' => ['class' => ['newsletter-photos']]];
     foreach ($article->get('photos')->referencedEntities() as $media) {
       $file = $media->get('field_newsletter_image')->entity;
