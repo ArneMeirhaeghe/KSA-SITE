@@ -31,3 +31,9 @@ Tekst bewaart een vaste veilige HTML-subset: `p`, `br`, `strong`, `em`, zonder a
 5. Controleer `scripts/check-newsletter.php`, `scripts/check-newsletter-validation.php`, `scripts/check-editor-access.php` en `scripts/check-leadership-log.php`.
 
 Lokaal gecontroleerd: anoniem insturen met tekst/foto, vet+cursief bewaren en weergeven, geweigerde private download, ingetrokken link, limieten, CSRF en schadelijke HTML. Desktop en mobiel volgen de bestaande pagina-intro, Inter, groene actieknop, witruimte en subtiele rand.
+
+## Testomgeving 19 oktober 2026
+
+Uitgerold op `https://ksadeinzetest.alwaysdata.net` na database- en hostinginstellingenbackup buiten de webmap. Modules via de browser geïnstalleerd, instuurlink via het beheerformulier aangemaakt. Drupal 11.4.10 en Gin 5.0.16; geen database-updates nodig en Composer audit zonder meldingen. Bestaande hostingregels en testsite-noindex behouden.
+
+Online: 416 rechtencontroles, 31 nieuwsbriefbeveiligingscontroles (vóór foto-test), 13 invoer-/uploadcontroles en 35 logcontroles geslaagd. Fictieve browserbijdrage `TEST — opmaak nieuwsbrief` met vet/cursief en één kleine testafbeelding opgeslagen en teruggelezen. Deze testbijdrage staat uitsluitend in het private nieuwsbriefbeheer.

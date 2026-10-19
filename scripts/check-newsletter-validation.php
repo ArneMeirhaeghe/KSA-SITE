@@ -21,6 +21,7 @@ try {
   $request = Request::create('/nieuwsbrief/insturen', 'POST');
   $request->server->set('REMOTE_ADDR', '192.0.2.243');
   $request->setSession(new Session(new MockArraySessionStorage()));
+  if (SubmissionGate::token() === '') { SubmissionGate::rotate(); }
   SubmissionGate::accept($request, SubmissionGate::token());
   $stack->push($request);
   $form = new SubmissionForm();
