@@ -1,0 +1,40 @@
+ksa_newsletter.entry:
+  path: '/nieuwsbrief/insturen'
+  defaults:
+    _controller: '\Drupal\ksa_newsletter\Controller\NewsletterController::entry'
+    _title: 'Bijdrage voor de nieuwsbrief'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+ksa_newsletter.overview:
+  path: '/admin/content/nieuwsbrief'
+  defaults:
+    _controller: '\Drupal\ksa_newsletter\Controller\NewsletterController::overview'
+    _title: 'Nieuwsbriefartikelen'
+  requirements:
+    _permission: 'administer newsletter articles'
+  options:
+    _admin_route: TRUE
+ksa_newsletter.settings:
+  path: '/admin/content/nieuwsbrief/instuurlink'
+  defaults:
+    _form: '\Drupal\ksa_newsletter\Form\LinkForm'
+    _title: 'Instuurlink beheren'
+  requirements:
+    _permission: 'administer newsletter articles'
+  options:
+    _admin_route: TRUE
+    no_cache: TRUE
+entity.newsletter_article.canonical:
+  path: '/admin/content/nieuwsbrief/{newsletter_article}'
+  defaults:
+    _controller: '\Drupal\ksa_newsletter\Controller\NewsletterController::detail'
+    _title: 'Nieuwsbriefartikel'
+  requirements:
+    _entity_access: 'newsletter_article.view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      newsletter_article:
+        type: entity:newsletter_article

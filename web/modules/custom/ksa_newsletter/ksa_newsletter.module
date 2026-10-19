@@ -1,0 +1,23 @@
+<?php
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\media\MediaInterface;
+
+/** Deny newsletter media through every media route, even if published by mistake. */
+function ksa_newsletter_media_access(MediaInterface $media, $operation, AccountInterface $account) {
+  if ($media->bundle() === 'newsletter_photo') {
+    return ($account->hasPermission('administer newsletter articles') ? AccessResult::allowed() : AccessResult::forbidden())->cachePerPermissions()->addCacheableDependency($media);
+  }
+  return AccessResult::neutral();
+}
+
+/** Explicitly protect originals and private image-style derivatives. */
+function ksa_newsletter_file_download($uri) {
+  if (str_starts_with($uri, 'private://newsletter/') || (str_starts_with($uri, 'private://styles/') && str_contains($uri, '/newsletter/'))) {
+    if (!\Drupal::currentUser()->hasPermission('administer newsletter articles')) {
+      return -1;
+    }
+    return ['Content-Type' => \Drupal::service('file.mime_type.guesser')->guessMimeType($uri), 'Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff'];
+  }
+}

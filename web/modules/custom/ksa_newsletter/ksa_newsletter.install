@@ -1,0 +1,15 @@
+<?php
+
+/** Require private storage outside the web root before accepting uploads. */
+function ksa_newsletter_requirements($phase): array {
+  $path = \Drupal\Core\Site\Settings::get('file_private_path');
+  $private = $path ? realpath($path) : FALSE;
+  $web = realpath(DRUPAL_ROOT);
+  $safe = $private && $private !== $web && !str_starts_with($private . DIRECTORY_SEPARATOR, $web . DIRECTORY_SEPARATOR) && is_writable($private);
+  return ['ksa_newsletter_private' => [
+    'title' => t('Privéopslag nieuwsbrief'),
+    'value' => $safe ? t('Buiten de publieke webmap') : t('Niet veilig ingesteld'),
+    'description' => $safe ? t('Nieuwsbrieffoto’s worden afgeschermd opgeslagen.') : t('Stel file_private_path in op een bestaande, schrijfbare map buiten de publieke webmap.'),
+    'severity' => $safe ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+  ]];
+}

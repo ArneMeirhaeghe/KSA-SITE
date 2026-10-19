@@ -91,7 +91,7 @@ try {
     }
   }
   $home = \Drupal::classResolver(\Drupal\ksa_editor\Controller\EditorController::class)->home();
-  $checks['dashboard has five task groups'] = count($home['tasks']['#items']) === 5;
+  $checks['dashboard has expected task groups'] = count($home['tasks']['#items']) === (\Drupal::moduleHandler()->moduleExists('ksa_newsletter') ? 6 : 5);
   $navigation = \Drupal::service('navigation.menu_tree');
   $tree = $navigation->load('content', new \Drupal\Core\Menu\MenuTreeParameters());
   ksa_editor_navigation_menu_link_tree_alter($tree);

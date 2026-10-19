@@ -1,0 +1,5 @@
+services:
+  ksa_newsletter.response:
+    class: Drupal\ksa_newsletter\EventSubscriber\PrivateResponse
+    tags:
+      - { name: event_subscriber }

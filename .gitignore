@@ -34,3 +34,5 @@
 .ddev/import-db/
 .ddev/config.local.yaml
 /prototypes/
+
+/private/

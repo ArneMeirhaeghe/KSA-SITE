@@ -24,6 +24,7 @@
         "drupal/entity_log": "^1.5",
         "drupal/gin": "^5.0",
         "drupal/gin_toolbar": "^3.0",
+        "drupal/honeypot": "^2.2",
         "drupal/layout_builder_perms": "^2.2.1",
         "drupal/layout_builder_styles": "^2.1",
         "drupal/metatag": "^2.2",

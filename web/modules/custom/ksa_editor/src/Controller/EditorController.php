@@ -25,6 +25,12 @@ final class EditorController extends ControllerBase {
     if ($this->currentUser()->hasPermission('access media overview')) {
       $items[] = Link::createFromRoute('Foto’s en PDF’s', 'ksa_editor.media')->toRenderable();
     }
+    if ($this->moduleHandler()->moduleExists('ksa_newsletter')) {
+      $items[] = Link::createFromRoute('Nieuwsbriefbijdrage insturen', 'ksa_newsletter.entry')->toRenderable();
+      if ($this->currentUser()->hasPermission('administer newsletter articles')) {
+        $items[] = Link::createFromRoute('Nieuwsbriefartikelen bekijken', 'ksa_newsletter.overview')->toRenderable();
+      }
+    }
     return [
       '#cache' => ['contexts' => ['user.permissions']],
       'intro' => ['#markup' => '<p>Kies wat je wilt aanpassen. Je wijzigingen verschijnen na het opslaan op de website.</p>'],

@@ -1,0 +1,10 @@
+name: KSA Nieuwsbrief
+type: module
+description: Besloten verzameling nieuwsbriefartikelen met een beveiligd instuurformulier.
+package: KSA
+core_version_requirement: ^11
+dependencies:
+  - drupal:media
+  - drupal:image
+  - drupal:datetime
+  - honeypot:honeypot

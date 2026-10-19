@@ -1,0 +1,5 @@
+ksa_newsletter.overview:
+  title: Nieuwsbriefartikelen
+  description: Ingestuurde teksten en foto's verzamelen voor de nieuwsbrief.
+  route_name: ksa_newsletter.overview
+  parent: system.admin_content
