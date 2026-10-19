@@ -38,3 +38,46 @@ entity.newsletter_article.canonical:
     parameters:
       newsletter_article:
         type: entity:newsletter_article
+ksa_newsletter.api_articles:
+  path: '/api/nieuwsbrief/artikelen'
+  defaults:
+    _controller: '\Drupal\ksa_newsletter\Controller\ApiController::articles'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+ksa_newsletter.api_photo:
+  path: '/api/nieuwsbrief/artikelen/{article_uuid}/fotos/{media_uuid}'
+  defaults:
+    _controller: '\Drupal\ksa_newsletter\Controller\ApiController::photo'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    article_uuid: '[a-f0-9-]{36}'
+    media_uuid: '[a-f0-9-]{36}'
+  options:
+    no_cache: TRUE
+ksa_newsletter.api_settings:
+  path: '/admin/content/nieuwsbrief/api'
+  defaults:
+    _form: '\Drupal\ksa_newsletter\Form\ApiKeyForm'
+    _title: 'Nieuwsbrief-API'
+  requirements:
+    _permission: 'administer newsletter articles'
+  options:
+    _admin_route: TRUE
+    no_cache: TRUE
+ksa_newsletter.publish_photos:
+  path: '/admin/content/nieuwsbrief/{newsletter_article}/fotos-publiceren'
+  defaults:
+    _form: '\Drupal\ksa_newsletter\Form\PublishPhotosForm'
+    _title: 'Nieuwsbrieffoto’s publiceren'
+  requirements:
+    _permission: 'administer newsletter articles'
+  options:
+    _admin_route: TRUE
+    no_cache: TRUE
+    parameters:
+      newsletter_article:
+        type: entity:newsletter_article
