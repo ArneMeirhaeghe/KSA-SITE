@@ -37,3 +37,23 @@ function ksa_newsletter_form_media_form_alter(array &$form, \Drupal\Core\Form\Fo
   }
   else { $form['newsletter_publication']['info'] = ['#markup' => '<p>Deze foto is privé. Selecteer haar bij het nieuwsbriefartikel als ze openbaar in de e-mail gebruikt mag worden.</p>']; }
 }
+
+/** Include private originals only in the authorized newsletter Media Library tab. */
+function ksa_newsletter_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, array &$args): void {
+  if ($view->id() !== 'media_library' || !in_array($display_id, ['widget', 'widget_table'], TRUE) || ($args[0] ?? '') !== 'newsletter_photo') { return; }
+  $account = \Drupal::currentUser();
+  if (!$account->hasPermission('administer newsletter articles') && !$account->hasPermission('view newsletter articles')) { return; }
+  // The ordinary Media Library hides unpublished media. Newsletter originals
+  // deliberately remain unpublished even when a separate public copy exists.
+  $filters = $view->display_handler->getOption('filters');
+  foreach ($filters as $id => $filter) {
+    if (($filter['entity_type'] ?? '') === 'media' && ($filter['field'] ?? '') === 'status') { unset($filters[$id]); }
+  }
+  $view->display_handler->setOption('filters', $filters);
+  $view->display_handler->setOption('cache', ['type' => 'none']);
+}
+
+/** Library uploads are private originals too; publication uses a separate copy. */
+function ksa_newsletter_media_presave(MediaInterface $media): void {
+  if ($media->bundle() === 'newsletter_photo') { $media->setUnpublished(); }
+}

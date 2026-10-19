@@ -45,6 +45,21 @@ try {
   $assert(count($view->result) === 1 && $view->result[0]->_entity->id() === $id, 'Views filter finds the article');
   foreach ($view->field as $handler) { $assert(!($handler instanceof \Drupal\views\Plugin\views\field\Broken), 'Views field plugin valid'); }
   $assert(\Drupal::config('editor.editor.newsletter')->get('editor') === 'ckeditor5', 'Standard Drupal editor');
+  $switcher = \Drupal::service('account_switcher');
+  foreach ([new AnonymousUserSession(), \Drupal\user\Entity\User::load(1)] as $account) {
+    $switcher->switchTo($account);
+    try {
+      $library = \Drupal\views\Views::getView('media_library');
+      $library->setDisplay('widget');
+      $args = ['newsletter_photo'];
+      ksa_newsletter_views_pre_view($library, 'widget', $args);
+      $has_status = FALSE;
+      foreach ($library->display_handler->getOption('filters') as $filter) { if (($filter['field'] ?? '') === 'status') { $has_status = TRUE; } }
+      $assert($has_status === $account->isAnonymous(), 'Private library photos only included for authorized account');
+    }
+    finally { $switcher->switchBack(); }
+  }
+
   foreach ($storage->loadMultiple($storage->getQuery()->accessCheck(FALSE)->execute()) as $saved) {
     $assert(!$saved->get('content')->isEmpty() && $saved->getRevisionCreationTime() > 0, 'Migrated article retains text and revision date');
   }

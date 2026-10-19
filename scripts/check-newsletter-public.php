@@ -19,7 +19,7 @@ try {
   imagefill($image, 0, 0, imagecolorallocate($image, 84, 196, 78));
   imagepng($image, $uri);
   $file = File::create(['uri' => $uri, 'status' => 1]); $file->save();
-  $media = Media::create(['bundle' => 'newsletter_photo', 'name' => 'TEST temporary public image', 'status' => 0, 'field_newsletter_image' => ['target_id' => $file->id(), 'alt' => 'Synthetic test']]); $media->save();
+  $media = Media::create(['bundle' => 'newsletter_photo', 'name' => 'TEST temporary public image', 'status' => 1, 'field_newsletter_image' => ['target_id' => $file->id(), 'alt' => 'Synthetic test']]); $media->save();
   $original = hash_file('sha256', $uri);
   $assert(PublicPhotos::get($media) === NULL, 'No implicit public URL');
   $article = \Drupal::entityTypeManager()->getStorage('newsletter_article')->create(['title' => 'Publication API test', 'writer' => 'Synthetic', 'body' => 'Test', 'photos' => [['target_id' => $media->id()]]]);
