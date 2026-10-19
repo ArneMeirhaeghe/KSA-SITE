@@ -37,3 +37,7 @@ Lokaal gecontroleerd: anoniem insturen met tekst/foto, vet+cursief bewaren en we
 Uitgerold op `https://ksadeinzetest.alwaysdata.net` na database- en hostinginstellingenbackup buiten de webmap. Modules via de browser geïnstalleerd, instuurlink via het beheerformulier aangemaakt. Drupal 11.4.10 en Gin 5.0.16; geen database-updates nodig en Composer audit zonder meldingen. Bestaande hostingregels en testsite-noindex behouden.
 
 Online: 416 rechtencontroles, 31 nieuwsbriefbeveiligingscontroles (vóór foto-test), 13 invoer-/uploadcontroles en 35 logcontroles geslaagd. Fictieve browserbijdrage `TEST — opmaak nieuwsbrief` met vet/cursief en één kleine testafbeelding opgeslagen en teruggelezen. Deze testbijdrage staat uitsluitend in het private nieuwsbriefbeheer.
+
+## Bevestiging en mascotte
+
+Na een geslaagde inzending (of een herhaalde POST van diezelfde inzending) verschijnt een eenmalige bedankkaart met Jos. De server zet hiervoor een sessieflash; een URL-parameter kan de succesmelding niet oproepen. Foutmeldingen blijven via Drupal zichtbaar. Naast het formulier kijkt Jos met hoofd en ogen naar de muis. De bestaande SVG wordt hergebruikt met unieke IDs, zonder botsing met de footer. Touch-apparaten en reduced-motion gebruiken een stilstaande vos. Geen permanente animatielus; handlers worden bij Drupal-detach opgeruimd.

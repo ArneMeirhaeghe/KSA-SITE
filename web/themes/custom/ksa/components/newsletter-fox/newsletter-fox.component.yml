@@ -1,0 +1,14 @@
+name: Nieuwsbriefvos
+description: Jos naast het instuurformulier, met subtiele muisvolging.
+status: stable
+props:
+  type: object
+  required: [variant]
+  properties:
+    variant:
+      type: string
+      enum: [form, received]
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

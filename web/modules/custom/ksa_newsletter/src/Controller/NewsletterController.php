@@ -27,7 +27,12 @@ final class NewsletterController extends ControllerBase {
     return [
       '#cache' => ['max-age' => 0],
       'intro' => ['#type' => 'component', '#component' => 'ksa:page-intro', '#props' => ['variant' => 'page'], '#slots' => ['text' => ['#plain_text' => 'Deel je verhaal, aankondiging of terugblik met de KSA. Je bijdrage komt bij de nieuwsbriefbeheerder terecht.']]],
-      'form' => $this->formBuilder()->getForm(SubmissionForm::class),
+      'received' => $request->getSession()->getFlashBag()->get('ksa_newsletter.received') ? ['#type' => 'component', '#component' => 'ksa:newsletter-received'] : [],
+      'compose' => [
+        '#type' => 'container', '#attributes' => ['class' => ['newsletter-compose']],
+        'form' => $this->formBuilder()->getForm(SubmissionForm::class),
+        'fox' => ['#type' => 'container', '#attributes' => ['class' => ['newsletter-compose__fox']], 'mascot' => ['#type' => 'component', '#component' => 'ksa:newsletter-fox', '#props' => ['variant' => 'form']]],
+      ],
     ];
   }
   public function overview(Request $request): array {

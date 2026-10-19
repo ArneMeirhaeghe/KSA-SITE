@@ -1,0 +1,5 @@
+{# Reuse Jos's existing drawing, with unique SVG IDs beside the footer mascot. #}
+{% set prefix = 'newsletter-' ~ variant ~ '-' %}
+<div class="newsletter-fox" {% if variant == 'form' %}data-newsletter-fox{% endif %} aria-hidden="true">
+  {{ source('@ksa/components/jos-login/jos-login.svg')|replace({'id="': 'id="' ~ prefix, 'url(#': 'url(#' ~ prefix, 'href="#': 'href="#' ~ prefix})|raw }}
+</div>

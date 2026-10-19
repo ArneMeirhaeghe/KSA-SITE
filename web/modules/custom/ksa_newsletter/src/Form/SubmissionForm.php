@@ -118,7 +118,7 @@ final class SubmissionForm extends FormBase {
     try {
       // The form UUID makes a retry of the same POST idempotent.
       if ($storage->getQuery()->accessCheck(FALSE)->condition('uuid', $uuid)->count()->execute()) {
-        $this->messenger()->addStatus('Deze bijdrage is al ontvangen. Bedankt!');
+        $this->getRequest()->getSession()->getFlashBag()->add('ksa_newsletter.received', TRUE);
         $form_state->setRedirect('ksa_newsletter.entry');
         return;
       }
@@ -148,7 +148,7 @@ final class SubmissionForm extends FormBase {
         'uid' => $this->currentUser()->id(), 'photos' => array_map(fn($media) => ['target_id' => $media->id()], $media_items),
       ]);
       $article->save();
-      $this->messenger()->addStatus('Bedankt! Je bijdrage is ontvangen door de nieuwsbriefbeheerder.');
+      $this->getRequest()->getSession()->getFlashBag()->add('ksa_newsletter.received', TRUE);
       $form_state->setRedirect('ksa_newsletter.entry');
     }
     catch (\Throwable $exception) {

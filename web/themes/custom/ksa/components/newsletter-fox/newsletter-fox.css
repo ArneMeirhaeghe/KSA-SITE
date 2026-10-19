@@ -1,0 +1,8 @@
+.newsletter-fox { width: 100%; pointer-events: none; --fox-tilt: 0deg; --fox-eye-x: 0px; --fox-eye-y: 0px; }
+.newsletter-fox svg { display: block; width: 100%; height: auto; overflow: visible; }
+.newsletter-fox :is(.jos-scene, .jos-props, .jos-mallet, .jos-hand, .jos-mouth, .jos-mouth-cover, .jos-peek) { display: none; }
+.newsletter-fox .jos-head { transform-box: view-box; transform-origin: 215px 275px; transform: rotate(var(--fox-tilt)); transition: transform .16s ease-out; }
+.newsletter-fox .jos-pupil { transform: translate(var(--fox-eye-x), var(--fox-eye-y)); transition: transform .16s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .newsletter-fox :is(.jos-head, .jos-pupil) { transform: none; transition: none; }
+}
