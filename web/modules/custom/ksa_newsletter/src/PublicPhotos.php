@@ -28,7 +28,7 @@ final class PublicPhotos {
       $directory = 'public://newsletter';
       if (!\Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS)) { throw new \RuntimeException('Public directory unavailable.'); }
       $image = \Drupal::service('image.factory')->get($original->getFileUri());
-      if (!$image->isValid() || !$image->scale(1600, 1600, FALSE)) { throw new \RuntimeException('Image scaling failed.'); }
+      if (!$image->isValid() || !$image->scale((int) Settings::get('photo_max_width'), (int) Settings::get('photo_max_height'), FALSE)) { throw new \RuntimeException('Image scaling failed.'); }
       $extension = $image->getMimeType() === 'image/jpeg' ? 'jpg' : 'png';
       if ($image->getMimeType() === 'image/webp' && !$image->convert('png')) { throw new \RuntimeException('Image conversion failed.'); }
       $uuid = \Drupal::service('uuid')->generate();

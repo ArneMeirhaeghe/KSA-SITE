@@ -7,7 +7,7 @@ use Drupal\media\MediaInterface;
 /** Deny newsletter media through every media route, even if published by mistake. */
 function ksa_newsletter_media_access(MediaInterface $media, $operation, AccountInterface $account) {
   if ($media->bundle() === 'newsletter_photo') {
-    return ($account->hasPermission('administer newsletter articles') ? AccessResult::allowed() : AccessResult::forbidden())->cachePerPermissions()->addCacheableDependency($media);
+    return (($account->hasPermission('administer newsletter articles') || $account->hasPermission($operation === 'view' ? 'view newsletter articles' : ($operation === 'delete' ? 'delete newsletter articles' : 'edit newsletter articles'))) ? AccessResult::allowed() : AccessResult::forbidden())->cachePerPermissions()->addCacheableDependency($media);
   }
   return AccessResult::neutral();
 }
@@ -15,9 +15,25 @@ function ksa_newsletter_media_access(MediaInterface $media, $operation, AccountI
 /** Explicitly protect originals and private image-style derivatives. */
 function ksa_newsletter_file_download($uri) {
   if (str_starts_with($uri, 'private://newsletter/') || (str_starts_with($uri, 'private://styles/') && str_contains($uri, '/newsletter/'))) {
-    if (!\Drupal::currentUser()->hasPermission('administer newsletter articles')) {
+    if (!\Drupal::currentUser()->hasPermission('administer newsletter articles') && !\Drupal::currentUser()->hasPermission('view newsletter articles') && !\Drupal::currentUser()->hasPermission('publish newsletter photos')) {
       return -1;
     }
     return ['Content-Type' => \Drupal::service('file.mime_type.guesser')->guessMimeType($uri), 'Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff'];
   }
+}
+
+/** Surface publication metadata on the original's standard Media edit form. */
+function ksa_newsletter_form_media_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state): void {
+  $media = $form_state->getFormObject()->getEntity();
+  if ($media->bundle() !== 'newsletter_photo' || $media->isNew()) { return; }
+  $public = \Drupal\ksa_newsletter\PublicPhotos::get($media);
+  $form['newsletter_publication'] = ['#type' => 'details', '#title' => 'Publicatie in de nieuwsbrief', '#open' => TRUE, '#weight' => 20];
+  if ($public) {
+    $form['newsletter_publication']['url'] = ['#type' => 'textfield', '#title' => 'Openbare foto-URL', '#value' => $public['url'], '#maxlength' => 2048, '#attributes' => ['readonly' => 'readonly']];
+    $form['newsletter_publication']['info'] = ['#markup' => '<p>Dit is een aparte openbare kopie. Het origineel blijft privé. Maak een nieuwe versie via het nieuwsbriefartikel om oude e-maillinks te behouden.</p>'];
+    $record = \Drupal::keyValue('ksa_newsletter.public_photos')->get($media->uuid());
+    $copy = \Drupal\media\Entity\Media::load($record['media_id']);
+    if ($copy && $copy->access('view')) { $form['newsletter_publication']['copy'] = $copy->toLink('Openbare kopie in Media bekijken')->toRenderable(); }
+  }
+  else { $form['newsletter_publication']['info'] = ['#markup' => '<p>Deze foto is privé. Selecteer haar bij het nieuwsbriefartikel als ze openbaar in de e-mail gebruikt mag worden.</p>']; }
 }

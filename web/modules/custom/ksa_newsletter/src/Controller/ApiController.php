@@ -49,7 +49,7 @@ final class ApiController extends ControllerBase {
         $photos[] = ['id' => $media->uuid(), 'filename' => $file->getFilename(), 'mime_type' => $file->getMimeType(), 'size_bytes' => (int) $file->getSize(), 'width' => (int) $image->width, 'height' => (int) $image->height, 'url' => $url, 'download_url' => $url, 'requires_authorization' => TRUE, 'public_url' => $public['url'] ?? NULL, 'public_image' => $public];
       }
       $body = (string) $article->get('body')->value;
-      $data[] = ['id' => $article->uuid(), 'title' => $article->label(), 'writer' => $article->get('writer')->value, 'text_html' => NewsletterText::clean($body, (bool) preg_match('/<(?:p|br|strong|em|h2|ul|ol|li|a)\b/i', $body)), 'submitted_at' => gmdate('Y-m-d\TH:i:s\Z', $article->get('created')->value), 'activity_date' => $article->get('activity_date')->value ?: NULL, 'photos' => $photos];
+      $data[] = ['id' => $article->uuid(), 'title' => $article->label(), 'writer' => $article->get('writer')->value, 'text_html' => NewsletterText::render($article), 'submitted_at' => gmdate('Y-m-d\TH:i:s\Z', $article->get('created')->value), 'activity_date' => $article->get('activity_date')->value ?: NULL, 'photos' => $photos];
     }
     $next = NULL;
     if ($more && $ids) {

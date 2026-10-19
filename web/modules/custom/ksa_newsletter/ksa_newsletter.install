@@ -13,3 +13,37 @@ function ksa_newsletter_requirements($phase): array {
     'severity' => $safe ? REQUIREMENT_OK : REQUIREMENT_ERROR,
   ]];
 }
+
+/** Add revision tables and configurable field displays without replacing IDs. */
+function ksa_newsletter_update_11001(&$sandbox) {
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $definition = \Drupal::entityTypeManager()->getDefinition('newsletter_article');
+  $fields = \Drupal::service('entity_field.manager')->getFieldStorageDefinitions('newsletter_article');
+  $manager->updateFieldableEntityType($definition, $fields, $sandbox);
+}
+
+/** Copy legacy text to a standard formatted-text field; keep the original. */
+function ksa_newsletter_update_11002(&$sandbox) {
+  $storage = \Drupal::entityTypeManager()->getStorage('newsletter_article');
+  $ids = $storage->getQuery()->accessCheck(FALSE)->condition('id', $sandbox['last'] ?? 0, '>')->sort('id')->range(0, 50)->execute();
+  foreach ($storage->loadMultiple($ids) as $article) {
+    if ($article->get('content')->isEmpty()) {
+      $body = (string) $article->get('body')->value;
+      $article->set('content', ['value' => \Drupal\ksa_newsletter\NewsletterText::clean($body, (bool) preg_match('/<(?:p|br|strong|em|h2|ul|ol|li|a)\b/i', $body)), 'format' => 'newsletter']);
+      $article->setRevisionLogMessage('Bestaande bijdrage overgezet naar Drupal-tekstformaat.');
+      $article->setRevisionCreationTime((int) $article->get('created')->value);
+      $article->setRevisionUserId((int) $article->get('uid')->target_id);
+      $article->save();
+    }
+    $sandbox['last'] = $article->id();
+  }
+  $sandbox['#finished'] = count($ids) < 50 ? 1 : 0.5;
+}
+
+/** Supply historical metadata for revisions created by the schema migration. */
+function ksa_newsletter_update_11003() {
+  \Drupal::database()->update('ksa_newsletter_article_revision')
+    ->expression('revision_created', 'COALESCE(created, :now)', [':now' => \Drupal::time()->getRequestTime()])
+    ->expression('revision_user', 'COALESCE(uid, 0)')
+    ->isNull('revision_created')->execute();
+}

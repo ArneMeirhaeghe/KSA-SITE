@@ -1,3 +1,23 @@
 administer newsletter articles:
   title: 'Nieuwsbriefartikelen en instuurlink beheren'
   restrict access: true
+view newsletter articles:
+  title: 'Privé-nieuwsbriefartikelen en foto’s bekijken'
+  restrict access: true
+edit newsletter articles:
+  title: 'Nieuwsbriefartikelen bewerken en revisies herstellen'
+  restrict access: true
+delete newsletter articles:
+  title: 'Nieuwsbriefartikelen verwijderen'
+  restrict access: true
+publish newsletter photos:
+  title: 'Geselecteerde nieuwsbrieffoto’s openbaar publiceren'
+  restrict access: true
+administer newsletter api:
+  title: 'API-toegang voor de nieuwsbrief beheren'
+  restrict access: true
+administer newsletter settings:
+  title: 'Nieuwsbriefinstellingen en instuurlink beheren'
+  restrict access: true
+submit newsletter articles:
+  title: 'Nieuwsbriefartikelen insturen zonder instuurlink'

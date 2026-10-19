@@ -1,0 +1,25 @@
+ksa_newsletter.settings:
+  type: config_object
+  label: Nieuwsbriefinstellingen
+  mapping:
+    text_format:
+      type: string
+      label: Tekstformaat
+    photo_max_width:
+      type: integer
+      label: Maximale fotobreedte
+    photo_max_height:
+      type: integer
+      label: Maximale fotohoogte
+    api_requests_per_minute:
+      type: integer
+      label: API-aanvragen per minuut per IP
+    submissions_per_hour:
+      type: integer
+      label: Inzendingen per uur per IP
+    submissions_per_day:
+      type: integer
+      label: Inzendingen per dag per IP
+    submissions_total_per_day:
+      type: integer
+      label: Inzendingen per dag totaal

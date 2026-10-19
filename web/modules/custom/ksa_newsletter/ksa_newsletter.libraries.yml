@@ -2,17 +2,3 @@ form:
   css:
     theme:
       css/newsletter.css: {}
-editor:
-  js:
-    js/newsletter-editor.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-    - core/ckeditor5.editorClassic
-    - core/ckeditor5.essentials
-    - core/ckeditor5.basic
-    - core/ckeditor5.heading
-    - core/ckeditor5.list
-    - core/ckeditor5.link
-    - core/ckeditor5.removeFormat
-    - core/ckeditor5.translations.nl

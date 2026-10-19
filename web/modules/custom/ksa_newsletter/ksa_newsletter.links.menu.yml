@@ -3,3 +3,8 @@ ksa_newsletter.overview:
   description: Ingestuurde teksten en foto's verzamelen voor de nieuwsbrief.
   route_name: ksa_newsletter.overview
   parent: system.admin_content
+ksa_newsletter.configuration:
+  title: Nieuwsbrief
+  description: Instellingen, velden en weergaven van nieuwsbriefartikelen.
+  route_name: ksa_newsletter.configuration
+  parent: system.admin_structure

@@ -8,3 +8,8 @@ dependencies:
   - drupal:image
   - drupal:datetime
   - honeypot:honeypot
+  - drupal:text
+  - drupal:ckeditor5
+  - drupal:views
+  - drupal:field_ui
+  - drupal:media_library

@@ -26,7 +26,7 @@ try {
   $stack->push($request);
   $form = new SubmissionForm();
   $uuid = \Drupal::service('uuid')->generate();
-  $base = ['submission_id' => $uuid, 'submission_token' => \Drupal::csrfToken()->get('ksa_newsletter:' . $uuid), 'title' => 'Fictieve test', 'writer' => 'Test', 'body' => 'Testtekst', 'activity_date' => ''];
+  $base = ['submission_id' => $uuid, 'submission_token' => \Drupal::csrfToken()->get('ksa_newsletter:' . $uuid), 'title' => 'Fictieve test', 'writer' => 'Test', 'body' => ['value' => 'Testtekst', 'format' => 'newsletter'], 'activity_date' => ''];
   $validate = function (array $values, array $uploads, bool $expected) use ($form, $request, &$checks) {
     $request->files->replace(['files' => ['photos' => $uploads]]);
     $state = new FormState();
@@ -42,16 +42,16 @@ try {
   $bad_extension = new UploadedFile($tmp, 'test.php', 'image/png', NULL, TRUE);
   $validate($base, [], TRUE);
   $validate($base, [$good], TRUE);
-  $validate(array_replace($base, ['body' => '  ']), [], FALSE);
-  $validate(array_replace($base, ['body' => str_repeat('a', 20001)]), [], FALSE);
+  $validate(array_replace($base, ['body' => ['value' => '  ', 'format' => 'newsletter']]), [], FALSE);
+  $validate(array_replace($base, ['body' => ['value' => str_repeat('a', 20001), 'format' => 'newsletter']]), [], FALSE);
   $validate(array_replace($base, ['submission_token' => 'forged']), [], FALSE);
   $validate(array_replace($base, ['submission_id' => \Drupal::service('uuid')->generate()]), [], FALSE);
   $validate($base, array_fill(0, 6, $good), FALSE);
   $validate($base, [$bad_extension], FALSE);
   file_put_contents($tmp, '<script>alert(1)</script>');
   $validate($base, [new UploadedFile($tmp, 'fake.jpg', 'image/jpeg', NULL, TRUE)], FALSE);
-  $validate(array_replace($base, ['body' => '<p><strong>Vet</strong> en <em>cursief</em></p>', 'body_is_html' => '1']), [], TRUE);
-  $validate(array_replace($base, ['body' => '<p><strong>&nbsp;</strong></p>', 'body_is_html' => '1']), [], FALSE);
+  $validate(array_replace($base, ['body' => ['value' => '<p><strong>Vet</strong> en <em>cursief</em></p>', 'format' => 'newsletter']]), [], TRUE);
+  $validate(array_replace($base, ['body' => ['value' => '<p><strong>&nbsp;</strong></p>', 'format' => 'newsletter']]), [], FALSE);
   $safe = \Drupal\ksa_newsletter\NewsletterText::clean('<p class="word" onclick="alert(1)"><b>Vet</b> <i>Cursief</i><img src="x" onerror="alert(1)"><a href="javascript:alert(1)">link</a></p>', TRUE);
   if ($safe !== '<p><strong>Vet</strong> <em>Cursief</em>link</p>') { throw new RuntimeException('Unsafe or unexpected HTML: ' . $safe); }
   $checks++;

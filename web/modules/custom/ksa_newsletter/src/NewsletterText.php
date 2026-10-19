@@ -9,6 +9,17 @@ use Drupal\Component\Utility\Xss;
 final class NewsletterText {
   public const TAGS = ['p', 'br', 'strong', 'em', 'h2', 'ul', 'ol', 'li', 'a'];
 
+  /** Use Drupal's configured filters for both the detail page and the API. */
+  public static function render(\Drupal\Core\Entity\FieldableEntityInterface $article): string {
+    if ($article->hasField('content') && !$article->get('content')->isEmpty()) {
+      $item = $article->get('content')->first();
+      $build = ['#type' => 'processed_text', '#text' => $item->value, '#format' => $item->format];
+      return (string) \Drupal::service('renderer')->renderInIsolation($build);
+    }
+    $body = (string) $article->get('body')->value;
+    return self::clean($body, (bool) preg_match('/<(?:p|br|strong|em|h2|ul|ol|li|a)\b/i', $body));
+  }
+
   public static function clean(string $text, bool $html): string {
     if (!$html) {
       return nl2br(Html::escape($text));

@@ -1,0 +1,23 @@
+langcode: nl
+status: true
+dependencies:
+  config:
+    - filter.format.newsletter
+  module:
+    - ckeditor5
+format: newsletter
+editor: ckeditor5
+settings:
+  toolbar:
+    items: [heading, '|', bold, italic, link, '|', bulletedList, numberedList, '|', undo, redo, removeFormat]
+  plugins:
+    ckeditor5_heading:
+      enabled_headings: [heading2]
+    ckeditor5_list:
+      properties:
+        reversed: false
+        startIndex: false
+        styles: false
+      multiBlock: false
+image_upload:
+  status: false

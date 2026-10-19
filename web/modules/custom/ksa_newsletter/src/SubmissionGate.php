@@ -15,7 +15,7 @@ final class SubmissionGate {
   }
   public static function allowed(Request $request): bool {
     $account = \Drupal::currentUser();
-    if ($account->hasPermission('administer newsletter articles') || in_array('content_editor', $account->getRoles(), TRUE)) {
+    if ($account->hasPermission('administer newsletter articles') || $account->hasPermission('submit newsletter articles')) {
       return TRUE;
     }
     $token = self::token();
@@ -35,9 +35,9 @@ final class SubmissionGate {
   public static function allowedAttempt(Request $request): bool {
     $flood = \Drupal::service('flood');
     $id = self::identifier($request);
-    return $flood->isAllowed('ksa_newsletter.hour', 10, 3600, $id)
-      && $flood->isAllowed('ksa_newsletter.day', 25, 86400, $id)
-      && $flood->isAllowed('ksa_newsletter.global', 100, 86400, 'all');
+    return $flood->isAllowed('ksa_newsletter.hour', (int) Settings::get('submissions_per_hour'), 3600, $id)
+      && $flood->isAllowed('ksa_newsletter.day', (int) Settings::get('submissions_per_day'), 86400, $id)
+      && $flood->isAllowed('ksa_newsletter.global', (int) Settings::get('submissions_total_per_day'), 86400, 'all');
   }
   public static function registerAttempt(Request $request): void {
     $flood = \Drupal::service('flood');

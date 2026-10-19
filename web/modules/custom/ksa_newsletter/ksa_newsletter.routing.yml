@@ -13,7 +13,7 @@ ksa_newsletter.overview:
     _controller: '\Drupal\ksa_newsletter\Controller\NewsletterController::overview'
     _title: 'Nieuwsbriefartikelen'
   requirements:
-    _permission: 'administer newsletter articles'
+    _permission: 'administer newsletter articles+view newsletter articles'
   options:
     _admin_route: TRUE
 ksa_newsletter.settings:
@@ -22,7 +22,7 @@ ksa_newsletter.settings:
     _form: '\Drupal\ksa_newsletter\Form\LinkForm'
     _title: 'Instuurlink beheren'
   requirements:
-    _permission: 'administer newsletter articles'
+    _permission: 'administer newsletter articles+administer newsletter settings'
   options:
     _admin_route: TRUE
     no_cache: TRUE
@@ -64,7 +64,7 @@ ksa_newsletter.api_settings:
     _form: '\Drupal\ksa_newsletter\Form\ApiKeyForm'
     _title: 'Nieuwsbrief-API'
   requirements:
-    _permission: 'administer newsletter articles'
+    _permission: 'administer newsletter articles+administer newsletter api'
   options:
     _admin_route: TRUE
     no_cache: TRUE
@@ -74,10 +74,37 @@ ksa_newsletter.publish_photos:
     _form: '\Drupal\ksa_newsletter\Form\PublishPhotosForm'
     _title: 'Nieuwsbrieffoto’s publiceren'
   requirements:
-    _permission: 'administer newsletter articles'
+    _permission: 'administer newsletter articles+publish newsletter photos'
   options:
     _admin_route: TRUE
     no_cache: TRUE
     parameters:
       newsletter_article:
         type: entity:newsletter_article
+ksa_newsletter.configuration:
+  path: '/admin/structure/nieuwsbrief'
+  defaults:
+    _form: '\Drupal\ksa_newsletter\Form\SettingsForm'
+    _title: 'Nieuwsbriefinstellingen'
+  requirements:
+    _permission: 'administer newsletter articles+administer newsletter settings'
+  options:
+    _admin_route: TRUE
+entity.newsletter_article.edit_form:
+  path: '/admin/content/nieuwsbrief/{newsletter_article}/bewerken'
+  defaults:
+    _entity_form: 'newsletter_article.edit'
+    _title: 'Nieuwsbriefartikel bewerken'
+  requirements:
+    _entity_access: 'newsletter_article.update'
+  options:
+    _admin_route: TRUE
+entity.newsletter_article.delete_form:
+  path: '/admin/content/nieuwsbrief/{newsletter_article}/verwijderen'
+  defaults:
+    _entity_form: 'newsletter_article.delete'
+    _title: 'Nieuwsbriefartikel verwijderen'
+  requirements:
+    _entity_access: 'newsletter_article.delete'
+  options:
+    _admin_route: TRUE

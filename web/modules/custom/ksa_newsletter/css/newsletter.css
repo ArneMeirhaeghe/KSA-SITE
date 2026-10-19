@@ -78,3 +78,5 @@
   .newsletter-compose { width: calc(100% - 2 * var(--page-gutter-mobile, 16px)); margin-top: 24px; }
   .newsletter-compose__fox { width: 76px; }
 }
+/* Keep original photos readable on the configurable admin entity display. */
+.newsletter-article-view .field--name-photos img { max-width: 320px; max-height: 240px; width: auto; height: auto; object-fit: contain; }

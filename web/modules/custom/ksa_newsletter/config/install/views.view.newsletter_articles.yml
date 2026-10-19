@@ -1,0 +1,144 @@
+langcode: nl
+status: true
+dependencies:
+  module: [ksa_newsletter, datetime]
+id: newsletter_articles
+label: Nieuwsbriefartikelen
+module: views
+description: Privé-overzicht van bijdragen voor de nieuwsbrief.
+tag: KSA
+base_table: ksa_newsletter_article
+base_field: id
+display:
+  default:
+    id: default
+    display_title: Standaard
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Nieuwsbriefartikelen
+      fields:
+        title:
+          id: title
+          table: ksa_newsletter_article
+          field: title
+          entity_type: newsletter_article
+          entity_field: title
+          plugin_id: field
+          label: Titel
+          type: string
+          settings: { link_to_entity: true }
+        writer:
+          id: writer
+          table: ksa_newsletter_article
+          field: writer
+          entity_type: newsletter_article
+          entity_field: writer
+          plugin_id: field
+          label: Schrijver
+          type: string
+        created:
+          id: created
+          table: ksa_newsletter_article
+          field: created
+          entity_type: newsletter_article
+          entity_field: created
+          plugin_id: field
+          label: Ingestuurd op
+          type: timestamp
+          settings: { date_format: custom, custom_date_format: 'd/m/Y H:i', timezone: Europe/Brussels }
+        activity_date:
+          id: activity_date
+          table: ksa_newsletter_article
+          field: activity_date
+          entity_type: newsletter_article
+          entity_field: activity_date
+          plugin_id: field
+          label: Activiteitsdatum
+          type: datetime_default
+        operations:
+          id: operations
+          table: ksa_newsletter_article
+          field: operations
+          entity_type: newsletter_article
+          plugin_id: entity_operations
+          label: Acties
+      pager:
+        type: full
+        options: { items_per_page: 25 }
+      access:
+        type: perm
+        options: { perm: 'view newsletter articles' }
+      cache: { type: none }
+      exposed_form:
+        type: basic
+        options: { submit_button: Filteren, reset_button: true, reset_button_label: Wissen }
+      sorts:
+        created:
+          id: created
+          table: ksa_newsletter_article
+          field: created
+          entity_type: newsletter_article
+          entity_field: created
+          plugin_id: date
+          order: DESC
+      filters:
+        title:
+          id: title
+          table: ksa_newsletter_article
+          field: title
+          entity_type: newsletter_article
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose: { label: 'Titel bevat', identifier: title, required: false, use_operator: false, operator: title_op, operator_id: title_op }
+        writer:
+          id: writer
+          table: ksa_newsletter_article
+          field: writer
+          entity_type: newsletter_article
+          entity_field: writer
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose: { label: 'Schrijver bevat', identifier: writer, required: false, use_operator: false, operator: writer_op, operator_id: writer_op }
+        created:
+          id: created
+          table: ksa_newsletter_article
+          field: created
+          entity_type: newsletter_article
+          entity_field: created
+          plugin_id: date
+          operator: '>='
+          value: { type: date, value: '' }
+          group: 1
+          exposed: true
+          expose: { label: 'Ingestuurd vanaf', identifier: created, required: false, use_operator: false, operator: created_op, operator_id: created_op, description: 'Bijvoorbeeld 2026-10-01.' }
+        created_1:
+          id: created
+          table: ksa_newsletter_article
+          field: created
+          entity_type: newsletter_article
+          entity_field: created
+          plugin_id: date
+          operator: '<'
+          value: { type: date, value: '' }
+          group: 1
+          exposed: true
+          expose: { label: 'Ingestuurd vóór', identifier: created_1, required: false, use_operator: false, operator: created_1_op, operator_id: created_1_op, description: 'Bijvoorbeeld 2026-11-01. Deze dag telt niet mee.' }
+      style: { type: table }
+      row: { type: fields }
+      query: { type: views_query }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
+          empty: true
+          content: { value: 'Geen bijdragen gevonden.', format: plain_text }

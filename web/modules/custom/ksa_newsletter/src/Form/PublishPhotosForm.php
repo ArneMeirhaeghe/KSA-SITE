@@ -13,7 +13,9 @@ final class PublishPhotosForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, ?NewsletterArticle $newsletter_article = NULL): array {
     $form['#cache']['max-age'] = 0;
     $form_state->set('article_id', $newsletter_article->id());
-    $form['intro'] = ['#markup' => '<p>Selecteer alleen de foto’s die in de e-mailnieuwsbrief mogen verschijnen. Drupal maakt openbare kopieën van maximaal 1600 × 1600 pixels, zonder uitsnijden. Iedereen met zo’n link kan de kopie bekijken en doorsturen. De originelen blijven privé.</p>'];
+    $width = (int) \Drupal\ksa_newsletter\Settings::get('photo_max_width');
+    $height = (int) \Drupal\ksa_newsletter\Settings::get('photo_max_height');
+    $form['intro'] = ['#markup' => '<p>Selecteer alleen de foto’s die in de e-mailnieuwsbrief mogen verschijnen. Drupal maakt openbare kopieën van maximaal ' . $width . ' × ' . $height . ' pixels, zonder uitsnijden. Iedereen met zo’n link kan de kopie bekijken en doorsturen. De originelen blijven privé.</p>'];
     $options = [];
     $form['previews'] = ['#type' => 'container', '#attributes' => ['class' => ['newsletter-photos']]];
     $form['#attached']['library'][] = 'ksa_newsletter/form';

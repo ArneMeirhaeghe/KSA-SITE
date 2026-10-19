@@ -12,7 +12,7 @@ final class ApiAccess {
     }
     $flood = \Drupal::service('flood');
     $identifier = SubmissionGate::identifier($request);
-    if (!$flood->isAllowed('ksa_newsletter.api', 120, 60, $identifier)) {
+    if (!$flood->isAllowed('ksa_newsletter.api', (int) Settings::get('api_requests_per_minute'), 60, $identifier)) {
       return new JsonResponse(['error' => 'rate_limit', 'message' => 'Probeer over een minuut opnieuw.'], 429, ['Retry-After' => '60']);
     }
     $flood->register('ksa_newsletter.api', 60, $identifier);

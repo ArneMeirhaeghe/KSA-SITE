@@ -27,11 +27,10 @@ final class SubmissionForm extends FormBase {
     $form['#attributes']['class'][] = 'ksa-newsletter-form';
     $form['#attributes']['enctype'] = 'multipart/form-data';
     $form['#attached']['library'][] = 'ksa_newsletter/form';
-    $form['#attached']['library'][] = 'ksa_newsletter/editor';
     $form['title'] = ['#type' => 'textfield', '#title' => 'Titel', '#required' => TRUE, '#maxlength' => 200];
     $form['writer'] = ['#type' => 'textfield', '#title' => 'Jouw naam', '#required' => TRUE, '#maxlength' => 120, '#autocomplete_route_name' => NULL];
-    $form['body'] = ['#type' => 'textarea', '#title' => 'Je tekst', '#required' => TRUE, '#rows' => 10, '#description' => 'Schrijf in je eigen woorden. Gebruik de werkbalk voor tussenkoppen, opmaak, lijsten en links. Maximaal 20.000 tekens.', '#attributes' => ['data-newsletter-editor' => 'true']];
-    $form['body_is_html'] = ['#type' => 'hidden', '#default_value' => '0'];
+    $format = \Drupal\ksa_newsletter\Settings::get('text_format');
+    $form['body'] = ['#type' => 'text_format', '#title' => 'Je tekst', '#required' => TRUE, '#rows' => 10, '#format' => $format, '#allowed_formats' => [$format], '#description' => 'Schrijf in je eigen woorden. Gebruik de werkbalk voor tussenkoppen, opmaak, lijsten en links. Maximaal 20.000 tekens.'];
     $form['activity_date'] = ['#type' => 'date', '#title' => 'Datum van de activiteit', '#description' => 'Optioneel. De datum waarop je instuurt, bewaren we automatisch.'];
     $form['photos'] = ['#type' => 'file', '#title' => 'Foto’s', '#multiple' => TRUE, '#attributes' => ['accept' => 'image/jpeg,image/png,image/webp'], '#description' => 'Optioneel: maximaal 5 JPG-, PNG- of WebP-foto’s. Maximaal 5 MB per foto en 20 MB samen. Gebruik alleen foto’s die je voor de nieuwsbrief mag delen.'];
     $form['actions']['#type'] = 'actions';
@@ -69,8 +68,15 @@ final class SubmissionForm extends FormBase {
         $form_state->setErrorByName($key, $this->t('Vul dit veld in met maximaal @limit tekens.', ['@limit' => $limit]));
       }
     }
-    $raw_body = (string) $form_state->getValue('body');
-    $html = \Drupal\ksa_newsletter\NewsletterText::clean($raw_body, $form_state->getValue('body_is_html') === '1');
+    $input = $form_state->getValue('body');
+    $raw_body = is_array($input) ? (string) ($input['value'] ?? '') : '';
+    $format = \Drupal\ksa_newsletter\Settings::get('text_format');
+    if (!is_array($input) || ($input['format'] ?? '') !== $format) {
+      $form_state->setErrorByName('body', 'Ongeldig tekstformaat. Herlaad het formulier.');
+      return;
+    }
+    $build = ['#type' => 'processed_text', '#text' => $raw_body, '#format' => $format];
+    $html = (string) \Drupal::service('renderer')->renderInIsolation($build);
     $text = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8');
     if (preg_match('/^[\s\x{00a0}\x{200b}]*$/u', $text) || mb_strlen($text) > 20000 || strlen($raw_body) > 200000) {
       $form_state->setErrorByName('body', 'Vul je tekst in met maximaal 20.000 tekens.');
@@ -144,7 +150,7 @@ final class SubmissionForm extends FormBase {
       }
       $article = $storage->create([
         'uuid' => $uuid, 'title' => $form_state->getValue('title'), 'writer' => $form_state->getValue('writer'),
-        'body' => $form_state->get('newsletter_body_html'), 'activity_date' => $form_state->getValue('activity_date') ?: NULL,
+        'body' => $form_state->get('newsletter_body_html'), 'content' => ['value' => $form_state->get('newsletter_body_html'), 'format' => \Drupal\ksa_newsletter\Settings::get('text_format')], 'activity_date' => $form_state->getValue('activity_date') ?: NULL,
         'uid' => $this->currentUser()->id(), 'photos' => array_map(fn($media) => ['target_id' => $media->id()], $media_items),
       ]);
       $article->save();
