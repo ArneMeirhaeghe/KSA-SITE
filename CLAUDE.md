@@ -25,9 +25,7 @@ Dit geldt voor onder meer:
 
 1. `ddev drush uli` voor een inloglink. Dat mag wél via de terminal.
 2. Open die link met `navigate` in een nieuwe tab.
-3. Klik stap voor stap. Neem een screenshot bij elke stap.
-4. Meerdere stappen? Neem een **GIF** op met `gif_creator`, en geef hem
-   een duidelijke naam, bijvoorbeeld `content-type-activiteit.gif`.
+3. Klik stap voor stap. Neem een screenshot bij elke stap. Geen GIF's.
 
 **Wanneer wél de terminal:**
 
@@ -162,7 +160,7 @@ Op `article`: `field_intro` en `field_main_image` (media). Het oude
 `field_image` blijft bestaan maar staat verborgen in de formulierweergave.
 Er is géén tags-veld op article; alleen de woordenlijst `tags` bestaat.
 
-### Testcontent (26-09-2026)
+### Testcontent
 9 ploegen, 20 leiders, 3 nieuwsberichten, 9 mediabeelden. Aangemaakt met
 `drush php:script`, niet via de UI: bulk-invoer. De groepsfoto's komen uit
 Figma (uitgesneden uit de pagina "leiding"), en staan in
@@ -178,7 +176,6 @@ Afgesproken keuzes:
 
 - **Nederlands** in de interface, labels en veldnamen.
 - Machine-namen in het Engels en `snake_case`, zoals Drupal gewoon is.
-- Nooit de map `../drupal` aanraken. Dat is een andere site.
 - Geen config-export zonder vragen. `cex` overschrijft stil.
 - Media en foto's via de Media-module, niet als los bestandsveld.
 
@@ -212,4 +209,3 @@ Controleer daarna met drush of het veld er echt staat:
 - Geen Experience Builder. Dat zit in het andere project.
 - Geen headless of Next.js front-end. Gewoon Drupal-templates.
 - Geen eigen module bouwen zolang een core- of contrib-oplossing bestaat.
-- Niet pushen, niet deployen. Arne drukt zelf op de laatste knop.
