@@ -7,7 +7,6 @@
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Http\Exception\CacheableNotFoundHttpException;
-use Drupal\Core\Url;
 use Drupal\views\ViewExecutable;
 
 /** Implements hook_views_post_execute(). */
@@ -26,21 +25,6 @@ function ksa_seo_views_post_execute(ViewExecutable $view): void {
       ->setCacheTags(['node_list', 'node_list:article', 'config:views.view.news']);
     throw new CacheableNotFoundHttpException($cache, 'Deze nieuwspagina bestaat niet.');
   }
-}
-
-/** Implements hook_metatags_alter(). */
-function ksa_seo_metatags_alter(array &$metatags, array &$context): void {
-  if (\Drupal::routeMatch()->getRouteName() !== 'view.news.page_1') {
-    return;
-  }
-  $value = \Drupal::request()->query->all()['page'] ?? '0';
-  $page = is_scalar($value) ? max(0, (int) $value) : 0;
-  $url = Url::fromRoute('view.news.page_1', [], [
-    'absolute' => TRUE,
-    'query' => $page > 0 ? ['page' => $page] : [],
-  ])->toString();
-  $metatags['canonical_url'] = $url;
-  $metatags['og_url'] = $url;
 }
 
 /** Implements hook_page_attachments_alter(). */
