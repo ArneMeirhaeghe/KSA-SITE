@@ -1,0 +1,2 @@
+# Added by this project (see composer.json, drupal-scaffold file-mapping).
+Sitemap: https://ksadeinze.be/sitemap.xml

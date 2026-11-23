@@ -61,6 +61,12 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "append": "assets/robots-additions.txt"
+                },
+                "[project-root]/.gitattributes": false
             }
         },
         "installer-paths": {
