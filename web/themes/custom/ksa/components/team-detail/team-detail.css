@@ -14,6 +14,15 @@
 .leader-detail__photo img { display: block; width: 100%; height: auto; border-radius: var(--radius-card-image); }
 .leader-detail__info > div { margin-bottom: 24px; }
 .leader-detail__info a { display: inline-block; padding-block: 10px; }
+/* Place · age and a short description above the leaders, so a visitor who
+   lands here from a search sees who the group is for. Not in Figma 91:610:
+   same look as the team card (card.css), added after the audit of 2026-11-16. */
+.team-detail__meta { display: inline-flex; align-items: center; gap: 12px; vertical-align: top; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-auto); }
+.team-detail__meta + .team-detail__meta { margin-inline-start: 12px; }
+.team-detail__meta + .team-detail__meta::before { content: ''; flex: none; width: 4px; height: 4px; border-radius: 50%; background: var(--color-border); }
+.team-detail__text { max-width: 711px; margin: var(--card-body-gap-team) 0 24px; color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.team-detail__text p { margin: 0; }
+.team-detail__text p + p { margin-top: var(--card-body-gap-team); }
 /* Light Grey line (2 px) 53 px under the leaders, contact 61 px under the line. */
 .team-detail .contact-card { margin-top: 53px; padding-top: 61px; border-top: 2px solid var(--color-border); }
 
@@ -23,6 +32,10 @@
   .site:has(.team-detail) #block-ksa-page-title h1 { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: var(--article-title-offset-mobile); font-size: var(--font-size-heading-lg); }
   .team-detail { width: calc(100% - 2 * var(--page-gutter-mobile)); margin-top: 24px; }
   .team-detail .contact-card { margin-top: 40px; padding-top: 40px; }
+  /* Stacked without the dot, as on the mobile team card. */
+  .team-detail__meta { display: flex; font-size: var(--font-size-body-sm); }
+  .team-detail__meta + .team-detail__meta { margin: 2px 0 0; }
+  .team-detail__meta + .team-detail__meta::before { content: none; }
 }
 
 /* Labels ondersteunen de contactgegevens, zonder ermee te concurreren. */

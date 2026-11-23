@@ -1,5 +1,5 @@
 name: Ploegdetail
-description: 'Vaste opmaak van een ploeg: titel, leiders en contact.'
+description: 'Vaste opmaak van een ploeg: titel, plaats en leeftijd, beschrijving, leiders en contact.'
 status: stable
 slots:
   content:
