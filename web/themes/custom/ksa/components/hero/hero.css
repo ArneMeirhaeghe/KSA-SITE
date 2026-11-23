@@ -15,7 +15,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(var(--color-image-overlay), var(--color-image-overlay)), url('../../assets/ksa-header.webp') center bottom / cover no-repeat;
+  background: linear-gradient(var(--color-hero-overlay), var(--color-hero-overlay)), url('../../assets/ksa-header.webp') center bottom / cover no-repeat;
   transform: scaleX(-1);
 }
 .ksa-hero__intro { padding: 0 20px; text-align: center; }
@@ -29,6 +29,11 @@
 .ksa-hero__rail { display: flex; gap: var(--gap); width: max-content; }
 .ksa-hero.is-enhanced .ksa-hero__window { overflow: hidden; }
 .ksa-hero.is-enhanced .ksa-hero__rail { will-change: transform; }
+/* The script recentres the photos and adds copies. Until then they stay
+   invisible, so nothing jumps; without JavaScript they are simply visible. */
+@media (scripting: enabled) {
+  .ksa-hero:not(.is-enhanced) .ksa-hero__rail { visibility: hidden; animation: ksa-show-unenhanced 0s 6s forwards; }
+}
 .ksa-hero__rail.is-moving { transition: transform 850ms cubic-bezier(.22, 1, .36, 1); }
 .ksa-hero__hanger { flex: 0 0 var(--card-width); width: var(--card-width); padding: 0 12px; --tilt: -7deg; }
 .ksa-hero__hanger:nth-child(2n) { --tilt: 5deg; }
@@ -65,7 +70,7 @@
 
 /* Een gekozen Media-afbeelding vervangt alleen de standaardillustratie. */
 .ksa-hero__background { position: absolute; z-index: -1; inset: 0; overflow: hidden; background: var(--color-hero-base); pointer-events: none; }
-.ksa-hero__background::after { content: ''; position: absolute; inset: 0; background: var(--color-image-overlay); }
+.ksa-hero__background::after { content: ''; position: absolute; inset: 0; background: var(--color-hero-overlay); }
 .ksa-hero__background img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
 .ksa-hero [data-hero-label] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

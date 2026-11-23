@@ -131,6 +131,52 @@
   }
 }
 
+/* Before the script runs, show the same closed menu as after it, so the page
+   does not jump on load. Without JavaScript the full menu stays visible.
+   The menu is taken out of the flow instead of display: none, so the keyframes
+   below can bring it back if the script never runs (blocked or failed). */
+@media (scripting: enabled) and (width < 70rem) {
+  .ksa-header:not(.is-enhanced) { position: relative; animation: ksa-header-unenhanced 0s 6s forwards; }
+  .ksa-header:not(.is-enhanced) > .ksa-header__blocks .ksa-header__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    visibility: hidden;
+    animation: ksa-header-menu-unenhanced 0s 6s forwards;
+  }
+  .ksa-header:not(.is-enhanced) > .ksa-header__blocks .ksa-header__actions { display: none; }
+  .ksa-header:not(.is-enhanced) > .ksa-header__toggle[hidden] {
+    display: grid;
+    animation: ksa-header-toggle-unenhanced 0s 6s forwards;
+  }
+}
+/* No script after 6 seconds: the links wrap under the logo, as without
+   JavaScript, and the menu button that cannot work is hidden. */
+@keyframes ksa-header-unenhanced { to { flex-wrap: wrap; } }
+@keyframes ksa-header-menu-unenhanced { to { position: static; visibility: visible; } }
+@keyframes ksa-header-toggle-unenhanced { to { visibility: hidden; } }
+
+/* Small screens: the primary action ("Inschrijven") stays next to the menu
+   button, so visitors can sign up without opening the menu. The Figma mobile
+   navbar has no button here; added after the usability audit of 2026-11-16.
+   It only shows when the row has room for logo (150) + button (96) + menu
+   button (24) and two gaps of 12px: 294px. The threshold is 296px, which is the
+   row on the home page of a 360px phone. The row never wraps, so the menu
+   button cannot drop onto the page. A longer button label needs a new threshold. */
+@media (scripting: enabled) and (width < 70rem) {
+  .ksa-header { container-type: inline-size; flex-wrap: nowrap; gap: var(--header-action-gap); }
+  @container (width >= 18.5rem) {
+    .ksa-header > .ksa-header__blocks .ksa-header__actions:has(.ksa-header__primary-action) {
+      display: block;
+      order: 1;
+      width: auto;
+      margin-inline-start: auto;
+    }
+    .ksa-header > .ksa-header__blocks .ksa-header__actions li:not(:has(.ksa-header__primary-action)) { display: none; }
+    .ksa-header:has(> .ksa-header__blocks .ksa-header__primary-action) > .ksa-header__toggle { order: 2; margin-inline-start: 0; }
+  }
+}
+
 html.ksa-menu-open,
 html.ksa-menu-open body { overflow: hidden; }
 

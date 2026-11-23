@@ -178,7 +178,8 @@
 
 /* Jos de vos on the stepper (text-media.js): stands on the current number, hops to the next one.
    jos.svg is 541.7 x 590 and looks left; --jos-face -1 mirrors him to look right. */
-.steps__list.has-jos { margin-top: 66px; }
+/* The room for Jos is always there: adding it only once he has loaded made the page jump. */
+.steps__list { margin-top: 66px; }
 .steps__jos {
   position: absolute;
   top: -61px; /* feet on the square */
@@ -280,4 +281,39 @@
   .text-media:not(.text-media--compact, .text-media--step, .text-media--tab) .text-media__image::after { content: none; }
   .text-media:not(.text-media--compact, .text-media--step, .text-media--tab) .text-media__image img { height: auto; }
   .text-media:not(.text-media--compact, .text-media--step, .text-media--tab) .text-media__content { padding: 24px 16px; }
+}
+
+/* ===== No jump on load =====
+   The script turns two or more Step blocks (or Tab blocks) in a row into a
+   stepper or tabs after the first paint. Show that layout from the start: only
+   the first block, with room for the stepper above it. The selectors follow
+   groups() in text-media.js: other blocks in the section are left alone.
+   Without JavaScript, and in the Layout Builder editor, every block stays
+   visible. If the script never runs, everything shows after six seconds.
+   Not reserved: the tab row above the tabs and the Previous/Next row under a
+   step. Both are added by the script and still move the content below a little. */
+@media (scripting: enabled) {
+  .ksa-section--steps:not(#layout-builder *) .text-media-block--step:not(.is-step) ~ .text-media-block--step:not(.is-step),
+  .ksa-section--tabs:not(#layout-builder *) .text-media-block--tab:not(.is-tab-panel) ~ .text-media-block--tab:not(.is-tab-panel) {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    animation: ksa-show-unenhanced 0s 6s forwards;
+  }
+}
+/* Stepper height: 66px room for Jos + 32px number + 8px gap + label lines of 24px
+   (three lines on narrow screens, two from 1000px). Only when there is more than one step. */
+@media (scripting: enabled) and (width >= 700px) {
+  .ksa-section--steps:not(#layout-builder *) > .layout__region:has(> .text-media-block--step ~ .text-media-block--step):not(:has(> .steps)) {
+    padding-top: 178px;
+    animation: ksa-drop-step-reserve 0s 6s forwards;
+  }
+}
+@media (scripting: enabled) and (width >= 1000px) {
+  .ksa-section--steps:not(#layout-builder *) > .layout__region:has(> .text-media-block--step ~ .text-media-block--step):not(:has(> .steps)) { padding-top: 154px; }
+}
+@keyframes ksa-drop-step-reserve { to { padding-top: 0; } }
+/* Small screens: room for the "Stap 1 van 6" line the script adds above the title. */
+@media (scripting: enabled) and (width < 700px) {
+  .ksa-section--steps:not(#layout-builder *) .text-media-block--step:not(.is-step):has(~ .text-media-block--step) .text-media__content::before { content: '\00a0'; }
 }

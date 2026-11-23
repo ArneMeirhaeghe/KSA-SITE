@@ -1,8 +1,11 @@
 {# Tekst met beeld (bloktype text_media). Items zonder veldwrappers, zodat de kop een zuivere h2 blijft.
    Veld Stijl (list_key): large (standaard) of compact. #}
-<div{{ attributes.addClass('text-media-block') }}>
+{# The style is also a class on the wrapper: the CSS that prevents a jump on load
+   (text-media.css) must know which blocks the script will turn into steps or tabs. #}
+{% set style = content.field_style.0['#markup']|default('large') %}
+<div{{ attributes.addClass('text-media-block', 'text-media-block--' ~ style|clean_class) }}>
   {{ title_prefix }}{{ title_suffix }}
-  {% embed 'ksa:text-media' with {variant: content.field_style.0['#markup']|default('large')} %}
+  {% embed 'ksa:text-media' with {variant: style} %}
     {% block image %}{{ content.field_background.0 }}{% endblock %}
     {% block heading %}{{ content.field_heading.0 }}{% endblock %}
     {% block text %}{{ content.field_intro.0 }}{% endblock %}

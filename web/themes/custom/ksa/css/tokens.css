@@ -9,8 +9,16 @@
   --color-grey: #9e9e9e;
   --color-border: #d9d9d9;
   --color-surface: #fff;
-  --color-hero-base: #5fa95b;
+  /* Under the hero and footer photo, and behind the photo of the large
+     "Tekst met beeld" banner: a dark teal taken from the top of the hero
+     photo, so white text stays readable while a photo loads or if it fails.
+     Figma has #5fa95b here; white on that is only 2.9:1. */
+  --color-hero-base: #287474;
   --color-image-overlay: rgb(30 30 30 / 20%);
+  /* White text on the photo needs 4.5:1 (WCAG AA). The 20% from Figma gave
+     3.0 to 4.2, measured at 375, 768, 1440 and 1920px. */
+  --color-hero-overlay: rgb(30 30 30 / 30%);
+  --footer-overlay: linear-gradient(rgb(30 30 30 / 35%), rgb(30 30 30 / 60%));
 
   /* Lokaal variabel font: één bestand voor alle gewichten. */
   --font-family: "Inter", sans-serif;
