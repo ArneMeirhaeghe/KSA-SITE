@@ -18,6 +18,10 @@ $doc = new DOMDocument();
 @$doc->loadHTML('<?xml encoding="UTF-8">' . $html);
 $xpath = new DOMXPath($doc);
 $get = static fn($query) => $xpath->evaluate('string(' . $query . ')');
+$texts = static fn($class) => array_map(
+  static fn($el) => trim(preg_replace('/\s+/u', ' ', $el->textContent)),
+  iterator_to_array($xpath->query('//*[contains(concat(" ", normalize-space(@class), " "), " ' . $class . ' ")]')),
+);
 $result = [
   'status' => $response->getStatusCode(),
   'location' => $response->headers->get('Location'),
@@ -26,6 +30,11 @@ $result = [
   'description' => $get('//meta[@name="description"]/@content'),
   'canonical' => $get('//link[@rel="canonical"]/@href'),
   'robots' => $get('//meta[@name="robots"]/@content'),
+  'og_title' => $get('//meta[@property="og:title"]/@content'),
+  'og_image' => $get('//meta[@property="og:image"]/@content'),
+  // Team pages: place and age above the leaders, and the short description.
+  'team_meta' => implode(' · ', $texts('team-detail__meta')),
+  'team_text' => implode(' ', $texts('team-detail__text')),
   'json_ld' => array_map(static fn($el) => json_decode($el->textContent, TRUE, 512, JSON_THROW_ON_ERROR), iterator_to_array($xpath->query('//script[@type="application/ld+json"]'))),
 ];
 if (($argv[1] ?? '') === '/sitemap.xml') {
