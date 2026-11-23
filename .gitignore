@@ -24,6 +24,10 @@
 .idea/
 .codex/
 .agents/
+.claude/
+.superpowers/
+CLAUDE.md
+CLAUDE.local.md
 .ddev/.gitignore
 .ddev/.ddev-docker-compose*.yaml
 .ddev/.dbimageBuild/
