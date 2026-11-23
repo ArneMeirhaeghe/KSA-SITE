@@ -1,0 +1,21 @@
+uuid: 39df5574-aa70-4afe-a1c9-f93f56fcb6d7
+langcode: nl
+status: true
+dependencies: {  }
+name: media_library_grid
+label: 'Mediabibliotheek raster (400×400, bijgesneden)'
+effects:
+  eedb331e-aecb-4779-8edb-e170c60e69c3:
+    uuid: eedb331e-aecb-4779-8edb-e170c60e69c3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      anchor: center-center
+  126731f5-c42c-4ec3-8357-63d92f9bceb7:
+    uuid: 126731f5-c42c-4ec3-8357-63d92f9bceb7
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
