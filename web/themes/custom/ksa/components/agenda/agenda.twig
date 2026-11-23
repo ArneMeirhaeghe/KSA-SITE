@@ -56,7 +56,15 @@
     {% if calendar_url %}
       <div class="agenda__calendar">
         <h3 class="agenda__subtitle">{{ 'Maandkalender'|t }}</h3>
-        <iframe src="{{ calendar_url }}" title="{{ 'Maandkalender van KSA Deinze-Astene'|t }}" loading="lazy"></iframe>
+        {#
+          The Google calendar loads only when the visitor asks for it: no Google
+          scripts or cookies before that click. agenda.js swaps this box for the
+          iframe; without JavaScript the link opens the calendar at Google.
+        #}
+        <div class="agenda__calendar-placeholder">
+          <p class="agenda__empty">{{ 'De maandkalender komt van Google. Hij laadt pas als je erom vraagt.'|t }}</p>
+          <a class="agenda__subscribe-button" href="{{ calendar_url }}" data-agenda-calendar-load data-calendar-title="{{ 'Maandkalender van KSA Deinze-Astene'|t }}">{{ 'Toon maandkalender'|t }}</a>
+        </div>
       </div>
     {% endif %}
   </div>
