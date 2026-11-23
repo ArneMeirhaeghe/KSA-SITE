@@ -36,3 +36,33 @@ function ksa_preprocess_block(array &$variables): void {
   }
   $cacheability->applyTo($variables['content']);
 }
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ * Preloads what the browser otherwise finds late, because it is only
+ * referenced from CSS: the font on every page, and the hero illustration on
+ * the front page. The paths must stay equal to the url() values in the CSS,
+ * or the browser downloads the file twice.
+ */
+function ksa_page_attachments_alter(array &$attachments): void {
+  $url = \Drupal::service('file_url_generator');
+  $theme = \Drupal::service('extension.list.theme')->getPath('ksa');
+  $attachments['#attached']['html_head_link'][] = [[
+    'rel' => 'preload',
+    'href' => $url->generateString($theme . '/fonts/inter-latin-var.woff2'),
+    'as' => 'font',
+    'type' => 'font/woff2',
+    'crossorigin' => 'anonymous',
+  ]];
+  $attachments['#cache']['contexts'][] = 'url.path.is_front';
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $attachments['#attached']['html_head_link'][] = [[
+      'rel' => 'preload',
+      'href' => $url->generateString($theme . '/assets/ksa-header.webp'),
+      'as' => 'image',
+      'type' => 'image/webp',
+      'fetchpriority' => 'high',
+    ]];
+  }
+}
