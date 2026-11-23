@@ -14,6 +14,7 @@ Terug naar vroeger kan met een snapshot:
 | `voor-audit-fases-2026-11-16` | vóór alle wijzigingen |
 | `voor-beeldstijlen-2026-11-16` | vóór het opruimen van de beeldstijlen |
 | `voor-vertalingen-2026-11-16` | vóór het inladen van de Nederlandse vertalingen |
+| `voor-core-11.4.13-2026-11-23` | vóór de update van 23 november |
 
 ```sh
 ddev snapshot restore voor-audit-fases-2026-11-16
@@ -83,6 +84,21 @@ De koppen op de pagina zelf (H1) zijn niet veranderd.
 | "Basic page" heet nu **Basispagina**; menu "Footer" heet **Voettekst** | UI | met uitleg in het Nederlands |
 | SEO-titel per pagina is weer te bewerken door de beheerder | UI | Simplify verborg het veld voor iedereen |
 | Week start op maandag, land is België | UI | datumkiezers kloppen |
+
+## Nagekomen: beveiligingsupdate van 23 november 2026
+
+Op 18 november bracht Drupal twee nieuwe beveiligingsadviezen uit voor core:
+SA-CORE-2026-017 (zeer kritiek: code uitvoeren op de server) en SA-CORE-2026-018.
+Ze treffen elke versie onder 11.4.13. De update van 16 november (11.4.12) volstond dus niet meer.
+
+Op 23 november bijgewerkt, na akkoord van Arne:
+
+- Core 11.4.12 → 11.4.13. Vier afhankelijkheden gingen mee: Guzzle (drie pakketten) en de e-mailvalidatie.
+- Geen database-updates nodig. Alleen `composer.lock` wijzigde.
+- `composer audit` meldt opnieuw niets. De rode melding in het beheer is weg.
+- Alle scripts opnieuw gedraaid: SEO 405 op 405, rechten 419 op 419, agenda, logboek en nieuwsbrief groen.
+
+De testsite en productie hebben dezelfde update nodig.
 
 ## Waarom het beheer Engels was
 
