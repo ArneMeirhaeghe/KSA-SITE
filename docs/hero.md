@@ -6,11 +6,11 @@ Via de admin-UI aangemaakt:
 |---|---|---|---|
 | Titel (`field_heading`) | Korte platte tekst | 1 | Ja |
 | Intro (`field_intro`) | Lange platte tekst | 1 | Nee |
-| Foto’s (`field_images`) | Mediareferentie, alleen Image | maximaal 4 | Ja |
+| Foto’s (`field_images`) | Mediareferentie, alleen Image | maximaal 8 | Ja |
 | Achtergrond (`field_background`) | Mediareferentie, alleen Image | 1 | Nee |
 
 De foto’s worden gekozen via de Media-bibliotheek. De volgorde kan worden
-aangepast. Verplicht betekent minimaal één foto; niet verplicht vier.
+aangepast. Verplicht betekent minimaal één foto; niet verplicht acht.
 Veldlabels worden niet aan bezoekers getoond.
 
 ## Hergebruik
@@ -33,13 +33,14 @@ hetzelfde entiteitstype. Een gelijke veldnaam tussen beide is geen gedeelde opsl
 Het SDC-component staat in `web/themes/custom/ksa/components/hero/`.
 De Home-pagina `/home` (node 39) bevat één Hero via Layout Builder.
 De sitevoorpagina is nog niet gewijzigd: dit is de eerste gebouwde sectie.
-De intro en bestaande groepsfoto’s zijn voorbeeldinhoud.
+De intro is voorbeeldinhoud. Sinds 23 november 2026 hangen er acht groeps-
+en sfeerfoto’s van kampen en startdag 2025-2026 aan de waslijn.
 
 Via **Home → Layout → Hero configureren** pas je de inhoud aan.
 Bewaar eerst het blok en daarna de layout.
 
 - Titel en intro: gewone tekstvelden.
-- Foto’s: één tot vier afbeeldingen uit de Media-bibliotheek.
+- Foto’s: één tot acht afbeeldingen uit de Media-bibliotheek.
 - Achtergrond (`field_background`): optionele Media-afbeelding, maximaal één.
 - Achtergrond leeg: de originele Figma-illustratie uit het thema.
 
@@ -96,7 +97,9 @@ Knoppen hebben minimaal een klikvlak van 44 × 44 px.
 
 De demo `/prototypes/hero/` gebruikt dezelfde CSS en JavaScript als Drupal.
 Alleen de voorbeeldinhoud en demoknoppen zijn apart. De demo kan één tot acht
-foto’s testen; het Drupal-veld blijft bewust maximaal vier.
+foto’s testen. Het Drupal-veld liet eerst bewust maximaal vier toe.
+Sinds 23 november 2026 is dat acht, op vraag van Arne, zodat de waslijn
+meer verschillende foto’s toont. Acht is het aantal dat de demo al testte.
 
 ## Controle
 

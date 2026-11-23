@@ -11,7 +11,7 @@ field_name: field_images
 entity_type: block_content
 bundle: hero
 label: Foto’s
-description: 'Kies maximaal vier foto’s uit de mediabibliotheek. Je kunt de volgorde aanpassen.'
+description: 'Kies maximaal acht foto’s uit de mediabibliotheek. Je kunt de volgorde aanpassen.'
 required: true
 translatable: false
 default_value: {  }
