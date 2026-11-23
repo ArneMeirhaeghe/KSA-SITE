@@ -14,7 +14,7 @@ Alles is ingesteld via de Drupal-admin, zonder extra code of modules.
 | Contact | `/contact` | `/node/38` |
 | Home (voorpagina) | `/` | `/node/39` |
 
-Voorpagina: Configuratie → Systeem → Basis site-instellingen → **Standaard voorpagina** = `/node/39`.
+Voorpagina: Instellingen → Systeem → Basis site-instellingen → **Standaard voorpagina** = `/node/39`.
 
 Dit zijn lege Basispagina’s. Ze zijn op de lokale site gepubliceerd zodat
 de navigatie werkt. De inhoud bouwen we later met Layout Builder.
@@ -36,11 +36,13 @@ De paginatitel mag wel gewoon `Inschrijving & info` zijn.
 
 ## Zelf een pagina toevoegen
 
-1. Ga naar **Inhoud → Inhoud toevoegen → Basic page**.
+1. Ga naar **Inhoud → Inhoud toevoegen → Basispagina**.
 2. Vul de titel in.
 3. Open rechts **URL-alias**, bijvoorbeeld `/ons-verhaal`.
-4. Open **Menu settings** en vink **Provide a menu link** aan.
+4. Open **Menu-instellingen** en vink **Voer een menulink in** aan.
 5. Kies Hoofdnavigatie en sla op.
+
+Sinds 17 november 2026 is het beheer in het Nederlands. Het inhoudstype heette eerst "Basic page".
 
 Voor de twee knoppen: **Structuur → Menu’s → Headeracties**.
 Kies bij Link de pagina via het zoekveld.
@@ -52,7 +54,26 @@ Inschrijving & info.
 Hoofdnavigatie gebruikt gewichten 0, 10, 20, 30 en 40.
 Een lager getal staat eerst. Tussenruimte maakt later invoegen eenvoudig.
 Home staat uit: het logo gaat al naar de homepage.
-Foto’s en het footermenu zijn niet ingevuld.
+Foto’s is niet ingevuld.
+
+## Voettekst
+
+**Structuur → Menu's → Voettekst.** Drie kolommen: Over ons, Praktisch en Volg ons.
+Een nieuwe link hang je onder één van die drie (veld **Bovenliggend onderdeel**).
+Sinds 16 november 2026 staat **Nieuws** onder Volg ons. Zo blijft de voettekst even hoog.
+
+## Twee pagina's zitten vast in de code
+
+Het thema kent twee pagina's aan hun nummer. Verander of verwijder ze dus niet zomaar.
+
+| Nummer | Pagina | Waarvoor |
+|---|---|---|
+| `/node/33` | Leiding | De link "← Alle leiding" op een ploegpagina, en het actieve menu-item. |
+| `/node/35` | Inschrijving & info | De groene knop. Die volgt de bestemming, niet de plaats in het menu. |
+
+Wijst de knop **Inschrijven** later naar een andere pagina? Dan verliest hij zijn groene kleur
+tot het nummer in `templates/navigation/menu--header-actions.html.twig` mee verandert.
+Controleer op productie dat deze twee nummers dezelfde pagina's zijn.
 
 ## Later een URL wijzigen
 

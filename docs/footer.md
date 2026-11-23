@@ -44,7 +44,8 @@ Andere blokken in de footerregio verschijnen onder de kolommen.
 - `templates/layout/region--footer.html.twig`: embedt `ksa:site-footer` met beide menublokken.
 - `templates/navigation/menu--footer.html.twig`: kolommen (h2 + lijst). `menu--footer-bottom.html.twig`: kleine lijst.
 - `templates/block/block--system-menu-block--footer(-bottom).html.twig`: zonder blokwrapper.
-- `components/site-footer/`: kaart met `assets/ksa-header.png` (onderste deel) + 20 % donker, wit logo (`logo.png`).
+- `components/site-footer/`: kaart met `assets/ksa-header.png` (onderste deel) + een donker verloop van 35 % naar 60 % (`--footer-overlay`), wit logo (`logo.png`).
+  Figma zegt 20 % donker. De afwijking is goedgekeurd op 23 november 2026: zie `design-tokens.md`.
 - Desktop: kolommen op 411 / 726 / 1040 px zoals in Figma. Mobiel (< 700 px): 2 kolommen, dan lijn, "Naar boven", ©.
 - De tijdelijke 50 px onder de laatste sectie (css/layout.css) is weg: de footer zelf heeft 50 px marge boven.
 

@@ -38,6 +38,22 @@ Hero en footer gebruiken de afbeelding `Ksa_header`, met daarboven
 Die basiskleur vervangt de afbeelding niet.
 De paarse, blauwe en oranje planningskaders zijn geen themakleuren.
 
+### Afwijking in de code sinds 16 november 2026
+
+Goedgekeurd door Arne op 23 november 2026.
+Reden: met de 20% uit Figma haalde witte tekst een contrast van 2,97 tot 4,15. De norm is 4,5 op 1.
+
+| Token | Waarde in de code | Figma |
+| --- | --- | --- |
+| `--color-hero-overlay` | `#1E1E1E` op 30% | 20% |
+| `--footer-overlay` | verloop van `#1E1E1E` op 35% naar 60% | 20% |
+| `--color-hero-base` | `#287474` | `#5FA95B` |
+
+- Gemeten na de wijziging: introtekst in de hero 4,9; voettekst minstens 4,8.
+- `--color-hero-base` is de kleur onder de foto. Ze is zichtbaar terwijl de foto laadt.
+  Wit op `#5FA95B` haalt maar 2,9 op 1; wit op `#287474` haalt 5,5.
+- `--color-image-overlay` (20%) blijft bestaan, voor de knoppen op de foto.
+
 ## Tekst — gecontroleerd in Figma
 
 Lettertype: **Inter**.

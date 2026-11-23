@@ -10,7 +10,10 @@ Figma: sectie "Data en Planning" in bouwplan 107:2680.
 - Paginering zoals in Figma (gsm-nieuwslijst, frame 121:1947): "‹ Vorige 1 2 3 Volgende ›".
   Maximaal 3 nummers, rond de huidige pagina. Huidige pagina = groen vak met donkere tekst.
   Onder 360 px breed: enkel pijltjes (44 × 44), de woorden blijven voor schermlezers.
-- Rechts: de maandkalender van Google. Op gsm staat die onder de kaarten. De maandkalender is altijd zichtbaar en kan niet worden ingeklapt (keuze 6 oktober 2026).
+- Rechts: een vak met de knop **Toon maandkalender**. Op gsm staat dat onder de kaarten.
+  De maandkalender van Google laadt pas na een klik op die knop. Zo gaan er geen verzoeken naar Google
+  zonder dat de bezoeker erom vraagt. Zonder JavaScript opent de knop de kalender bij Google.
+  Keuze van 23 november 2026, na de audit. Ze vervangt de keuze van 6 oktober 2026 (altijd zichtbaar).
 - Rechtsboven: **Abonneren**, met twee keuzes. Beide openen in een nieuw tabblad.
   - Google Agenda.
   - iPhone, Mac of Outlook (webcal-link).

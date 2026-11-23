@@ -72,7 +72,8 @@ De standaardillustratie is `Ksa_header` uit Figma, gespiegeld zoals het ontwerp.
 Bron: bestand `fjlPw9tE1afoSAoD7PBjy0`, laag `44:402`, origineel 2013 × 663.
 Bestand: `web/themes/custom/ksa/assets/ksa-header.png`.
 De kleuren, Inter, titelgroottes en rondingen gebruiken de gedeelde tokens.
-De donkere laag is `#1e1e1e` op 20%, ook bij een eigen achtergrond.
+De donkere laag is `#1e1e1e` op 30% (`--color-hero-overlay`), ook bij een eigen achtergrond.
+Figma zegt 20%. De afwijking is goedgekeurd op 23 november 2026: zie `design-tokens.md`.
 Een gekozen achtergrond wordt niet gespiegeld.
 
 Mobiel toont de waslijn twee kaarten waar dat past; op 320 px één kaart.

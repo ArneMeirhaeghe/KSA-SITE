@@ -45,6 +45,23 @@ Die staan nu in Inhoud. Meldingen en tabs komen voor de paginatitel en inhoud.
 Accountmenu en Powered by Drupal zijn alleen voor het KSA-thema uitgeschakeld.
 Footerblokken en footermenu zijn niet ingevuld: die zijn nog placeholders.
 
+## Mobiele kop (16 en 17 november 2026)
+
+Na de audit vóór de livegang. Zie `audit-uitvoering-2026-11-17.md`.
+
+- **Knop Inschrijven naast het menu-icoon.** Hij verschijnt als de rij minstens 296 px breed is:
+  logo 150 + knop 96 + menu-icoon 24 + twee keer 12 tussenruimte = 294 px.
+  Dat is de startpagina op een gsm van 360 px. Op smallere schermen staan alleen logo en menu-icoon.
+- **Korte knoptekst.** De drempel past bij het woord "Inschrijven".
+  Een langere tekst vraagt een nieuwe drempel in `site-header.css` (`@container`).
+- **Geen sprong bij het laden.** De CSS toont het gesloten menu al vóór het script klaar is.
+  Start het script niet? Dan komt het menu na 6 seconden terug onder het logo, en verdwijnt het menu-icoon.
+  Zonder JavaScript staat het hele menu er meteen, zoals vroeger.
+- **Bekend.** Met Tab kom je eerst op het menu-icoon, dan op het logo en dan op Inschrijven.
+  Op het scherm staat het menu-icoon rechts. Niet aangepast.
+
+Staat niet in de mobiele navbar van Figma. Goedgekeurd door Arne op 23 november 2026.
+
 ## Nog afwerken
 
 - Doelpagina’s vullen met Layout Builder.
