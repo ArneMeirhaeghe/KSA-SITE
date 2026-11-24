@@ -2,6 +2,11 @@
 
 Drupal 11 met het KSA-thema, Single Directory Components, Views, Media en Layout Builder. De lokale site draait op https://ksa.ddev.site.
 
+## Code leren kennen
+
+- [De KSA-code uitgelegd voor een beginnende Drupalontwikkelaar](docs/drupal-code-uitgelegd.md): van inhoud en configuratie tot thema, modules, rechten, nieuwsbrief en API.
+- [Code-audit van 20 oktober 2026](docs/code-audit-2026-10-20.md): onderbouwde verbeterpunten en de aanbevolen volgorde. Dit beschrijft ook afwijkingen tussen de actuele code en oudere projectnotities hieronder.
+
 ## Lokaal werken
 
 1. Installeer DDEV en start Docker.
