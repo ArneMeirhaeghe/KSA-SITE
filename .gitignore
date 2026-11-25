@@ -26,8 +26,8 @@
 .agents/
 .claude/
 .superpowers/
-CLAUDE.md
-CLAUDE.local.md
+CLAUDE*.md
+.mcp.json
 .ddev/.gitignore
 .ddev/.ddev-docker-compose*.yaml
 .ddev/.dbimageBuild/
@@ -40,3 +40,5 @@ CLAUDE.local.md
 /prototypes/
 
 /private/
+# Project documentation stays local
+/docs/
