@@ -26,11 +26,11 @@
 .download-card__icon { flex: none; }
 .download-card__label { font-size: var(--font-size-body); font-weight: 500; line-height: 1.2; }
 .download-card:hover .download-card__label { text-decoration: underline; text-decoration-color: var(--color-brand); text-decoration-thickness: 2px; text-underline-offset: .2em; }
-/* Decorative logo fills the card. */
-.download-card__logo { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; opacity: .3; pointer-events: none; }
+/* Decorative logo behind the card, shown whole (not cropped). */
+.download-card__logo { position: absolute; inset: 0; z-index: -1; opacity: .3; pointer-events: none; }
 .download-card__logo :is(div, article, figure):not(.contextual) { display: contents; }
 .download-card__logo .contextual { display: none; }
-.download-card__logo img { width: 100%; height: 100%; object-fit: cover; }
+.download-card__logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 
 @media (width < 700px) {
   .download-card { min-height: 104px; padding: 20px 12px; }
